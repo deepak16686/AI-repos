@@ -1,0 +1,304 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1400">
+  <defs>
+    <linearGradient id="uiGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1976d2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#42a5f5;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7b1fa2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ab47bc;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="toolGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f57c00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffb74d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="apiGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00838f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#26c6da;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="infraGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c62828;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ef5350;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dataGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2e7d32;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#66bb6a;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.2"/>
+    </filter>
+
+    <marker id="arrowDown" markerWidth="10" markerHeight="7" refX="5" refY="7" orient="auto">
+      <polygon points="0 0, 10 0, 5 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrowUp" markerWidth="10" markerHeight="7" refX="5" refY="0" orient="auto">
+      <polygon points="5 0, 10 7, 0 7" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1400" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <rect x="0" y="0" width="1600" height="80" fill="#1a237e"/>
+  <text x="800" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">AI-Powered DevOps Platform - Layered Architecture</text>
+  <text x="800" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#b3e5fc" text-anchor="middle">6-Layer Architecture: UI → AI/LLM → Tools → Backend APIs → Infrastructure → Data</text>
+
+  <!-- Layer 1: UI Layer -->
+  <rect x="50" y="100" width="1500" height="140" rx="15" fill="url(#uiGrad)" filter="url(#shadow)"/>
+  <text x="80" y="135" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="bold" fill="white">LAYER 1: USER INTERFACE</text>
+  <text x="80" y="158" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#bbdefb">Browser-based access points for users and administrators</text>
+
+  <g transform="translate(100, 175)">
+    <rect x="0" y="0" width="200" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="100" y="22" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#1565c0" text-anchor="middle">Open WebUI</text>
+    <text x="100" y="40" font-family="Consolas, monospace" font-size="10" fill="#64748b" text-anchor="middle">:3001 - AI Chat Interface</text>
+
+    <rect x="220" y="0" width="200" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="320" y="22" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#1565c0" text-anchor="middle">GitLab UI</text>
+    <text x="320" y="40" font-family="Consolas, monospace" font-size="10" fill="#64748b" text-anchor="middle">:8929 - SCM &amp; CI/CD</text>
+
+    <rect x="440" y="0" width="200" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="540" y="22" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#1565c0" text-anchor="middle">Grafana</text>
+    <text x="540" y="40" font-family="Consolas, monospace" font-size="10" fill="#64748b" text-anchor="middle">:3000 - Dashboards</text>
+
+    <rect x="660" y="0" width="200" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="760" y="22" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#1565c0" text-anchor="middle">SonarQube UI</text>
+    <text x="760" y="40" font-family="Consolas, monospace" font-size="10" fill="#64748b" text-anchor="middle">:9002 - Code Quality</text>
+
+    <rect x="880" y="0" width="200" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="980" y="22" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#1565c0" text-anchor="middle">Nexus UI</text>
+    <text x="980" y="40" font-family="Consolas, monospace" font-size="10" fill="#64748b" text-anchor="middle">:8081 - Artifacts</text>
+
+    <rect x="1100" y="0" width="200" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="1200" y="22" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#1565c0" text-anchor="middle">Redmine UI</text>
+    <text x="1200" y="40" font-family="Consolas, monospace" font-size="10" fill="#64748b" text-anchor="middle">:8090 - Ticketing</text>
+  </g>
+
+  <!-- Arrow down -->
+  <path d="M800 240 L800 260" stroke="#64748b" stroke-width="3" marker-end="url(#arrowDown)"/>
+  <text x="830" y="255" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#64748b">User Actions</text>
+
+  <!-- Layer 2: AI/LLM Layer -->
+  <rect x="50" y="270" width="1500" height="140" rx="15" fill="url(#aiGrad)" filter="url(#shadow)"/>
+  <text x="80" y="305" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="bold" fill="white">LAYER 2: AI / LLM ENGINE</text>
+  <text x="80" y="328" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#e1bee7">Large Language Models and vector knowledge retrieval</text>
+
+  <g transform="translate(100, 345)">
+    <rect x="0" y="0" width="300" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="150" y="22" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#6a1b9a" text-anchor="middle">Ollama LLM Runtime</text>
+    <text x="150" y="40" font-family="Consolas, monospace" font-size="10" fill="#64748b" text-anchor="middle">:11434 - qwen2.5-coder, llama3, clawdbot</text>
+
+    <rect x="330" y="0" width="300" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="480" y="22" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#6a1b9a" text-anchor="middle">ChromaDB Vector Store</text>
+    <text x="480" y="40" font-family="Consolas, monospace" font-size="10" fill="#64748b" text-anchor="middle">:8000 - Templates, Patterns, Rules</text>
+
+    <rect x="660" y="0" width="300" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="810" y="22" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#6a1b9a" text-anchor="middle">Model Configurations</text>
+    <text x="810" y="40" font-family="Consolas, monospace" font-size="10" fill="#64748b" text-anchor="middle">System Prompts, Tool Bindings, Rules</text>
+
+    <rect x="990" y="0" width="300" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="1140" y="22" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#6a1b9a" text-anchor="middle">RAG Pipeline</text>
+    <text x="1140" y="40" font-family="Consolas, monospace" font-size="10" fill="#64748b" text-anchor="middle">Query → Embed → Retrieve → Generate</text>
+  </g>
+
+  <!-- Arrow down -->
+  <path d="M800 410 L800 430" stroke="#64748b" stroke-width="3" marker-end="url(#arrowDown)"/>
+  <text x="830" y="425" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#64748b">Tool Calls</text>
+
+  <!-- Layer 3: Tools Layer -->
+  <rect x="50" y="440" width="1500" height="140" rx="15" fill="url(#toolGrad)" filter="url(#shadow)"/>
+  <text x="80" y="475" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="bold" fill="white">LAYER 3: OPENWEBUI TOOLS</text>
+  <text x="80" y="498" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#ffe0b2">Specialized tools attached to AI models for task execution</text>
+
+  <g transform="translate(100, 515)">
+    <rect x="0" y="0" width="280" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="140" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#e65100" text-anchor="middle">gitlab_pipeline_generator</text>
+    <text x="140" y="36" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">Generate CI/CD pipelines (8 stages)</text>
+
+    <rect x="300" y="0" width="280" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="440" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#e65100" text-anchor="middle">nexus_docker_images</text>
+    <text x="440" y="36" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">Query private registry images</text>
+
+    <rect x="600" y="0" width="280" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="740" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#e65100" text-anchor="middle">gitlab_commit_deploy</text>
+    <text x="740" y="36" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">Commit files, trigger pipelines</text>
+
+    <rect x="900" y="0" width="280" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="1040" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#e65100" text-anchor="middle">project_validator</text>
+    <text x="1040" y="36" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">Validate SonarQube/GitLab/Nexus</text>
+
+    <rect x="1200" y="0" width="200" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="1300" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#e65100" text-anchor="middle">dockerfile_generator</text>
+    <text x="1300" y="36" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">Generate Dockerfiles</text>
+  </g>
+
+  <!-- Arrow down -->
+  <path d="M800 580 L800 600" stroke="#64748b" stroke-width="3" marker-end="url(#arrowDown)"/>
+  <text x="830" y="595" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#64748b">API Requests</text>
+
+  <!-- Layer 4: Backend APIs Layer -->
+  <rect x="50" y="610" width="1500" height="140" rx="15" fill="url(#apiGrad)" filter="url(#shadow)"/>
+  <text x="80" y="645" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="bold" fill="white">LAYER 4: BACKEND APIs (FastAPI)</text>
+  <text x="80" y="668" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#b2ebf2">RESTful APIs providing unified access to infrastructure services</text>
+
+  <g transform="translate(100, 685)">
+    <rect x="0" y="0" width="350" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="175" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#006064" text-anchor="middle">DevOps Tools Backend :8003</text>
+    <text x="175" y="36" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">/gitlab, /sonarqube, /trivy, /nexus, /pipeline</text>
+
+    <rect x="380" y="0" width="350" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="555" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#006064" text-anchor="middle">Legacy Modernization API :8002</text>
+    <text x="555" y="36" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">/analysis/start, /analysis/{id}, /health</text>
+
+    <rect x="760" y="0" width="350" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="935" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#006064" text-anchor="middle">RAG Generator API :8080</text>
+    <text x="935" y="36" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">/generate/dockerfile, /generate/gitlabci, /catalog</text>
+
+    <rect x="1140" y="0" width="250" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="1265" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#006064" text-anchor="middle">Unified Tool Interface</text>
+    <text x="1265" y="36" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">/api/v1/unified/*, /api/v1/tools</text>
+  </g>
+
+  <!-- Arrow down -->
+  <path d="M800 750 L800 770" stroke="#64748b" stroke-width="3" marker-end="url(#arrowDown)"/>
+  <text x="830" y="765" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#64748b">Service Calls</text>
+
+  <!-- Layer 5: Infrastructure Layer -->
+  <rect x="50" y="780" width="1500" height="200" rx="15" fill="url(#infraGrad)" filter="url(#shadow)"/>
+  <text x="80" y="815" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="bold" fill="white">LAYER 5: INFRASTRUCTURE SERVICES</text>
+  <text x="80" y="838" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#ffcdd2">Core DevOps tools and CI/CD infrastructure</text>
+
+  <g transform="translate(100, 855)">
+    <!-- Row 1 -->
+    <rect x="0" y="0" width="180" height="45" rx="6" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="90" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#b71c1c" text-anchor="middle">GitLab CE</text>
+    <text x="90" y="35" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">:8929 - SCM</text>
+
+    <rect x="200" y="0" width="180" height="45" rx="6" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="290" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#b71c1c" text-anchor="middle">GitLab Runner</text>
+    <text x="290" y="35" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">Docker-in-Docker</text>
+
+    <rect x="400" y="0" width="180" height="45" rx="6" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="490" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#b71c1c" text-anchor="middle">Nexus</text>
+    <text x="490" y="35" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">:5001 - Registry</text>
+
+    <rect x="600" y="0" width="180" height="45" rx="6" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="690" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#b71c1c" text-anchor="middle">SonarQube</text>
+    <text x="690" y="35" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">:9002 - Quality</text>
+
+    <rect x="800" y="0" width="180" height="45" rx="6" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="890" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#b71c1c" text-anchor="middle">Trivy</text>
+    <text x="890" y="35" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">:8083 - Security</text>
+
+    <rect x="1000" y="0" width="180" height="45" rx="6" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="1090" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#b71c1c" text-anchor="middle">Redmine</text>
+    <text x="1090" y="35" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">:8090 - Ticketing</text>
+
+    <rect x="1200" y="0" width="180" height="45" rx="6" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="1290" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#b71c1c" text-anchor="middle">Splunk HEC</text>
+    <text x="1290" y="35" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">Notifications</text>
+
+    <!-- Row 2 - Monitoring -->
+    <rect x="0" y="60" width="180" height="45" rx="6" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="90" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#b71c1c" text-anchor="middle">Prometheus</text>
+    <text x="90" y="95" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">:9090 - Metrics</text>
+
+    <rect x="200" y="60" width="180" height="45" rx="6" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="290" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#b71c1c" text-anchor="middle">Grafana</text>
+    <text x="290" y="95" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">:3000 - Dashboards</text>
+
+    <rect x="400" y="60" width="180" height="45" rx="6" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="490" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#b71c1c" text-anchor="middle">Loki</text>
+    <text x="490" y="95" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">:3100 - Logs</text>
+
+    <rect x="600" y="60" width="180" height="45" rx="6" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="690" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#b71c1c" text-anchor="middle">Jaeger</text>
+    <text x="690" y="95" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">:16686 - Tracing</text>
+
+    <rect x="800" y="60" width="180" height="45" rx="6" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="890" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#b71c1c" text-anchor="middle">Node Exporter</text>
+    <text x="890" y="95" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">:9100 - Host</text>
+
+    <rect x="1000" y="60" width="180" height="45" rx="6" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="1090" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#b71c1c" text-anchor="middle">cAdvisor</text>
+    <text x="1090" y="95" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">:8082 - Containers</text>
+
+    <rect x="1200" y="60" width="180" height="45" rx="6" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="1290" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#b71c1c" text-anchor="middle">Promtail</text>
+    <text x="1290" y="95" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">Log Shipper</text>
+  </g>
+
+  <!-- Arrow down -->
+  <path d="M800 980 L800 1000" stroke="#64748b" stroke-width="3" marker-end="url(#arrowDown)"/>
+  <text x="830" y="995" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#64748b">Data Access</text>
+
+  <!-- Layer 6: Data Layer -->
+  <rect x="50" y="1010" width="1500" height="140" rx="15" fill="url(#dataGrad)" filter="url(#shadow)"/>
+  <text x="80" y="1045" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="bold" fill="white">LAYER 6: DATA &amp; PERSISTENCE</text>
+  <text x="80" y="1068" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c8e6c9">Databases, caches, object storage, and vector stores</text>
+
+  <g transform="translate(100, 1085)">
+    <rect x="0" y="0" width="260" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="130" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#1b5e20" text-anchor="middle">PostgreSQL</text>
+    <text x="130" y="36" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">:5432 - modernization, sonar, redmine</text>
+
+    <rect x="280" y="0" width="260" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="410" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#1b5e20" text-anchor="middle">Redis</text>
+    <text x="410" y="36" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">:6379 - Cache, Queues, Sessions</text>
+
+    <rect x="560" y="0" width="260" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="690" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#1b5e20" text-anchor="middle">MinIO</text>
+    <text x="690" y="36" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">:9000/:9001 - S3 Object Storage</text>
+
+    <rect x="840" y="0" width="260" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="970" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#1b5e20" text-anchor="middle">ChromaDB</text>
+    <text x="970" y="36" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">:8000 - Vector Embeddings</text>
+
+    <rect x="1120" y="0" width="260" height="50" rx="8" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+    <text x="1250" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#1b5e20" text-anchor="middle">Docker Volumes</text>
+    <text x="1250" y="36" font-family="Consolas, monospace" font-size="9" fill="#64748b" text-anchor="middle">platform-* (15+ volumes)</text>
+  </g>
+
+  <!-- Cross-cutting concerns on the right -->
+  <rect x="50" y="1170" width="1500" height="180" rx="12" fill="white" stroke="#e0e0e0" stroke-width="2"/>
+  <text x="70" y="1200" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="bold" fill="#424242">Cross-Cutting Concerns</text>
+
+  <g transform="translate(80, 1220)">
+    <rect x="0" y="0" width="280" height="100" rx="8" fill="#fff3e0" stroke="#ff9800" stroke-width="1"/>
+    <text x="140" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#e65100" text-anchor="middle">Security</text>
+    <text x="15" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Private Registry Only (Nexus)</text>
+    <text x="15" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Credential Management</text>
+    <text x="15" y="75" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Container Scanning (Trivy)</text>
+    <text x="15" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• SAST (SpotBugs, PMD)</text>
+
+    <rect x="300" y="0" width="280" height="100" rx="8" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+    <text x="440" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#1565c0" text-anchor="middle">Networking</text>
+    <text x="315" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Single Bridge: platform-net</text>
+    <text x="315" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Container DNS Discovery</text>
+    <text x="315" y="75" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Host Access: host.docker.internal</text>
+    <text x="315" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Port Mappings: 20+ exposed</text>
+
+    <rect x="600" y="0" width="280" height="100" rx="8" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1"/>
+    <text x="740" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#7b1fa2" text-anchor="middle">Observability</text>
+    <text x="615" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Metrics: Prometheus + Grafana</text>
+    <text x="615" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Logs: Loki + Promtail</text>
+    <text x="615" y="75" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Traces: Jaeger</text>
+    <text x="615" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Containers: cAdvisor</text>
+
+    <rect x="900" y="0" width="280" height="100" rx="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
+    <text x="1040" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#2e7d32" text-anchor="middle">Configuration</text>
+    <text x="915" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Single docker-compose.yml</text>
+    <text x="915" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Environment Variables</text>
+    <text x="915" y="75" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Volume Persistence</text>
+    <text x="915" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Health Checks</text>
+
+    <rect x="1200" y="0" width="250" height="100" rx="8" fill="#ffebee" stroke="#e53935" stroke-width="1"/>
+    <text x="1325" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#c62828" text-anchor="middle">Automation</text>
+    <text x="1215" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• AI Pipeline Generation</text>
+    <text x="1215" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Auto Commit &amp; Deploy</text>
+    <text x="1215" y="75" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Ticket Escalation</text>
+    <text x="1215" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">• Self-Learning RAG</text>
+  </g>
+
+</svg>

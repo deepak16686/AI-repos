@@ -1,0 +1,434 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1600">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="frontendGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0984e3"/>
+      <stop offset="100%" style="stop-color:#0652DD"/>
+    </linearGradient>
+    <linearGradient id="successGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#00cec9"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00b894"/>
+    </marker>
+    <marker id="arrowYellow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffd93d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1800" height="1600" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1800" height="60" fill="url(#headerGrad)"/>
+  <text x="900" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Connection Testing Matrix - Frontend to Backend Tools</text>
+  <text x="1780" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">Extensible Integration Architecture</text>
+
+  <!-- Legend -->
+  <g transform="translate(50, 75)">
+    <rect x="0" y="0" width="600" height="35" rx="8" fill="rgba(255,255,255,0.05)"/>
+    <circle cx="20" cy="17" r="8" fill="#00b894"/>
+    <text x="35" y="22" fill="#888" font-family="Arial, sans-serif" font-size="10">Connected</text>
+    <circle cx="120" cy="17" r="8" fill="#ffd93d"/>
+    <text x="135" y="22" fill="#888" font-family="Arial, sans-serif" font-size="10">Optional</text>
+    <circle cx="220" cy="17" r="8" fill="#d63031"/>
+    <text x="235" y="22" fill="#888" font-family="Arial, sans-serif" font-size="10">Not Connected</text>
+    <circle cx="340" cy="17" r="8" fill="#6c5ce7"/>
+    <text x="355" y="22" fill="#888" font-family="Arial, sans-serif" font-size="10">Future/Planned</text>
+    <rect x="440" y="9" width="16" height="16" rx="3" fill="none" stroke="#00b894" stroke-width="2" stroke-dasharray="3,2"/>
+    <text x="462" y="22" fill="#888" font-family="Arial, sans-serif" font-size="10">Add New Tool Here</text>
+  </g>
+
+  <!-- Frontend Hub - Open WebUI -->
+  <g transform="translate(750, 130)">
+    <g filter="url(#glow)">
+      <rect x="0" y="0" width="300" height="140" rx="20" fill="url(#frontendGrad)"/>
+    </g>
+    <text x="150" y="35" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Open WebUI</text>
+    <text x="150" y="55" text-anchor="middle" fill="#dfe6e9" font-family="monospace" font-size="10">Frontend / AI Chat Interface</text>
+
+    <rect x="15" y="70" width="270" height="55" rx="8" fill="rgba(0,0,0,0.3)"/>
+    <text x="30" y="90" fill="#ffd93d" font-family="monospace" font-size="9">URL: http://localhost:3000</text>
+    <text x="30" y="105" fill="#81ecec" font-family="monospace" font-size="9">Internal: open-webui:8080</text>
+    <text x="30" y="120" fill="#888" font-family="monospace" font-size="8">Tools: Pipeline Generator, Commit, Fix, Nexus Explorer</text>
+  </g>
+
+  <!-- Connection Lines from Frontend -->
+  <!-- These will be drawn to each tool category -->
+
+  <!-- ==================== ROW 1: AI/LLM Services ==================== -->
+  <g transform="translate(50, 300)">
+    <rect x="0" y="0" width="1700" height="30" rx="5" fill="rgba(108,92,231,0.2)"/>
+    <text x="850" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AI/LLM SERVICES</text>
+  </g>
+
+  <!-- Ollama -->
+  <g filter="url(#shadow)" transform="translate(50, 345)">
+    <rect x="0" y="0" width="350" height="180" rx="12" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <circle cx="330" cy="20" r="10" fill="#00b894"/>
+    <text x="20" y="30" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Ollama LLM</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">AI Model Inference Engine</text>
+
+    <rect x="10" y="60" width="330" height="110" rx="6" fill="rgba(0,0,0,0.3)"/>
+    <text x="20" y="80" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Connection Details:</text>
+    <text x="25" y="95" fill="#e0e0e0" font-family="monospace" font-size="8">Internal: http://ollama:11434</text>
+    <text x="25" y="108" fill="#81ecec" font-family="monospace" font-size="8">External: http://localhost:11434</text>
+    <text x="20" y="125" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Health Check:</text>
+    <text x="25" y="140" fill="#00b894" font-family="monospace" font-size="8">GET /api/tags</text>
+    <text x="20" y="155" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Used For:</text>
+    <text x="25" y="168" fill="#888" font-family="monospace" font-size="8">Code generation, Pipeline creation, Analysis</text>
+  </g>
+
+  <!-- ChromaDB -->
+  <g filter="url(#shadow)" transform="translate(420, 345)">
+    <rect x="0" y="0" width="350" height="180" rx="12" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <circle cx="330" cy="20" r="10" fill="#00b894"/>
+    <text x="20" y="30" fill="#9b59b6" font-family="Arial, sans-serif" font-size="14" font-weight="bold">ChromaDB</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">Vector Database for RAG</text>
+
+    <rect x="10" y="60" width="330" height="110" rx="6" fill="rgba(0,0,0,0.3)"/>
+    <text x="20" y="80" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Connection Details:</text>
+    <text x="25" y="95" fill="#e0e0e0" font-family="monospace" font-size="8">Internal: http://chromadb:8000</text>
+    <text x="25" y="108" fill="#81ecec" font-family="monospace" font-size="8">External: http://localhost:8000</text>
+    <text x="20" y="125" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Health Check:</text>
+    <text x="25" y="140" fill="#00b894" font-family="monospace" font-size="8">GET /api/v1/heartbeat</text>
+    <text x="20" y="155" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Collections:</text>
+    <text x="25" y="168" fill="#888" font-family="monospace" font-size="8">templates_dockerfile, templates_gitlab, golden_rules</text>
+  </g>
+
+  <!-- Future AI Tool Placeholder -->
+  <g filter="url(#shadow)" transform="translate(790, 345)">
+    <rect x="0" y="0" width="350" height="180" rx="12" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="2" stroke-dasharray="8,4"/>
+    <circle cx="330" cy="20" r="10" fill="#6c5ce7"/>
+    <text x="20" y="30" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="14" font-weight="bold">+ Add AI Service</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">Future AI/ML Integration</text>
+
+    <rect x="10" y="60" width="330" height="110" rx="6" fill="rgba(0,0,0,0.2)"/>
+    <text x="20" y="80" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Potential Services:</text>
+    <text x="25" y="98" fill="#888" font-family="monospace" font-size="8">- Hugging Face Inference</text>
+    <text x="25" y="113" fill="#888" font-family="monospace" font-size="8">- OpenAI API Gateway</text>
+    <text x="25" y="128" fill="#888" font-family="monospace" font-size="8">- Custom ML Models</text>
+    <text x="25" y="143" fill="#888" font-family="monospace" font-size="8">- LangChain Services</text>
+    <text x="25" y="158" fill="#888" font-family="monospace" font-size="8">- Embedding Services</text>
+  </g>
+
+  <!-- ==================== ROW 2: DevOps Tools ==================== -->
+  <g transform="translate(50, 545)">
+    <rect x="0" y="0" width="1700" height="30" rx="5" fill="rgba(252,109,38,0.2)"/>
+    <text x="850" y="20" text-anchor="middle" fill="#fc6d26" font-family="Arial, sans-serif" font-size="12" font-weight="bold">DEVOPS &amp; SCM TOOLS</text>
+  </g>
+
+  <!-- GitLab -->
+  <g filter="url(#shadow)" transform="translate(50, 590)">
+    <rect x="0" y="0" width="350" height="200" rx="12" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <circle cx="330" cy="20" r="10" fill="#00b894"/>
+    <text x="20" y="30" fill="#fc6d26" font-family="Arial, sans-serif" font-size="14" font-weight="bold">GitLab CE</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">Source Code Management &amp; CI/CD</text>
+
+    <rect x="10" y="60" width="330" height="130" rx="6" fill="rgba(0,0,0,0.3)"/>
+    <text x="20" y="80" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Connection Details:</text>
+    <text x="25" y="95" fill="#e0e0e0" font-family="monospace" font-size="8">Internal: http://gitlab-server:80</text>
+    <text x="25" y="108" fill="#81ecec" font-family="monospace" font-size="8">External: http://localhost:8929</text>
+    <text x="20" y="125" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Health Check:</text>
+    <text x="25" y="140" fill="#00b894" font-family="monospace" font-size="8">GET /api/v4/projects (with token)</text>
+    <text x="20" y="157" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">API Endpoints Used:</text>
+    <text x="25" y="172" fill="#888" font-family="monospace" font-size="8">/api/v4/projects, /api/v4/projects/:id/pipelines</text>
+    <text x="25" y="185" fill="#888" font-family="monospace" font-size="8">/api/v4/projects/:id/repository/commits</text>
+  </g>
+
+  <!-- GitLab Runner -->
+  <g filter="url(#shadow)" transform="translate(420, 590)">
+    <rect x="0" y="0" width="350" height="200" rx="12" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <circle cx="330" cy="20" r="10" fill="#00b894"/>
+    <text x="20" y="30" fill="#fc6d26" font-family="Arial, sans-serif" font-size="14" font-weight="bold">GitLab Runner</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">CI/CD Pipeline Executor</text>
+
+    <rect x="10" y="60" width="330" height="130" rx="6" fill="rgba(0,0,0,0.3)"/>
+    <text x="20" y="80" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Connection Details:</text>
+    <text x="25" y="95" fill="#e0e0e0" font-family="monospace" font-size="8">Internal: gitlab-runner (no port)</text>
+    <text x="25" y="108" fill="#888" font-family="monospace" font-size="8">Connects to: gitlab-server:80</text>
+    <text x="20" y="125" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Health Check:</text>
+    <text x="25" y="140" fill="#00b894" font-family="monospace" font-size="8">Via GitLab Admin → Runners page</text>
+    <text x="20" y="157" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Configuration:</text>
+    <text x="25" y="172" fill="#888" font-family="monospace" font-size="8">Executor: docker, privileged: true</text>
+    <text x="25" y="185" fill="#888" font-family="monospace" font-size="8">Network: platform-net, Tags: docker</text>
+  </g>
+
+  <!-- Nexus Repository -->
+  <g filter="url(#shadow)" transform="translate(790, 590)">
+    <rect x="0" y="0" width="350" height="200" rx="12" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <circle cx="330" cy="20" r="10" fill="#00b894"/>
+    <text x="20" y="30" fill="#1ba5ad" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Nexus Repository</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">Artifact &amp; Docker Registry</text>
+
+    <rect x="10" y="60" width="330" height="130" rx="6" fill="rgba(0,0,0,0.3)"/>
+    <text x="20" y="80" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Connection Details:</text>
+    <text x="25" y="95" fill="#e0e0e0" font-family="monospace" font-size="8">UI: http://localhost:8081</text>
+    <text x="25" y="108" fill="#81ecec" font-family="monospace" font-size="8">Registry: http://localhost:5001</text>
+    <text x="20" y="125" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Health Check:</text>
+    <text x="25" y="140" fill="#00b894" font-family="monospace" font-size="8">GET /service/rest/v1/status</text>
+    <text x="20" y="157" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">API Endpoints Used:</text>
+    <text x="25" y="172" fill="#888" font-family="monospace" font-size="8">/v2/_catalog (Docker images)</text>
+    <text x="25" y="185" fill="#888" font-family="monospace" font-size="8">/service/rest/v1/components</text>
+  </g>
+
+  <!-- Redmine -->
+  <g filter="url(#shadow)" transform="translate(1160, 590)">
+    <rect x="0" y="0" width="350" height="200" rx="12" fill="#1a1a2e" stroke="#ffd93d" stroke-width="2"/>
+    <circle cx="330" cy="20" r="10" fill="#ffd93d"/>
+    <text x="20" y="30" fill="#c0392b" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Redmine</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">Issue Tracking &amp; Project Management</text>
+
+    <rect x="10" y="60" width="330" height="130" rx="6" fill="rgba(0,0,0,0.3)"/>
+    <text x="20" y="80" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Connection Details:</text>
+    <text x="25" y="95" fill="#e0e0e0" font-family="monospace" font-size="8">Internal: http://redmine:3000</text>
+    <text x="25" y="108" fill="#81ecec" font-family="monospace" font-size="8">External: http://localhost:3001</text>
+    <text x="20" y="125" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Health Check:</text>
+    <text x="25" y="140" fill="#ffd93d" font-family="monospace" font-size="8">GET / (200 OK)</text>
+    <text x="20" y="157" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Status:</text>
+    <text x="25" y="172" fill="#ffd93d" font-family="monospace" font-size="8">Optional - Can integrate for</text>
+    <text x="25" y="185" fill="#888" font-family="monospace" font-size="8">issue creation from pipelines</text>
+  </g>
+
+  <!-- ==================== ROW 3: Security & Quality Tools ==================== -->
+  <g transform="translate(50, 810)">
+    <rect x="0" y="0" width="1700" height="30" rx="5" fill="rgba(0,184,148,0.2)"/>
+    <text x="850" y="20" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">SECURITY &amp; CODE QUALITY TOOLS</text>
+  </g>
+
+  <!-- SonarQube -->
+  <g filter="url(#shadow)" transform="translate(50, 855)">
+    <rect x="0" y="0" width="350" height="200" rx="12" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <circle cx="330" cy="20" r="10" fill="#00b894"/>
+    <text x="20" y="30" fill="#4c6ef5" font-family="Arial, sans-serif" font-size="14" font-weight="bold">SonarQube</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">Code Quality &amp; Security Analysis</text>
+
+    <rect x="10" y="60" width="330" height="130" rx="6" fill="rgba(0,0,0,0.3)"/>
+    <text x="20" y="80" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Connection Details:</text>
+    <text x="25" y="95" fill="#e0e0e0" font-family="monospace" font-size="8">Internal: http://sonarqube:9000</text>
+    <text x="25" y="108" fill="#81ecec" font-family="monospace" font-size="8">External: http://localhost:9002</text>
+    <text x="20" y="125" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Health Check:</text>
+    <text x="25" y="140" fill="#00b894" font-family="monospace" font-size="8">GET /api/system/status</text>
+    <text x="20" y="157" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">API Endpoints Used:</text>
+    <text x="25" y="172" fill="#888" font-family="monospace" font-size="8">/api/projects/search, /api/qualitygates</text>
+    <text x="25" y="185" fill="#888" font-family="monospace" font-size="8">/api/measures/component, /api/issues/search</text>
+  </g>
+
+  <!-- Trivy -->
+  <g filter="url(#shadow)" transform="translate(420, 855)">
+    <rect x="0" y="0" width="350" height="200" rx="12" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <circle cx="330" cy="20" r="10" fill="#00b894"/>
+    <text x="20" y="30" fill="#00b894" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Trivy Scanner</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">Vulnerability &amp; Security Scanner</text>
+
+    <rect x="10" y="60" width="330" height="130" rx="6" fill="rgba(0,0,0,0.3)"/>
+    <text x="20" y="80" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Connection Details:</text>
+    <text x="25" y="95" fill="#e0e0e0" font-family="monospace" font-size="8">Internal: http://trivy-server:8080</text>
+    <text x="25" y="108" fill="#81ecec" font-family="monospace" font-size="8">External: http://localhost:8083</text>
+    <text x="20" y="125" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Health Check:</text>
+    <text x="25" y="140" fill="#00b894" font-family="monospace" font-size="8">GET /healthz</text>
+    <text x="20" y="157" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Scan Types:</text>
+    <text x="25" y="172" fill="#888" font-family="monospace" font-size="8">Image scan, Repository scan, SBOM</text>
+    <text x="25" y="185" fill="#888" font-family="monospace" font-size="8">Filesystem scan, Config scan</text>
+  </g>
+
+  <!-- Sonatype Lifecycle (Placeholder) -->
+  <g filter="url(#shadow)" transform="translate(790, 855)">
+    <rect x="0" y="0" width="350" height="200" rx="12" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="2" stroke-dasharray="8,4"/>
+    <circle cx="330" cy="20" r="10" fill="#6c5ce7"/>
+    <text x="20" y="30" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Sonatype Lifecycle</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">Software Composition Analysis (Future)</text>
+
+    <rect x="10" y="60" width="330" height="130" rx="6" fill="rgba(0,0,0,0.2)"/>
+    <text x="20" y="80" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Planned Connection:</text>
+    <text x="25" y="95" fill="#888" font-family="monospace" font-size="8">URL: http://lifecycle:8070</text>
+    <text x="25" y="108" fill="#888" font-family="monospace" font-size="8">External: http://localhost:8070</text>
+    <text x="20" y="125" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Health Check:</text>
+    <text x="25" y="140" fill="#888" font-family="monospace" font-size="8">GET /api/v2/status</text>
+    <text x="20" y="157" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Features:</text>
+    <text x="25" y="172" fill="#888" font-family="monospace" font-size="8">Dependency analysis, License compliance</text>
+    <text x="25" y="185" fill="#888" font-family="monospace" font-size="8">Policy enforcement, SBOM management</text>
+  </g>
+
+  <!-- Future Security Tool -->
+  <g filter="url(#shadow)" transform="translate(1160, 855)">
+    <rect x="0" y="0" width="350" height="200" rx="12" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="2" stroke-dasharray="8,4"/>
+    <circle cx="330" cy="20" r="10" fill="#6c5ce7"/>
+    <text x="20" y="30" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="14" font-weight="bold">+ Add Security Tool</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">Future Security Integration</text>
+
+    <rect x="10" y="60" width="330" height="130" rx="6" fill="rgba(0,0,0,0.2)"/>
+    <text x="20" y="80" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Potential Tools:</text>
+    <text x="25" y="98" fill="#888" font-family="monospace" font-size="8">- Snyk (Vulnerability scanning)</text>
+    <text x="25" y="113" fill="#888" font-family="monospace" font-size="8">- Checkmarx (SAST)</text>
+    <text x="25" y="128" fill="#888" font-family="monospace" font-size="8">- OWASP ZAP (DAST)</text>
+    <text x="25" y="143" fill="#888" font-family="monospace" font-size="8">- Anchore (Container security)</text>
+    <text x="25" y="158" fill="#888" font-family="monospace" font-size="8">- Falco (Runtime security)</text>
+    <text x="25" y="173" fill="#888" font-family="monospace" font-size="8">- HashiCorp Vault (Secrets)</text>
+  </g>
+
+  <!-- ==================== ROW 4: Monitoring & Observability ==================== -->
+  <g transform="translate(50, 1075)">
+    <rect x="0" y="0" width="1700" height="30" rx="5" fill="rgba(231,76,60,0.2)"/>
+    <text x="850" y="20" text-anchor="middle" fill="#e74c3c" font-family="Arial, sans-serif" font-size="12" font-weight="bold">MONITORING &amp; OBSERVABILITY</text>
+  </g>
+
+  <!-- Prometheus -->
+  <g filter="url(#shadow)" transform="translate(50, 1120)">
+    <rect x="0" y="0" width="260" height="180" rx="12" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <circle cx="240" cy="20" r="10" fill="#00b894"/>
+    <text x="20" y="30" fill="#e74c3c" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Prometheus</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">Metrics Collection</text>
+
+    <rect x="10" y="60" width="240" height="110" rx="6" fill="rgba(0,0,0,0.3)"/>
+    <text x="20" y="80" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Connection:</text>
+    <text x="25" y="95" fill="#e0e0e0" font-family="monospace" font-size="8">http://localhost:9090</text>
+    <text x="20" y="112" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Health:</text>
+    <text x="25" y="127" fill="#00b894" font-family="monospace" font-size="8">GET /-/healthy</text>
+    <text x="20" y="144" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">API:</text>
+    <text x="25" y="159" fill="#888" font-family="monospace" font-size="8">/api/v1/query</text>
+  </g>
+
+  <!-- Grafana -->
+  <g filter="url(#shadow)" transform="translate(330, 1120)">
+    <rect x="0" y="0" width="260" height="180" rx="12" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <circle cx="240" cy="20" r="10" fill="#00b894"/>
+    <text x="20" y="30" fill="#f39c12" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Grafana</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">Dashboards &amp; Visualization</text>
+
+    <rect x="10" y="60" width="240" height="110" rx="6" fill="rgba(0,0,0,0.3)"/>
+    <text x="20" y="80" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Connection:</text>
+    <text x="25" y="95" fill="#e0e0e0" font-family="monospace" font-size="8">http://localhost:3002</text>
+    <text x="20" y="112" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Health:</text>
+    <text x="25" y="127" fill="#00b894" font-family="monospace" font-size="8">GET /api/health</text>
+    <text x="20" y="144" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">API:</text>
+    <text x="25" y="159" fill="#888" font-family="monospace" font-size="8">/api/dashboards</text>
+  </g>
+
+  <!-- Loki -->
+  <g filter="url(#shadow)" transform="translate(610, 1120)">
+    <rect x="0" y="0" width="260" height="180" rx="12" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <circle cx="240" cy="20" r="10" fill="#00b894"/>
+    <text x="20" y="30" fill="#2ecc71" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Loki</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">Log Aggregation</text>
+
+    <rect x="10" y="60" width="240" height="110" rx="6" fill="rgba(0,0,0,0.3)"/>
+    <text x="20" y="80" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Connection:</text>
+    <text x="25" y="95" fill="#e0e0e0" font-family="monospace" font-size="8">http://localhost:3100</text>
+    <text x="20" y="112" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Health:</text>
+    <text x="25" y="127" fill="#00b894" font-family="monospace" font-size="8">GET /ready</text>
+    <text x="20" y="144" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">API:</text>
+    <text x="25" y="159" fill="#888" font-family="monospace" font-size="8">/loki/api/v1/query</text>
+  </g>
+
+  <!-- Jaeger -->
+  <g filter="url(#shadow)" transform="translate(890, 1120)">
+    <rect x="0" y="0" width="260" height="180" rx="12" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <circle cx="240" cy="20" r="10" fill="#00b894"/>
+    <text x="20" y="30" fill="#3498db" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Jaeger</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">Distributed Tracing</text>
+
+    <rect x="10" y="60" width="240" height="110" rx="6" fill="rgba(0,0,0,0.3)"/>
+    <text x="20" y="80" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Connection:</text>
+    <text x="25" y="95" fill="#e0e0e0" font-family="monospace" font-size="8">http://localhost:16686</text>
+    <text x="20" y="112" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Health:</text>
+    <text x="25" y="127" fill="#00b894" font-family="monospace" font-size="8">GET /</text>
+    <text x="20" y="144" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">OTLP:</text>
+    <text x="25" y="159" fill="#888" font-family="monospace" font-size="8">:4317 (gRPC) :4318 (HTTP)</text>
+  </g>
+
+  <!-- Splunk -->
+  <g filter="url(#shadow)" transform="translate(1170, 1120)">
+    <rect x="0" y="0" width="260" height="180" rx="12" fill="#1a1a2e" stroke="#ffd93d" stroke-width="2"/>
+    <circle cx="240" cy="20" r="10" fill="#ffd93d"/>
+    <text x="20" y="30" fill="#65D26E" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Splunk HEC</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">Event Collector (External)</text>
+
+    <rect x="10" y="60" width="240" height="110" rx="6" fill="rgba(0,0,0,0.3)"/>
+    <text x="20" y="80" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Connection:</text>
+    <text x="25" y="95" fill="#888" font-family="monospace" font-size="8">https://splunk-hec:8088</text>
+    <text x="20" y="112" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Health:</text>
+    <text x="25" y="127" fill="#ffd93d" font-family="monospace" font-size="8">POST /services/collector</text>
+    <text x="20" y="144" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Status:</text>
+    <text x="25" y="159" fill="#ffd93d" font-family="monospace" font-size="8">Optional - Enterprise logging</text>
+  </g>
+
+  <!-- Future Monitoring Tool -->
+  <g filter="url(#shadow)" transform="translate(1450, 1120)">
+    <rect x="0" y="0" width="260" height="180" rx="12" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="2" stroke-dasharray="8,4"/>
+    <circle cx="240" cy="20" r="10" fill="#6c5ce7"/>
+    <text x="20" y="30" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="14" font-weight="bold">+ Add Monitor</text>
+    <text x="20" y="48" fill="#888" font-family="monospace" font-size="9">Future Integration</text>
+
+    <rect x="10" y="60" width="240" height="110" rx="6" fill="rgba(0,0,0,0.2)"/>
+    <text x="20" y="80" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Options:</text>
+    <text x="25" y="98" fill="#888" font-family="monospace" font-size="8">- Datadog Agent</text>
+    <text x="25" y="113" fill="#888" font-family="monospace" font-size="8">- New Relic</text>
+    <text x="25" y="128" fill="#888" font-family="monospace" font-size="8">- Elastic APM</text>
+    <text x="25" y="143" fill="#888" font-family="monospace" font-size="8">- Zipkin</text>
+    <text x="25" y="158" fill="#888" font-family="monospace" font-size="8">- OpenTelemetry</text>
+  </g>
+
+  <!-- ==================== Connection Test Commands Section ==================== -->
+  <g transform="translate(50, 1320)">
+    <text x="0" y="0" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Quick Connection Test Commands</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="1700" height="200" rx="15" fill="#1a1a2e"/>
+
+      <!-- Test Commands Grid -->
+      <rect x="15" y="15" width="550" height="170" rx="8" fill="rgba(0,0,0,0.3)"/>
+      <text x="30" y="38" fill="#ffd93d" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Health Check Commands (curl):</text>
+      <text x="35" y="58" fill="#00b894" font-family="monospace" font-size="8">curl http://localhost:11434/api/tags        # Ollama</text>
+      <text x="35" y="73" fill="#00b894" font-family="monospace" font-size="8">curl http://localhost:8000/api/v1/heartbeat # ChromaDB</text>
+      <text x="35" y="88" fill="#00b894" font-family="monospace" font-size="8">curl http://localhost:8929/api/v4/projects  # GitLab</text>
+      <text x="35" y="103" fill="#00b894" font-family="monospace" font-size="8">curl http://localhost:9002/api/system/status # SonarQube</text>
+      <text x="35" y="118" fill="#00b894" font-family="monospace" font-size="8">curl http://localhost:8083/healthz          # Trivy</text>
+      <text x="35" y="133" fill="#00b894" font-family="monospace" font-size="8">curl http://localhost:8081/service/rest/v1/status # Nexus</text>
+      <text x="35" y="148" fill="#00b894" font-family="monospace" font-size="8">curl http://localhost:9090/-/healthy        # Prometheus</text>
+      <text x="35" y="163" fill="#00b894" font-family="monospace" font-size="8">curl http://localhost:3002/api/health       # Grafana</text>
+      <text x="35" y="178" fill="#00b894" font-family="monospace" font-size="8">curl http://localhost:3100/ready            # Loki</text>
+
+      <!-- Docker Network Test -->
+      <rect x="580" y="15" width="550" height="170" rx="8" fill="rgba(0,0,0,0.3)"/>
+      <text x="595" y="38" fill="#ffd93d" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Docker Network Connectivity Test:</text>
+      <text x="600" y="58" fill="#81ecec" font-family="monospace" font-size="8"># List all containers on platform-net</text>
+      <text x="600" y="73" fill="#e0e0e0" font-family="monospace" font-size="8">docker network inspect platform-net</text>
+      <text x="600" y="93" fill="#81ecec" font-family="monospace" font-size="8"># Test internal DNS from a container</text>
+      <text x="600" y="108" fill="#e0e0e0" font-family="monospace" font-size="8">docker exec platform-open-webui ping -c 1 ollama</text>
+      <text x="600" y="128" fill="#81ecec" font-family="monospace" font-size="8"># Test API from inside network</text>
+      <text x="600" y="143" fill="#e0e0e0" font-family="monospace" font-size="8">docker exec platform-open-webui curl http://ollama:11434</text>
+      <text x="600" y="163" fill="#81ecec" font-family="monospace" font-size="8"># Check all service health</text>
+      <text x="600" y="178" fill="#e0e0e0" font-family="monospace" font-size="8">docker ps --format "{{.Names}}: {{.Status}}"</text>
+
+      <!-- Add New Tool Template -->
+      <rect x="1145" y="15" width="540" height="170" rx="8" fill="rgba(108,92,231,0.1)"/>
+      <text x="1160" y="38" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Template: Add New Tool Connection</text>
+      <text x="1165" y="58" fill="#888" font-family="monospace" font-size="8"># 1. Add service to docker-compose.yml</text>
+      <text x="1165" y="73" fill="#e0e0e0" font-family="monospace" font-size="8">new-tool:</text>
+      <text x="1175" y="88" fill="#e0e0e0" font-family="monospace" font-size="8">image: tool-image:latest</text>
+      <text x="1175" y="103" fill="#e0e0e0" font-family="monospace" font-size="8">ports: ["HOST_PORT:INTERNAL_PORT"]</text>
+      <text x="1175" y="118" fill="#e0e0e0" font-family="monospace" font-size="8">networks: [platform-net]</text>
+      <text x="1165" y="138" fill="#888" font-family="monospace" font-size="8"># 2. Add env var to devops-tools-backend</text>
+      <text x="1165" y="153" fill="#e0e0e0" font-family="monospace" font-size="8">NEW_TOOL_URL=http://host.docker.internal:PORT</text>
+      <text x="1165" y="173" fill="#888" font-family="monospace" font-size="8"># 3. Create API router in app/routers/</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="900" y="1580" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Connection Testing Matrix | Extensible Tool Integration Architecture</text>
+</svg>

@@ -1,0 +1,311 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 950">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="nexusGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#55efc4"/>
+    </linearGradient>
+    <linearGradient id="toolGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c5ce7"/>
+      <stop offset="100%" style="stop-color:#a29bfe"/>
+    </linearGradient>
+    <linearGradient id="stageGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e17055"/>
+      <stop offset="100%" style="stop-color:#fab1a0"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00b894"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e17055"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c5ce7"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="950" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Pipeline Generation Flow - Nexus Integration</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">8-Stage CI/CD Pipeline</text>
+
+  <!-- User Input Section -->
+  <g filter="url(#shadow)" transform="translate(50, 80)">
+    <rect x="0" y="0" width="300" height="160" rx="15" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="2"/>
+    <text x="20" y="30" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="14" font-weight="bold">👤 User Input (OpenWebUI)</text>
+    <text x="20" y="55" fill="#888" font-family="Arial, sans-serif" font-size="10">Chat interface with Tool attachment</text>
+
+    <rect x="15" y="70" width="270" height="75" rx="8" fill="#2d3436"/>
+    <text x="25" y="90" fill="#a29bfe" font-family="monospace" font-size="9">"Generate a CI/CD pipeline for</text>
+    <text x="25" y="107" fill="#a29bfe" font-family="monospace" font-size="9">my Java Spring Boot application</text>
+    <text x="25" y="124" fill="#a29bfe" font-family="monospace" font-size="9">with all security stages"</text>
+    <text x="25" y="141" fill="#6c5ce7" font-family="monospace" font-size="9">Technology: java | Stages: all</text>
+  </g>
+
+  <!-- Arrow to Tool -->
+  <line x1="350" y1="160" x2="430" y2="160" stroke="#6c5ce7" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+  <!-- OpenWebUI Tool -->
+  <g filter="url(#shadow)" transform="translate(440, 80)">
+    <rect x="0" y="0" width="320" height="160" rx="15" fill="url(#toolGrad)"/>
+    <text x="20" y="30" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🔧 gitlab_pipeline_generator Tool</text>
+    <text x="20" y="50" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">OpenWebUI Function Tool</text>
+
+    <rect x="15" y="65" width="290" height="80" rx="8" fill="rgba(0,0,0,0.3)"/>
+    <text x="25" y="85" fill="#fff" font-family="monospace" font-size="9">get_pipeline_template(</text>
+    <text x="35" y="102" fill="#e0e0e0" font-family="monospace" font-size="9">technology="java",</text>
+    <text x="35" y="119" fill="#e0e0e0" font-family="monospace" font-size="9">stages="compile,build,test,sast,</text>
+    <text x="35" y="136" fill="#e0e0e0" font-family="monospace" font-size="9">        quality,security,push,notify"</text>
+    <text x="25" y="153" fill="#fff" font-family="monospace" font-size="9">)</text>
+  </g>
+
+  <!-- Arrow to Nexus -->
+  <line x1="760" y1="160" x2="840" y2="160" stroke="#00b894" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- Nexus Registry Query -->
+  <g filter="url(#shadow)" transform="translate(850, 80)">
+    <rect x="0" y="0" width="280" height="160" rx="15" fill="url(#nexusGrad)"/>
+    <text x="20" y="30" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">📦 Nexus Registry Query</text>
+    <text x="20" y="50" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="10">localhost:5001 (PRIVATE ONLY)</text>
+
+    <rect x="15" y="65" width="250" height="80" rx="8" fill="rgba(0,0,0,0.2)"/>
+    <text x="25" y="85" fill="#1a1a2e" font-family="monospace" font-size="9">GET /v2/_catalog</text>
+    <text x="25" y="102" fill="#1a1a2e" font-family="monospace" font-size="9">→ ["maven", "kaniko", "trivy",</text>
+    <text x="35" y="119" fill="#1a1a2e" font-family="monospace" font-size="9">"alpine-curl", "sonar-scanner"...]</text>
+    <text x="25" y="140" fill="#006060" font-family="monospace" font-size="9">GET /v2/{repo}/tags/list</text>
+  </g>
+
+  <!-- Image Discovery Results -->
+  <g filter="url(#shadow)" transform="translate(1140, 80)">
+    <rect x="0" y="0" width="230" height="160" rx="15" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <text x="15" y="30" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Available Images</text>
+
+    <text x="15" y="55" fill="#55efc4" font-family="monospace" font-size="9">maven:3.9-eclipse-temurin-17</text>
+    <text x="15" y="72" fill="#55efc4" font-family="monospace" font-size="9">kaniko-executor:v1.23.0</text>
+    <text x="15" y="89" fill="#55efc4" font-family="monospace" font-size="9">alpine-curl:3.18</text>
+    <text x="15" y="106" fill="#55efc4" font-family="monospace" font-size="9">trivy-server:0.48.0</text>
+    <text x="15" y="123" fill="#55efc4" font-family="monospace" font-size="9">sonar-scanner:5.0</text>
+    <text x="15" y="140" fill="#888" font-family="monospace" font-size="8">... 40+ private images</text>
+  </g>
+
+  <!-- Stage Configuration Section -->
+  <g transform="translate(50, 270)">
+    <text x="0" y="0" fill="#e17055" font-family="Arial, sans-serif" font-size="16" font-weight="bold">🎯 Stage Configuration with Nexus Images</text>
+
+    <!-- Stage 1: Compile -->
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="155" height="140" rx="10" fill="url(#stageGrad)"/>
+      <text x="10" y="25" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">1. compile</text>
+      <rect x="8" y="35" width="139" height="95" rx="5" fill="rgba(0,0,0,0.2)"/>
+      <text x="15" y="52" fill="#fff" font-family="monospace" font-size="8">image: maven:3.9</text>
+      <text x="15" y="67" fill="#e0e0e0" font-family="monospace" font-size="7">mvn clean package</text>
+      <text x="15" y="82" fill="#e0e0e0" font-family="monospace" font-size="7">-DskipTests</text>
+      <text x="15" y="100" fill="#ffd0c0" font-family="monospace" font-size="7">artifacts:</text>
+      <text x="20" y="112" fill="#e0e0e0" font-family="monospace" font-size="7">target/app.jar</text>
+      <text x="15" y="127" fill="#ffd0c0" font-family="monospace" font-size="7">cache: .m2/repository</text>
+    </g>
+
+    <!-- Stage 2: Build -->
+    <g filter="url(#shadow)" transform="translate(165, 20)">
+      <rect x="0" y="0" width="155" height="140" rx="10" fill="url(#stageGrad)"/>
+      <text x="10" y="25" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">2. build</text>
+      <rect x="8" y="35" width="139" height="95" rx="5" fill="rgba(0,0,0,0.2)"/>
+      <text x="15" y="52" fill="#fff" font-family="monospace" font-size="8">image: kaniko</text>
+      <text x="15" y="67" fill="#e0e0e0" font-family="monospace" font-size="7">/kaniko/executor</text>
+      <text x="15" y="82" fill="#e0e0e0" font-family="monospace" font-size="7">--context=$CI_PROJECT</text>
+      <text x="15" y="97" fill="#e0e0e0" font-family="monospace" font-size="7">--destination=</text>
+      <text x="15" y="112" fill="#ffd0c0" font-family="monospace" font-size="7">ai-nexus:5001/</text>
+      <text x="15" y="127" fill="#ffd0c0" font-family="monospace" font-size="7">$IMAGE_NAME:$TAG</text>
+    </g>
+
+    <!-- Stage 3: Test -->
+    <g filter="url(#shadow)" transform="translate(330, 20)">
+      <rect x="0" y="0" width="155" height="140" rx="10" fill="url(#stageGrad)"/>
+      <text x="10" y="25" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">3. test</text>
+      <rect x="8" y="35" width="139" height="95" rx="5" fill="rgba(0,0,0,0.2)"/>
+      <text x="15" y="52" fill="#fff" font-family="monospace" font-size="8">image: alpine-curl</text>
+      <text x="15" y="67" fill="#e0e0e0" font-family="monospace" font-size="7">curl -f -u admin:$PW</text>
+      <text x="15" y="82" fill="#e0e0e0" font-family="monospace" font-size="7">$REGISTRY/v2/</text>
+      <text x="15" y="97" fill="#e0e0e0" font-family="monospace" font-size="7">$IMAGE/manifests/</text>
+      <text x="15" y="112" fill="#ffd0c0" font-family="monospace" font-size="7">$TAG</text>
+      <text x="15" y="127" fill="#888" font-family="monospace" font-size="7">Verify image exists</text>
+    </g>
+
+    <!-- Stage 4: SAST -->
+    <g filter="url(#shadow)" transform="translate(495, 20)">
+      <rect x="0" y="0" width="155" height="140" rx="10" fill="url(#stageGrad)"/>
+      <text x="10" y="25" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">4. sast</text>
+      <rect x="8" y="35" width="139" height="95" rx="5" fill="rgba(0,0,0,0.2)"/>
+      <text x="15" y="52" fill="#fff" font-family="monospace" font-size="8">image: maven</text>
+      <text x="15" y="67" fill="#e0e0e0" font-family="monospace" font-size="7">mvn spotbugs:check</text>
+      <text x="15" y="82" fill="#e0e0e0" font-family="monospace" font-size="7">mvn pmd:check</text>
+      <text x="15" y="100" fill="#ffd0c0" font-family="monospace" font-size="7">allow_failure: true</text>
+      <text x="15" y="115" fill="#888" font-family="monospace" font-size="7">SpotBugs + PMD</text>
+      <text x="15" y="127" fill="#888" font-family="monospace" font-size="7">analysis</text>
+    </g>
+
+    <!-- Stage 5: Quality -->
+    <g filter="url(#shadow)" transform="translate(660, 20)">
+      <rect x="0" y="0" width="155" height="140" rx="10" fill="url(#stageGrad)"/>
+      <text x="10" y="25" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">5. quality</text>
+      <rect x="8" y="35" width="139" height="95" rx="5" fill="rgba(0,0,0,0.2)"/>
+      <text x="15" y="52" fill="#fff" font-family="monospace" font-size="8">image: maven</text>
+      <text x="15" y="67" fill="#e0e0e0" font-family="monospace" font-size="7">mvn sonar:sonar</text>
+      <text x="15" y="82" fill="#e0e0e0" font-family="monospace" font-size="7">-Dsonar.host=</text>
+      <text x="15" y="97" fill="#ffd0c0" font-family="monospace" font-size="7">$SONARQUBE_URL</text>
+      <text x="15" y="115" fill="#888" font-family="monospace" font-size="7">SonarQube analysis</text>
+      <text x="15" y="127" fill="#888" font-family="monospace" font-size="7">quality gates</text>
+    </g>
+
+    <!-- Stage 6: Security -->
+    <g filter="url(#shadow)" transform="translate(825, 20)">
+      <rect x="0" y="0" width="155" height="140" rx="10" fill="url(#stageGrad)"/>
+      <text x="10" y="25" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">6. security</text>
+      <rect x="8" y="35" width="139" height="95" rx="5" fill="rgba(0,0,0,0.2)"/>
+      <text x="15" y="52" fill="#fff" font-family="monospace" font-size="8">image: alpine-curl</text>
+      <text x="15" y="67" fill="#ffd0c0" font-family="monospace" font-size="7">services:</text>
+      <text x="20" y="82" fill="#e0e0e0" font-family="monospace" font-size="7">trivy-server</text>
+      <text x="15" y="97" fill="#e0e0e0" font-family="monospace" font-size="7">trivy image</text>
+      <text x="15" y="112" fill="#e0e0e0" font-family="monospace" font-size="7">--server=trivy:8080</text>
+      <text x="15" y="127" fill="#888" font-family="monospace" font-size="7">CVE scanning</text>
+    </g>
+
+    <!-- Stage 7: Push -->
+    <g filter="url(#shadow)" transform="translate(990, 20)">
+      <rect x="0" y="0" width="155" height="140" rx="10" fill="url(#stageGrad)"/>
+      <text x="10" y="25" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">7. push</text>
+      <rect x="8" y="35" width="139" height="95" rx="5" fill="rgba(0,0,0,0.2)"/>
+      <text x="15" y="52" fill="#fff" font-family="monospace" font-size="8">image: alpine-curl</text>
+      <text x="15" y="67" fill="#e0e0e0" font-family="monospace" font-size="7">regctl tag</text>
+      <text x="15" y="82" fill="#e0e0e0" font-family="monospace" font-size="7">$IMAGE:$TAG</text>
+      <text x="15" y="97" fill="#ffd0c0" font-family="monospace" font-size="7">$IMAGE:$RELEASE</text>
+      <text x="15" y="115" fill="#888" font-family="monospace" font-size="7">Tag release version</text>
+      <text x="15" y="127" fill="#888" font-family="monospace" font-size="7">to Nexus</text>
+    </g>
+
+    <!-- Stage 8: Notify -->
+    <g filter="url(#shadow)" transform="translate(1155, 20)">
+      <rect x="0" y="0" width="155" height="140" rx="10" fill="url(#stageGrad)"/>
+      <text x="10" y="25" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">8. notify</text>
+      <rect x="8" y="35" width="139" height="95" rx="5" fill="rgba(0,0,0,0.2)"/>
+      <text x="15" y="52" fill="#fff" font-family="monospace" font-size="8">image: alpine-curl</text>
+      <text x="15" y="67" fill="#e0e0e0" font-family="monospace" font-size="7">curl -X POST</text>
+      <text x="15" y="82" fill="#e0e0e0" font-family="monospace" font-size="7">$SPLUNK_HEC_URL</text>
+      <text x="15" y="97" fill="#e0e0e0" font-family="monospace" font-size="7">-d {"event":...}</text>
+      <text x="15" y="115" fill="#888" font-family="monospace" font-size="7">Send pipeline</text>
+      <text x="15" y="127" fill="#888" font-family="monospace" font-size="7">status to Splunk</text>
+    </g>
+  </g>
+
+  <!-- Flow arrows between stages -->
+  <g transform="translate(50, 350)">
+    <line x1="155" y1="0" x2="165" y2="0" stroke="#e17055" stroke-width="2"/>
+    <line x1="320" y1="0" x2="330" y2="0" stroke="#e17055" stroke-width="2"/>
+    <line x1="485" y1="0" x2="495" y2="0" stroke="#e17055" stroke-width="2"/>
+    <line x1="650" y1="0" x2="660" y2="0" stroke="#e17055" stroke-width="2"/>
+    <line x1="815" y1="0" x2="825" y2="0" stroke="#e17055" stroke-width="2"/>
+    <line x1="980" y1="0" x2="990" y2="0" stroke="#e17055" stroke-width="2"/>
+    <line x1="1145" y1="0" x2="1155" y2="0" stroke="#e17055" stroke-width="2"/>
+  </g>
+
+  <!-- Pipeline Variables Section -->
+  <g filter="url(#shadow)" transform="translate(50, 460)">
+    <rect x="0" y="0" width="400" height="180" rx="15" fill="#1a1a2e" stroke="#ffd93d" stroke-width="2"/>
+    <text x="20" y="30" fill="#ffd93d" font-family="Arial, sans-serif" font-size="14" font-weight="bold">⚙️ Generated Pipeline Variables</text>
+
+    <rect x="15" y="45" width="370" height="120" rx="8" fill="#2d3436"/>
+    <text x="25" y="65" fill="#ffd93d" font-family="monospace" font-size="9">variables:</text>
+    <text x="35" y="82" fill="#e0e0e0" font-family="monospace" font-size="9">NEXUS_REGISTRY: "ai-nexus:5001"</text>
+    <text x="35" y="99" fill="#e0e0e0" font-family="monospace" font-size="9">NEXUS_PULL_REGISTRY: "localhost:5001"</text>
+    <text x="35" y="116" fill="#e0e0e0" font-family="monospace" font-size="9">IMAGE_NAME: "${CI_PROJECT_NAME}"</text>
+    <text x="35" y="133" fill="#e0e0e0" font-family="monospace" font-size="9">IMAGE_TAG: "1.0.${CI_PIPELINE_IID}"</text>
+    <text x="35" y="150" fill="#e0e0e0" font-family="monospace" font-size="9">RELEASE_TAG: "1.0.release-${CI_PIPELINE_IID}"</text>
+  </g>
+
+  <!-- Stage Templates (STAGE_TEMPLATES dict) -->
+  <g filter="url(#shadow)" transform="translate(470, 460)">
+    <rect x="0" y="0" width="380" height="180" rx="15" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="2"/>
+    <text x="20" y="30" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="14" font-weight="bold">📋 Technology Templates (create_pipeline_tool.py)</text>
+
+    <rect x="15" y="45" width="350" height="120" rx="8" fill="#2d3436"/>
+    <text x="25" y="65" fill="#6c5ce7" font-family="monospace" font-size="9">STAGE_TEMPLATES = {</text>
+    <text x="35" y="82" fill="#e0e0e0" font-family="monospace" font-size="9">"compile": {java, python, node, golang, php,</text>
+    <text x="115" y="96" fill="#e0e0e0" font-family="monospace" font-size="9">dotnet, rust},</text>
+    <text x="35" y="113" fill="#e0e0e0" font-family="monospace" font-size="9">"build": kaniko_build,</text>
+    <text x="35" y="130" fill="#e0e0e0" font-family="monospace" font-size="9">"sast": {java: spotbugs+pmd},</text>
+    <text x="35" y="147" fill="#e0e0e0" font-family="monospace" font-size="9">"security": trivy_scan, ...</text>
+    <text x="25" y="164" fill="#6c5ce7" font-family="monospace" font-size="9">}</text>
+  </g>
+
+  <!-- Output Section -->
+  <g filter="url(#shadow)" transform="translate(870, 460)">
+    <rect x="0" y="0" width="500" height="180" rx="15" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <text x="20" y="30" fill="#00b894" font-family="Arial, sans-serif" font-size="14" font-weight="bold">📄 Generated .gitlab-ci.yml (Output)</text>
+
+    <rect x="15" y="45" width="470" height="120" rx="8" fill="#2d3436"/>
+    <text x="25" y="65" fill="#00b894" font-family="monospace" font-size="9">stages: [compile, build, test, sast, quality, security, push, notify]</text>
+    <text x="25" y="85" fill="#e0e0e0" font-family="monospace" font-size="9">compile_job:</text>
+    <text x="35" y="100" fill="#e0e0e0" font-family="monospace" font-size="9">image: ${NEXUS_PULL_REGISTRY}/maven:3.9-eclipse-temurin-17</text>
+    <text x="35" y="115" fill="#e0e0e0" font-family="monospace" font-size="9">stage: compile</text>
+    <text x="35" y="130" fill="#e0e0e0" font-family="monospace" font-size="9">script: ...</text>
+    <text x="25" y="150" fill="#888" font-family="monospace" font-size="9">// All images from localhost:5001 (Nexus private registry)</text>
+  </g>
+
+  <!-- Commit Flow Section -->
+  <g filter="url(#shadow)" transform="translate(50, 660)">
+    <rect x="0" y="0" width="1320" height="120" rx="15" fill="#1a1a2e" stroke="#e17055" stroke-width="2"/>
+    <text x="20" y="30" fill="#e17055" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🚀 Deployment Flow (gitlab_commit_deploy Tool)</text>
+
+    <g transform="translate(20, 50)">
+      <!-- Step boxes -->
+      <rect x="0" y="0" width="180" height="50" rx="8" fill="#6c5ce7"/>
+      <text x="90" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">1. Get/Create Project</text>
+      <text x="90" y="38" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">GitLab API /projects</text>
+
+      <line x1="180" y1="25" x2="220" y2="25" stroke="#6c5ce7" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+      <rect x="220" y="0" width="180" height="50" rx="8" fill="#6c5ce7"/>
+      <text x="310" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">2. Check Files Exist</text>
+      <text x="310" y="38" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">GET /repository/files</text>
+
+      <line x1="400" y1="25" x2="440" y2="25" stroke="#6c5ce7" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+      <rect x="440" y="0" width="200" height="50" rx="8" fill="#00b894"/>
+      <text x="540" y="20" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="10" font-weight="bold">3. Commit Files</text>
+      <text x="540" y="38" text-anchor="middle" fill="#006060" font-family="monospace" font-size="8">Dockerfile + .gitlab-ci.yml</text>
+
+      <line x1="640" y1="25" x2="680" y2="25" stroke="#00b894" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+      <rect x="680" y="0" width="200" height="50" rx="8" fill="#e17055"/>
+      <text x="780" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">4. Auto-Trigger Pipeline</text>
+      <text x="780" y="38" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">GitLab CI triggered</text>
+
+      <line x1="880" y1="25" x2="920" y2="25" stroke="#e17055" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+      <rect x="920" y="0" width="180" height="50" rx="8" fill="#ffd93d"/>
+      <text x="1010" y="20" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="10" font-weight="bold">5. Return Status</text>
+      <text x="1010" y="38" text-anchor="middle" fill="#1a1a2e" font-family="monospace" font-size="8">Pipeline URL + commit SHA</text>
+    </g>
+  </g>
+
+  <!-- Key Points -->
+  <g filter="url(#shadow)" transform="translate(50, 800)">
+    <rect x="0" y="0" width="1320" height="70" rx="10" fill="#2d3436"/>
+    <text x="20" y="25" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">🔑 Key Points:</text>
+    <text x="20" y="48" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">• All images sourced from Nexus private registry (localhost:5001) - NO Docker Hub access</text>
+    <text x="450" y="48" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">• 8-stage pipeline: compile → build → test → sast → quality → security → push → notify</text>
+    <text x="950" y="48" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">• Technology support: Java, Python, Node, Go, PHP, .NET, Rust</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="930" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Pipeline Generation with Nexus Private Registry Integration</text>
+</svg>

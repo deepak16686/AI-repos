@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 950">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="gitlabGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e17055"/>
+      <stop offset="100%" style="stop-color:#fc5c2d"/>
+    </linearGradient>
+    <linearGradient id="apiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c5ce7"/>
+      <stop offset="100%" style="stop-color:#a29bfe"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffd93d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="950" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">GitLab Integration Flow</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">SCM &amp; CI/CD Integration</text>
+
+  <!-- GitLab Server Box -->
+  <g filter="url(#shadow)" transform="translate(900, 80)">
+    <rect x="0" y="0" width="450" height="180" rx="15" fill="url(#gitlabGrad)"/>
+    <text x="225" y="35" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">GitLab CE Server</text>
+    <text x="225" y="55" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="10">http://gitlab-server:80 | localhost:8929</text>
+
+    <rect x="15" y="70" width="420" height="95" rx="10" fill="rgba(0,0,0,0.3)"/>
+    <text x="30" y="95" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Components:</text>
+    <text x="40" y="115" fill="#e0e0e0" font-family="monospace" font-size="9">API v4 | Git Repository | CI/CD Runner</text>
+    <text x="40" y="133" fill="#e0e0e0" font-family="monospace" font-size="9">Pipeline Engine | Container Registry</text>
+    <text x="30" y="155" fill="#81ecec" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Auth:</text>
+    <text x="70" y="155" fill="#e0e0e0" font-family="monospace" font-size="9">PRIVATE-TOKEN header</text>
+  </g>
+
+  <!-- DevOps Tools Backend -->
+  <g filter="url(#shadow)" transform="translate(50, 80)">
+    <rect x="0" y="0" width="400" height="180" rx="15" fill="#2d3436" stroke="#6c5ce7" stroke-width="2"/>
+    <text x="200" y="35" text-anchor="middle" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="16" font-weight="bold">DevOps Tools Backend</text>
+    <text x="200" y="55" text-anchor="middle" fill="#888" font-family="monospace" font-size="10">localhost:8003 | /gitlab router</text>
+
+    <rect x="15" y="70" width="370" height="95" rx="10" fill="rgba(0,0,0,0.3)"/>
+    <text x="30" y="95" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GitLabIntegration Class:</text>
+    <text x="40" y="115" fill="#e0e0e0" font-family="monospace" font-size="9">list_projects() | get_project()</text>
+    <text x="40" y="133" fill="#e0e0e0" font-family="monospace" font-size="9">trigger_pipeline() | list_pipelines()</text>
+    <text x="40" y="151" fill="#e0e0e0" font-family="monospace" font-size="9">get_job_log() | create_merge_request()</text>
+  </g>
+
+  <!-- Connection Arrow -->
+  <g stroke="#ffd93d" stroke-width="3" fill="none">
+    <path d="M 450 170 L 900 170" marker-end="url(#arrowhead)"/>
+    <path d="M 900 150 L 450 150" marker-end="url(#arrowhead)"/>
+  </g>
+  <text x="675" y="143" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="10">GitLab API v4 / HTTP</text>
+
+  <!-- API Endpoints Section -->
+  <g transform="translate(50, 290)">
+    <text x="0" y="0" fill="#e17055" font-family="Arial, sans-serif" font-size="16" font-weight="bold">GitLab Router API Endpoints (/gitlab)</text>
+
+    <!-- Projects Row -->
+    <g filter="url(#shadow)" transform="translate(0, 30)">
+      <rect x="0" y="0" width="1300" height="130" rx="15" fill="#1a1a2e"/>
+      <text x="650" y="25" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Projects Management</text>
+
+      <g transform="translate(20, 40)">
+        <rect x="0" y="0" width="240" height="75" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="120" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /projects</text>
+        <text x="120" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">?search=&amp;visibility=&amp;per_page=</text>
+        <text x="120" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="8">Returns: GitLabProject[]</text>
+        <text x="120" y="68" text-anchor="middle" fill="#00b894" font-family="monospace" font-size="7">List all projects</text>
+      </g>
+
+      <g transform="translate(280, 40)">
+        <rect x="0" y="0" width="240" height="75" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="120" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /projects/{id}</text>
+        <text x="120" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">project_id: int</text>
+        <text x="120" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="8">Returns: GitLabProject</text>
+        <text x="120" y="68" text-anchor="middle" fill="#00b894" font-family="monospace" font-size="7">Get specific project</text>
+      </g>
+
+      <g transform="translate(540, 40)">
+        <rect x="0" y="0" width="240" height="75" rx="8" fill="rgba(0,184,148,0.3)"/>
+        <text x="120" y="20" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="10" font-weight="bold">POST /projects</text>
+        <text x="120" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">name, description, visibility</text>
+        <text x="120" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="8">Returns: GitLabProject</text>
+        <text x="120" y="68" text-anchor="middle" fill="#00b894" font-family="monospace" font-size="7">Create new project</text>
+      </g>
+
+      <g transform="translate(800, 40)">
+        <rect x="0" y="0" width="240" height="75" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="120" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /projects/{id}/branches</text>
+        <text x="120" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">project_id: int</text>
+        <text x="120" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="8">Returns: Branch[]</text>
+        <text x="120" y="68" text-anchor="middle" fill="#00b894" font-family="monospace" font-size="7">List branches</text>
+      </g>
+
+      <g transform="translate(1060, 40)">
+        <rect x="0" y="0" width="220" height="75" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="110" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /.../commits</text>
+        <text x="110" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">ref=main, per_page=20</text>
+        <text x="110" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="8">Returns: Commit[]</text>
+        <text x="110" y="68" text-anchor="middle" fill="#00b894" font-family="monospace" font-size="7">List commits</text>
+      </g>
+    </g>
+
+    <!-- Pipelines Row -->
+    <g filter="url(#shadow)" transform="translate(0, 175)">
+      <rect x="0" y="0" width="1300" height="130" rx="15" fill="#1a1a2e"/>
+      <text x="650" y="25" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Pipeline Operations</text>
+
+      <g transform="translate(20, 40)">
+        <rect x="0" y="0" width="200" height="75" rx="8" fill="rgba(225,112,85,0.3)"/>
+        <text x="100" y="20" text-anchor="middle" fill="#fab1a0" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /.../pipelines</text>
+        <text x="100" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">?status=&amp;ref=</text>
+        <text x="100" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="8">GitLabPipeline[]</text>
+        <text x="100" y="68" text-anchor="middle" fill="#00b894" font-family="monospace" font-size="7">List pipelines</text>
+      </g>
+
+      <g transform="translate(240, 40)">
+        <rect x="0" y="0" width="200" height="75" rx="8" fill="rgba(0,184,148,0.3)"/>
+        <text x="100" y="20" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="10" font-weight="bold">POST /.../pipelines</text>
+        <text x="100" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">ref, variables</text>
+        <text x="100" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="8">GitLabPipeline</text>
+        <text x="100" y="68" text-anchor="middle" fill="#00b894" font-family="monospace" font-size="7">Trigger pipeline</text>
+      </g>
+
+      <g transform="translate(460, 40)">
+        <rect x="0" y="0" width="200" height="75" rx="8" fill="rgba(214,48,49,0.3)"/>
+        <text x="100" y="20" text-anchor="middle" fill="#ff7675" font-family="Arial, sans-serif" font-size="10" font-weight="bold">POST /.../cancel</text>
+        <text x="100" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">pipeline_id</text>
+        <text x="100" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="8">GitLabPipeline</text>
+        <text x="100" y="68" text-anchor="middle" fill="#d63031" font-family="monospace" font-size="7">Cancel running</text>
+      </g>
+
+      <g transform="translate(680, 40)">
+        <rect x="0" y="0" width="200" height="75" rx="8" fill="rgba(253,203,110,0.3)"/>
+        <text x="100" y="20" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="10" font-weight="bold">POST /.../retry</text>
+        <text x="100" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">pipeline_id</text>
+        <text x="100" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="8">GitLabPipeline</text>
+        <text x="100" y="68" text-anchor="middle" fill="#fdcb6e" font-family="monospace" font-size="7">Retry failed</text>
+      </g>
+
+      <g transform="translate(900, 40)">
+        <rect x="0" y="0" width="180" height="75" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="90" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /.../jobs</text>
+        <text x="90" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">pipeline_id</text>
+        <text x="90" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="8">GitLabJob[]</text>
+        <text x="90" y="68" text-anchor="middle" fill="#00b894" font-family="monospace" font-size="7">List jobs</text>
+      </g>
+
+      <g transform="translate(1100, 40)">
+        <rect x="0" y="0" width="180" height="75" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="90" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /.../log</text>
+        <text x="90" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">job_id</text>
+        <text x="90" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="8">{log: string}</text>
+        <text x="90" y="68" text-anchor="middle" fill="#00b894" font-family="monospace" font-size="7">Job output</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Integration with OpenWebUI Tools -->
+  <g transform="translate(50, 640)">
+    <text x="0" y="0" fill="#00b894" font-family="Arial, sans-serif" font-size="16" font-weight="bold">OpenWebUI Tool Integration</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="630" height="140" rx="15" fill="#2d3436"/>
+      <text x="315" y="30" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="14" font-weight="bold">gitlab_commit_deploy Tool</text>
+
+      <rect x="15" y="45" width="600" height="80" rx="10" fill="rgba(0,0,0,0.3)"/>
+      <text x="30" y="70" fill="#e0e0e0" font-family="monospace" font-size="9">commit_and_deploy(project_name, dockerfile_content, gitlab_ci_content)</text>
+      <text x="30" y="90" fill="#888" font-family="Arial, sans-serif" font-size="9">Creates/updates files → Commits → Triggers pipeline → Returns status</text>
+      <text x="30" y="115" fill="#00b894" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Flow:</text>
+      <text x="70" y="115" fill="#888" font-family="monospace" font-size="8">User Chat → LLM → Tool → GitLab API → Pipeline Running</text>
+    </g>
+
+    <g filter="url(#shadow)" transform="translate(660, 25)">
+      <rect x="0" y="0" width="630" height="140" rx="15" fill="#2d3436"/>
+      <text x="315" y="30" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="14" font-weight="bold">gitlab_pipeline_generator Tool</text>
+
+      <rect x="15" y="45" width="600" height="80" rx="10" fill="rgba(0,0,0,0.3)"/>
+      <text x="30" y="70" fill="#e0e0e0" font-family="monospace" font-size="9">get_pipeline_template(technology, stages)</text>
+      <text x="30" y="90" fill="#888" font-family="Arial, sans-serif" font-size="9">Queries Nexus → Finds images → Generates 8-stage .gitlab-ci.yml</text>
+      <text x="30" y="115" fill="#00b894" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Output:</text>
+      <text x="80" y="115" fill="#888" font-family="monospace" font-size="8">Complete YAML with Nexus images (localhost:5001/*)</text>
+    </g>
+  </g>
+
+  <!-- Data Flow Diagram -->
+  <g transform="translate(50, 810)">
+    <text x="0" y="0" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Complete Integration Flow</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="80" rx="15" fill="#1a1a2e"/>
+
+      <!-- Flow steps -->
+      <g transform="translate(30, 20)">
+        <rect x="0" y="0" width="140" height="45" rx="8" fill="#6c5ce7"/>
+        <text x="70" y="18" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9" font-weight="bold">OpenWebUI</text>
+        <text x="70" y="35" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="7">User Request</text>
+      </g>
+      <text x="185" y="45" fill="#ffd93d" font-family="Arial, sans-serif" font-size="16">→</text>
+
+      <g transform="translate(210, 20)">
+        <rect x="0" y="0" width="140" height="45" rx="8" fill="#00b894"/>
+        <text x="70" y="18" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Ollama LLM</text>
+        <text x="70" y="35" text-anchor="middle" fill="#006060" font-family="monospace" font-size="7">Tool Selection</text>
+      </g>
+      <text x="365" y="45" fill="#ffd93d" font-family="Arial, sans-serif" font-size="16">→</text>
+
+      <g transform="translate(390, 20)">
+        <rect x="0" y="0" width="160" height="45" rx="8" fill="#e17055"/>
+        <text x="80" y="18" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Pipeline Tool</text>
+        <text x="80" y="35" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="7">Generate YAML</text>
+      </g>
+      <text x="565" y="45" fill="#ffd93d" font-family="Arial, sans-serif" font-size="16">→</text>
+
+      <g transform="translate(590, 20)">
+        <rect x="0" y="0" width="160" height="45" rx="8" fill="#9b59b6"/>
+        <text x="80" y="18" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Commit Tool</text>
+        <text x="80" y="35" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="7">Push to GitLab</text>
+      </g>
+      <text x="765" y="45" fill="#ffd93d" font-family="Arial, sans-serif" font-size="16">→</text>
+
+      <g transform="translate(790, 20)">
+        <rect x="0" y="0" width="160" height="45" rx="8" fill="url(#gitlabGrad)"/>
+        <text x="80" y="18" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9" font-weight="bold">GitLab CE</text>
+        <text x="80" y="35" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="7">CI/CD Pipeline</text>
+      </g>
+      <text x="965" y="45" fill="#ffd93d" font-family="Arial, sans-serif" font-size="16">→</text>
+
+      <g transform="translate(990, 20)">
+        <rect x="0" y="0" width="140" height="45" rx="8" fill="#0984e3"/>
+        <text x="70" y="18" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9" font-weight="bold">GitLab Runner</text>
+        <text x="70" y="35" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="7">Execute Jobs</text>
+      </g>
+      <text x="1145" y="45" fill="#ffd93d" font-family="Arial, sans-serif" font-size="16">→</text>
+
+      <g transform="translate(1170, 20)">
+        <rect x="0" y="0" width="110" height="45" rx="8" fill="#2d3436" stroke="#00b894" stroke-width="2"/>
+        <text x="55" y="18" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Deploy</text>
+        <text x="55" y="35" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">Nexus Push</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="930" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | GitLab Integration | Projects, Pipelines, Jobs &amp; CI/CD Automation</text>
+</svg>

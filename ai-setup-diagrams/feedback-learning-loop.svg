@@ -1,0 +1,288 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="feedbackGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#55efc4"/>
+    </linearGradient>
+    <linearGradient id="errorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e17055"/>
+      <stop offset="100%" style="stop-color:#fab1a0"/>
+    </linearGradient>
+    <linearGradient id="learnGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c5ce7"/>
+      <stop offset="100%" style="stop-color:#a29bfe"/>
+    </linearGradient>
+    <linearGradient id="chromaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fd79a8"/>
+      <stop offset="100%" style="stop-color:#e84393"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00b894"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e17055"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c5ce7"/>
+    </marker>
+    <marker id="arrowPink" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fd79a8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Feedback &amp; Learning Loop</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">Continuous Improvement System</text>
+
+  <!-- Central Loop Visualization -->
+  <g transform="translate(700, 400)">
+    <!-- Outer circle -->
+    <circle cx="0" cy="0" r="280" fill="none" stroke="#4a90d9" stroke-width="1" stroke-dasharray="10,5" opacity="0.3"/>
+
+    <!-- Loop arrows -->
+    <path d="M -200 -150 A 250 250 0 0 1 200 -150" fill="none" stroke="#00b894" stroke-width="3" marker-end="url(#arrowGreen)"/>
+    <path d="M 200 150 A 250 250 0 0 1 -200 150" fill="none" stroke="#fd79a8" stroke-width="3" marker-end="url(#arrowPink)"/>
+  </g>
+
+  <!-- Step 1: Pipeline Execution (Top) -->
+  <g filter="url(#shadow)" transform="translate(550, 90)">
+    <rect x="0" y="0" width="300" height="130" rx="15" fill="#1a1a2e" stroke="#e17055" stroke-width="2"/>
+    <circle cx="150" cy="25" r="18" fill="#e17055"/>
+    <text x="150" y="31" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">1</text>
+    <text x="150" y="55" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Pipeline Execution</text>
+    <text x="150" y="75" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="10">GitLab CI/CD Runner</text>
+
+    <rect x="20" y="85" width="260" height="30" rx="5" fill="#2d3436"/>
+    <text x="150" y="105" text-anchor="middle" fill="#fab1a0" font-family="monospace" font-size="9">8 stages: compile → build → ... → notify</text>
+  </g>
+
+  <!-- Step 2: Error Detection (Right) -->
+  <g filter="url(#shadow)" transform="translate(950, 280)">
+    <rect x="0" y="0" width="280" height="180" rx="15" fill="url(#errorGrad)"/>
+    <circle cx="140" cy="25" r="18" fill="#fff"/>
+    <text x="140" y="31" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="14" font-weight="bold">2</text>
+    <text x="140" y="55" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Error Detection</text>
+    <text x="140" y="75" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="10">Failed Stage Analysis</text>
+
+    <rect x="15" y="90" width="250" height="75" rx="8" fill="rgba(0,0,0,0.2)"/>
+    <text x="25" y="110" fill="#1a1a2e" font-family="monospace" font-size="9">Captured Data:</text>
+    <text x="25" y="127" fill="#fff" font-family="monospace" font-size="9">• Error message</text>
+    <text x="25" y="142" fill="#fff" font-family="monospace" font-size="9">• Exit code</text>
+    <text x="25" y="157" fill="#fff" font-family="monospace" font-size="9">• Stage/tool context</text>
+  </g>
+
+  <!-- Arrow 1-2 -->
+  <path d="M 850 155 L 950 280" stroke="#e17055" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+  <!-- Step 3: LLM Analysis (Right-Bottom) -->
+  <g filter="url(#shadow)" transform="translate(950, 500)">
+    <rect x="0" y="0" width="280" height="180" rx="15" fill="url(#learnGrad)"/>
+    <circle cx="140" cy="25" r="18" fill="#fff"/>
+    <text x="140" y="31" text-anchor="middle" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="14" font-weight="bold">3</text>
+    <text x="140" y="55" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">LLM Analysis</text>
+    <text x="140" y="75" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">Ollama (qwen2.5-coder:32b)</text>
+
+    <rect x="15" y="90" width="250" height="75" rx="8" fill="rgba(0,0,0,0.3)"/>
+    <text x="25" y="110" fill="#fff" font-family="monospace" font-size="9">Analysis:</text>
+    <text x="25" y="127" fill="#e0e0e0" font-family="monospace" font-size="9">• Root cause identification</text>
+    <text x="25" y="142" fill="#e0e0e0" font-family="monospace" font-size="9">• Fix suggestion generation</text>
+    <text x="25" y="157" fill="#e0e0e0" font-family="monospace" font-size="9">• Pattern matching</text>
+  </g>
+
+  <!-- Arrow 2-3 -->
+  <path d="M 1090 460 L 1090 500" stroke="#6c5ce7" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+  <!-- Step 4: ChromaDB Storage (Bottom) -->
+  <g filter="url(#shadow)" transform="translate(550, 700)">
+    <rect x="0" y="0" width="300" height="150" rx="15" fill="url(#chromaGrad)"/>
+    <circle cx="150" cy="25" r="18" fill="#fff"/>
+    <text x="150" y="31" text-anchor="middle" fill="#fd79a8" font-family="Arial, sans-serif" font-size="14" font-weight="bold">4</text>
+    <text x="150" y="55" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">ChromaDB Storage</text>
+    <text x="150" y="75" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">Vector Embedding + Metadata</text>
+
+    <rect x="15" y="90" width="270" height="45" rx="8" fill="rgba(0,0,0,0.3)"/>
+    <text x="25" y="110" fill="#fff" font-family="monospace" font-size="9">Collections:</text>
+    <text x="25" y="127" fill="#e0e0e0" font-family="monospace" font-size="9">error_patterns, fix_solutions, golden_rules</text>
+  </g>
+
+  <!-- Arrow 3-4 -->
+  <path d="M 950 590 L 850 700" stroke="#fd79a8" stroke-width="2" marker-end="url(#arrowPink)"/>
+
+  <!-- Step 5: Fix Pipeline Tool (Left-Bottom) -->
+  <g filter="url(#shadow)" transform="translate(170, 500)">
+    <rect x="0" y="0" width="280" height="180" rx="15" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <circle cx="140" cy="25" r="18" fill="#00b894"/>
+    <text x="140" y="31" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">5</text>
+    <text x="140" y="55" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Fix Pipeline Tool</text>
+    <text x="140" y="75" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="10">fix_pipeline_tool.py</text>
+
+    <rect x="15" y="90" width="250" height="75" rx="8" fill="#2d3436"/>
+    <text x="25" y="110" fill="#55efc4" font-family="monospace" font-size="9">Actions:</text>
+    <text x="25" y="127" fill="#e0e0e0" font-family="monospace" font-size="9">• Query similar errors</text>
+    <text x="25" y="142" fill="#e0e0e0" font-family="monospace" font-size="9">• Retrieve proven fixes</text>
+    <text x="25" y="157" fill="#e0e0e0" font-family="monospace" font-size="9">• Generate corrected YAML</text>
+  </g>
+
+  <!-- Arrow 4-5 -->
+  <path d="M 550 775 L 450 680" stroke="#00b894" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- Step 6: Updated Pipeline (Left) -->
+  <g filter="url(#shadow)" transform="translate(170, 280)">
+    <rect x="0" y="0" width="280" height="180" rx="15" fill="url(#feedbackGrad)"/>
+    <circle cx="140" cy="25" r="18" fill="#fff"/>
+    <text x="140" y="31" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="14" font-weight="bold">6</text>
+    <text x="140" y="55" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Updated Pipeline</text>
+    <text x="140" y="75" text-anchor="middle" fill="#006060" font-family="Arial, sans-serif" font-size="10">Commit &amp; Re-run</text>
+
+    <rect x="15" y="90" width="250" height="75" rx="8" fill="rgba(0,0,0,0.2)"/>
+    <text x="25" y="110" fill="#1a1a2e" font-family="monospace" font-size="9">Applied Fix:</text>
+    <text x="25" y="127" fill="#006060" font-family="monospace" font-size="9">• Updated .gitlab-ci.yml</text>
+    <text x="25" y="142" fill="#006060" font-family="monospace" font-size="9">• New commit pushed</text>
+    <text x="25" y="157" fill="#006060" font-family="monospace" font-size="9">• Pipeline re-triggered</text>
+  </g>
+
+  <!-- Arrow 5-6 -->
+  <path d="M 310 500 L 310 460" stroke="#00b894" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- Arrow 6-1 (Loop back) -->
+  <path d="M 310 280 L 310 200 L 550 155" stroke="#00b894" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- Feedback Sources (Left Side) -->
+  <g filter="url(#shadow)" transform="translate(30, 90)">
+    <rect x="0" y="0" width="200" height="280" rx="15" fill="#1a1a2e" stroke="#ffd93d" stroke-width="2"/>
+    <text x="100" y="25" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="13" font-weight="bold">📥 Feedback Sources</text>
+
+    <rect x="15" y="40" width="170" height="50" rx="8" fill="#2d3436"/>
+    <text x="100" y="60" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Pipeline Failures</text>
+    <text x="100" y="78" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">~80% of feedback</text>
+
+    <rect x="15" y="100" width="170" height="50" rx="8" fill="#2d3436"/>
+    <text x="100" y="120" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Tool Errors</text>
+    <text x="100" y="138" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Maven, Kaniko, Trivy...</text>
+
+    <rect x="15" y="160" width="170" height="50" rx="8" fill="#2d3436"/>
+    <text x="100" y="180" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Manual Corrections</text>
+    <text x="100" y="198" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">User-provided fixes</text>
+
+    <rect x="15" y="220" width="170" height="50" rx="8" fill="#2d3436"/>
+    <text x="100" y="240" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Quality Gate Failures</text>
+    <text x="100" y="258" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">SonarQube, Trivy</text>
+  </g>
+
+  <!-- Learning Outcomes (Right Side) -->
+  <g filter="url(#shadow)" transform="translate(1170, 90)">
+    <rect x="0" y="0" width="200" height="280" rx="15" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="2"/>
+    <text x="100" y="25" text-anchor="middle" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="13" font-weight="bold">📤 Learning Outcomes</text>
+
+    <rect x="15" y="40" width="170" height="50" rx="8" fill="#2d3436"/>
+    <text x="100" y="60" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Error Patterns</text>
+    <text x="100" y="78" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Embedded in ChromaDB</text>
+
+    <rect x="15" y="100" width="170" height="50" rx="8" fill="#2d3436"/>
+    <text x="100" y="120" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Fix Templates</text>
+    <text x="100" y="138" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Proven solutions</text>
+
+    <rect x="15" y="160" width="170" height="50" rx="8" fill="#2d3436"/>
+    <text x="100" y="180" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Golden Rules</text>
+    <text x="100" y="198" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Best practices updated</text>
+
+    <rect x="15" y="220" width="170" height="50" rx="8" fill="#2d3436"/>
+    <text x="100" y="240" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Model Context</text>
+    <text x="100" y="258" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Enhanced prompts</text>
+  </g>
+
+  <!-- Error Categories -->
+  <g filter="url(#shadow)" transform="translate(30, 400)">
+    <rect x="0" y="0" width="120" height="230" rx="10" fill="#1a1a2e" stroke="#e17055" stroke-width="1"/>
+    <text x="60" y="25" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Error Types</text>
+
+    <text x="15" y="50" fill="#fab1a0" font-family="monospace" font-size="8">Maven:</text>
+    <text x="15" y="65" fill="#888" font-family="monospace" font-size="7">• Compile errors</text>
+    <text x="15" y="78" fill="#888" font-family="monospace" font-size="7">• Dep resolution</text>
+
+    <text x="15" y="100" fill="#fab1a0" font-family="monospace" font-size="8">Kaniko:</text>
+    <text x="15" y="115" fill="#888" font-family="monospace" font-size="7">• Build failures</text>
+    <text x="15" y="128" fill="#888" font-family="monospace" font-size="7">• Registry auth</text>
+
+    <text x="15" y="150" fill="#fab1a0" font-family="monospace" font-size="8">SonarQube:</text>
+    <text x="15" y="165" fill="#888" font-family="monospace" font-size="7">• Quality gates</text>
+    <text x="15" y="178" fill="#888" font-family="monospace" font-size="7">• Coverage fail</text>
+
+    <text x="15" y="200" fill="#fab1a0" font-family="monospace" font-size="8">Trivy:</text>
+    <text x="15" y="215" fill="#888" font-family="monospace" font-size="7">• CVE thresholds</text>
+    <text x="15" y="228" fill="#888" font-family="monospace" font-size="7">• Config issues</text>
+  </g>
+
+  <!-- ChromaDB Collections Detail -->
+  <g filter="url(#shadow)" transform="translate(1250, 400)">
+    <rect x="0" y="0" width="120" height="230" rx="10" fill="#1a1a2e" stroke="#fd79a8" stroke-width="1"/>
+    <text x="60" y="25" text-anchor="middle" fill="#fd79a8" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Collections</text>
+
+    <text x="15" y="50" fill="#fd79a8" font-family="monospace" font-size="8">error_patterns</text>
+    <text x="15" y="65" fill="#888" font-family="monospace" font-size="7">• Error text</text>
+    <text x="15" y="78" fill="#888" font-family="monospace" font-size="7">• Tool context</text>
+
+    <text x="15" y="100" fill="#fd79a8" font-family="monospace" font-size="8">fix_solutions</text>
+    <text x="15" y="115" fill="#888" font-family="monospace" font-size="7">• Fix steps</text>
+    <text x="15" y="128" fill="#888" font-family="monospace" font-size="7">• YAML patches</text>
+
+    <text x="15" y="150" fill="#fd79a8" font-family="monospace" font-size="8">golden_rules</text>
+    <text x="15" y="165" fill="#888" font-family="monospace" font-size="7">• Best practices</text>
+    <text x="15" y="178" fill="#888" font-family="monospace" font-size="7">• Constraints</text>
+
+    <text x="15" y="200" fill="#fd79a8" font-family="monospace" font-size="8">tool_configs</text>
+    <text x="15" y="215" fill="#888" font-family="monospace" font-size="7">• Stage templates</text>
+    <text x="15" y="228" fill="#888" font-family="monospace" font-size="7">• Image mappings</text>
+  </g>
+
+  <!-- Improvement Metrics -->
+  <g filter="url(#shadow)" transform="translate(30, 660)">
+    <rect x="0" y="0" width="500" height="120" rx="10" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <text x="20" y="25" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">📈 Continuous Improvement Metrics</text>
+
+    <text x="20" y="50" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">• First-attempt success rate improvement</text>
+    <text x="20" y="68" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">• Average fix cycles per pipeline</text>
+    <text x="20" y="86" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">• Error pattern coverage in ChromaDB</text>
+    <text x="20" y="104" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">• Time-to-fix reduction</text>
+
+    <text x="280" y="50" fill="#55efc4" font-family="monospace" font-size="10">Target: >90%</text>
+    <text x="280" y="68" fill="#55efc4" font-family="monospace" font-size="10">Target: <2</text>
+    <text x="280" y="86" fill="#55efc4" font-family="monospace" font-size="10">Growing over time</text>
+    <text x="280" y="104" fill="#55efc4" font-family="monospace" font-size="10">Target: -50%</text>
+  </g>
+
+  <!-- RL Integration Note -->
+  <g filter="url(#shadow)" transform="translate(560, 660)">
+    <rect x="0" y="0" width="500" height="120" rx="10" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="2"/>
+    <text x="20" y="25" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="12" font-weight="bold">🔄 Reinforcement Learning Integration</text>
+
+    <rect x="15" y="40" width="470" height="65" rx="8" fill="#2d3436"/>
+    <text x="25" y="60" fill="#a29bfe" font-family="monospace" font-size="9">Feedback Loop Type: Implicit RL through success/failure signals</text>
+    <text x="25" y="78" fill="#e0e0e0" font-family="monospace" font-size="9">• Success → Pattern reinforced in ChromaDB (higher similarity weight)</text>
+    <text x="25" y="96" fill="#e0e0e0" font-family="monospace" font-size="9">• Failure → New pattern captured, fix attempts logged for learning</text>
+  </g>
+
+  <!-- Data Flow Summary -->
+  <g filter="url(#shadow)" transform="translate(1090, 660)">
+    <rect x="0" y="0" width="280" height="120" rx="10" fill="#2d3436"/>
+    <text x="20" y="25" fill="#ffd93d" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Loop Summary</text>
+    <text x="20" y="50" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">1. Pipeline runs & fails</text>
+    <text x="20" y="68" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">2. Error captured & analyzed</text>
+    <text x="20" y="86" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">3. Fix generated from learned patterns</text>
+    <text x="20" y="104" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">4. Knowledge stored → Loop continues</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="880" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Feedback Learning Loop | Continuous Pipeline Improvement</text>
+</svg>

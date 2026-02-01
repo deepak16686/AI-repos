@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 850">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="fixGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0984e3"/>
+      <stop offset="100%" style="stop-color:#74b9ff"/>
+    </linearGradient>
+    <linearGradient id="errorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d63031"/>
+      <stop offset="100%" style="stop-color:#ff7675"/>
+    </linearGradient>
+    <linearGradient id="successGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#55efc4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffd93d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="850" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Fix Pipeline Tool - Auto-Remediation Architecture</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">fix_pipeline_tool</text>
+
+  <!-- Tool Overview -->
+  <g filter="url(#shadow)" transform="translate(50, 80)">
+    <rect x="0" y="0" width="600" height="130" rx="15" fill="#2d3436" stroke="#0984e3" stroke-width="2"/>
+    <text x="300" y="30" text-anchor="middle" fill="#0984e3" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Tool Purpose</text>
+
+    <text x="20" y="55" fill="#ffd93d" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Automatic Pipeline Error Detection &amp; Fix</text>
+    <text x="20" y="80" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">Analyzes failed GitLab CI pipelines, identifies root causes,</text>
+    <text x="20" y="95" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">and generates corrected .gitlab-ci.yml with proper images</text>
+    <text x="20" y="115" fill="#888" font-family="Arial, sans-serif" font-size="10">from the private Nexus registry (localhost:5001)</text>
+  </g>
+
+  <!-- Configuration -->
+  <g filter="url(#shadow)" transform="translate(680, 80)">
+    <rect x="0" y="0" width="670" height="130" rx="15" fill="#1a1a2e" stroke="#e17055" stroke-width="2"/>
+    <text x="335" y="30" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Configuration &amp; Dependencies</text>
+
+    <text x="20" y="60" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">REGISTRY:</text>
+    <text x="95" y="60" fill="#e0e0e0" font-family="monospace" font-size="10">http://ai-nexus:5001</text>
+    <text x="280" y="60" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">PULL_REGISTRY:</text>
+    <text x="390" y="60" fill="#e0e0e0" font-family="monospace" font-size="10">localhost:5001</text>
+
+    <text x="20" y="85" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Auth:</text>
+    <text x="55" y="85" fill="#e0e0e0" font-family="monospace" font-size="10">NEXUS_USER / NEXUS_PASS</text>
+
+    <text x="20" y="115" fill="#888" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Uses:</text>
+    <text x="55" y="115" fill="#888" font-family="monospace" font-size="9">Nexus Registry API, GitLab API, YAML Parser, IMAGE_MAP dictionary</text>
+  </g>
+
+  <!-- Error Detection Section -->
+  <g transform="translate(50, 230)">
+    <text x="0" y="0" fill="#d63031" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Common Pipeline Errors Detected</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="150" rx="15" fill="#1a1a2e"/>
+
+      <!-- Error Type 1 -->
+      <g transform="translate(20, 20)">
+        <rect x="0" y="0" width="300" height="110" rx="10" fill="url(#errorGrad)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Image Pull Errors</text>
+        <rect x="10" y="35" width="280" height="65" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="55" fill="#e0e0e0" font-family="monospace" font-size="8">ERROR: manifest unknown</text>
+        <text x="20" y="70" fill="#e0e0e0" font-family="monospace" font-size="8">ERROR: pull access denied</text>
+        <text x="20" y="85" fill="#e0e0e0" font-family="monospace" font-size="8">ERROR: image not found</text>
+      </g>
+
+      <!-- Error Type 2 -->
+      <g transform="translate(340, 20)">
+        <rect x="0" y="0" width="300" height="110" rx="10" fill="#e17055"/>
+        <text x="150" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">YAML Syntax Errors</text>
+        <rect x="10" y="35" width="280" height="65" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="55" fill="#e0e0e0" font-family="monospace" font-size="8">ERROR: invalid YAML syntax</text>
+        <text x="20" y="70" fill="#e0e0e0" font-family="monospace" font-size="8">ERROR: unexpected indent</text>
+        <text x="20" y="85" fill="#e0e0e0" font-family="monospace" font-size="8">ERROR: mapping values not allowed</text>
+      </g>
+
+      <!-- Error Type 3 -->
+      <g transform="translate(660, 20)">
+        <rect x="0" y="0" width="300" height="110" rx="10" fill="#9b59b6"/>
+        <text x="150" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Registry Auth Errors</text>
+        <rect x="10" y="35" width="280" height="65" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="55" fill="#e0e0e0" font-family="monospace" font-size="8">ERROR: unauthorized</text>
+        <text x="20" y="70" fill="#e0e0e0" font-family="monospace" font-size="8">ERROR: authentication required</text>
+        <text x="20" y="85" fill="#e0e0e0" font-family="monospace" font-size="8">ERROR: invalid credentials</text>
+      </g>
+
+      <!-- Error Type 4 -->
+      <g transform="translate(980, 20)">
+        <rect x="0" y="0" width="300" height="110" rx="10" fill="#00cec9"/>
+        <text x="150" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Stage Configuration</text>
+        <rect x="10" y="35" width="280" height="65" rx="6" fill="rgba(0,0,0,0.2)"/>
+        <text x="20" y="55" fill="#006060" font-family="monospace" font-size="8">ERROR: unknown stage</text>
+        <text x="20" y="70" fill="#006060" font-family="monospace" font-size="8">ERROR: missing dependencies</text>
+        <text x="20" y="85" fill="#006060" font-family="monospace" font-size="8">ERROR: artifacts not found</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Fix Workflow -->
+  <g transform="translate(50, 430)">
+    <text x="0" y="0" fill="#00b894" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Auto-Fix Workflow</text>
+
+    <!-- Step 1: Analyze -->
+    <g filter="url(#shadow)" transform="translate(0, 30)">
+      <rect x="0" y="0" width="250" height="130" rx="12" fill="#2d3436"/>
+      <rect x="0" y="0" width="250" height="35" rx="12" fill="url(#fixGrad)"/>
+      <text x="125" y="23" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">1. Analyze Pipeline YAML</text>
+
+      <text x="15" y="55" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Actions:</text>
+      <text x="25" y="73" fill="#e0e0e0" font-family="monospace" font-size="8">Parse .gitlab-ci.yml</text>
+      <text x="25" y="88" fill="#e0e0e0" font-family="monospace" font-size="8">Extract image references</text>
+      <text x="25" y="103" fill="#e0e0e0" font-family="monospace" font-size="8">Identify technology type</text>
+      <text x="25" y="118" fill="#e0e0e0" font-family="monospace" font-size="8">Detect stage configuration</text>
+    </g>
+
+    <line x1="250" y1="95" x2="290" y2="95" stroke="#ffd93d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <!-- Step 2: Query Nexus -->
+    <g filter="url(#shadow)" transform="translate(300, 30)">
+      <rect x="0" y="0" width="250" height="130" rx="12" fill="#2d3436"/>
+      <rect x="0" y="0" width="250" height="35" rx="12" fill="#e17055"/>
+      <text x="125" y="23" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">2. Query Nexus Registry</text>
+
+      <text x="15" y="55" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">API Calls:</text>
+      <text x="25" y="73" fill="#e0e0e0" font-family="monospace" font-size="8">GET /v2/_catalog</text>
+      <text x="25" y="88" fill="#e0e0e0" font-family="monospace" font-size="8">Filter by IMAGE_MAP keyword</text>
+      <text x="25" y="103" fill="#e0e0e0" font-family="monospace" font-size="8">GET /v2/{repo}/tags/list</text>
+      <text x="25" y="118" fill="#e0e0e0" font-family="monospace" font-size="8">Select latest stable tag</text>
+    </g>
+
+    <line x1="550" y1="95" x2="590" y2="95" stroke="#ffd93d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <!-- Step 3: Generate Fix -->
+    <g filter="url(#shadow)" transform="translate(600, 30)">
+      <rect x="0" y="0" width="250" height="130" rx="12" fill="#2d3436"/>
+      <rect x="0" y="0" width="250" height="35" rx="12" fill="#9b59b6"/>
+      <text x="125" y="23" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">3. Generate Fixed YAML</text>
+
+      <text x="15" y="55" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Replacements:</text>
+      <text x="25" y="73" fill="#e0e0e0" font-family="monospace" font-size="8">docker.io/* → localhost:5001/*</text>
+      <text x="25" y="88" fill="#e0e0e0" font-family="monospace" font-size="8">maven:* → ${NEXUS}/maven:tag</text>
+      <text x="25" y="103" fill="#e0e0e0" font-family="monospace" font-size="8">kaniko → ${NEXUS}/kaniko:tag</text>
+      <text x="25" y="118" fill="#e0e0e0" font-family="monospace" font-size="8">trivy → ${NEXUS}/trivy:tag</text>
+    </g>
+
+    <line x1="850" y1="95" x2="890" y2="95" stroke="#ffd93d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <!-- Step 4: Output -->
+    <g filter="url(#shadow)" transform="translate(900, 30)">
+      <rect x="0" y="0" width="250" height="130" rx="12" fill="url(#successGrad)"/>
+      <text x="125" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">4. Return Fixed Pipeline</text>
+
+      <rect x="15" y="40" width="220" height="80" rx="6" fill="rgba(0,0,0,0.2)"/>
+      <text x="25" y="58" fill="#1a1a2e" font-family="monospace" font-size="8">Complete .gitlab-ci.yml</text>
+      <text x="25" y="73" fill="#006060" font-family="monospace" font-size="8">All images from localhost:5001</text>
+      <text x="25" y="88" fill="#006060" font-family="monospace" font-size="8">Proper stage definitions</text>
+      <text x="25" y="103" fill="#006060" font-family="monospace" font-size="8">Correct variable references</text>
+    </g>
+  </g>
+
+  <!-- IMAGE_MAP Dictionary -->
+  <g transform="translate(50, 600)">
+    <text x="0" y="0" fill="#ffd93d" font-family="Arial, sans-serif" font-size="16" font-weight="bold">IMAGE_MAP - Technology to Image Mapping</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="180" rx="15" fill="#1a1a2e"/>
+
+      <!-- Code block -->
+      <rect x="20" y="15" width="600" height="150" rx="10" fill="rgba(0,0,0,0.3)"/>
+      <text x="35" y="40" fill="#ffd93d" font-family="monospace" font-size="10">IMAGE_MAP = {</text>
+      <text x="50" y="60" fill="#e0e0e0" font-family="monospace" font-size="9">"java": "maven",</text>
+      <text x="50" y="78" fill="#e0e0e0" font-family="monospace" font-size="9">"python": "python",</text>
+      <text x="50" y="96" fill="#e0e0e0" font-family="monospace" font-size="9">"node": "node",</text>
+      <text x="50" y="114" fill="#e0e0e0" font-family="monospace" font-size="9">"golang": "golang",</text>
+      <text x="250" y="60" fill="#e0e0e0" font-family="monospace" font-size="9">"php": "php",</text>
+      <text x="250" y="78" fill="#e0e0e0" font-family="monospace" font-size="9">"dotnet": "dotnet",</text>
+      <text x="250" y="96" fill="#e0e0e0" font-family="monospace" font-size="9">"rust": "rust"</text>
+      <text x="35" y="145" fill="#ffd93d" font-family="monospace" font-size="10">}</text>
+
+      <!-- Special Images -->
+      <rect x="650" y="15" width="630" height="150" rx="10" fill="rgba(0,0,0,0.3)"/>
+      <text x="665" y="40" fill="#00b894" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Special Images Auto-Resolved:</text>
+
+      <text x="680" y="65" fill="#e17055" font-family="monospace" font-size="9">kaniko</text>
+      <text x="760" y="65" fill="#888" font-family="monospace" font-size="9">→ Dockerfile builds (rootless)</text>
+
+      <text x="680" y="85" fill="#e17055" font-family="monospace" font-size="9">alpine-curl</text>
+      <text x="780" y="85" fill="#888" font-family="monospace" font-size="9">→ Registry verification, API calls</text>
+
+      <text x="680" y="105" fill="#e17055" font-family="monospace" font-size="9">trivy</text>
+      <text x="740" y="105" fill="#888" font-family="monospace" font-size="9">→ Security scanning service</text>
+
+      <text x="680" y="135" fill="#81ecec" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Output Format:</text>
+      <text x="680" y="155" fill="#e0e0e0" font-family="monospace" font-size="9">${NEXUS_PULL_REGISTRY}/{repo}:{tag}</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="830" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Fix Pipeline Tool | Auto-Remediation with Nexus Registry</text>
+</svg>

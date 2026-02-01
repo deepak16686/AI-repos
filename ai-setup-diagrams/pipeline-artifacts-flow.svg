@@ -1,0 +1,272 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 850">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="artifactGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#55efc4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffd93d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="850" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Pipeline Artifacts &amp; Cache Flow</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">Data Flow Between Stages</text>
+
+  <!-- Artifacts Section -->
+  <g transform="translate(50, 80)">
+    <text x="0" y="0" fill="#00b894" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Build Artifacts (Passed Between Stages)</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 30)">
+      <rect x="0" y="0" width="1300" height="220" rx="15" fill="#1a1a2e"/>
+
+      <!-- Compile Stage Artifacts -->
+      <g transform="translate(20, 20)">
+        <rect x="0" y="0" width="240" height="180" rx="10" fill="rgba(108,92,231,0.3)"/>
+        <text x="120" y="25" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Compile Stage</text>
+
+        <rect x="10" y="40" width="220" height="130" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="monospace" font-size="9">artifacts:</text>
+        <text x="30" y="78" fill="#e0e0e0" font-family="monospace" font-size="8">paths:</text>
+        <text x="40" y="95" fill="#81ecec" font-family="monospace" font-size="8">- target/app.jar</text>
+        <text x="40" y="112" fill="#81ecec" font-family="monospace" font-size="8">- target/classes/</text>
+        <text x="30" y="130" fill="#e0e0e0" font-family="monospace" font-size="8">expire_in: 1 hour</text>
+        <text x="20" y="155" fill="#888" font-family="Arial, sans-serif" font-size="8">Java: JAR file for Docker build</text>
+      </g>
+
+      <!-- Build Stage Artifacts -->
+      <g transform="translate(280, 20)">
+        <rect x="0" y="0" width="240" height="180" rx="10" fill="rgba(225,112,85,0.3)"/>
+        <text x="120" y="25" text-anchor="middle" fill="#fab1a0" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Build Stage</text>
+
+        <rect x="10" y="40" width="220" height="130" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="monospace" font-size="9">Output (no artifact):</text>
+        <text x="30" y="80" fill="#e0e0e0" font-family="monospace" font-size="8">Docker image pushed to</text>
+        <text x="30" y="97" fill="#81ecec" font-family="monospace" font-size="8">localhost:5001/apm-repo/</text>
+        <text x="35" y="114" fill="#81ecec" font-family="monospace" font-size="8">demo/${IMAGE}:${TAG}</text>
+        <text x="20" y="140" fill="#888" font-family="Arial, sans-serif" font-size="8">Image stored in Nexus</text>
+        <text x="20" y="155" fill="#888" font-family="Arial, sans-serif" font-size="8">Not GitLab artifact</text>
+      </g>
+
+      <!-- Test/Security (no artifacts) -->
+      <g transform="translate(540, 20)">
+        <rect x="0" y="0" width="240" height="180" rx="10" fill="rgba(0,184,148,0.3)"/>
+        <text x="120" y="25" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Test/Security Stages</text>
+
+        <rect x="10" y="40" width="220" height="130" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="monospace" font-size="9">Optional artifacts:</text>
+        <text x="30" y="80" fill="#e0e0e0" font-family="monospace" font-size="8">reports:</text>
+        <text x="40" y="97" fill="#81ecec" font-family="monospace" font-size="8">junit: test-results.xml</text>
+        <text x="40" y="114" fill="#81ecec" font-family="monospace" font-size="8">sast: gl-sast-report.json</text>
+        <text x="20" y="140" fill="#888" font-family="Arial, sans-serif" font-size="8">Test/scan reports for</text>
+        <text x="20" y="155" fill="#888" font-family="Arial, sans-serif" font-size="8">GitLab merge requests</text>
+      </g>
+
+      <!-- SAST Stage Artifacts -->
+      <g transform="translate(800, 20)">
+        <rect x="0" y="0" width="240" height="180" rx="10" fill="rgba(155,89,182,0.3)"/>
+        <text x="120" y="25" text-anchor="middle" fill="#bb8fce" font-family="Arial, sans-serif" font-size="12" font-weight="bold">SAST/Quality Stages</text>
+
+        <rect x="10" y="40" width="220" height="130" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="monospace" font-size="9">Reports sent to:</text>
+        <text x="30" y="80" fill="#e0e0e0" font-family="monospace" font-size="8">SonarQube server</text>
+        <text x="35" y="97" fill="#81ecec" font-family="monospace" font-size="8">http://ai-sonarqube:9000</text>
+        <text x="30" y="120" fill="#e0e0e0" font-family="monospace" font-size="8">SpotBugs XML report</text>
+        <text x="30" y="137" fill="#e0e0e0" font-family="monospace" font-size="8">PMD violations report</text>
+        <text x="20" y="160" fill="#888" font-family="Arial, sans-serif" font-size="8">External storage in SQ</text>
+      </g>
+
+      <!-- Notify Stage -->
+      <g transform="translate(1060, 20)">
+        <rect x="0" y="0" width="220" height="180" rx="10" fill="rgba(0,206,201,0.3)"/>
+        <text x="110" y="25" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Notify Stage</text>
+
+        <rect x="10" y="40" width="200" height="130" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="monospace" font-size="9">Event sent to:</text>
+        <text x="30" y="80" fill="#e0e0e0" font-family="monospace" font-size="8">Splunk HEC</text>
+        <text x="20" y="100" fill="#ffd93d" font-family="monospace" font-size="9">Payload:</text>
+        <text x="30" y="118" fill="#81ecec" font-family="monospace" font-size="8">pipeline_id, status</text>
+        <text x="30" y="135" fill="#81ecec" font-family="monospace" font-size="8">project, branch</text>
+        <text x="30" y="152" fill="#81ecec" font-family="monospace" font-size="8">commit_sha</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Cache Section -->
+  <g transform="translate(50, 350)">
+    <text x="0" y="0" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Build Cache (Persistent Across Pipelines)</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="160" rx="15" fill="#2d3436"/>
+
+      <!-- Java/Maven Cache -->
+      <g transform="translate(20, 20)">
+        <rect x="0" y="0" width="300" height="120" rx="10" fill="rgba(108,92,231,0.2)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Java/Maven Cache</text>
+
+        <rect x="10" y="40" width="280" height="70" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="monospace" font-size="9">cache:</text>
+        <text x="30" y="78" fill="#e0e0e0" font-family="monospace" font-size="8">paths: [.m2/repository]</text>
+        <text x="30" y="96" fill="#888" font-family="monospace" font-size="8">Maven dependencies cached</text>
+      </g>
+
+      <!-- Node Cache -->
+      <g transform="translate(340, 20)">
+        <rect x="0" y="0" width="300" height="120" rx="10" fill="rgba(0,184,148,0.2)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Node.js Cache</text>
+
+        <rect x="10" y="40" width="280" height="70" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="monospace" font-size="9">cache:</text>
+        <text x="30" y="78" fill="#e0e0e0" font-family="monospace" font-size="8">paths: [node_modules/]</text>
+        <text x="30" y="96" fill="#888" font-family="monospace" font-size="8">npm packages cached</text>
+      </g>
+
+      <!-- Go Cache -->
+      <g transform="translate(660, 20)">
+        <rect x="0" y="0" width="300" height="120" rx="10" fill="rgba(0,148,233,0.2)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#0094e9" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Golang Cache</text>
+
+        <rect x="10" y="40" width="280" height="70" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="monospace" font-size="9">cache:</text>
+        <text x="30" y="78" fill="#e0e0e0" font-family="monospace" font-size="8">paths: [/go/pkg/mod/]</text>
+        <text x="30" y="96" fill="#888" font-family="monospace" font-size="8">Go modules cached</text>
+      </g>
+
+      <!-- Rust Cache -->
+      <g transform="translate(980, 20)">
+        <rect x="0" y="0" width="300" height="120" rx="10" fill="rgba(216,67,21,0.2)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#d84315" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Rust Cache</text>
+
+        <rect x="10" y="40" width="280" height="70" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="monospace" font-size="9">cache:</text>
+        <text x="30" y="78" fill="#e0e0e0" font-family="monospace" font-size="8">paths: [target/]</text>
+        <text x="30" y="96" fill="#888" font-family="monospace" font-size="8">Cargo build cache</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Artifact Flow Diagram -->
+  <g transform="translate(50, 550)">
+    <text x="0" y="0" fill="#e17055" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Complete Artifact Flow Visualization</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="220" rx="15" fill="#1a1a2e"/>
+
+      <!-- Flow diagram -->
+      <!-- Source Code -->
+      <g transform="translate(30, 30)">
+        <rect x="0" y="0" width="120" height="60" rx="8" fill="#2d3436" stroke="#ffd93d" stroke-width="2"/>
+        <text x="60" y="25" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Source</text>
+        <text x="60" y="43" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">src/, pom.xml</text>
+      </g>
+      <line x1="150" y1="60" x2="200" y2="60" stroke="#ffd93d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+      <!-- Compile -->
+      <g transform="translate(210, 30)">
+        <rect x="0" y="0" width="120" height="60" rx="8" fill="#6c5ce7"/>
+        <text x="60" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Compile</text>
+        <text x="60" y="43" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">mvn package</text>
+      </g>
+
+      <!-- JAR artifact -->
+      <g transform="translate(210, 100)">
+        <rect x="0" y="0" width="120" height="40" rx="6" fill="url(#artifactGrad)"/>
+        <text x="60" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="9" font-weight="bold">app.jar</text>
+      </g>
+      <line x1="270" y1="90" x2="270" y2="100" stroke="#00b894" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <line x1="330" y1="120" x2="390" y2="120" stroke="#00b894" stroke-width="2"/>
+      <line x1="390" y1="120" x2="390" y2="60" stroke="#00b894" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+      <!-- Build -->
+      <g transform="translate(400, 30)">
+        <rect x="0" y="0" width="120" height="60" rx="8" fill="#e17055"/>
+        <text x="60" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Build</text>
+        <text x="60" y="43" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">Kaniko</text>
+      </g>
+
+      <!-- Docker Image -->
+      <g transform="translate(400, 100)">
+        <rect x="0" y="0" width="120" height="40" rx="6" fill="#1ba5ad"/>
+        <text x="60" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Docker Image</text>
+      </g>
+      <line x1="460" y1="90" x2="460" y2="100" stroke="#1ba5ad" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+      <!-- Nexus -->
+      <g transform="translate(550, 100)">
+        <rect x="0" y="0" width="130" height="40" rx="6" fill="#2d3436" stroke="#1ba5ad" stroke-width="2"/>
+        <text x="65" y="25" text-anchor="middle" fill="#1ba5ad" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Nexus Registry</text>
+      </g>
+      <line x1="520" y1="120" x2="550" y2="120" stroke="#1ba5ad" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+      <!-- Test/Security read from Nexus -->
+      <line x1="680" y1="120" x2="720" y2="120" stroke="#1ba5ad" stroke-width="2"/>
+      <line x1="720" y1="120" x2="720" y2="60" stroke="#1ba5ad" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+      <!-- Test -->
+      <g transform="translate(700, 30)">
+        <rect x="0" y="0" width="100" height="60" rx="8" fill="#00b894"/>
+        <text x="50" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Test</text>
+        <text x="50" y="43" text-anchor="middle" fill="#006060" font-family="monospace" font-size="8">Verify</text>
+      </g>
+      <line x1="800" y1="60" x2="830" y2="60" stroke="#ffd93d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+      <!-- Security -->
+      <g transform="translate(840, 30)">
+        <rect x="0" y="0" width="100" height="60" rx="8" fill="#d63031"/>
+        <text x="50" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Security</text>
+        <text x="50" y="43" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">Trivy</text>
+      </g>
+      <line x1="940" y1="60" x2="970" y2="60" stroke="#ffd93d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+      <!-- Push -->
+      <g transform="translate(980, 30)">
+        <rect x="0" y="0" width="100" height="60" rx="8" fill="#fdcb6e"/>
+        <text x="50" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Push</text>
+        <text x="50" y="43" text-anchor="middle" fill="#666" font-family="monospace" font-size="8">Tag release</text>
+      </g>
+
+      <!-- Release Tag back to Nexus -->
+      <g transform="translate(980, 100)">
+        <rect x="0" y="0" width="100" height="30" rx="4" fill="#fdcb6e"/>
+        <text x="50" y="20" text-anchor="middle" fill="#1a1a2e" font-family="monospace" font-size="8">:release-tag</text>
+      </g>
+      <line x1="1030" y1="90" x2="1030" y2="100" stroke="#fdcb6e" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <path d="M 980 115 L 680 115" stroke="#fdcb6e" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowhead)"/>
+
+      <line x1="1080" y1="60" x2="1110" y2="60" stroke="#ffd93d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+      <!-- Notify -->
+      <g transform="translate(1120, 30)">
+        <rect x="0" y="0" width="100" height="60" rx="8" fill="#00cec9"/>
+        <text x="50" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Notify</text>
+        <text x="50" y="43" text-anchor="middle" fill="#006666" font-family="monospace" font-size="8">Splunk</text>
+      </g>
+
+      <!-- Legend -->
+      <rect x="30" y="160" width="1240" height="45" rx="6" fill="rgba(0,0,0,0.3)"/>
+      <text x="50" y="180" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Legend:</text>
+      <rect x="120" y="170" width="20" height="15" rx="3" fill="#00b894"/>
+      <text x="150" y="182" fill="#888" font-family="monospace" font-size="9">GitLab Artifact</text>
+      <rect x="280" y="170" width="20" height="15" rx="3" fill="#1ba5ad"/>
+      <text x="310" y="182" fill="#888" font-family="monospace" font-size="9">Nexus Image</text>
+      <line x1="440" y1="177" x2="470" y2="177" stroke="#ffd93d" stroke-width="2"/>
+      <text x="480" y="182" fill="#888" font-family="monospace" font-size="9">Stage flow</text>
+      <line x1="590" y1="177" x2="620" y2="177" stroke="#1ba5ad" stroke-width="2" stroke-dasharray="5,3"/>
+      <text x="630" y="182" fill="#888" font-family="monospace" font-size="9">Registry access</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="830" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Pipeline Artifacts | Build Cache &amp; Data Flow</text>
+</svg>

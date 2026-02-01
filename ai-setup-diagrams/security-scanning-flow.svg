@@ -1,0 +1,240 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="securityGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d63031"/>
+      <stop offset="100%" style="stop-color:#ff7675"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffd93d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Security Scanning Pipeline Flow</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">Multi-Layer Security Analysis</text>
+
+  <!-- Security Pipeline Overview -->
+  <g transform="translate(50, 80)">
+    <text x="0" y="0" fill="#d63031" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Security Scanning Stages in CI/CD Pipeline</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 30)">
+      <rect x="0" y="0" width="1300" height="180" rx="15" fill="#1a1a2e"/>
+
+      <!-- SAST Stage -->
+      <g transform="translate(30, 20)">
+        <rect x="0" y="0" width="230" height="140" rx="10" fill="rgba(108,92,231,0.3)"/>
+        <text x="115" y="25" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Stage 4: SAST</text>
+        <text x="115" y="45" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="9">Static Application Security Testing</text>
+        <rect x="10" y="55" width="210" height="75" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="75" fill="#ffd93d" font-family="monospace" font-size="8">Tools:</text>
+        <text x="25" y="90" fill="#e0e0e0" font-family="monospace" font-size="8">SpotBugs - Bug patterns</text>
+        <text x="25" y="105" fill="#e0e0e0" font-family="monospace" font-size="8">PMD - Code analysis</text>
+        <text x="25" y="120" fill="#81ecec" font-family="monospace" font-size="8">mvn spotbugs:check pmd:check</text>
+      </g>
+
+      <!-- Quality Stage -->
+      <g transform="translate(280, 20)">
+        <rect x="0" y="0" width="230" height="140" rx="10" fill="rgba(155,89,182,0.3)"/>
+        <text x="115" y="25" text-anchor="middle" fill="#bb8fce" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Stage 5: Quality</text>
+        <text x="115" y="45" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="9">Code Quality &amp; Security Rules</text>
+        <rect x="10" y="55" width="210" height="75" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="75" fill="#ffd93d" font-family="monospace" font-size="8">Tool: SonarQube</text>
+        <text x="25" y="90" fill="#e0e0e0" font-family="monospace" font-size="8">Security hotspots</text>
+        <text x="25" y="105" fill="#e0e0e0" font-family="monospace" font-size="8">Vulnerability detection</text>
+        <text x="25" y="120" fill="#81ecec" font-family="monospace" font-size="8">OWASP rule set</text>
+      </g>
+
+      <!-- Security Stage -->
+      <g transform="translate(530, 20)">
+        <rect x="0" y="0" width="230" height="140" rx="10" fill="url(#securityGrad)"/>
+        <text x="115" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Stage 6: Security</text>
+        <text x="115" y="45" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="9">Container Vulnerability Scan</text>
+        <rect x="10" y="55" width="210" height="75" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="75" fill="#ffd93d" font-family="monospace" font-size="8">Tool: Trivy</text>
+        <text x="25" y="90" fill="#e0e0e0" font-family="monospace" font-size="8">OS vulnerabilities</text>
+        <text x="25" y="105" fill="#e0e0e0" font-family="monospace" font-size="8">Library CVEs</text>
+        <text x="25" y="120" fill="#81ecec" font-family="monospace" font-size="8">HIGH,CRITICAL severity</text>
+      </g>
+
+      <!-- Dependency Scan -->
+      <g transform="translate(780, 20)">
+        <rect x="0" y="0" width="230" height="140" rx="10" fill="rgba(0,184,148,0.3)"/>
+        <text x="115" y="25" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Dependency Check</text>
+        <text x="115" y="45" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="9">Third-party Library Audit</text>
+        <rect x="10" y="55" width="210" height="75" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="75" fill="#ffd93d" font-family="monospace" font-size="8">Scans:</text>
+        <text x="25" y="90" fill="#e0e0e0" font-family="monospace" font-size="8">pom.xml, package.json</text>
+        <text x="25" y="105" fill="#e0e0e0" font-family="monospace" font-size="8">requirements.txt, go.mod</text>
+        <text x="25" y="120" fill="#81ecec" font-family="monospace" font-size="8">NVD/CVE database check</text>
+      </g>
+
+      <!-- SBOM Generation -->
+      <g transform="translate(1030, 20)">
+        <rect x="0" y="0" width="230" height="140" rx="10" fill="rgba(253,203,110,0.3)"/>
+        <text x="115" y="25" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="12" font-weight="bold">SBOM Generation</text>
+        <text x="115" y="45" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="9">Software Bill of Materials</text>
+        <rect x="10" y="55" width="210" height="75" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="75" fill="#ffd93d" font-family="monospace" font-size="8">Formats:</text>
+        <text x="25" y="90" fill="#e0e0e0" font-family="monospace" font-size="8">CycloneDX</text>
+        <text x="25" y="105" fill="#e0e0e0" font-family="monospace" font-size="8">SPDX</text>
+        <text x="25" y="120" fill="#81ecec" font-family="monospace" font-size="8">trivy image --format sbom</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Trivy Scan Detail -->
+  <g transform="translate(50, 320)">
+    <text x="0" y="0" fill="#1b9abe" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Trivy Container Security Scan Implementation</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="650" height="240" rx="15" fill="#2d3436"/>
+
+      <!-- YAML -->
+      <rect x="15" y="15" width="620" height="210" rx="10" fill="rgba(0,0,0,0.3)"/>
+      <text x="30" y="40" fill="#ffd93d" font-family="monospace" font-size="10">trivy_scan:</text>
+      <text x="40" y="60" fill="#e0e0e0" font-family="monospace" font-size="9">stage: security</text>
+      <text x="40" y="78" fill="#e0e0e0" font-family="monospace" font-size="9">image: ${NEXUS_PULL_REGISTRY}/alpine-curl:latest</text>
+      <text x="40" y="96" fill="#81ecec" font-family="monospace" font-size="9">services:</text>
+      <text x="50" y="114" fill="#e0e0e0" font-family="monospace" font-size="9">- name: ${NEXUS_PULL_REGISTRY}/trivy:latest</text>
+      <text x="60" y="132" fill="#888" font-family="monospace" font-size="9">alias: trivy-server</text>
+      <text x="60" y="150" fill="#888" font-family="monospace" font-size="9">command: ["server", "--listen", "0.0.0.0:8080"]</text>
+      <text x="40" y="170" fill="#e0e0e0" font-family="monospace" font-size="9">script:</text>
+      <text x="50" y="188" fill="#888" font-family="monospace" font-size="9">- trivy image --server http://trivy-server:8080</text>
+      <text x="60" y="206" fill="#81ecec" font-family="monospace" font-size="9">--severity HIGH,CRITICAL --insecure ${IMAGE}</text>
+    </g>
+
+    <!-- Scan Results -->
+    <g filter="url(#shadow)" transform="translate(680, 25)">
+      <rect x="0" y="0" width="570" height="240" rx="15" fill="#1a1a2e"/>
+      <text x="285" y="30" text-anchor="middle" fill="#d63031" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Vulnerability Report</text>
+
+      <!-- Severity Counts -->
+      <g transform="translate(20, 50)">
+        <rect x="0" y="0" width="100" height="60" rx="8" fill="rgba(155,89,182,0.5)"/>
+        <text x="50" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold">2</text>
+        <text x="50" y="45" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">CRITICAL</text>
+      </g>
+      <g transform="translate(120, 50)">
+        <rect x="0" y="0" width="100" height="60" rx="8" fill="rgba(214,48,49,0.5)"/>
+        <text x="50" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold">8</text>
+        <text x="50" y="45" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">HIGH</text>
+      </g>
+      <g transform="translate(240, 50)">
+        <rect x="0" y="0" width="100" height="60" rx="8" fill="rgba(243,156,18,0.5)"/>
+        <text x="50" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold">15</text>
+        <text x="50" y="45" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">MEDIUM</text>
+      </g>
+      <g transform="translate(360, 50)">
+        <rect x="0" y="0" width="100" height="60" rx="8" fill="rgba(52,152,219,0.5)"/>
+        <text x="50" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold">20</text>
+        <text x="50" y="45" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">LOW</text>
+      </g>
+      <g transform="translate(480, 50)">
+        <rect x="0" y="0" width="70" height="60" rx="8" fill="rgba(136,136,136,0.5)"/>
+        <text x="35" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold">5</text>
+        <text x="35" y="45" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">UNKNOWN</text>
+      </g>
+
+      <!-- Sample CVEs -->
+      <rect x="20" y="125" width="530" height="100" rx="8" fill="rgba(0,0,0,0.3)"/>
+      <text x="35" y="145" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Sample Findings:</text>
+      <text x="40" y="165" fill="#bb8fce" font-family="monospace" font-size="8">CVE-2024-1234 | openssl | 3.0.2 | Buffer overflow | CRITICAL</text>
+      <text x="40" y="183" fill="#ff7675" font-family="monospace" font-size="8">CVE-2024-5678 | curl | 7.81.0 | Header injection | HIGH</text>
+      <text x="40" y="201" fill="#ff7675" font-family="monospace" font-size="8">CVE-2024-9012 | glibc | 2.35 | Memory corruption | HIGH</text>
+    </g>
+  </g>
+
+  <!-- SonarQube Security -->
+  <g transform="translate(50, 600)">
+    <text x="0" y="0" fill="#549dd0" font-family="Arial, sans-serif" font-size="16" font-weight="bold">SonarQube Security Analysis</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="640" height="140" rx="15" fill="#1a1a2e"/>
+      <text x="320" y="25" text-anchor="middle" fill="#549dd0" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Security Hotspots &amp; Vulnerabilities</text>
+
+      <!-- Hotspot boxes -->
+      <g transform="translate(20, 45)">
+        <rect x="0" y="0" width="145" height="80" rx="8" fill="rgba(214,48,49,0.3)"/>
+        <text x="72" y="20" text-anchor="middle" fill="#ff7675" font-family="Arial, sans-serif" font-size="9" font-weight="bold">SQL Injection</text>
+        <text x="72" y="40" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">CWE-89</text>
+        <text x="72" y="58" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">Query strings</text>
+        <text x="72" y="73" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">User input</text>
+      </g>
+      <g transform="translate(175, 45)">
+        <rect x="0" y="0" width="145" height="80" rx="8" fill="rgba(225,112,85,0.3)"/>
+        <text x="72" y="20" text-anchor="middle" fill="#fab1a0" font-family="Arial, sans-serif" font-size="9" font-weight="bold">XSS</text>
+        <text x="72" y="40" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">CWE-79</text>
+        <text x="72" y="58" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">Output encoding</text>
+        <text x="72" y="73" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">DOM manipulation</text>
+      </g>
+      <g transform="translate(330, 45)">
+        <rect x="0" y="0" width="145" height="80" rx="8" fill="rgba(253,203,110,0.3)"/>
+        <text x="72" y="20" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Path Traversal</text>
+        <text x="72" y="40" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">CWE-22</text>
+        <text x="72" y="58" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">File paths</text>
+        <text x="72" y="73" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">User input</text>
+      </g>
+      <g transform="translate(485, 45)">
+        <rect x="0" y="0" width="135" height="80" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="67" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Crypto</text>
+        <text x="67" y="40" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">CWE-327</text>
+        <text x="67" y="58" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">Weak algorithms</text>
+        <text x="67" y="73" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">Key management</text>
+      </g>
+    </g>
+
+    <!-- SAST Tools -->
+    <g filter="url(#shadow)" transform="translate(670, 25)">
+      <rect x="0" y="0" width="580" height="140" rx="15" fill="#1a1a2e"/>
+      <text x="290" y="25" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="12" font-weight="bold">SpotBugs &amp; PMD Analysis</text>
+
+      <g transform="translate(20, 45)">
+        <rect x="0" y="0" width="260" height="80" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="130" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">SpotBugs Detectors</text>
+        <text x="15" y="40" fill="#e0e0e0" font-family="monospace" font-size="8">NULL_DEREFERENCE</text>
+        <text x="15" y="55" fill="#e0e0e0" font-family="monospace" font-size="8">RESOURCE_LEAK</text>
+        <text x="15" y="70" fill="#e0e0e0" font-family="monospace" font-size="8">BAD_PRACTICE</text>
+      </g>
+
+      <g transform="translate(300, 45)">
+        <rect x="0" y="0" width="260" height="80" rx="8" fill="rgba(225,112,85,0.3)"/>
+        <text x="130" y="20" text-anchor="middle" fill="#fab1a0" font-family="Arial, sans-serif" font-size="10" font-weight="bold">PMD Rules</text>
+        <text x="15" y="40" fill="#e0e0e0" font-family="monospace" font-size="8">Security ruleset</text>
+        <text x="15" y="55" fill="#e0e0e0" font-family="monospace" font-size="8">Best practices</text>
+        <text x="15" y="70" fill="#e0e0e0" font-family="monospace" font-size="8">Code style</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Security Gate -->
+  <g transform="translate(50, 780)">
+    <text x="0" y="0" fill="#00b894" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Security Gate Decision</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="60" rx="15" fill="#2d3436"/>
+
+      <rect x="20" y="10" width="400" height="40" rx="8" fill="rgba(0,184,148,0.3)"/>
+      <text x="220" y="35" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="11" font-weight="bold">PASS: No CRITICAL vulns, &lt; 5 HIGH vulns</text>
+
+      <rect x="450" y="10" width="400" height="40" rx="8" fill="rgba(253,203,110,0.3)"/>
+      <text x="650" y="35" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">WARN: 1-2 CRITICAL or 5-10 HIGH vulns</text>
+
+      <rect x="880" y="10" width="400" height="40" rx="8" fill="rgba(214,48,49,0.3)"/>
+      <text x="1080" y="35" text-anchor="middle" fill="#ff7675" font-family="Arial, sans-serif" font-size="11" font-weight="bold">FAIL: &gt;2 CRITICAL or &gt;10 HIGH vulns</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="880" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Security Scanning | SAST, Container Scanning &amp; Vulnerability Management</text>
+</svg>

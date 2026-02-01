@@ -1,0 +1,603 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 2400">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="chromaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7e57c2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#311b92;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="compileGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef5350;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b71c1c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="buildGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#42a5f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1565c0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="testGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#66bb6a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2e7d32;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sastGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff7043;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d84315;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="qualityGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ab47bc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6a1b9a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="securityGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#26c6da;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00838f;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="pushGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffca28;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8f00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="notifyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#78909c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#37474f;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="llmGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ce93d8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7b1fa2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="errorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff5252;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d32f2f;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fixGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#69f0ae;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00c853;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gitlabGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fc6d26;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e24329;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="4" flood-opacity="0.25"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Arrow Markers -->
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2e7d32"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#d32f2f"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7b1fa2"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e24329"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1565c0"/>
+    </marker>
+    <marker id="arrowCyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00838f"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1800" height="2400" fill="#fafafa"/>
+
+  <!-- Title Section -->
+  <rect x="0" y="0" width="1800" height="95" fill="#e24329"/>
+  <text x="900" y="40" font-family="Segoe UI, Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">GitLab CI Pipeline Tools - ChromaDB Integration</text>
+  <text x="900" y="68" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#ffccbc" text-anchor="middle">Error Capture • LLM Analysis • Fix Generation • Pattern Storage • Continuous Learning</text>
+  <text x="900" y="88" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#ffab91" text-anchor="middle">8 Pipeline Stages | 10+ Tools | Automatic Error-to-Fix Mapping | Self-Improving CI/CD Generation</text>
+
+  <!-- ==================== PIPELINE STAGES OVERVIEW ==================== -->
+  <rect x="20" y="115" width="1760" height="180" rx="15" fill="#fff3e0" stroke="#ff9800" stroke-width="3" filter="url(#shadow)"/>
+  <text x="900" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="bold" fill="#e65100" text-anchor="middle">GitLab CI Pipeline Stages (Your .gitlab-ci.yml)</text>
+
+  <!-- Pipeline Stage Boxes -->
+  <g transform="translate(40, 170)">
+    <!-- Compile -->
+    <rect x="0" y="0" width="195" height="100" rx="10" fill="url(#compileGrad)" filter="url(#shadow)"/>
+    <text x="97" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">1. COMPILE</text>
+    <text x="97" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#ffcdd2" text-anchor="middle">compile_jar</text>
+    <text x="15" y="68" font-family="Consolas, monospace" font-size="9" fill="#ffebee">Maven 3.9 + JDK 17</text>
+    <text x="15" y="85" font-family="Consolas, monospace" font-size="9" fill="#ffebee">mvn clean package</text>
+
+    <!-- Build -->
+    <rect x="210" y="0" width="195" height="100" rx="10" fill="url(#buildGrad)" filter="url(#shadow)"/>
+    <text x="307" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">2. BUILD</text>
+    <text x="307" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#bbdefb" text-anchor="middle">build_image</text>
+    <text x="225" y="68" font-family="Consolas, monospace" font-size="9" fill="#e3f2fd">Kaniko Executor</text>
+    <text x="225" y="85" font-family="Consolas, monospace" font-size="9" fill="#e3f2fd">Docker Image Build</text>
+
+    <!-- Test -->
+    <rect x="420" y="0" width="195" height="100" rx="10" fill="url(#testGrad)" filter="url(#shadow)"/>
+    <text x="517" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">3. TEST</text>
+    <text x="517" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#c8e6c9" text-anchor="middle">test_image</text>
+    <text x="435" y="68" font-family="Consolas, monospace" font-size="9" fill="#e8f5e9">Alpine + cURL</text>
+    <text x="435" y="85" font-family="Consolas, monospace" font-size="9" fill="#e8f5e9">Registry Verification</text>
+
+    <!-- SAST -->
+    <rect x="630" y="0" width="195" height="100" rx="10" fill="url(#sastGrad)" filter="url(#shadow)"/>
+    <text x="727" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">4. SAST</text>
+    <text x="727" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#ffccbc" text-anchor="middle">static_analysis</text>
+    <text x="645" y="68" font-family="Consolas, monospace" font-size="9" fill="#fbe9e7">SpotBugs + PMD</text>
+    <text x="645" y="85" font-family="Consolas, monospace" font-size="9" fill="#fbe9e7">Code Quality Check</text>
+
+    <!-- Quality -->
+    <rect x="840" y="0" width="195" height="100" rx="10" fill="url(#qualityGrad)" filter="url(#shadow)"/>
+    <text x="937" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">5. QUALITY</text>
+    <text x="937" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#e1bee7" text-anchor="middle">sonarqube</text>
+    <text x="855" y="68" font-family="Consolas, monospace" font-size="9" fill="#f3e5f5">SonarQube Scanner</text>
+    <text x="855" y="85" font-family="Consolas, monospace" font-size="9" fill="#f3e5f5">Quality Gate</text>
+
+    <!-- Security -->
+    <rect x="1050" y="0" width="195" height="100" rx="10" fill="url(#securityGrad)" filter="url(#shadow)"/>
+    <text x="1147" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">6. SECURITY</text>
+    <text x="1147" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#b2ebf2" text-anchor="middle">trivy_scan</text>
+    <text x="1065" y="68" font-family="Consolas, monospace" font-size="9" fill="#e0f7fa">Trivy Scanner</text>
+    <text x="1065" y="85" font-family="Consolas, monospace" font-size="9" fill="#e0f7fa">CVE Detection</text>
+
+    <!-- Push -->
+    <rect x="1260" y="0" width="195" height="100" rx="10" fill="url(#pushGrad)" filter="url(#shadow)"/>
+    <text x="1357" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">7. PUSH</text>
+    <text x="1357" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#fff8e1" text-anchor="middle">push_to_nexus</text>
+    <text x="1275" y="68" font-family="Consolas, monospace" font-size="9" fill="#fffde7">Nexus Registry</text>
+    <text x="1275" y="85" font-family="Consolas, monospace" font-size="9" fill="#fffde7">Release Tagging</text>
+
+    <!-- Notify -->
+    <rect x="1470" y="0" width="195" height="100" rx="10" fill="url(#notifyGrad)" filter="url(#shadow)"/>
+    <text x="1567" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">8. NOTIFY</text>
+    <text x="1567" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#cfd8dc" text-anchor="middle">splunk_notify</text>
+    <text x="1485" y="68" font-family="Consolas, monospace" font-size="9" fill="#eceff1">Splunk HEC</text>
+    <text x="1485" y="85" font-family="Consolas, monospace" font-size="9" fill="#eceff1">Event Logging</text>
+
+    <!-- Arrows between stages -->
+    <path d="M195 50 L210 50" stroke="#37474f" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+    <path d="M405 50 L420 50" stroke="#37474f" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+    <path d="M615 50 L630 50" stroke="#37474f" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+    <path d="M825 50 L840 50" stroke="#37474f" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+    <path d="M1035 50 L1050 50" stroke="#37474f" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+    <path d="M1245 50 L1260 50" stroke="#37474f" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+    <path d="M1455 50 L1470 50" stroke="#37474f" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+  </g>
+
+  <!-- ==================== TOOL-SPECIFIC ERROR PATTERNS ==================== -->
+  <rect x="20" y="315" width="1760" height="700" rx="15" fill="#ffebee" stroke="#ef5350" stroke-width="3" filter="url(#shadow)"/>
+  <text x="900" y="355" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="bold" fill="#c62828" text-anchor="middle">Tool-Specific Error Patterns &amp; Fix Recommendations</text>
+  <text x="900" y="380" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#d32f2f" text-anchor="middle">Each tool generates unique error signatures that are captured, analyzed, and stored with their fixes in ChromaDB</text>
+
+  <!-- Row 1: Compile, Build, Test, SAST -->
+  <!-- 1. Maven/Compile Errors -->
+  <rect x="40" y="400" width="410" height="280" rx="10" fill="white" stroke="#b71c1c" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="40" y="400" width="410" height="35" rx="10" fill="url(#compileGrad)"/>
+  <text x="245" y="423" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Maven Compile (compile_jar)</text>
+
+  <text x="55" y="460" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#c62828">Common Error Patterns:</text>
+  <text x="55" y="480" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Could not resolve dependencies</text>
+  <text x="55" y="495" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Source option 5 is no longer supported</text>
+  <text x="55" y="510" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: package does not exist</text>
+  <text x="55" y="525" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: JAVA_HOME not set correctly</text>
+  <text x="55" y="540" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Failed to execute goal (OutOfMemory)</text>
+
+  <text x="55" y="565" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#2e7d32">Auto-Generated Fixes:</text>
+  <text x="55" y="585" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Add missing dependency to pom.xml</text>
+  <text x="55" y="600" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Update maven.compiler.source/target</text>
+  <text x="55" y="615" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Configure Nexus mirror in settings.xml</text>
+  <text x="55" y="630" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Set MAVEN_OPTS for heap size</text>
+  <text x="55" y="645" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Update base image JDK version</text>
+
+  <rect x="55" y="655" width="380" height="18" rx="3" fill="#e8f5e9"/>
+  <text x="245" y="668" font-family="Segoe UI, Arial, sans-serif" font-size="9" font-weight="600" fill="#2e7d32" text-anchor="middle">ChromaDB Collection: maven_error_patterns</text>
+
+  <!-- 2. Kaniko/Build Errors -->
+  <rect x="470" y="400" width="410" height="280" rx="10" fill="white" stroke="#1565c0" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="470" y="400" width="410" height="35" rx="10" fill="url(#buildGrad)"/>
+  <text x="675" y="423" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Kaniko Build (build_image)</text>
+
+  <text x="485" y="460" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#c62828">Common Error Patterns:</text>
+  <text x="485" y="480" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: failed to get auth config</text>
+  <text x="485" y="495" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: COPY failed: file not found</text>
+  <text x="485" y="510" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: unauthorized: authentication required</text>
+  <text x="485" y="525" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: x509: certificate signed by unknown</text>
+  <text x="485" y="540" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: context deadline exceeded</text>
+
+  <text x="485" y="565" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#2e7d32">Auto-Generated Fixes:</text>
+  <text x="485" y="585" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Fix /kaniko/.docker/config.json auth</text>
+  <text x="485" y="600" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Update COPY paths in Dockerfile</text>
+  <text x="485" y="615" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Add --insecure-registry flag</text>
+  <text x="485" y="630" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Mount CA certificates volume</text>
+  <text x="485" y="645" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Increase timeout in job config</text>
+
+  <rect x="485" y="655" width="380" height="18" rx="3" fill="#e3f2fd"/>
+  <text x="675" y="668" font-family="Segoe UI, Arial, sans-serif" font-size="9" font-weight="600" fill="#1565c0" text-anchor="middle">ChromaDB Collection: kaniko_error_patterns</text>
+
+  <!-- 3. Test/Registry Errors -->
+  <rect x="900" y="400" width="410" height="280" rx="10" fill="white" stroke="#2e7d32" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="900" y="400" width="410" height="35" rx="10" fill="url(#testGrad)"/>
+  <text x="1105" y="423" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Registry Test (test_image)</text>
+
+  <text x="915" y="460" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#c62828">Common Error Patterns:</text>
+  <text x="915" y="480" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Image not found (HTTP 404)</text>
+  <text x="915" y="495" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: HTTP 401 Unauthorized</text>
+  <text x="915" y="510" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Connection refused to registry</text>
+  <text x="915" y="525" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Manifest unknown</text>
+  <text x="915" y="540" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: curl: (7) Failed to connect</text>
+
+  <text x="915" y="565" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#2e7d32">Auto-Generated Fixes:</text>
+  <text x="915" y="585" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Verify NEXUS_REGISTRY variable</text>
+  <text x="915" y="600" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Check credentials in CI variables</text>
+  <text x="915" y="615" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Add retry logic with backoff</text>
+  <text x="915" y="630" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Update image tag reference</text>
+  <text x="915" y="645" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Configure service dependency</text>
+
+  <rect x="915" y="655" width="380" height="18" rx="3" fill="#e8f5e9"/>
+  <text x="1105" y="668" font-family="Segoe UI, Arial, sans-serif" font-size="9" font-weight="600" fill="#2e7d32" text-anchor="middle">ChromaDB Collection: registry_test_patterns</text>
+
+  <!-- 4. SAST Errors -->
+  <rect x="1330" y="400" width="430" height="280" rx="10" fill="white" stroke="#d84315" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="1330" y="400" width="430" height="35" rx="10" fill="url(#sastGrad)"/>
+  <text x="1545" y="423" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SpotBugs + PMD (static_analysis)</text>
+
+  <text x="1345" y="460" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#c62828">Common Error Patterns:</text>
+  <text x="1345" y="480" font-family="Consolas, monospace" font-size="9" fill="#37474f">SpotBugs: NP_NULL_ON_SOME_PATH</text>
+  <text x="1345" y="495" font-family="Consolas, monospace" font-size="9" fill="#37474f">SpotBugs: SQL_INJECTION_JDBC</text>
+  <text x="1345" y="510" font-family="Consolas, monospace" font-size="9" fill="#37474f">PMD: AvoidDuplicateLiterals</text>
+  <text x="1345" y="525" font-family="Consolas, monospace" font-size="9" fill="#37474f">PMD: UnusedPrivateMethod</text>
+  <text x="1345" y="540" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Plugin not found</text>
+
+  <text x="1345" y="565" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#2e7d32">Auto-Generated Fixes:</text>
+  <text x="1345" y="585" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Add null checks at identified lines</text>
+  <text x="1345" y="600" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Use PreparedStatement instead</text>
+  <text x="1345" y="615" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Extract constants for literals</text>
+  <text x="1345" y="630" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Configure spotbugs-maven-plugin</text>
+  <text x="1345" y="645" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Add suppressions in pom.xml</text>
+
+  <rect x="1345" y="655" width="400" height="18" rx="3" fill="#fbe9e7"/>
+  <text x="1545" y="668" font-family="Segoe UI, Arial, sans-serif" font-size="9" font-weight="600" fill="#d84315" text-anchor="middle">ChromaDB Collection: sast_error_patterns</text>
+
+  <!-- Row 2: Quality, Security, Push, Notify -->
+  <!-- 5. SonarQube Errors -->
+  <rect x="40" y="700" width="410" height="290" rx="10" fill="white" stroke="#6a1b9a" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="40" y="700" width="410" height="35" rx="10" fill="url(#qualityGrad)"/>
+  <text x="245" y="723" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SonarQube (sonarqube)</text>
+
+  <text x="55" y="760" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#c62828">Common Error Patterns:</text>
+  <text x="55" y="780" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Quality Gate Failed</text>
+  <text x="55" y="795" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Coverage below 80% threshold</text>
+  <text x="55" y="810" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Unable to connect to SonarQube</text>
+  <text x="55" y="825" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Invalid token or project key</text>
+  <text x="55" y="840" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Code smells exceed limit</text>
+  <text x="55" y="855" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Duplicated lines density &gt; 3%</text>
+
+  <text x="55" y="880" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#2e7d32">Auto-Generated Fixes:</text>
+  <text x="55" y="900" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Add unit tests for coverage</text>
+  <text x="55" y="915" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Fix sonar.host.url configuration</text>
+  <text x="55" y="930" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Regenerate project token</text>
+  <text x="55" y="945" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Refactor duplicate code blocks</text>
+  <text x="55" y="960" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Configure exclusions in pom.xml</text>
+
+  <rect x="55" y="970" width="380" height="18" rx="3" fill="#f3e5f5"/>
+  <text x="245" y="983" font-family="Segoe UI, Arial, sans-serif" font-size="9" font-weight="600" fill="#6a1b9a" text-anchor="middle">ChromaDB Collection: sonarqube_error_patterns</text>
+
+  <!-- 6. Trivy Errors -->
+  <rect x="470" y="700" width="410" height="290" rx="10" fill="white" stroke="#00838f" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="470" y="700" width="410" height="35" rx="10" fill="url(#securityGrad)"/>
+  <text x="675" y="723" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Trivy Scanner (trivy_scan)</text>
+
+  <text x="485" y="760" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#c62828">Common Error Patterns:</text>
+  <text x="485" y="780" font-family="Consolas, monospace" font-size="9" fill="#37474f">CRITICAL: CVE-2024-XXXXX found</text>
+  <text x="485" y="795" font-family="Consolas, monospace" font-size="9" fill="#37474f">HIGH: Vulnerable package version</text>
+  <text x="485" y="810" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Trivy server connection failed</text>
+  <text x="485" y="825" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Unable to pull image manifest</text>
+  <text x="485" y="840" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: DB download timeout</text>
+  <text x="485" y="855" font-family="Consolas, monospace" font-size="9" fill="#37474f">WARN: OS package manager lock</text>
+
+  <text x="485" y="880" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#2e7d32">Auto-Generated Fixes:</text>
+  <text x="485" y="900" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Update base image to patched ver</text>
+  <text x="485" y="915" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Pin package to fixed version</text>
+  <text x="485" y="930" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Configure trivy server retry</text>
+  <text x="485" y="945" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Add .trivyignore for false positives</text>
+  <text x="485" y="960" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Set TRIVY_CACHE_DIR for DB</text>
+
+  <rect x="485" y="970" width="380" height="18" rx="3" fill="#e0f7fa"/>
+  <text x="675" y="983" font-family="Segoe UI, Arial, sans-serif" font-size="9" font-weight="600" fill="#00838f" text-anchor="middle">ChromaDB Collection: trivy_error_patterns</text>
+
+  <!-- 7. Nexus Push Errors -->
+  <rect x="900" y="700" width="410" height="290" rx="10" fill="white" stroke="#ff8f00" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="900" y="700" width="410" height="35" rx="10" fill="url(#pushGrad)"/>
+  <text x="1105" y="723" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Nexus Push (push_to_nexus)</text>
+
+  <text x="915" y="760" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#c62828">Common Error Patterns:</text>
+  <text x="915" y="780" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: manifest invalid (400)</text>
+  <text x="915" y="795" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: blob upload invalid</text>
+  <text x="915" y="810" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: repository not writable</text>
+  <text x="915" y="825" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: insufficient storage space</text>
+  <text x="915" y="840" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: tag already exists (immutable)</text>
+  <text x="915" y="855" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: 413 Request Entity Too Large</text>
+
+  <text x="915" y="880" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#2e7d32">Auto-Generated Fixes:</text>
+  <text x="915" y="900" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Use unique tag with CI_PIPELINE_IID</text>
+  <text x="915" y="915" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Configure repo write permissions</text>
+  <text x="915" y="930" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Add cleanup policy for old images</text>
+  <text x="915" y="945" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Split manifest push with retry</text>
+  <text x="915" y="960" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Increase nginx client_max_body</text>
+
+  <rect x="915" y="970" width="380" height="18" rx="3" fill="#fff8e1"/>
+  <text x="1105" y="983" font-family="Segoe UI, Arial, sans-serif" font-size="9" font-weight="600" fill="#ff8f00" text-anchor="middle">ChromaDB Collection: nexus_push_patterns</text>
+
+  <!-- 8. Splunk Notify Errors -->
+  <rect x="1330" y="700" width="430" height="290" rx="10" fill="white" stroke="#37474f" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="1330" y="700" width="430" height="35" rx="10" fill="url(#notifyGrad)"/>
+  <text x="1545" y="723" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Splunk HEC (notify_splunk)</text>
+
+  <text x="1345" y="760" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#c62828">Common Error Patterns:</text>
+  <text x="1345" y="780" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: HEC token invalid (403)</text>
+  <text x="1345" y="795" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Connection refused to HEC</text>
+  <text x="1345" y="810" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: SSL certificate problem</text>
+  <text x="1345" y="825" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Event data too large</text>
+  <text x="1345" y="840" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: Index does not exist</text>
+  <text x="1345" y="855" font-family="Consolas, monospace" font-size="9" fill="#37474f">ERROR: JSON parse error in payload</text>
+
+  <text x="1345" y="880" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#2e7d32">Auto-Generated Fixes:</text>
+  <text x="1345" y="900" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Verify SPLUNK_HEC_TOKEN in vars</text>
+  <text x="1345" y="915" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Update SPLUNK_HEC_URL endpoint</text>
+  <text x="1345" y="930" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Add -k flag for self-signed cert</text>
+  <text x="1345" y="945" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Truncate large event payloads</text>
+  <text x="1345" y="960" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">+ Validate JSON before curl</text>
+
+  <rect x="1345" y="970" width="400" height="18" rx="3" fill="#eceff1"/>
+  <text x="1545" y="983" font-family="Segoe UI, Arial, sans-serif" font-size="9" font-weight="600" fill="#37474f" text-anchor="middle">ChromaDB Collection: splunk_hec_patterns</text>
+
+  <!-- ==================== LLM ANALYSIS ENGINE ==================== -->
+  <rect x="20" y="1030" width="1760" height="280" rx="15" fill="#f3e5f5" stroke="#9c27b0" stroke-width="3" filter="url(#shadow)"/>
+  <text x="900" y="1065" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="bold" fill="#7b1fa2" text-anchor="middle">LLM Analysis Engine - Tool-Aware Error Processing</text>
+  <text x="900" y="1090" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8e24aa" text-anchor="middle">Ollama LLM analyzes errors with tool-specific context to generate targeted fixes</text>
+
+  <!-- Error Input -->
+  <rect x="50" y="1110" width="350" height="180" rx="10" fill="url(#errorGrad)" filter="url(#shadow)"/>
+  <text x="225" y="1140" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Error Input</text>
+  <rect x="65" y="1155" width="320" height="120" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="225" y="1175" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#d32f2f" text-anchor="middle">Captured from Failed Job:</text>
+  <text x="80" y="1195" font-family="Consolas, monospace" font-size="9" fill="#37474f">"stage": "security"</text>
+  <text x="80" y="1210" font-family="Consolas, monospace" font-size="9" fill="#37474f">"job": "trivy_scan"</text>
+  <text x="80" y="1225" font-family="Consolas, monospace" font-size="9" fill="#37474f">"tool": "trivy"</text>
+  <text x="80" y="1240" font-family="Consolas, monospace" font-size="9" fill="#37474f">"error": "CRITICAL CVE-2024-1234"</text>
+  <text x="80" y="1255" font-family="Consolas, monospace" font-size="9" fill="#37474f">"exit_code": 1</text>
+  <text x="80" y="1270" font-family="Consolas, monospace" font-size="9" fill="#37474f">"logs": "vulnerable: log4j 2.14.1"</text>
+
+  <!-- Arrow -->
+  <path d="M400 1200 L470 1200" stroke="#7b1fa2" stroke-width="4" fill="none" marker-end="url(#arrowPurple)"/>
+
+  <!-- LLM Processing -->
+  <rect x="480" y="1110" width="450" height="180" rx="10" fill="url(#llmGrad)" filter="url(#shadow)"/>
+  <text x="705" y="1140" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Ollama LLM Analysis (:11434)</text>
+  <rect x="495" y="1155" width="420" height="120" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="705" y="1175" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#7b1fa2" text-anchor="middle">Tool-Specific Prompt Engineering:</text>
+  <text x="510" y="1198" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" font-style="italic">"Analyze this Trivy scanner error. The tool detected</text>
+  <text x="510" y="1213" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" font-style="italic">a CRITICAL CVE in log4j 2.14.1. Generate a fix that:</text>
+  <text x="510" y="1228" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">1. Updates the vulnerable package version</text>
+  <text x="510" y="1243" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">2. Modifies pom.xml/Dockerfile as needed</text>
+  <text x="510" y="1258" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">3. Creates prevention rule for future scans"</text>
+
+  <!-- Arrow -->
+  <path d="M930 1200 L1000 1200" stroke="#7b1fa2" stroke-width="4" fill="none" marker-end="url(#arrowPurple)"/>
+
+  <!-- Fix Output -->
+  <rect x="1010" y="1110" width="350" height="180" rx="10" fill="url(#fixGrad)" filter="url(#shadow)"/>
+  <text x="1185" y="1140" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Generated Fix</text>
+  <rect x="1025" y="1155" width="320" height="120" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="1185" y="1175" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#00c853" text-anchor="middle">Structured Fix Recommendation:</text>
+  <text x="1040" y="1195" font-family="Consolas, monospace" font-size="9" fill="#37474f">"fix_type": "dependency_update"</text>
+  <text x="1040" y="1210" font-family="Consolas, monospace" font-size="9" fill="#37474f">"file": "pom.xml"</text>
+  <text x="1040" y="1225" font-family="Consolas, monospace" font-size="9" fill="#1b5e20">"change": "log4j 2.14.1 → 2.21.0"</text>
+  <text x="1040" y="1240" font-family="Consolas, monospace" font-size="9" fill="#37474f">"prevention": "pin_to_safe_ver"</text>
+  <text x="1040" y="1255" font-family="Consolas, monospace" font-size="9" fill="#37474f">"confidence": 0.95</text>
+  <text x="1040" y="1270" font-family="Consolas, monospace" font-size="9" fill="#37474f">"tool_context": "trivy"</text>
+
+  <!-- Arrow to ChromaDB -->
+  <path d="M1360 1200 L1430 1200" stroke="#2e7d32" stroke-width="4" fill="none" marker-end="url(#arrowGreen)"/>
+
+  <!-- ChromaDB Storage -->
+  <rect x="1440" y="1110" width="320" height="180" rx="10" fill="url(#chromaGrad)" filter="url(#shadow)"/>
+  <text x="1600" y="1140" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">ChromaDB Storage</text>
+  <rect x="1455" y="1155" width="290" height="120" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="1600" y="1175" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#311b92" text-anchor="middle">Indexed with Metadata:</text>
+  <text x="1470" y="1195" font-family="Consolas, monospace" font-size="9" fill="#37474f">tool: "trivy"</text>
+  <text x="1470" y="1210" font-family="Consolas, monospace" font-size="9" fill="#37474f">error_type: "cve_critical"</text>
+  <text x="1470" y="1225" font-family="Consolas, monospace" font-size="9" fill="#37474f">package: "log4j"</text>
+  <text x="1470" y="1240" font-family="Consolas, monospace" font-size="9" fill="#37474f">success_rate: 0.92</text>
+  <text x="1470" y="1255" font-family="Consolas, monospace" font-size="9" fill="#37474f">usage_count: 47</text>
+  <text x="1470" y="1270" font-family="Consolas, monospace" font-size="9" fill="#311b92">Semantic vector: [0.23, ...]</text>
+
+  <!-- ==================== CHROMADB COLLECTIONS ==================== -->
+  <rect x="20" y="1330" width="1760" height="380" rx="15" fill="#ede7f6" stroke="#673ab7" stroke-width="3" filter="url(#shadow)"/>
+  <text x="900" y="1365" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="bold" fill="#4527a0" text-anchor="middle">ChromaDB Collections - Tool-Specific Knowledge Organization</text>
+  <text x="900" y="1390" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#5e35b1" text-anchor="middle">Each pipeline tool has dedicated collections for errors, fixes, configurations, and success patterns</text>
+
+  <!-- Central ChromaDB -->
+  <rect x="720" y="1410" width="360" height="280" rx="15" fill="url(#chromaGrad)" filter="url(#shadow)"/>
+  <text x="900" y="1445" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">ChromaDB</text>
+  <text x="900" y="1468" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#e1bee7" text-anchor="middle">Vector Knowledge Store | :8000</text>
+
+  <rect x="740" y="1485" width="320" height="190" rx="8" fill="rgba(255,255,255,0.95)"/>
+  <text x="900" y="1508" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#311b92" text-anchor="middle">Tool-Specific Collections:</text>
+  <text x="760" y="1532" font-family="Consolas, monospace" font-size="10" fill="#b71c1c">maven_error_patterns (compile)</text>
+  <text x="760" y="1550" font-family="Consolas, monospace" font-size="10" fill="#1565c0">kaniko_error_patterns (build)</text>
+  <text x="760" y="1568" font-family="Consolas, monospace" font-size="10" fill="#2e7d32">registry_test_patterns (test)</text>
+  <text x="760" y="1586" font-family="Consolas, monospace" font-size="10" fill="#d84315">sast_error_patterns (sast)</text>
+  <text x="760" y="1604" font-family="Consolas, monospace" font-size="10" fill="#6a1b9a">sonarqube_error_patterns (quality)</text>
+  <text x="760" y="1622" font-family="Consolas, monospace" font-size="10" fill="#00838f">trivy_error_patterns (security)</text>
+  <text x="760" y="1640" font-family="Consolas, monospace" font-size="10" fill="#ff8f00">nexus_push_patterns (push)</text>
+  <text x="760" y="1658" font-family="Consolas, monospace" font-size="10" fill="#37474f">splunk_hec_patterns (notify)</text>
+
+  <!-- Left side tools feeding in -->
+  <g transform="translate(50, 1430)">
+    <rect x="0" y="0" width="140" height="50" rx="8" fill="url(#compileGrad)" filter="url(#shadow)"/>
+    <text x="70" y="30" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Maven</text>
+
+    <rect x="0" y="60" width="140" height="50" rx="8" fill="url(#buildGrad)" filter="url(#shadow)"/>
+    <text x="70" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Kaniko</text>
+
+    <rect x="0" y="120" width="140" height="50" rx="8" fill="url(#testGrad)" filter="url(#shadow)"/>
+    <text x="70" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Registry Test</text>
+
+    <rect x="0" y="180" width="140" height="50" rx="8" fill="url(#sastGrad)" filter="url(#shadow)"/>
+    <text x="70" y="210" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">SpotBugs/PMD</text>
+
+    <!-- Arrows -->
+    <path d="M140 25 L720 1505" stroke="#b71c1c" stroke-width="2" fill="none" marker-end="url(#arrowRed)" stroke-dasharray="5,3" transform="translate(0,-1430)"/>
+    <path d="M140 85 L720 1525" stroke="#1565c0" stroke-width="2" fill="none" marker-end="url(#arrowBlue)" stroke-dasharray="5,3" transform="translate(0,-1430)"/>
+    <path d="M140 145 L720 1545" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arrowGreen)" stroke-dasharray="5,3" transform="translate(0,-1430)"/>
+    <path d="M140 205 L720 1565" stroke="#d84315" stroke-width="2" fill="none" marker-end="url(#arrowOrange)" stroke-dasharray="5,3" transform="translate(0,-1430)"/>
+  </g>
+
+  <!-- Right side tools feeding in -->
+  <g transform="translate(1610, 1430)">
+    <rect x="0" y="0" width="140" height="50" rx="8" fill="url(#qualityGrad)" filter="url(#shadow)"/>
+    <text x="70" y="30" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">SonarQube</text>
+
+    <rect x="0" y="60" width="140" height="50" rx="8" fill="url(#securityGrad)" filter="url(#shadow)"/>
+    <text x="70" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Trivy</text>
+
+    <rect x="0" y="120" width="140" height="50" rx="8" fill="url(#pushGrad)" filter="url(#shadow)"/>
+    <text x="70" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Nexus Push</text>
+
+    <rect x="0" y="180" width="140" height="50" rx="8" fill="url(#notifyGrad)" filter="url(#shadow)"/>
+    <text x="70" y="210" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Splunk HEC</text>
+  </g>
+
+  <!-- Arrows from right tools -->
+  <path d="M1610 1455 L1080 1585" stroke="#6a1b9a" stroke-width="2" fill="none" marker-end="url(#arrowPurple)" stroke-dasharray="5,3"/>
+  <path d="M1610 1515 L1080 1605" stroke="#00838f" stroke-width="2" fill="none" marker-end="url(#arrowCyan)" stroke-dasharray="5,3"/>
+  <path d="M1610 1575 L1080 1625" stroke="#ff8f00" stroke-width="2" fill="none" marker-end="url(#arrowOrange)" stroke-dasharray="5,3"/>
+  <path d="M1610 1635 L1080 1645" stroke="#37474f" stroke-width="2" fill="none" marker-end="url(#arrowBlue)" stroke-dasharray="5,3"/>
+
+  <!-- ==================== RETRIEVAL & GENERATION ==================== -->
+  <rect x="20" y="1730" width="1760" height="320" rx="15" fill="#e8f5e9" stroke="#4caf50" stroke-width="3" filter="url(#shadow)"/>
+  <text x="900" y="1765" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="bold" fill="#2e7d32" text-anchor="middle">RAG-Enhanced CI/CD Generation - Tool Context Retrieval</text>
+  <text x="900" y="1790" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#388e3c" text-anchor="middle">When generating new pipelines, ChromaDB provides tool-specific patterns based on detected tech stack</text>
+
+  <!-- New Request -->
+  <rect x="50" y="1815" width="300" height="210" rx="10" fill="white" stroke="#4caf50" stroke-width="2" filter="url(#shadow)"/>
+  <text x="200" y="1845" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#2e7d32" text-anchor="middle">New Generation Request</text>
+  <rect x="65" y="1860" width="270" height="150" rx="6" fill="#e8f5e9"/>
+  <text x="80" y="1885" font-family="Consolas, monospace" font-size="10" fill="#37474f">{</text>
+  <text x="90" y="1903" font-family="Consolas, monospace" font-size="9" fill="#37474f">"repo": "gitlab/java-app",</text>
+  <text x="90" y="1920" font-family="Consolas, monospace" font-size="9" fill="#37474f">"detected_stack": {</text>
+  <text x="100" y="1937" font-family="Consolas, monospace" font-size="9" fill="#37474f">"lang": "java",</text>
+  <text x="100" y="1954" font-family="Consolas, monospace" font-size="9" fill="#37474f">"build": "maven",</text>
+  <text x="100" y="1971" font-family="Consolas, monospace" font-size="9" fill="#37474f">"framework": "spring-boot"</text>
+  <text x="90" y="1988" font-family="Consolas, monospace" font-size="9" fill="#37474f">}</text>
+  <text x="80" y="2005" font-family="Consolas, monospace" font-size="10" fill="#37474f">}</text>
+
+  <!-- Arrow -->
+  <path d="M350 1920 L420 1920" stroke="#2e7d32" stroke-width="3" fill="none" marker-end="url(#arrowGreen)"/>
+
+  <!-- ChromaDB Query -->
+  <rect x="430" y="1815" width="360" height="210" rx="10" fill="url(#chromaGrad)" filter="url(#shadow)"/>
+  <text x="610" y="1845" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">ChromaDB Multi-Collection Query</text>
+  <rect x="445" y="1860" width="330" height="150" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="610" y="1885" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#311b92" text-anchor="middle">Parallel Queries by Tool:</text>
+  <text x="460" y="1908" font-family="Consolas, monospace" font-size="9" fill="#b71c1c">maven_error_patterns WHERE lang=java</text>
+  <text x="460" y="1925" font-family="Consolas, monospace" font-size="9" fill="#1565c0">kaniko_error_patterns WHERE lang=java</text>
+  <text x="460" y="1942" font-family="Consolas, monospace" font-size="9" fill="#6a1b9a">sonarqube_patterns WHERE lang=java</text>
+  <text x="460" y="1959" font-family="Consolas, monospace" font-size="9" fill="#00838f">trivy_patterns WHERE base_img=temurin</text>
+  <text x="460" y="1976" font-family="Consolas, monospace" font-size="9" fill="#ff8f00">nexus_patterns WHERE registry=nexus</text>
+  <text x="460" y="1993" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#311b92" font-weight="600">Returns: top-k patterns by success_rate</text>
+
+  <!-- Arrow -->
+  <path d="M790 1920 L860 1920" stroke="#2e7d32" stroke-width="3" fill="none" marker-end="url(#arrowGreen)"/>
+
+  <!-- Retrieved Context -->
+  <rect x="870" y="1815" width="360" height="210" rx="10" fill="white" stroke="#2e7d32" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1050" y="1845" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#2e7d32" text-anchor="middle">Retrieved Tool Context</text>
+  <rect x="885" y="1860" width="330" height="150" rx="6" fill="#e8f5e9"/>
+  <text x="1050" y="1885" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#2e7d32" text-anchor="middle">Injected into LLM Prompt:</text>
+  <text x="900" y="1908" font-family="Consolas, monospace" font-size="9" fill="#37474f">Known Maven issues for Java 17...</text>
+  <text x="900" y="1925" font-family="Consolas, monospace" font-size="9" fill="#37474f">Kaniko best practices for JDK...</text>
+  <text x="900" y="1942" font-family="Consolas, monospace" font-size="9" fill="#37474f">SonarQube config for Spring Boot...</text>
+  <text x="900" y="1959" font-family="Consolas, monospace" font-size="9" fill="#37474f">Trivy CVE patterns for log4j...</text>
+  <text x="900" y="1976" font-family="Consolas, monospace" font-size="9" fill="#37474f">Nexus auth config patterns...</text>
+  <text x="900" y="1993" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#2e7d32" font-weight="600">Prevention rules auto-included!</text>
+
+  <!-- Arrow -->
+  <path d="M1230 1920 L1300 1920" stroke="#2e7d32" stroke-width="3" fill="none" marker-end="url(#arrowGreen)"/>
+
+  <!-- Generated Output -->
+  <rect x="1310" y="1815" width="450" height="210" rx="10" fill="url(#gitlabGrad)" filter="url(#shadow)"/>
+  <text x="1535" y="1845" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Generated .gitlab-ci.yml (Improved)</text>
+  <rect x="1325" y="1860" width="420" height="150" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="1535" y="1885" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#e24329" text-anchor="middle">Pre-Configured with Known Fixes:</text>
+  <text x="1340" y="1908" font-family="Consolas, monospace" font-size="9" fill="#2e7d32">MAVEN_OPTS: "-Xmx2g" # from maven_patterns</text>
+  <text x="1340" y="1925" font-family="Consolas, monospace" font-size="9" fill="#2e7d32">--insecure-registry # from kaniko_patterns</text>
+  <text x="1340" y="1942" font-family="Consolas, monospace" font-size="9" fill="#2e7d32">log4j.version: 2.21.0 # from trivy_patterns</text>
+  <text x="1340" y="1959" font-family="Consolas, monospace" font-size="9" fill="#2e7d32">retry: 2 # from nexus_patterns</text>
+  <text x="1340" y="1976" font-family="Consolas, monospace" font-size="9" fill="#2e7d32">-k flag for SSL # from splunk_patterns</text>
+  <text x="1535" y="2000" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#e24329" font-weight="600" text-anchor="middle">First-time success rate: 95%+</text>
+
+  <!-- ==================== LEGEND ==================== -->
+  <rect x="20" y="2070" width="1760" height="310" rx="12" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="40" y="2105" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="bold" fill="#424242">Pipeline Tools Summary &amp; ChromaDB Integration</text>
+
+  <!-- Tool Legend -->
+  <g transform="translate(40, 2125)">
+    <rect x="0" y="0" width="25" height="20" rx="4" fill="url(#compileGrad)"/>
+    <text x="35" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">Maven (compile)</text>
+
+    <rect x="160" y="0" width="25" height="20" rx="4" fill="url(#buildGrad)"/>
+    <text x="195" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">Kaniko (build)</text>
+
+    <rect x="320" y="0" width="25" height="20" rx="4" fill="url(#testGrad)"/>
+    <text x="355" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">Registry (test)</text>
+
+    <rect x="480" y="0" width="25" height="20" rx="4" fill="url(#sastGrad)"/>
+    <text x="515" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">SpotBugs/PMD (sast)</text>
+
+    <rect x="680" y="0" width="25" height="20" rx="4" fill="url(#qualityGrad)"/>
+    <text x="715" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">SonarQube (quality)</text>
+
+    <rect x="880" y="0" width="25" height="20" rx="4" fill="url(#securityGrad)"/>
+    <text x="915" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">Trivy (security)</text>
+
+    <rect x="1060" y="0" width="25" height="20" rx="4" fill="url(#pushGrad)"/>
+    <text x="1095" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">Nexus (push)</text>
+
+    <rect x="1220" y="0" width="25" height="20" rx="4" fill="url(#notifyGrad)"/>
+    <text x="1255" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">Splunk (notify)</text>
+
+    <rect x="1380" y="0" width="25" height="20" rx="4" fill="url(#chromaGrad)"/>
+    <text x="1415" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">ChromaDB</text>
+
+    <rect x="1540" y="0" width="25" height="20" rx="4" fill="url(#llmGrad)"/>
+    <text x="1575" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">LLM Analysis</text>
+  </g>
+
+  <!-- Key Statistics -->
+  <g transform="translate(40, 2165)">
+    <text x="0" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#424242">Pipeline Configuration (from your .gitlab-ci.yml):</text>
+    <text x="320" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">8 stages | 10 jobs | Maven + Kaniko + Trivy + SonarQube + Nexus + Splunk</text>
+
+    <text x="0" y="40" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#424242">ChromaDB Collections Created:</text>
+    <text x="220" y="40" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">8 tool-specific collections + 2 cross-cutting (success_patterns, failure_patterns)</text>
+
+    <text x="0" y="65" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#424242">Error Pattern Categories:</text>
+    <text x="180" y="65" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">Dependency (Maven) | Auth (Kaniko/Nexus) | Quality (SonarQube) | CVE (Trivy) | Config (Splunk)</text>
+
+    <text x="0" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#424242">Fix Types Stored:</text>
+    <text x="130" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">pom.xml changes | Dockerfile updates | CI variable configs | Plugin settings | Retry policies | Certificate handling</text>
+  </g>
+
+  <!-- Integration Flow -->
+  <rect x="40" y="2270" width="1720" height="95" rx="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
+  <text x="900" y="2295" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#2e7d32" text-anchor="middle">Complete Tool Error-to-Fix Flow:</text>
+  <text x="900" y="2320" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f" text-anchor="middle">Pipeline Job Fails → Error Captured with Tool Context → LLM Analyzes with Tool-Specific Prompt → Fix Generated → Stored in Tool Collection</text>
+  <text x="900" y="2345" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f" text-anchor="middle">→ Future Generations Query Tool Collections → Pre-Apply Known Fixes → Higher First-Time Success Rate</text>
+
+</svg>

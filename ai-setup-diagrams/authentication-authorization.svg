@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 850">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="authGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c5ce7"/>
+      <stop offset="100%" style="stop-color:#a29bfe"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffd93d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="850" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Authentication &amp; Authorization Architecture</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">Service-to-Service &amp; User Auth</text>
+
+  <!-- Service Authentication Section -->
+  <g transform="translate(50, 80)">
+    <text x="0" y="0" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Service-to-Service Authentication</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 30)">
+      <rect x="0" y="0" width="1300" height="220" rx="15" fill="#1a1a2e"/>
+
+      <!-- GitLab Auth -->
+      <g transform="translate(20, 20)">
+        <rect x="0" y="0" width="300" height="180" rx="10" fill="rgba(225,112,85,0.2)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="12" font-weight="bold">GitLab CE Authentication</text>
+
+        <rect x="10" y="40" width="280" height="130" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Method: Personal Access Token</text>
+        <text x="20" y="80" fill="#e0e0e0" font-family="monospace" font-size="8">Header: PRIVATE-TOKEN: glpat-xxx</text>
+        <text x="20" y="100" fill="#81ecec" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Scopes Required:</text>
+        <text x="25" y="118" fill="#e0e0e0" font-family="monospace" font-size="8">api, read_repository</text>
+        <text x="25" y="133" fill="#e0e0e0" font-family="monospace" font-size="8">write_repository, read_registry</text>
+        <text x="20" y="155" fill="#888" font-family="Arial, sans-serif" font-size="8">Token stored in: Pipeline variables</text>
+      </g>
+
+      <!-- Nexus Auth -->
+      <g transform="translate(340, 20)">
+        <rect x="0" y="0" width="300" height="180" rx="10" fill="rgba(27,165,173,0.2)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#1ba5ad" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Nexus Registry Authentication</text>
+
+        <rect x="10" y="40" width="280" height="130" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Method: Basic Authentication</text>
+        <text x="20" y="80" fill="#e0e0e0" font-family="monospace" font-size="8">Authorization: Basic base64(user:pass)</text>
+        <text x="20" y="100" fill="#81ecec" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Docker Config:</text>
+        <text x="25" y="118" fill="#e0e0e0" font-family="monospace" font-size="8">{"auths":{"registry":{"auth":"..."}}}</text>
+        <text x="20" y="140" fill="#888" font-family="Arial, sans-serif" font-size="8">User: admin | Stored in CI vars</text>
+        <text x="20" y="155" fill="#888" font-family="Arial, sans-serif" font-size="8">Kaniko reads /kaniko/.docker/config.json</text>
+      </g>
+
+      <!-- SonarQube Auth -->
+      <g transform="translate(660, 20)">
+        <rect x="0" y="0" width="300" height="180" rx="10" fill="rgba(84,157,208,0.2)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#549dd0" font-family="Arial, sans-serif" font-size="12" font-weight="bold">SonarQube Authentication</text>
+
+        <rect x="10" y="40" width="280" height="130" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Method: User Token</text>
+        <text x="20" y="80" fill="#e0e0e0" font-family="monospace" font-size="8">-Dsonar.token=${SONAR_TOKEN}</text>
+        <text x="20" y="100" fill="#81ecec" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Permissions:</text>
+        <text x="25" y="118" fill="#e0e0e0" font-family="monospace" font-size="8">Execute Analysis</text>
+        <text x="25" y="133" fill="#e0e0e0" font-family="monospace" font-size="8">Create Projects</text>
+        <text x="20" y="155" fill="#888" font-family="Arial, sans-serif" font-size="8">Generated in: SonarQube UI</text>
+      </g>
+
+      <!-- Splunk Auth -->
+      <g transform="translate(980, 20)">
+        <rect x="0" y="0" width="300" height="180" rx="10" fill="rgba(101,166,55,0.2)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#65a637" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Splunk HEC Authentication</text>
+
+        <rect x="10" y="40" width="280" height="130" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Method: HEC Token</text>
+        <text x="20" y="80" fill="#e0e0e0" font-family="monospace" font-size="8">Authorization: Splunk ${HEC_TOKEN}</text>
+        <text x="20" y="100" fill="#81ecec" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Endpoint:</text>
+        <text x="25" y="118" fill="#e0e0e0" font-family="monospace" font-size="8">/services/collector/event</text>
+        <text x="20" y="140" fill="#888" font-family="Arial, sans-serif" font-size="8">Index: devops_pipeline_events</text>
+        <text x="20" y="155" fill="#888" font-family="Arial, sans-serif" font-size="8">Token created in Splunk Admin</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Pipeline Variables -->
+  <g transform="translate(50, 350)">
+    <text x="0" y="0" fill="#ffd93d" font-family="Arial, sans-serif" font-size="16" font-weight="bold">GitLab CI/CD Variables (Secrets Storage)</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="150" rx="15" fill="#2d3436"/>
+
+      <!-- Variable Table -->
+      <rect x="20" y="15" width="1260" height="120" rx="10" fill="rgba(0,0,0,0.3)"/>
+
+      <!-- Header row -->
+      <text x="50" y="40" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Variable Name</text>
+      <text x="300" y="40" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Type</text>
+      <text x="450" y="40" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Scope</text>
+      <text x="600" y="40" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Protected</text>
+      <text x="750" y="40" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Masked</text>
+      <text x="900" y="40" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Usage</text>
+
+      <line x1="40" y1="50" x2="1260" y2="50" stroke="#555" stroke-width="1"/>
+
+      <!-- Variable rows -->
+      <text x="50" y="70" fill="#e0e0e0" font-family="monospace" font-size="9">NEXUS_PASSWORD</text>
+      <text x="300" y="70" fill="#888" font-family="monospace" font-size="9">Variable</text>
+      <text x="450" y="70" fill="#888" font-family="monospace" font-size="9">Project</text>
+      <text x="600" y="70" fill="#00b894" font-family="monospace" font-size="9">Yes</text>
+      <text x="750" y="70" fill="#00b894" font-family="monospace" font-size="9">Yes</text>
+      <text x="900" y="70" fill="#888" font-family="monospace" font-size="9">Registry auth, Kaniko push</text>
+
+      <text x="50" y="90" fill="#e0e0e0" font-family="monospace" font-size="9">SONAR_TOKEN</text>
+      <text x="300" y="90" fill="#888" font-family="monospace" font-size="9">Variable</text>
+      <text x="450" y="90" fill="#888" font-family="monospace" font-size="9">Group</text>
+      <text x="600" y="90" fill="#00b894" font-family="monospace" font-size="9">Yes</text>
+      <text x="750" y="90" fill="#00b894" font-family="monospace" font-size="9">Yes</text>
+      <text x="900" y="90" fill="#888" font-family="monospace" font-size="9">SonarQube analysis</text>
+
+      <text x="50" y="110" fill="#e0e0e0" font-family="monospace" font-size="9">SPLUNK_HEC_TOKEN</text>
+      <text x="300" y="110" fill="#888" font-family="monospace" font-size="9">Variable</text>
+      <text x="450" y="110" fill="#888" font-family="monospace" font-size="9">Group</text>
+      <text x="600" y="110" fill="#00b894" font-family="monospace" font-size="9">Yes</text>
+      <text x="750" y="110" fill="#00b894" font-family="monospace" font-size="9">Yes</text>
+      <text x="900" y="110" fill="#888" font-family="monospace" font-size="9">Pipeline notifications</text>
+
+      <text x="50" y="130" fill="#e0e0e0" font-family="monospace" font-size="9">GITLAB_TOKEN</text>
+      <text x="300" y="130" fill="#888" font-family="monospace" font-size="9">Variable</text>
+      <text x="450" y="130" fill="#888" font-family="monospace" font-size="9">Instance</text>
+      <text x="600" y="130" fill="#00b894" font-family="monospace" font-size="9">Yes</text>
+      <text x="750" y="130" fill="#00b894" font-family="monospace" font-size="9">Yes</text>
+      <text x="900" y="130" fill="#888" font-family="monospace" font-size="9">OpenWebUI tool API calls</text>
+    </g>
+  </g>
+
+  <!-- OpenWebUI Auth -->
+  <g transform="translate(50, 540)">
+    <text x="0" y="0" fill="#00b894" font-family="Arial, sans-serif" font-size="16" font-weight="bold">OpenWebUI User &amp; Tool Authentication</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="640" height="180" rx="15" fill="#1a1a2e"/>
+      <text x="320" y="30" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="14" font-weight="bold">User Authentication</text>
+
+      <rect x="20" y="45" width="290" height="120" rx="8" fill="rgba(0,184,148,0.2)"/>
+      <text x="165" y="65" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Local Auth</text>
+      <text x="30" y="85" fill="#e0e0e0" font-family="monospace" font-size="8">Email + Password</text>
+      <text x="30" y="103" fill="#e0e0e0" font-family="monospace" font-size="8">JWT Session Tokens</text>
+      <text x="30" y="121" fill="#888" font-family="monospace" font-size="8">Stored in PostgreSQL</text>
+      <text x="30" y="139" fill="#888" font-family="monospace" font-size="8">bcrypt hashed passwords</text>
+      <text x="30" y="157" fill="#81ecec" font-family="monospace" font-size="8">Session: httpOnly cookies</text>
+
+      <rect x="330" y="45" width="290" height="120" rx="8" fill="rgba(108,92,231,0.2)"/>
+      <text x="475" y="65" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Tool Valves (Runtime Config)</text>
+      <text x="340" y="85" fill="#e0e0e0" font-family="monospace" font-size="8">GITLAB_URL: http://gitlab-server</text>
+      <text x="340" y="103" fill="#e0e0e0" font-family="monospace" font-size="8">GITLAB_TOKEN: glpat-xxx</text>
+      <text x="340" y="121" fill="#e0e0e0" font-family="monospace" font-size="8">NEXUS_REGISTRY: ai-nexus:5001</text>
+      <text x="340" y="139" fill="#888" font-family="monospace" font-size="8">Configured per-tool</text>
+      <text x="340" y="157" fill="#888" font-family="monospace" font-size="8">Stored in tool metadata</text>
+    </g>
+
+    <!-- Backend API Auth -->
+    <g filter="url(#shadow)" transform="translate(670, 25)">
+      <rect x="0" y="0" width="580" height="180" rx="15" fill="#1a1a2e"/>
+      <text x="290" y="30" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="14" font-weight="bold">DevOps Backend API Authorization</text>
+
+      <rect x="20" y="45" width="540" height="120" rx="8" fill="rgba(0,0,0,0.3)"/>
+      <text x="35" y="70" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">tools_config.yaml Authorization:</text>
+      <text x="40" y="90" fill="#e0e0e0" font-family="monospace" font-size="8">Each tool has enabled: true/false flag</text>
+      <text x="40" y="108" fill="#e0e0e0" font-family="monospace" font-size="8">Credentials stored in config file</text>
+      <text x="40" y="126" fill="#e0e0e0" font-family="monospace" font-size="8">Integration classes validate on init</text>
+      <text x="35" y="150" fill="#81ecec" font-family="Arial, sans-serif" font-size="10" font-weight="bold">503 returned if tool disabled or misconfigured</text>
+    </g>
+  </g>
+
+  <!-- Network Security -->
+  <g transform="translate(50, 755)">
+    <text x="0" y="0" fill="#d63031" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Network Security (Docker Network Isolation)</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="50" rx="15" fill="#2d3436"/>
+      <text x="650" y="32" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="12">All services on isolated <tspan fill="#ffd93d" font-family="monospace">platform-net</tspan> bridge network | Internal DNS resolution | No external exposure except mapped ports</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="835" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Authentication &amp; Authorization | Service Credentials &amp; Access Control</text>
+</svg>

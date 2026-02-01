@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(move \"c:\\\\Users\\\\deepak\\\\Desktop\\\\AI-repos\\\\*.svg\" \"c:\\\\Users\\\\deepak\\\\Desktop\\\\AI-repos\\\\ai-setup-diagrams\"\")"
+    ]
+  }
+}

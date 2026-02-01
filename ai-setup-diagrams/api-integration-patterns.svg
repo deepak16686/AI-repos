@@ -1,0 +1,298 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="devopsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0984e3"/>
+      <stop offset="100%" style="stop-color:#74b9ff"/>
+    </linearGradient>
+    <linearGradient id="modernGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c5ce7"/>
+      <stop offset="100%" style="stop-color:#a29bfe"/>
+    </linearGradient>
+    <linearGradient id="ragGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fd79a8"/>
+      <stop offset="100%" style="stop-color:#e84393"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0984e3"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c5ce7"/>
+    </marker>
+    <marker id="arrowPink" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fd79a8"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00b894"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e17055"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">API Integration Patterns</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">3 Backend APIs | Unified Architecture</text>
+
+  <!-- Client Layer -->
+  <g filter="url(#shadow)" transform="translate(50, 80)">
+    <rect x="0" y="0" width="1300" height="100" rx="15" fill="#1a1a2e" stroke="#ffd93d" stroke-width="2"/>
+    <text x="650" y="30" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="14" font-weight="bold">👤 Client Layer</text>
+
+    <g transform="translate(50, 45)">
+      <rect x="0" y="0" width="180" height="45" rx="8" fill="#ffd93d"/>
+      <text x="90" y="28" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">OpenWebUI Chat</text>
+      <text x="90" y="42" text-anchor="middle" fill="#806000" font-family="monospace" font-size="8">:3001</text>
+    </g>
+
+    <g transform="translate(280, 45)">
+      <rect x="0" y="0" width="180" height="45" rx="8" fill="#ffd93d"/>
+      <text x="90" y="28" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">OpenWebUI Tools</text>
+      <text x="90" y="42" text-anchor="middle" fill="#806000" font-family="monospace" font-size="8">Function calls</text>
+    </g>
+
+    <g transform="translate(510, 45)">
+      <rect x="0" y="0" width="180" height="45" rx="8" fill="#ffd93d"/>
+      <text x="90" y="28" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">External Systems</text>
+      <text x="90" y="42" text-anchor="middle" fill="#806000" font-family="monospace" font-size="8">REST clients</text>
+    </g>
+
+    <g transform="translate(740, 45)">
+      <rect x="0" y="0" width="180" height="45" rx="8" fill="#00cec9"/>
+      <text x="90" y="28" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Ollama LLM</text>
+      <text x="90" y="42" text-anchor="middle" fill="#006060" font-family="monospace" font-size="8">:11434</text>
+    </g>
+
+    <g transform="translate(970, 45)">
+      <rect x="0" y="0" width="180" height="45" rx="8" fill="#636e72"/>
+      <text x="90" y="28" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">GitLab CI Runner</text>
+      <text x="90" y="42" text-anchor="middle" fill="#b2bec3" font-family="monospace" font-size="8">Pipeline execution</text>
+    </g>
+  </g>
+
+  <!-- Connection arrows from clients to APIs -->
+  <g transform="translate(0, 180)">
+    <line x1="140" y1="0" x2="300" y2="60" stroke="#ffd93d" stroke-width="2" stroke-dasharray="5,3"/>
+    <line x1="370" y1="0" x2="300" y2="60" stroke="#ffd93d" stroke-width="2" stroke-dasharray="5,3"/>
+    <line x1="600" y1="0" x2="700" y2="60" stroke="#ffd93d" stroke-width="2" stroke-dasharray="5,3"/>
+    <line x1="830" y1="0" x2="1100" y2="60" stroke="#00cec9" stroke-width="2" stroke-dasharray="5,3"/>
+    <line x1="1060" y1="0" x2="300" y2="60" stroke="#636e72" stroke-width="2" stroke-dasharray="5,3"/>
+  </g>
+
+  <!-- API Layer -->
+  <g transform="translate(50, 250)">
+    <text x="0" y="0" fill="#4a90d9" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🚀 Backend API Layer</text>
+
+    <!-- DevOps Tools Backend -->
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="400" height="280" rx="15" fill="#1a1a2e" stroke="#0984e3" stroke-width="3"/>
+      <rect x="0" y="0" width="400" height="45" rx="15" fill="url(#devopsGrad)"/>
+      <rect x="0" y="30" width="400" height="15" fill="url(#devopsGrad)"/>
+      <text x="200" y="30" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="13" font-weight="bold">DevOps Tools Backend</text>
+      <text x="370" y="30" text-anchor="end" fill="#e0e0e0" font-family="monospace" font-size="9">:8003</text>
+
+      <!-- Endpoints -->
+      <g transform="translate(15, 55)">
+        <rect x="0" y="0" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="20" fill="#74b9ff" font-family="monospace" font-size="9">/api/v1/tools/*</text>
+        <text x="200" y="20" fill="#888" font-family="monospace" font-size="8">Tool management</text>
+
+        <rect x="0" y="40" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="60" fill="#74b9ff" font-family="monospace" font-size="9">/api/v1/gitlab/*</text>
+        <text x="200" y="60" fill="#888" font-family="monospace" font-size="8">GitLab integration</text>
+
+        <rect x="0" y="80" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="100" fill="#74b9ff" font-family="monospace" font-size="9">/api/v1/sonarqube/*</text>
+        <text x="200" y="100" fill="#888" font-family="monospace" font-size="8">Quality analysis</text>
+
+        <rect x="0" y="120" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="140" fill="#74b9ff" font-family="monospace" font-size="9">/api/v1/trivy/*</text>
+        <text x="200" y="140" fill="#888" font-family="monospace" font-size="8">Security scanning</text>
+
+        <rect x="0" y="160" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="180" fill="#74b9ff" font-family="monospace" font-size="9">/api/v1/nexus/*</text>
+        <text x="200" y="180" fill="#888" font-family="monospace" font-size="8">Registry access</text>
+
+        <rect x="0" y="200" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="220" fill="#74b9ff" font-family="monospace" font-size="9">/api/v1/pipeline/*</text>
+        <text x="200" y="220" fill="#888" font-family="monospace" font-size="8">Pipeline operations</text>
+      </g>
+    </g>
+
+    <!-- Modernization API -->
+    <g filter="url(#shadow)" transform="translate(450, 20)">
+      <rect x="0" y="0" width="400" height="280" rx="15" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="3"/>
+      <rect x="0" y="0" width="400" height="45" rx="15" fill="url(#modernGrad)"/>
+      <rect x="0" y="30" width="400" height="15" fill="url(#modernGrad)"/>
+      <text x="200" y="30" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="13" font-weight="bold">Modernization API</text>
+      <text x="370" y="30" text-anchor="end" fill="#e0e0e0" font-family="monospace" font-size="9">:8002</text>
+
+      <g transform="translate(15, 55)">
+        <rect x="0" y="0" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="20" fill="#a29bfe" font-family="monospace" font-size="9">/api/v1/health</text>
+        <text x="200" y="20" fill="#888" font-family="monospace" font-size="8">Service health</text>
+
+        <rect x="0" y="40" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="60" fill="#a29bfe" font-family="monospace" font-size="9">POST /api/v1/analysis/jobs</text>
+        <text x="260" y="60" fill="#888" font-family="monospace" font-size="8">Create job</text>
+
+        <rect x="0" y="80" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="100" fill="#a29bfe" font-family="monospace" font-size="9">GET /api/v1/analysis/jobs</text>
+        <text x="260" y="100" fill="#888" font-family="monospace" font-size="8">List jobs</text>
+
+        <rect x="0" y="120" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="140" fill="#a29bfe" font-family="monospace" font-size="9">GET /api/v1/analysis/jobs/{id}</text>
+        <text x="285" y="140" fill="#888" font-family="monospace" font-size="8">Get job</text>
+
+        <rect x="0" y="160" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="180" fill="#a29bfe" font-family="monospace" font-size="9">DELETE /api/v1/analysis/jobs/{id}</text>
+        <text x="300" y="180" fill="#888" font-family="monospace" font-size="8">Delete</text>
+
+        <rect x="0" y="200" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="220" fill="#a29bfe" font-family="monospace" font-size="9">GET /analysis/jobs/{id}/download</text>
+        <text x="285" y="220" fill="#888" font-family="monospace" font-size="8">Download</text>
+      </g>
+    </g>
+
+    <!-- RAG Generator API -->
+    <g filter="url(#shadow)" transform="translate(900, 20)">
+      <rect x="0" y="0" width="400" height="280" rx="15" fill="#1a1a2e" stroke="#fd79a8" stroke-width="3"/>
+      <rect x="0" y="0" width="400" height="45" rx="15" fill="url(#ragGrad)"/>
+      <rect x="0" y="30" width="400" height="15" fill="url(#ragGrad)"/>
+      <text x="200" y="30" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="13" font-weight="bold">RAG Generator API</text>
+      <text x="370" y="30" text-anchor="end" fill="#e0e0e0" font-family="monospace" font-size="9">:8080</text>
+
+      <g transform="translate(15, 55)">
+        <rect x="0" y="0" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="20" fill="#fd79a8" font-family="monospace" font-size="9">/health</text>
+        <text x="150" y="20" fill="#888" font-family="monospace" font-size="8">ChromaDB + template count</text>
+
+        <rect x="0" y="40" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="60" fill="#fd79a8" font-family="monospace" font-size="9">POST /generate/dockerfile</text>
+        <text x="230" y="60" fill="#888" font-family="monospace" font-size="8">RAG generation</text>
+
+        <rect x="0" y="80" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="100" fill="#fd79a8" font-family="monospace" font-size="9">POST /generate/gitlabci</text>
+        <text x="230" y="100" fill="#888" font-family="monospace" font-size="8">Pipeline gen</text>
+
+        <rect x="0" y="120" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="140" fill="#fd79a8" font-family="monospace" font-size="9">POST /validate/dockerfile</text>
+        <text x="230" y="140" fill="#888" font-family="monospace" font-size="8">Validation</text>
+
+        <rect x="0" y="160" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="180" fill="#fd79a8" font-family="monospace" font-size="9">POST /validate/gitlabci</text>
+        <text x="230" y="180" fill="#888" font-family="monospace" font-size="8">Validation</text>
+
+        <rect x="0" y="200" width="370" height="30" rx="5" fill="#2d3436"/>
+        <text x="10" y="220" fill="#fd79a8" font-family="monospace" font-size="9">GET /catalog, /collections</text>
+        <text x="230" y="220" fill="#888" font-family="monospace" font-size="8">Metadata</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Infrastructure Layer -->
+  <g transform="translate(50, 570)">
+    <text x="0" y="0" fill="#00b894" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🔌 Shared Infrastructure</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="1300" height="150" rx="15" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+
+      <!-- Data Services -->
+      <g transform="translate(30, 20)">
+        <rect x="0" y="0" width="150" height="110" rx="10" fill="#0984e3"/>
+        <text x="75" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">PostgreSQL</text>
+        <text x="75" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">:5432</text>
+        <text x="15" y="70" fill="#e0e0e0" font-family="monospace" font-size="7">Used by:</text>
+        <text x="15" y="85" fill="#74b9ff" font-family="monospace" font-size="7">• Modernization API</text>
+        <text x="15" y="100" fill="#74b9ff" font-family="monospace" font-size="7">• SonarQube</text>
+      </g>
+
+      <g transform="translate(200, 20)">
+        <rect x="0" y="0" width="150" height="110" rx="10" fill="#e17055"/>
+        <text x="75" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Redis</text>
+        <text x="75" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">:6379</text>
+        <text x="15" y="70" fill="#e0e0e0" font-family="monospace" font-size="7">Used by:</text>
+        <text x="15" y="85" fill="#ffd0c0" font-family="monospace" font-size="7">• Modernization API</text>
+        <text x="15" y="100" fill="#ffd0c0" font-family="monospace" font-size="7">• Job queues</text>
+      </g>
+
+      <g transform="translate(370, 20)">
+        <rect x="0" y="0" width="150" height="110" rx="10" fill="#fd79a8"/>
+        <text x="75" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">ChromaDB</text>
+        <text x="75" y="45" text-anchor="middle" fill="#8e3060" font-family="monospace" font-size="8">:8000</text>
+        <text x="15" y="70" fill="#1a1a2e" font-family="monospace" font-size="7">Used by:</text>
+        <text x="15" y="85" fill="#8e3060" font-family="monospace" font-size="7">• RAG Generator</text>
+        <text x="15" y="100" fill="#8e3060" font-family="monospace" font-size="7">• DevOps Backend</text>
+      </g>
+
+      <g transform="translate(540, 20)">
+        <rect x="0" y="0" width="150" height="110" rx="10" fill="#00cec9"/>
+        <text x="75" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Ollama</text>
+        <text x="75" y="45" text-anchor="middle" fill="#006060" font-family="monospace" font-size="8">:11434</text>
+        <text x="15" y="70" fill="#1a1a2e" font-family="monospace" font-size="7">Used by:</text>
+        <text x="15" y="85" fill="#006060" font-family="monospace" font-size="7">• Modernization API</text>
+        <text x="15" y="100" fill="#006060" font-family="monospace" font-size="7">• DevOps Backend</text>
+      </g>
+
+      <g transform="translate(710, 20)">
+        <rect x="0" y="0" width="150" height="110" rx="10" fill="#636e72"/>
+        <text x="75" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">MinIO</text>
+        <text x="75" y="45" text-anchor="middle" fill="#b2bec3" font-family="monospace" font-size="8">:9000</text>
+        <text x="15" y="70" fill="#e0e0e0" font-family="monospace" font-size="7">Used by:</text>
+        <text x="15" y="85" fill="#b2bec3" font-family="monospace" font-size="7">• Modernization API</text>
+        <text x="15" y="100" fill="#b2bec3" font-family="monospace" font-size="7">• Artifact storage</text>
+      </g>
+
+      <g transform="translate(880, 20)">
+        <rect x="0" y="0" width="150" height="110" rx="10" fill="#00b894"/>
+        <text x="75" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Nexus</text>
+        <text x="75" y="45" text-anchor="middle" fill="#006060" font-family="monospace" font-size="8">:5001 (Registry)</text>
+        <text x="15" y="70" fill="#1a1a2e" font-family="monospace" font-size="7">Used by:</text>
+        <text x="15" y="85" fill="#006060" font-family="monospace" font-size="7">• DevOps Backend</text>
+        <text x="15" y="100" fill="#006060" font-family="monospace" font-size="7">• RAG Generator</text>
+      </g>
+
+      <g transform="translate(1050, 20)">
+        <rect x="0" y="0" width="150" height="110" rx="10" fill="#e17055"/>
+        <text x="75" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">GitLab</text>
+        <text x="75" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">:8929</text>
+        <text x="15" y="70" fill="#e0e0e0" font-family="monospace" font-size="7">Used by:</text>
+        <text x="15" y="85" fill="#ffd0c0" font-family="monospace" font-size="7">• DevOps Backend</text>
+        <text x="15" y="100" fill="#ffd0c0" font-family="monospace" font-size="7">• OpenWebUI Tools</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Integration Pattern Summary -->
+  <g filter="url(#shadow)" transform="translate(50, 760)">
+    <rect x="0" y="0" width="1300" height="100" rx="10" fill="#2d3436"/>
+    <text x="650" y="25" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="14" font-weight="bold">📋 Integration Patterns Summary</text>
+
+    <g transform="translate(30, 45)">
+      <rect x="0" y="0" width="15" height="15" rx="3" fill="#0984e3"/>
+      <text x="25" y="12" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">DevOps Tools: Unified facade for all DevOps tools (GitLab, SonarQube, Trivy, Nexus)</text>
+
+      <rect x="0" y="25" width="15" height="15" rx="3" fill="#6c5ce7"/>
+      <text x="25" y="37" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">Modernization: Async job processing with LLM analysis (PostgreSQL + Redis + Ollama)</text>
+
+      <rect x="650" y="0" width="15" height="15" rx="3" fill="#fd79a8"/>
+      <text x="675" y="12" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">RAG Generator: ChromaDB vector search + Nexus catalog for template generation</text>
+
+      <rect x="650" y="25" width="15" height="15" rx="3" fill="#00b894"/>
+      <text x="675" y="37" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">All APIs: FastAPI + CORS + OpenAPI docs + Health endpoints</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="880" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | API Integration Patterns | 3 Backend Services | Unified Architecture</text>
+</svg>

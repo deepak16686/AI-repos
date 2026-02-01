@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="trivyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1b9abe"/>
+      <stop offset="100%" style="stop-color:#0d7ea8"/>
+    </linearGradient>
+    <linearGradient id="sevGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#888"/>
+      <stop offset="20%" style="stop-color:#3498db"/>
+      <stop offset="40%" style="stop-color:#f39c12"/>
+      <stop offset="70%" style="stop-color:#e74c3c"/>
+      <stop offset="100%" style="stop-color:#9b59b6"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffd93d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Trivy Security Scanner Integration</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">Vulnerability &amp; Security Scanning</text>
+
+  <!-- Trivy Server -->
+  <g filter="url(#shadow)" transform="translate(900, 80)">
+    <rect x="0" y="0" width="450" height="180" rx="15" fill="url(#trivyGrad)"/>
+    <text x="225" y="35" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Trivy Server</text>
+    <text x="225" y="55" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="10">http://ai-trivy:8080 | Client Mode</text>
+
+    <rect x="15" y="70" width="420" height="95" rx="10" fill="rgba(0,0,0,0.3)"/>
+    <text x="30" y="95" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Capabilities:</text>
+    <text x="40" y="115" fill="#e0e0e0" font-family="monospace" font-size="9">Container Image Scanning | SBOM Generation</text>
+    <text x="40" y="133" fill="#e0e0e0" font-family="monospace" font-size="9">Filesystem Scanning | Config Misconfiguration</text>
+    <text x="30" y="155" fill="#81ecec" font-family="Arial, sans-serif" font-size="10" font-weight="bold">DB:</text>
+    <text x="55" y="155" fill="#e0e0e0" font-family="monospace" font-size="9">Aqua Security Vulnerability Database</text>
+  </g>
+
+  <!-- DevOps Tools Backend -->
+  <g filter="url(#shadow)" transform="translate(50, 80)">
+    <rect x="0" y="0" width="400" height="180" rx="15" fill="#2d3436" stroke="#1b9abe" stroke-width="2"/>
+    <text x="200" y="35" text-anchor="middle" fill="#1b9abe" font-family="Arial, sans-serif" font-size="16" font-weight="bold">DevOps Tools Backend</text>
+    <text x="200" y="55" text-anchor="middle" fill="#888" font-family="monospace" font-size="10">localhost:8003 | /trivy router</text>
+
+    <rect x="15" y="70" width="370" height="95" rx="10" fill="rgba(0,0,0,0.3)"/>
+    <text x="30" y="95" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">TrivyIntegration Class:</text>
+    <text x="40" y="115" fill="#e0e0e0" font-family="monospace" font-size="9">scan_image() | scan_repo() | scan_filesystem()</text>
+    <text x="40" y="133" fill="#e0e0e0" font-family="monospace" font-size="9">scan_config() | generate_sbom()</text>
+    <text x="40" y="151" fill="#e0e0e0" font-family="monospace" font-size="9">scan_licenses() | health_check()</text>
+  </g>
+
+  <!-- Connection Arrow -->
+  <g stroke="#ffd93d" stroke-width="3" fill="none">
+    <path d="M 450 170 L 900 170" marker-end="url(#arrowhead)"/>
+    <path d="M 900 150 L 450 150" marker-end="url(#arrowhead)"/>
+  </g>
+  <text x="675" y="143" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="10">Trivy Server API / HTTP</text>
+
+  <!-- Scan Types Section -->
+  <g transform="translate(50, 290)">
+    <text x="0" y="0" fill="#1b9abe" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Scan Types &amp; Endpoints</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 30)">
+      <rect x="0" y="0" width="1300" height="180" rx="15" fill="#1a1a2e"/>
+
+      <!-- Image Scan -->
+      <g transform="translate(20, 20)">
+        <rect x="0" y="0" width="240" height="145" rx="10" fill="rgba(27,154,190,0.3)"/>
+        <text x="120" y="25" text-anchor="middle" fill="#1b9abe" font-family="Arial, sans-serif" font-size="12" font-weight="bold">POST /scan/image</text>
+        <rect x="10" y="35" width="220" height="100" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="55" fill="#ffd93d" font-family="monospace" font-size="8">Request:</text>
+        <text x="25" y="70" fill="#e0e0e0" font-family="monospace" font-size="7">image: "nginx:latest"</text>
+        <text x="25" y="83" fill="#e0e0e0" font-family="monospace" font-size="7">severity: "HIGH,CRITICAL"</text>
+        <text x="25" y="96" fill="#e0e0e0" font-family="monospace" font-size="7">ignore_unfixed: false</text>
+        <text x="20" y="115" fill="#00b894" font-family="monospace" font-size="8">Container vulnerabilities</text>
+        <text x="20" y="128" fill="#888" font-family="monospace" font-size="7">OS packages + app deps</text>
+      </g>
+
+      <!-- Repo Scan -->
+      <g transform="translate(280, 20)">
+        <rect x="0" y="0" width="240" height="145" rx="10" fill="rgba(108,92,231,0.3)"/>
+        <text x="120" y="25" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="12" font-weight="bold">POST /scan/repo</text>
+        <rect x="10" y="35" width="220" height="100" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="55" fill="#ffd93d" font-family="monospace" font-size="8">Request:</text>
+        <text x="25" y="70" fill="#e0e0e0" font-family="monospace" font-size="7">repo_url: "https://gitlab/proj"</text>
+        <text x="25" y="83" fill="#e0e0e0" font-family="monospace" font-size="7">branch: "main"</text>
+        <text x="25" y="96" fill="#e0e0e0" font-family="monospace" font-size="7">severity: "MEDIUM,HIGH,CRIT"</text>
+        <text x="20" y="115" fill="#00b894" font-family="monospace" font-size="8">Git repository scan</text>
+        <text x="20" y="128" fill="#888" font-family="monospace" font-size="7">Dependencies + secrets</text>
+      </g>
+
+      <!-- Filesystem Scan -->
+      <g transform="translate(540, 20)">
+        <rect x="0" y="0" width="240" height="145" rx="10" fill="rgba(0,184,148,0.3)"/>
+        <text x="120" y="25" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">POST /scan/fs</text>
+        <rect x="10" y="35" width="220" height="100" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="55" fill="#ffd93d" font-family="monospace" font-size="8">Request:</text>
+        <text x="25" y="70" fill="#e0e0e0" font-family="monospace" font-size="7">path: "/app/source"</text>
+        <text x="25" y="83" fill="#e0e0e0" font-family="monospace" font-size="7">severity: "all levels"</text>
+        <text x="20" y="100" fill="#00b894" font-family="monospace" font-size="8">Local filesystem</text>
+        <text x="20" y="115" fill="#888" font-family="monospace" font-size="7">pom.xml, package.json</text>
+        <text x="20" y="128" fill="#888" font-family="monospace" font-size="7">go.mod, requirements.txt</text>
+      </g>
+
+      <!-- Config Scan -->
+      <g transform="translate(800, 20)">
+        <rect x="0" y="0" width="240" height="145" rx="10" fill="rgba(225,112,85,0.3)"/>
+        <text x="120" y="25" text-anchor="middle" fill="#fab1a0" font-family="Arial, sans-serif" font-size="12" font-weight="bold">POST /scan/config</text>
+        <rect x="10" y="35" width="220" height="100" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="55" fill="#ffd93d" font-family="monospace" font-size="8">Request:</text>
+        <text x="25" y="70" fill="#e0e0e0" font-family="monospace" font-size="7">config_type: "dockerfile"</text>
+        <text x="25" y="83" fill="#e0e0e0" font-family="monospace" font-size="7">content: "FROM nginx..."</text>
+        <text x="20" y="100" fill="#e17055" font-family="monospace" font-size="8">Misconfigurations</text>
+        <text x="20" y="115" fill="#888" font-family="monospace" font-size="7">dockerfile, kubernetes</text>
+        <text x="20" y="128" fill="#888" font-family="monospace" font-size="7">terraform, cloudformation</text>
+      </g>
+
+      <!-- SBOM -->
+      <g transform="translate(1060, 20)">
+        <rect x="0" y="0" width="220" height="145" rx="10" fill="rgba(155,89,182,0.3)"/>
+        <text x="110" y="25" text-anchor="middle" fill="#bb8fce" font-family="Arial, sans-serif" font-size="12" font-weight="bold">GET /sbom/{image}</text>
+        <rect x="10" y="35" width="200" height="100" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="55" fill="#ffd93d" font-family="monospace" font-size="8">Parameters:</text>
+        <text x="25" y="70" fill="#e0e0e0" font-family="monospace" font-size="7">image: "python:3.11"</text>
+        <text x="25" y="83" fill="#e0e0e0" font-family="monospace" font-size="7">format: cyclonedx</text>
+        <text x="20" y="100" fill="#9b59b6" font-family="monospace" font-size="8">Software BOM</text>
+        <text x="20" y="115" fill="#888" font-family="monospace" font-size="7">cyclonedx, spdx</text>
+        <text x="20" y="128" fill="#888" font-family="monospace" font-size="7">spdx-json formats</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Severity Levels -->
+  <g transform="translate(50, 530)">
+    <text x="0" y="0" fill="#d63031" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Vulnerability Severity Levels</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="100" rx="15" fill="#1a1a2e"/>
+
+      <!-- Severity bar -->
+      <rect x="50" y="15" width="1200" height="25" rx="5" fill="url(#sevGrad)"/>
+      <text x="110" y="33" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">UNKNOWN</text>
+      <text x="350" y="33" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">LOW</text>
+      <text x="590" y="33" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">MEDIUM</text>
+      <text x="900" y="33" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">HIGH</text>
+      <text x="1150" y="33" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">CRITICAL</text>
+
+      <!-- Details -->
+      <text x="110" y="60" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">CVSS: N/A</text>
+      <text x="350" y="60" text-anchor="middle" fill="#3498db" font-family="monospace" font-size="8">CVSS: 0.1-3.9</text>
+      <text x="590" y="60" text-anchor="middle" fill="#f39c12" font-family="monospace" font-size="8">CVSS: 4.0-6.9</text>
+      <text x="900" y="60" text-anchor="middle" fill="#e74c3c" font-family="monospace" font-size="8">CVSS: 7.0-8.9</text>
+      <text x="1150" y="60" text-anchor="middle" fill="#9b59b6" font-family="monospace" font-size="8">CVSS: 9.0-10.0</text>
+
+      <text x="110" y="80" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">Monitor</text>
+      <text x="350" y="80" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">Schedule fix</text>
+      <text x="590" y="80" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">Plan fix</text>
+      <text x="900" y="80" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">Fix soon</text>
+      <text x="1150" y="80" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">Fix immediately</text>
+    </g>
+  </g>
+
+  <!-- Pipeline Integration -->
+  <g transform="translate(50, 660)">
+    <text x="0" y="0" fill="#e17055" font-family="Arial, sans-serif" font-size="16" font-weight="bold">GitLab CI Pipeline Security Stage</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="170" rx="15" fill="#2d3436"/>
+
+      <!-- YAML Code -->
+      <rect x="20" y="15" width="750" height="140" rx="10" fill="rgba(0,0,0,0.3)"/>
+      <text x="40" y="40" fill="#ffd93d" font-family="monospace" font-size="10">trivy_scan:</text>
+      <text x="50" y="58" fill="#e0e0e0" font-family="monospace" font-size="9">stage: security</text>
+      <text x="50" y="73" fill="#e0e0e0" font-family="monospace" font-size="9">image: ${NEXUS_PULL_REGISTRY}/alpine-curl:latest</text>
+      <text x="50" y="88" fill="#81ecec" font-family="monospace" font-size="9">services:</text>
+      <text x="60" y="103" fill="#e0e0e0" font-family="monospace" font-size="9">- name: ${NEXUS}/trivy:latest</text>
+      <text x="70" y="118" fill="#888" font-family="monospace" font-size="9">alias: trivy-server</text>
+      <text x="70" y="133" fill="#888" font-family="monospace" font-size="9">command: ["server", "--listen", "0.0.0.0:8080"]</text>
+      <text x="50" y="148" fill="#e0e0e0" font-family="monospace" font-size="9">script: trivy image --server http://trivy-server:8080 ...</text>
+
+      <!-- Scan Result -->
+      <g transform="translate(790, 15)">
+        <rect x="0" y="0" width="490" height="140" rx="10" fill="rgba(27,154,190,0.2)"/>
+        <text x="245" y="25" text-anchor="middle" fill="#1b9abe" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Scan Result: TrivyScanResult</text>
+
+        <text x="20" y="50" fill="#ffd93d" font-family="monospace" font-size="9">Image: localhost:5001/demo-app:latest</text>
+        <text x="20" y="70" fill="#e0e0e0" font-family="monospace" font-size="9">Total: 45 vulnerabilities</text>
+
+        <text x="20" y="95" fill="#9b59b6" font-family="monospace" font-size="9">CRITICAL: 2</text>
+        <text x="120" y="95" fill="#e74c3c" font-family="monospace" font-size="9">HIGH: 8</text>
+        <text x="200" y="95" fill="#f39c12" font-family="monospace" font-size="9">MEDIUM: 15</text>
+        <text x="300" y="95" fill="#3498db" font-family="monospace" font-size="9">LOW: 20</text>
+
+        <text x="20" y="120" fill="#888" font-family="monospace" font-size="8">CVE-2024-1234: openssl buffer overflow (CRITICAL)</text>
+        <text x="20" y="135" fill="#888" font-family="monospace" font-size="8">CVE-2024-5678: curl header injection (HIGH)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="880" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Trivy Integration | Container Security, SBOM &amp; Vulnerability Scanning</text>
+</svg>

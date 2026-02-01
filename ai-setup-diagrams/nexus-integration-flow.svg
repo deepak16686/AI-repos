@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 950">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="nexusGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1ba5ad"/>
+      <stop offset="100%" style="stop-color:#0d8f97"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffd93d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="950" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Nexus Repository Integration Flow</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">Private Docker Registry &amp; Artifacts</text>
+
+  <!-- Nexus Server -->
+  <g filter="url(#shadow)" transform="translate(500, 80)">
+    <rect x="0" y="0" width="400" height="200" rx="15" fill="url(#nexusGrad)"/>
+    <text x="200" y="35" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Nexus Repository Manager</text>
+    <text x="200" y="55" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="10">UI: localhost:8081 | Docker: localhost:5001</text>
+
+    <rect x="15" y="70" width="370" height="115" rx="10" fill="rgba(0,0,0,0.3)"/>
+    <text x="30" y="95" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Repository Types:</text>
+    <text x="40" y="115" fill="#e0e0e0" font-family="monospace" font-size="9">Docker Hosted: apm-repo (port 5001)</text>
+    <text x="40" y="133" fill="#e0e0e0" font-family="monospace" font-size="9">Maven Hosted: maven-releases</text>
+    <text x="40" y="151" fill="#e0e0e0" font-family="monospace" font-size="9">NPM Hosted: npm-private</text>
+    <text x="40" y="169" fill="#81ecec" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Auth:</text>
+    <text x="80" y="169" fill="#e0e0e0" font-family="monospace" font-size="9">Basic (admin:password)</text>
+  </g>
+
+  <!-- Consumers -->
+  <g transform="translate(50, 80)">
+    <text x="0" y="0" fill="#1ba5ad" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Consumers</text>
+
+    <!-- GitLab Runner -->
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="200" height="80" rx="10" fill="#e17055"/>
+      <text x="100" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">GitLab Runner</text>
+      <text x="100" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">Pull images for jobs</text>
+      <text x="100" y="60" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">Push built images</text>
+    </g>
+
+    <!-- Kaniko -->
+    <g filter="url(#shadow)" transform="translate(0, 110)">
+      <rect x="0" y="0" width="200" height="80" rx="10" fill="#6c5ce7"/>
+      <text x="100" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Kaniko Builder</text>
+      <text x="100" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">Build Dockerfiles</text>
+      <text x="100" y="60" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">Push to registry</text>
+    </g>
+  </g>
+
+  <!-- Tools -->
+  <g transform="translate(1000, 80)">
+    <text x="0" y="0" fill="#1ba5ad" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Query Tools</text>
+
+    <!-- Pipeline Tool -->
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="220" height="80" rx="10" fill="#00b894"/>
+      <text x="110" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Pipeline Generator</text>
+      <text x="110" y="45" text-anchor="middle" fill="#006060" font-family="monospace" font-size="8">Query available images</text>
+      <text x="110" y="60" text-anchor="middle" fill="#006060" font-family="monospace" font-size="8">Build YAML with tags</text>
+    </g>
+
+    <!-- Nexus Tool -->
+    <g filter="url(#shadow)" transform="translate(0, 110)">
+      <rect x="0" y="0" width="220" height="80" rx="10" fill="#9b59b6"/>
+      <text x="110" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Nexus Explorer</text>
+      <text x="110" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">list_docker_images()</text>
+      <text x="110" y="60" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">Search by keyword</text>
+    </g>
+  </g>
+
+  <!-- Arrows to/from Nexus -->
+  <g stroke="#ffd93d" stroke-width="2" fill="none">
+    <path d="M 250 140 L 500 180" marker-end="url(#arrowhead)"/>
+    <path d="M 500 200 L 250 190" marker-end="url(#arrowhead)"/>
+    <path d="M 1000 140 L 900 180" marker-end="url(#arrowhead)"/>
+    <path d="M 900 200 L 1000 190" marker-end="url(#arrowhead)"/>
+  </g>
+
+  <!-- Docker Registry API Section -->
+  <g transform="translate(50, 310)">
+    <text x="0" y="0" fill="#1ba5ad" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Docker Registry V2 API Endpoints (localhost:5001)</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 30)">
+      <rect x="0" y="0" width="1300" height="150" rx="15" fill="#1a1a2e"/>
+
+      <!-- Endpoint boxes -->
+      <g transform="translate(20, 20)">
+        <rect x="0" y="0" width="240" height="110" rx="8" fill="rgba(27,165,173,0.3)"/>
+        <text x="120" y="20" text-anchor="middle" fill="#1ba5ad" font-family="Arial, sans-serif" font-size="11" font-weight="bold">GET /v2/_catalog</text>
+        <text x="120" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">List all repositories</text>
+        <rect x="10" y="50" width="220" height="50" rx="5" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="68" fill="#e0e0e0" font-family="monospace" font-size="8">{"repositories": [</text>
+        <text x="25" y="83" fill="#81ecec" font-family="monospace" font-size="8">"maven", "python", "node"...]}</text>
+      </g>
+
+      <g transform="translate(280, 20)">
+        <rect x="0" y="0" width="280" height="110" rx="8" fill="rgba(27,165,173,0.3)"/>
+        <text x="140" y="20" text-anchor="middle" fill="#1ba5ad" font-family="Arial, sans-serif" font-size="11" font-weight="bold">GET /v2/{repo}/tags/list</text>
+        <text x="140" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">List tags for repository</text>
+        <rect x="10" y="50" width="260" height="50" rx="5" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="68" fill="#e0e0e0" font-family="monospace" font-size="8">{"name": "python", "tags": [</text>
+        <text x="25" y="83" fill="#81ecec" font-family="monospace" font-size="8">"3.11", "3.10", "latest"]}</text>
+      </g>
+
+      <g transform="translate(580, 20)">
+        <rect x="0" y="0" width="280" height="110" rx="8" fill="rgba(27,165,173,0.3)"/>
+        <text x="140" y="20" text-anchor="middle" fill="#1ba5ad" font-family="Arial, sans-serif" font-size="11" font-weight="bold">GET /v2/{repo}/manifests/{tag}</text>
+        <text x="140" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Get image manifest</text>
+        <rect x="10" y="50" width="260" height="50" rx="5" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="68" fill="#e0e0e0" font-family="monospace" font-size="8">Accept: application/vnd.docker.</text>
+        <text x="25" y="83" fill="#81ecec" font-family="monospace" font-size="8">distribution.manifest.v2+json</text>
+      </g>
+
+      <g transform="translate(880, 20)">
+        <rect x="0" y="0" width="280" height="110" rx="8" fill="rgba(0,184,148,0.3)"/>
+        <text x="140" y="20" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="11" font-weight="bold">PUT /v2/{repo}/manifests/{tag}</text>
+        <text x="140" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Push/tag manifest</text>
+        <rect x="10" y="50" width="260" height="50" rx="5" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="68" fill="#e0e0e0" font-family="monospace" font-size="8">Used by push stage to</text>
+        <text x="25" y="83" fill="#81ecec" font-family="monospace" font-size="8">tag release versions</text>
+      </g>
+
+      <g transform="translate(1180, 20)">
+        <rect x="0" y="0" width="100" height="110" rx="8" fill="rgba(214,48,49,0.3)"/>
+        <text x="50" y="20" text-anchor="middle" fill="#ff7675" font-family="Arial, sans-serif" font-size="11" font-weight="bold">DELETE</text>
+        <text x="50" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">/manifests</text>
+        <text x="50" y="65" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">Remove</text>
+        <text x="50" y="80" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">old tags</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Backend API Router -->
+  <g transform="translate(50, 510)">
+    <text x="0" y="0" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="16" font-weight="bold">DevOps Backend /nexus Router Endpoints</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 30)">
+      <rect x="0" y="0" width="1300" height="130" rx="15" fill="#1a1a2e"/>
+
+      <g transform="translate(20, 20)">
+        <rect x="0" y="0" width="200" height="90" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="100" y="18" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /repositories</text>
+        <text x="100" y="38" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">NexusRepository[]</text>
+        <text x="15" y="58" fill="#e0e0e0" font-family="monospace" font-size="7">name, format, type</text>
+        <text x="15" y="73" fill="#e0e0e0" font-family="monospace" font-size="7">url, online status</text>
+      </g>
+
+      <g transform="translate(240, 20)">
+        <rect x="0" y="0" width="200" height="90" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="100" y="18" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /components</text>
+        <text x="100" y="38" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">?repository=&amp;name=</text>
+        <text x="15" y="58" fill="#e0e0e0" font-family="monospace" font-size="7">Search components</text>
+        <text x="15" y="73" fill="#e0e0e0" font-family="monospace" font-size="7">NexusComponent[]</text>
+      </g>
+
+      <g transform="translate(460, 20)">
+        <rect x="0" y="0" width="200" height="90" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="100" y="18" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /docker/.../images</text>
+        <text x="100" y="38" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">repository path param</text>
+        <text x="15" y="58" fill="#e0e0e0" font-family="monospace" font-size="7">List Docker images</text>
+        <text x="15" y="73" fill="#e0e0e0" font-family="monospace" font-size="7">in specific repo</text>
+      </g>
+
+      <g transform="translate(680, 20)">
+        <rect x="0" y="0" width="200" height="90" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="100" y="18" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /docker/.../tags</text>
+        <text x="100" y="38" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">image_name path param</text>
+        <text x="15" y="58" fill="#e0e0e0" font-family="monospace" font-size="7">{image, tags[]}</text>
+        <text x="15" y="73" fill="#e0e0e0" font-family="monospace" font-size="7">Available versions</text>
+      </g>
+
+      <g transform="translate(900, 20)">
+        <rect x="0" y="0" width="180" height="90" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="90" y="18" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /blob-stores</text>
+        <text x="90" y="38" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Storage info</text>
+        <text x="15" y="58" fill="#e0e0e0" font-family="monospace" font-size="7">/quota endpoint</text>
+        <text x="15" y="73" fill="#e0e0e0" font-family="monospace" font-size="7">Storage utilization</text>
+      </g>
+
+      <g transform="translate(1100, 20)">
+        <rect x="0" y="0" width="180" height="90" rx="8" fill="rgba(0,184,148,0.3)"/>
+        <text x="90" y="18" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="10" font-weight="bold">POST /tasks/{id}/run</text>
+        <text x="90" y="38" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Trigger tasks</text>
+        <text x="15" y="58" fill="#e0e0e0" font-family="monospace" font-size="7">Cleanup, compact</text>
+        <text x="15" y="73" fill="#e0e0e0" font-family="monospace" font-size="7">DB maintenance</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Pipeline Usage -->
+  <g transform="translate(50, 690)">
+    <text x="0" y="0" fill="#e17055" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Nexus Usage in Pipeline Stages</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="190" rx="15" fill="#2d3436"/>
+
+      <!-- Stage boxes -->
+      <g transform="translate(20, 15)">
+        <rect x="0" y="0" width="300" height="160" rx="10" fill="rgba(225,112,85,0.2)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Build Stage (Kaniko)</text>
+        <text x="15" y="50" fill="#ffd93d" font-family="monospace" font-size="9">Push to Nexus:</text>
+        <text x="20" y="70" fill="#e0e0e0" font-family="monospace" font-size="8">--destination ${NEXUS_REGISTRY}/</text>
+        <text x="25" y="85" fill="#e0e0e0" font-family="monospace" font-size="8">apm-repo/demo/${IMAGE_NAME}:${TAG}</text>
+        <text x="15" y="110" fill="#81ecec" font-family="monospace" font-size="9">Auth config.json:</text>
+        <text x="20" y="128" fill="#888" font-family="monospace" font-size="8">{"auths":{"${NEXUS}":</text>
+        <text x="25" y="143" fill="#888" font-family="monospace" font-size="8">{"username":"admin","password":"..."}}}</text>
+      </g>
+
+      <g transform="translate(340, 15)">
+        <rect x="0" y="0" width="300" height="160" rx="10" fill="rgba(0,184,148,0.2)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Test Stage (Verify)</text>
+        <text x="15" y="50" fill="#ffd93d" font-family="monospace" font-size="9">Verify image exists:</text>
+        <text x="20" y="70" fill="#e0e0e0" font-family="monospace" font-size="8">curl -u "$USER:$PASS"</text>
+        <text x="25" y="88" fill="#e0e0e0" font-family="monospace" font-size="8">"http://${NEXUS}/v2/apm-repo/</text>
+        <text x="25" y="106" fill="#e0e0e0" font-family="monospace" font-size="8">demo/${IMAGE}/manifests/latest"</text>
+        <text x="15" y="130" fill="#81ecec" font-family="monospace" font-size="9">Expected:</text>
+        <text x="80" y="130" fill="#00b894" font-family="monospace" font-size="8">HTTP 200</text>
+      </g>
+
+      <g transform="translate(660, 15)">
+        <rect x="0" y="0" width="300" height="160" rx="10" fill="rgba(253,203,110,0.2)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Push Stage (Tag Release)</text>
+        <text x="15" y="50" fill="#ffd93d" font-family="monospace" font-size="9">Tag with release version:</text>
+        <text x="20" y="70" fill="#e0e0e0" font-family="monospace" font-size="8">1. GET manifest from :latest</text>
+        <text x="20" y="88" fill="#e0e0e0" font-family="monospace" font-size="8">2. PUT manifest as :$RELEASE_TAG</text>
+        <text x="15" y="115" fill="#81ecec" font-family="monospace" font-size="9">Tag format:</text>
+        <text x="20" y="135" fill="#888" font-family="monospace" font-size="8">1.0.release-${CI_PIPELINE_IID}</text>
+      </g>
+
+      <g transform="translate(980, 15)">
+        <rect x="0" y="0" width="300" height="160" rx="10" fill="rgba(214,48,49,0.2)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#ff7675" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Security Stage (Trivy)</text>
+        <text x="15" y="50" fill="#ffd93d" font-family="monospace" font-size="9">Scan from Nexus:</text>
+        <text x="20" y="70" fill="#e0e0e0" font-family="monospace" font-size="8">trivy image --insecure</text>
+        <text x="25" y="88" fill="#e0e0e0" font-family="monospace" font-size="8">${NEXUS_REGISTRY}/apm-repo/</text>
+        <text x="25" y="106" fill="#e0e0e0" font-family="monospace" font-size="8">demo/${IMAGE_NAME}:latest</text>
+        <text x="15" y="130" fill="#81ecec" font-family="monospace" font-size="9">Auth env:</text>
+        <text x="20" y="148" fill="#888" font-family="monospace" font-size="8">TRIVY_USERNAME, TRIVY_PASSWORD</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="930" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Nexus Integration | Private Docker Registry &amp; Artifact Management</text>
+</svg>

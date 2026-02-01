@@ -1,0 +1,226 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="nexusGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#55efc4"/>
+    </linearGradient>
+    <linearGradient id="apiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c5ce7"/>
+      <stop offset="100%" style="stop-color:#a29bfe"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffd93d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Nexus Explorer Tool - Registry Query Architecture</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">nexus_docker_images</text>
+
+  <!-- Tool Configuration -->
+  <g filter="url(#shadow)" transform="translate(50, 80)">
+    <rect x="0" y="0" width="420" height="140" rx="15" fill="#2d3436" stroke="#00b894" stroke-width="2"/>
+    <text x="210" y="30" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Tool Configuration</text>
+
+    <text x="20" y="60" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">TOOL_ID:</text>
+    <text x="85" y="60" fill="#e0e0e0" font-family="monospace" font-size="10">nexus_docker_images</text>
+
+    <text x="20" y="85" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">REGISTRY:</text>
+    <text x="90" y="85" fill="#e0e0e0" font-family="monospace" font-size="10">http://ai-nexus:5001</text>
+
+    <text x="20" y="110" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Auth:</text>
+    <text x="55" y="110" fill="#e0e0e0" font-family="monospace" font-size="10">NEXUS_USER:NEXUS_PASS (admin:r)</text>
+  </g>
+
+  <!-- Function Definition -->
+  <g filter="url(#shadow)" transform="translate(500, 80)">
+    <rect x="0" y="0" width="450" height="140" rx="15" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="2"/>
+    <text x="225" y="30" text-anchor="middle" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Function Definition</text>
+
+    <rect x="15" y="45" width="420" height="80" rx="8" fill="rgba(0,0,0,0.3)"/>
+    <text x="25" y="70" fill="#ffd93d" font-family="monospace" font-size="10">def list_docker_images(</text>
+    <text x="40" y="90" fill="#e0e0e0" font-family="monospace" font-size="10">query: str = ""</text>
+    <text x="25" y="110" fill="#ffd93d" font-family="monospace" font-size="10">) -&gt; dict</text>
+  </g>
+
+  <!-- Purpose -->
+  <g filter="url(#shadow)" transform="translate(980, 80)">
+    <rect x="0" y="0" width="370" height="140" rx="15" fill="url(#nexusGrad)"/>
+    <text x="185" y="30" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Purpose</text>
+
+    <text x="20" y="60" fill="#006060" font-family="Arial, sans-serif" font-size="10">Query private Nexus Docker registry</text>
+    <text x="20" y="80" fill="#006060" font-family="Arial, sans-serif" font-size="10">for available images and tags.</text>
+    <text x="20" y="105" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Keywords:</text>
+    <text x="20" y="125" fill="#006060" font-family="monospace" font-size="9">python, node, nginx, java, golang, maven, etc.</text>
+  </g>
+
+  <!-- Query Flow Section -->
+  <g transform="translate(50, 250)">
+    <text x="0" y="0" fill="#ffd93d" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Query Execution Flow</text>
+
+    <!-- Step 1: User Query -->
+    <g filter="url(#shadow)" transform="translate(0, 30)">
+      <rect x="0" y="0" width="280" height="120" rx="12" fill="#2d3436"/>
+      <rect x="0" y="0" width="280" height="35" rx="12" fill="#e17055"/>
+      <text x="140" y="23" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">1. User Query Input</text>
+
+      <text x="15" y="55" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Example Queries:</text>
+      <text x="25" y="73" fill="#e0e0e0" font-family="monospace" font-size="8">"python" → Python images</text>
+      <text x="25" y="88" fill="#e0e0e0" font-family="monospace" font-size="8">"maven, java" → Java/Maven images</text>
+      <text x="25" y="103" fill="#e0e0e0" font-family="monospace" font-size="8">"" → All images</text>
+    </g>
+
+    <line x1="280" y1="90" x2="320" y2="90" stroke="#ffd93d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <!-- Step 2: Catalog Query -->
+    <g filter="url(#shadow)" transform="translate(330, 30)">
+      <rect x="0" y="0" width="280" height="120" rx="12" fill="#2d3436"/>
+      <rect x="0" y="0" width="280" height="35" rx="12" fill="url(#apiGrad)"/>
+      <text x="140" y="23" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">2. Get Catalog</text>
+
+      <text x="15" y="55" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">API Call:</text>
+      <text x="25" y="73" fill="#e0e0e0" font-family="monospace" font-size="8">GET /v2/_catalog</text>
+      <text x="25" y="88" fill="#81ecec" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Response:</text>
+      <text x="25" y="103" fill="#e0e0e0" font-family="monospace" font-size="8">{"repositories": ["maven", "python"...]}</text>
+    </g>
+
+    <line x1="610" y1="90" x2="650" y2="90" stroke="#ffd93d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <!-- Step 3: Filter Repos -->
+    <g filter="url(#shadow)" transform="translate(660, 30)">
+      <rect x="0" y="0" width="280" height="120" rx="12" fill="#2d3436"/>
+      <rect x="0" y="0" width="280" height="35" rx="12" fill="#00b894"/>
+      <text x="140" y="23" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">3. Filter Repositories</text>
+
+      <text x="15" y="55" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Logic:</text>
+      <text x="25" y="73" fill="#e0e0e0" font-family="monospace" font-size="8">for word in query_words:</text>
+      <text x="35" y="88" fill="#e0e0e0" font-family="monospace" font-size="8">if word in repo.lower():</text>
+      <text x="45" y="103" fill="#e0e0e0" font-family="monospace" font-size="8">matched_repos.append(repo)</text>
+    </g>
+
+    <line x1="940" y1="90" x2="980" y2="90" stroke="#ffd93d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <!-- Step 4: Get Tags -->
+    <g filter="url(#shadow)" transform="translate(990, 30)">
+      <rect x="0" y="0" width="280" height="120" rx="12" fill="#2d3436"/>
+      <rect x="0" y="0" width="280" height="35" rx="12" fill="#9b59b6"/>
+      <text x="140" y="23" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">4. Get Tags Per Repo</text>
+
+      <text x="15" y="55" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">API Call (per repo):</text>
+      <text x="25" y="73" fill="#e0e0e0" font-family="monospace" font-size="8">GET /v2/{repo}/tags/list</text>
+      <text x="25" y="88" fill="#81ecec" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Response:</text>
+      <text x="25" y="103" fill="#e0e0e0" font-family="monospace" font-size="8">{"tags": ["latest", "3.9", "3.8"]}</text>
+    </g>
+  </g>
+
+  <!-- Response Format -->
+  <g transform="translate(50, 420)">
+    <text x="0" y="0" fill="#00b894" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Response Format</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="650" height="280" rx="15" fill="#1a1a2e"/>
+      <text x="325" y="30" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Success Response</text>
+
+      <rect x="20" y="45" width="610" height="220" rx="10" fill="rgba(0,0,0,0.3)"/>
+      <text x="35" y="70" fill="#ffd93d" font-family="monospace" font-size="10">{</text>
+      <text x="50" y="90" fill="#e0e0e0" font-family="monospace" font-size="9">"images": [</text>
+      <text x="65" y="110" fill="#e0e0e0" font-family="monospace" font-size="9">{</text>
+      <text x="80" y="130" fill="#81ecec" font-family="monospace" font-size="9">"repository": "python",</text>
+      <text x="80" y="150" fill="#81ecec" font-family="monospace" font-size="9">"tags": ["3.11", "3.10", "3.9", "latest"],</text>
+      <text x="80" y="170" fill="#00b894" font-family="monospace" font-size="9">"pull_path": "localhost:5001/python",</text>
+      <text x="80" y="190" fill="#888" font-family="monospace" font-size="9">"source": "nexus-private-registry"</text>
+      <text x="65" y="210" fill="#e0e0e0" font-family="monospace" font-size="9">},</text>
+      <text x="65" y="230" fill="#e0e0e0" font-family="monospace" font-size="9">...</text>
+      <text x="50" y="250" fill="#e0e0e0" font-family="monospace" font-size="9">],</text>
+      <text x="50" y="265" fill="#888" font-family="monospace" font-size="9">"source": "nexus-private-registry"</text>
+    </g>
+
+    <!-- Error Response -->
+    <g filter="url(#shadow)" transform="translate(680, 25)">
+      <rect x="0" y="0" width="320" height="130" rx="15" fill="#2d3436" stroke="#d63031" stroke-width="2"/>
+      <text x="160" y="30" text-anchor="middle" fill="#d63031" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Error Response</text>
+
+      <rect x="15" y="45" width="290" height="70" rx="8" fill="rgba(0,0,0,0.3)"/>
+      <text x="30" y="70" fill="#e0e0e0" font-family="monospace" font-size="9">{</text>
+      <text x="45" y="90" fill="#d63031" font-family="monospace" font-size="9">"error": "Connection timeout",</text>
+      <text x="45" y="105" fill="#888" font-family="monospace" font-size="9">"source": "nexus-private-registry"</text>
+    </g>
+
+    <!-- No Results Response -->
+    <g filter="url(#shadow)" transform="translate(680, 170)">
+      <rect x="0" y="0" width="320" height="135" rx="15" fill="#2d3436" stroke="#e17055" stroke-width="2"/>
+      <text x="160" y="30" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="14" font-weight="bold">No Results Response</text>
+
+      <rect x="15" y="45" width="290" height="75" rx="8" fill="rgba(0,0,0,0.3)"/>
+      <text x="30" y="70" fill="#e0e0e0" font-family="monospace" font-size="9">{</text>
+      <text x="45" y="90" fill="#e0e0e0" font-family="monospace" font-size="9">"images": [],</text>
+      <text x="45" y="105" fill="#e17055" font-family="monospace" font-size="8">"message": "No image available..."</text>
+    </g>
+  </g>
+
+  <!-- Backend API Router -->
+  <g transform="translate(50, 730)">
+    <text x="0" y="0" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="16" font-weight="bold">DevOps Tools Backend - Nexus Router Endpoints</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="100" rx="15" fill="#1a1a2e"/>
+
+      <!-- Endpoint boxes -->
+      <g transform="translate(20, 15)">
+        <rect x="0" y="0" width="200" height="70" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="100" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /repositories</text>
+        <text x="100" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">List all repositories</text>
+        <text x="100" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">NexusRepository[]</text>
+      </g>
+
+      <g transform="translate(240, 15)">
+        <rect x="0" y="0" width="200" height="70" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="100" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /components</text>
+        <text x="100" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Search components</text>
+        <text x="100" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">?repository=&amp;name=</text>
+      </g>
+
+      <g transform="translate(460, 15)">
+        <rect x="0" y="0" width="200" height="70" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="100" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /docker/{repo}/images</text>
+        <text x="100" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">List Docker images</text>
+        <text x="100" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">in repository</text>
+      </g>
+
+      <g transform="translate(680, 15)">
+        <rect x="0" y="0" width="200" height="70" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="100" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /docker/.../tags</text>
+        <text x="100" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Get image tags</text>
+        <text x="100" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">{image, tags[]}</text>
+      </g>
+
+      <g transform="translate(900, 15)">
+        <rect x="0" y="0" width="180" height="70" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="90" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /blob-stores</text>
+        <text x="90" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">List blob stores</text>
+        <text x="90" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">/quota endpoint</text>
+      </g>
+
+      <g transform="translate(1100, 15)">
+        <rect x="0" y="0" width="180" height="70" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="90" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">POST /tasks/{id}/run</text>
+        <text x="90" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Run scheduled task</text>
+        <text x="90" y="55" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">cleanup, compact</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="880" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Nexus Explorer Tool | Private Registry Query Interface</text>
+</svg>

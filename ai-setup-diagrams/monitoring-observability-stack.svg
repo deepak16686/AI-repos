@@ -1,0 +1,295 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 950">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="prometheusGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e6522c"/>
+      <stop offset="100%" style="stop-color:#f47d47"/>
+    </linearGradient>
+    <linearGradient id="grafanaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f46800"/>
+      <stop offset="100%" style="stop-color:#ff9830"/>
+    </linearGradient>
+    <linearGradient id="lokiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f4a261"/>
+      <stop offset="100%" style="stop-color:#e9c46a"/>
+    </linearGradient>
+    <linearGradient id="jaegerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#60d0e4"/>
+      <stop offset="100%" style="stop-color:#8de4af"/>
+    </linearGradient>
+    <linearGradient id="promtailGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a9d8f"/>
+      <stop offset="100%" style="stop-color:#40c4b4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f46800"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#60d0e4"/>
+    </marker>
+    <marker id="arrowYellow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f4a261"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e6522c"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="950" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Monitoring &amp; Observability Stack</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">Metrics | Logs | Traces</text>
+
+  <!-- Three Pillars Header -->
+  <g transform="translate(0, 80)">
+    <rect x="30" y="0" width="400" height="50" rx="8" fill="#e6522c" opacity="0.3"/>
+    <text x="230" y="32" text-anchor="middle" fill="#e6522c" font-family="Arial, sans-serif" font-size="16" font-weight="bold" filter="url(#glow)">📊 METRICS</text>
+
+    <rect x="500" y="0" width="400" height="50" rx="8" fill="#f4a261" opacity="0.3"/>
+    <text x="700" y="32" text-anchor="middle" fill="#f4a261" font-family="Arial, sans-serif" font-size="16" font-weight="bold" filter="url(#glow)">📝 LOGS</text>
+
+    <rect x="970" y="0" width="400" height="50" rx="8" fill="#60d0e4" opacity="0.3"/>
+    <text x="1170" y="32" text-anchor="middle" fill="#60d0e4" font-family="Arial, sans-serif" font-size="16" font-weight="bold" filter="url(#glow)">🔗 TRACES</text>
+  </g>
+
+  <!-- Data Sources (Applications) -->
+  <g transform="translate(30, 150)">
+    <rect x="0" y="0" width="1340" height="140" rx="15" fill="#1a1a2e" stroke="#4a90d9" stroke-width="2"/>
+    <text x="20" y="30" fill="#4a90d9" font-family="Arial, sans-serif" font-size="14" font-weight="bold">📡 Data Sources (Platform Services)</text>
+
+    <!-- Service boxes -->
+    <g filter="url(#shadow)">
+      <rect x="20" y="50" width="110" height="70" rx="8" fill="#6c5ce7"/>
+      <text x="75" y="80" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Modernization</text>
+      <text x="75" y="95" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">API :8002</text>
+      <text x="75" y="110" text-anchor="middle" fill="#a0e0ff" font-family="monospace" font-size="8">/metrics</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="145" y="50" width="110" height="70" rx="8" fill="#e17055"/>
+      <text x="200" y="80" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">GitLab</text>
+      <text x="200" y="95" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">:8929</text>
+      <text x="200" y="110" text-anchor="middle" fill="#a0e0ff" font-family="monospace" font-size="8">/metrics</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="270" y="50" width="110" height="70" rx="8" fill="#00b894"/>
+      <text x="325" y="80" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">SonarQube</text>
+      <text x="325" y="95" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">:9002</text>
+      <text x="325" y="110" text-anchor="middle" fill="#a0e0ff" font-family="monospace" font-size="8">/metrics</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="395" y="50" width="110" height="70" rx="8" fill="#0984e3"/>
+      <text x="450" y="80" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">PostgreSQL</text>
+      <text x="450" y="95" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">:5432</text>
+      <text x="450" y="110" text-anchor="middle" fill="#a0e0ff" font-family="monospace" font-size="8">exporter</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="520" y="50" width="110" height="70" rx="8" fill="#fd79a8"/>
+      <text x="575" y="80" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Redis</text>
+      <text x="575" y="95" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">:6379</text>
+      <text x="575" y="110" text-anchor="middle" fill="#a0e0ff" font-family="monospace" font-size="8">exporter</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="645" y="50" width="110" height="70" rx="8" fill="#00cec9"/>
+      <text x="700" y="80" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Ollama</text>
+      <text x="700" y="95" text-anchor="middle" fill="#1a1a2e" font-family="monospace" font-size="9">:11434</text>
+      <text x="700" y="110" text-anchor="middle" fill="#006060" font-family="monospace" font-size="8">/api/tags</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="770" y="50" width="110" height="70" rx="8" fill="#636e72"/>
+      <text x="825" y="80" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Nexus</text>
+      <text x="825" y="95" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">:8081</text>
+      <text x="825" y="110" text-anchor="middle" fill="#a0e0ff" font-family="monospace" font-size="8">/metrics</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="895" y="50" width="110" height="70" rx="8" fill="#8e44ad"/>
+      <text x="950" y="80" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">ChromaDB</text>
+      <text x="950" y="95" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">:8000</text>
+      <text x="950" y="110" text-anchor="middle" fill="#a0e0ff" font-family="monospace" font-size="8">/heartbeat</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="1020" y="50" width="110" height="70" rx="8" fill="#2d3436"/>
+      <text x="1075" y="80" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">MinIO</text>
+      <text x="1075" y="95" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">:9000</text>
+      <text x="1075" y="110" text-anchor="middle" fill="#a0e0ff" font-family="monospace" font-size="8">/metrics</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="1145" y="50" width="110" height="70" rx="8" fill="#e17055" opacity="0.7"/>
+      <text x="1200" y="80" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Trivy</text>
+      <text x="1200" y="95" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">:8083</text>
+      <text x="1200" y="110" text-anchor="middle" fill="#a0e0ff" font-family="monospace" font-size="8">/healthz</text>
+    </g>
+  </g>
+
+  <!-- Data Collection Flow Arrows -->
+  <g transform="translate(0, 310)">
+    <!-- Metrics arrows -->
+    <line x1="200" y1="0" x2="200" y2="50" stroke="#e6522c" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <line x1="350" y1="0" x2="350" y2="50" stroke="#e6522c" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <line x1="500" y1="0" x2="500" y2="50" stroke="#e6522c" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+    <!-- Log arrows -->
+    <line x1="700" y1="0" x2="700" y2="50" stroke="#f4a261" stroke-width="2" marker-end="url(#arrowYellow)"/>
+    <line x1="850" y1="0" x2="850" y2="50" stroke="#f4a261" stroke-width="2" marker-end="url(#arrowYellow)"/>
+
+    <!-- Trace arrows -->
+    <line x1="1050" y1="0" x2="1050" y2="50" stroke="#60d0e4" stroke-width="2" marker-end="url(#arrowBlue)"/>
+    <line x1="1200" y1="0" x2="1200" y2="50" stroke="#60d0e4" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  </g>
+
+  <!-- Collection Layer -->
+  <g transform="translate(30, 370)">
+    <!-- Prometheus -->
+    <g filter="url(#shadow)">
+      <rect x="0" y="0" width="400" height="170" rx="15" fill="#1a1a2e" stroke="#e6522c" stroke-width="2"/>
+      <rect x="0" y="0" width="400" height="45" rx="15" fill="url(#prometheusGrad)"/>
+      <rect x="0" y="30" width="400" height="15" fill="url(#prometheusGrad)"/>
+      <text x="200" y="30" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">📊 Prometheus</text>
+      <text x="20" y="70" fill="#e0e0e0" font-family="monospace" font-size="11">container: platform-prometheus</text>
+      <text x="20" y="90" fill="#e0e0e0" font-family="monospace" font-size="11">port: 9090:9090</text>
+      <text x="20" y="110" fill="#e6522c" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Features:</text>
+      <text x="20" y="128" fill="#e0e0e0" font-family="monospace" font-size="10">• Pull-based metric collection</text>
+      <text x="20" y="145" fill="#e0e0e0" font-family="monospace" font-size="10">• Time-series database (TSDB)</text>
+      <text x="20" y="162" fill="#e0e0e0" font-family="monospace" font-size="10">• PromQL query language</text>
+      <rect x="230" y="60" width="150" height="50" rx="5" fill="#2d3436"/>
+      <text x="305" y="80" text-anchor="middle" fill="#e6522c" font-family="monospace" font-size="9">scrape_interval: 15s</text>
+      <text x="305" y="98" text-anchor="middle" fill="#888" font-family="monospace" font-size="9">web.enable-lifecycle</text>
+    </g>
+
+    <!-- Promtail + Loki -->
+    <g filter="url(#shadow)" transform="translate(470, 0)">
+      <rect x="0" y="0" width="400" height="170" rx="15" fill="#1a1a2e" stroke="#f4a261" stroke-width="2"/>
+
+      <!-- Promtail -->
+      <rect x="10" y="10" width="180" height="150" rx="10" fill="#2d3436" stroke="url(#promtailGrad)" stroke-width="1"/>
+      <text x="100" y="35" text-anchor="middle" fill="#2a9d8f" font-family="Arial, sans-serif" font-size="13" font-weight="bold">📋 Promtail</text>
+      <text x="20" y="55" fill="#e0e0e0" font-family="monospace" font-size="9">platform-promtail</text>
+      <text x="20" y="75" fill="#2a9d8f" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Mounts:</text>
+      <text x="20" y="92" fill="#e0e0e0" font-family="monospace" font-size="8">docker.sock</text>
+      <text x="20" y="107" fill="#e0e0e0" font-family="monospace" font-size="8">/var/lib/docker/containers</text>
+      <text x="20" y="122" fill="#e0e0e0" font-family="monospace" font-size="8">/var/log</text>
+      <text x="20" y="145" fill="#888" font-family="monospace" font-size="8">→ ships to Loki</text>
+
+      <!-- Loki -->
+      <rect x="210" y="10" width="180" height="150" rx="10" fill="url(#lokiGrad)"/>
+      <text x="300" y="35" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="13" font-weight="bold">📝 Loki</text>
+      <text x="220" y="55" fill="#1a1a2e" font-family="monospace" font-size="9">platform-loki</text>
+      <text x="220" y="75" fill="#1a1a2e" font-family="monospace" font-size="9">port: 3100:3100</text>
+      <text x="220" y="95" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Features:</text>
+      <text x="220" y="112" fill="#1a1a2e" font-family="monospace" font-size="8">• Log aggregation</text>
+      <text x="220" y="127" fill="#1a1a2e" font-family="monospace" font-size="8">• Label-based indexing</text>
+      <text x="220" y="142" fill="#1a1a2e" font-family="monospace" font-size="8">• LogQL queries</text>
+    </g>
+
+    <!-- Jaeger -->
+    <g filter="url(#shadow)" transform="translate(940, 0)">
+      <rect x="0" y="0" width="400" height="170" rx="15" fill="#1a1a2e" stroke="#60d0e4" stroke-width="2"/>
+      <rect x="0" y="0" width="400" height="45" rx="15" fill="url(#jaegerGrad)"/>
+      <rect x="0" y="30" width="400" height="15" fill="url(#jaegerGrad)"/>
+      <text x="200" y="30" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="16" font-weight="bold">🔗 Jaeger</text>
+      <text x="20" y="70" fill="#e0e0e0" font-family="monospace" font-size="11">container: platform-jaeger</text>
+      <text x="20" y="90" fill="#e0e0e0" font-family="monospace" font-size="11">UI: 16686 | OTLP: 4317, 4318</text>
+      <text x="20" y="110" fill="#60d0e4" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Features:</text>
+      <text x="20" y="128" fill="#e0e0e0" font-family="monospace" font-size="10">• Distributed tracing</text>
+      <text x="20" y="145" fill="#e0e0e0" font-family="monospace" font-size="10">• Request flow visualization</text>
+      <text x="20" y="162" fill="#e0e0e0" font-family="monospace" font-size="10">• OTLP collector enabled</text>
+      <rect x="230" y="60" width="150" height="50" rx="5" fill="#2d3436"/>
+      <text x="305" y="80" text-anchor="middle" fill="#60d0e4" font-family="monospace" font-size="9">OTLP: true</text>
+      <text x="305" y="98" text-anchor="middle" fill="#888" font-family="monospace" font-size="9">all-in-one mode</text>
+    </g>
+  </g>
+
+  <!-- Visualization Layer -->
+  <g transform="translate(30, 580)">
+    <!-- Arrow from collectors to Grafana -->
+    <path d="M 200 0 L 200 30 L 700 30 L 700 60" stroke="#e6522c" stroke-width="2" fill="none" marker-end="url(#arrowOrange)"/>
+    <path d="M 670 0 L 670 30 L 700 30" stroke="#f4a261" stroke-width="2" fill="none"/>
+
+    <!-- Grafana -->
+    <g filter="url(#shadow)" transform="translate(250, 70)">
+      <rect x="0" y="0" width="900" height="200" rx="15" fill="#1a1a2e" stroke="#f46800" stroke-width="3"/>
+      <rect x="0" y="0" width="900" height="50" rx="15" fill="url(#grafanaGrad)"/>
+      <rect x="0" y="35" width="900" height="15" fill="url(#grafanaGrad)"/>
+      <text x="450" y="35" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold">📈 Grafana Dashboard</text>
+
+      <text x="30" y="80" fill="#e0e0e0" font-family="monospace" font-size="12">container: platform-grafana | port: 3000:3000</text>
+
+      <!-- Data Sources -->
+      <rect x="30" y="100" width="260" height="80" rx="8" fill="#2d3436"/>
+      <text x="160" y="125" text-anchor="middle" fill="#f46800" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Data Sources</text>
+      <text x="50" y="145" fill="#e6522c" font-family="monospace" font-size="10">• Prometheus (metrics)</text>
+      <text x="50" y="163" fill="#f4a261" font-family="monospace" font-size="10">• Loki (logs)</text>
+
+      <!-- Features -->
+      <rect x="320" y="100" width="260" height="80" rx="8" fill="#2d3436"/>
+      <text x="450" y="125" text-anchor="middle" fill="#f46800" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Dashboards</text>
+      <text x="340" y="145" fill="#e0e0e0" font-family="monospace" font-size="10">• Service Health Overview</text>
+      <text x="340" y="163" fill="#e0e0e0" font-family="monospace" font-size="10">• Resource Utilization</text>
+
+      <!-- Alerts -->
+      <rect x="610" y="100" width="260" height="80" rx="8" fill="#2d3436"/>
+      <text x="740" y="125" text-anchor="middle" fill="#f46800" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Alerting</text>
+      <text x="630" y="145" fill="#e0e0e0" font-family="monospace" font-size="10">• Alert rules (PromQL)</text>
+      <text x="630" y="163" fill="#e0e0e0" font-family="monospace" font-size="10">• Notification channels</text>
+    </g>
+
+    <!-- Jaeger UI -->
+    <g filter="url(#shadow)" transform="translate(1180, 70)">
+      <rect x="0" y="0" width="190" height="200" rx="15" fill="#1a1a2e" stroke="#60d0e4" stroke-width="2"/>
+      <rect x="0" y="0" width="190" height="45" rx="15" fill="url(#jaegerGrad)"/>
+      <rect x="0" y="30" width="190" height="15" fill="url(#jaegerGrad)"/>
+      <text x="95" y="30" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Jaeger UI</text>
+      <text x="20" y="70" fill="#e0e0e0" font-family="monospace" font-size="10">:16686</text>
+      <text x="20" y="100" fill="#60d0e4" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Features:</text>
+      <text x="20" y="120" fill="#e0e0e0" font-family="monospace" font-size="9">• Trace search</text>
+      <text x="20" y="138" fill="#e0e0e0" font-family="monospace" font-size="9">• Span details</text>
+      <text x="20" y="156" fill="#e0e0e0" font-family="monospace" font-size="9">• Service deps</text>
+      <text x="20" y="174" fill="#e0e0e0" font-family="monospace" font-size="9">• Compare traces</text>
+    </g>
+  </g>
+
+  <!-- Volume Storage -->
+  <g transform="translate(30, 870)">
+    <rect x="0" y="0" width="500" height="50" rx="8" fill="#1a1a2e" stroke="#636e72" stroke-width="1"/>
+    <text x="20" y="30" fill="#636e72" font-family="Arial, sans-serif" font-size="12" font-weight="bold">💾 Persistent Volumes:</text>
+    <text x="180" y="30" fill="#e0e0e0" font-family="monospace" font-size="10">prometheus-data | grafana-data | loki-data</text>
+  </g>
+
+  <!-- Data Flow Legend -->
+  <g transform="translate(560, 870)">
+    <rect x="0" y="0" width="400" height="50" rx="8" fill="#1a1a2e" stroke="#4a90d9" stroke-width="1"/>
+    <text x="20" y="20" fill="#4a90d9" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Data Flow:</text>
+    <line x1="100" y1="15" x2="140" y2="15" stroke="#e6522c" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="150" y="20" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="9">Metrics</text>
+    <line x1="200" y1="15" x2="240" y2="15" stroke="#f4a261" stroke-width="2" marker-end="url(#arrowYellow)"/>
+    <text x="250" y="20" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="9">Logs</text>
+    <line x1="290" y1="15" x2="330" y2="15" stroke="#60d0e4" stroke-width="2" marker-end="url(#arrowBlue)"/>
+    <text x="340" y="20" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="9">Traces</text>
+    <text x="20" y="42" fill="#888" font-family="Arial, sans-serif" font-size="9">Grafana depends on: prometheus, loki | Promtail depends on: loki</text>
+  </g>
+
+  <!-- Access URLs -->
+  <g transform="translate(990, 870)">
+    <rect x="0" y="0" width="380" height="50" rx="8" fill="#1a1a2e" stroke="#00b894" stroke-width="1"/>
+    <text x="20" y="20" fill="#00b894" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Access URLs:</text>
+    <text x="20" y="40" fill="#e0e0e0" font-family="monospace" font-size="9">Grafana: :3000 | Prometheus: :9090 | Jaeger: :16686 | Loki: :3100</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="940" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Complete Observability Stack | Three Pillars: Metrics, Logs, Traces</text>
+</svg>

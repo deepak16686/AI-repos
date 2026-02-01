@@ -1,0 +1,227 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="sonarGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#549dd0"/>
+      <stop offset="100%" style="stop-color:#4e9bcd"/>
+    </linearGradient>
+    <linearGradient id="qualityGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="50%" style="stop-color:#fdcb6e"/>
+      <stop offset="100%" style="stop-color:#d63031"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffd93d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">SonarQube Integration Flow</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">Code Quality &amp; Security Analysis</text>
+
+  <!-- SonarQube Server -->
+  <g filter="url(#shadow)" transform="translate(900, 80)">
+    <rect x="0" y="0" width="450" height="180" rx="15" fill="url(#sonarGrad)"/>
+    <text x="225" y="35" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">SonarQube Server</text>
+    <text x="225" y="55" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="10">http://ai-sonarqube:9000 | localhost:9002</text>
+
+    <rect x="15" y="70" width="420" height="95" rx="10" fill="rgba(0,0,0,0.3)"/>
+    <text x="30" y="95" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Analysis Engine:</text>
+    <text x="40" y="115" fill="#e0e0e0" font-family="monospace" font-size="9">Static Code Analysis | Security Rules</text>
+    <text x="40" y="133" fill="#e0e0e0" font-family="monospace" font-size="9">Quality Gates | Technical Debt Tracking</text>
+    <text x="30" y="155" fill="#81ecec" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Database:</text>
+    <text x="100" y="155" fill="#e0e0e0" font-family="monospace" font-size="9">PostgreSQL (ai-postgres)</text>
+  </g>
+
+  <!-- DevOps Tools Backend -->
+  <g filter="url(#shadow)" transform="translate(50, 80)">
+    <rect x="0" y="0" width="400" height="180" rx="15" fill="#2d3436" stroke="#549dd0" stroke-width="2"/>
+    <text x="200" y="35" text-anchor="middle" fill="#549dd0" font-family="Arial, sans-serif" font-size="16" font-weight="bold">DevOps Tools Backend</text>
+    <text x="200" y="55" text-anchor="middle" fill="#888" font-family="monospace" font-size="10">localhost:8003 | /sonarqube router</text>
+
+    <rect x="15" y="70" width="370" height="95" rx="10" fill="rgba(0,0,0,0.3)"/>
+    <text x="30" y="95" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">SonarQubeIntegration Class:</text>
+    <text x="40" y="115" fill="#e0e0e0" font-family="monospace" font-size="9">list_projects() | get_quality_gate_status()</text>
+    <text x="40" y="133" fill="#e0e0e0" font-family="monospace" font-size="9">get_metrics() | list_issues()</text>
+    <text x="40" y="151" fill="#e0e0e0" font-family="monospace" font-size="9">get_analysis_history() | get_project_summary()</text>
+  </g>
+
+  <!-- Connection Arrow -->
+  <g stroke="#ffd93d" stroke-width="3" fill="none">
+    <path d="M 450 170 L 900 170" marker-end="url(#arrowhead)"/>
+    <path d="M 900 150 L 450 150" marker-end="url(#arrowhead)"/>
+  </g>
+  <text x="675" y="143" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="10">SonarQube REST API / HTTP</text>
+
+  <!-- API Endpoints -->
+  <g transform="translate(50, 290)">
+    <text x="0" y="0" fill="#549dd0" font-family="Arial, sans-serif" font-size="16" font-weight="bold">SonarQube Router API Endpoints (/sonarqube)</text>
+
+    <!-- Projects & Quality Gates -->
+    <g filter="url(#shadow)" transform="translate(0, 30)">
+      <rect x="0" y="0" width="640" height="180" rx="15" fill="#1a1a2e"/>
+      <text x="320" y="25" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Projects &amp; Quality Gates</text>
+
+      <g transform="translate(20, 45)">
+        <rect x="0" y="0" width="185" height="120" rx="8" fill="rgba(84,157,208,0.3)"/>
+        <text x="92" y="20" text-anchor="middle" fill="#549dd0" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /projects</text>
+        <text x="92" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">?search=&amp;page_size=</text>
+        <text x="15" y="60" fill="#ffd93d" font-family="monospace" font-size="7">Response:</text>
+        <text x="15" y="75" fill="#e0e0e0" font-family="monospace" font-size="7">SonarQubeProject[]</text>
+        <text x="15" y="90" fill="#888" font-family="monospace" font-size="7">key, name, qualifier</text>
+        <text x="15" y="105" fill="#888" font-family="monospace" font-size="7">visibility, lastAnalysis</text>
+      </g>
+
+      <g transform="translate(220, 45)">
+        <rect x="0" y="0" width="185" height="120" rx="8" fill="rgba(0,184,148,0.3)"/>
+        <text x="92" y="20" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="10" font-weight="bold">POST /projects</text>
+        <text x="92" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">key, name, visibility</text>
+        <text x="15" y="60" fill="#ffd93d" font-family="monospace" font-size="7">Creates new project</text>
+        <text x="15" y="75" fill="#e0e0e0" font-family="monospace" font-size="7">with default quality</text>
+        <text x="15" y="90" fill="#e0e0e0" font-family="monospace" font-size="7">gate assigned</text>
+      </g>
+
+      <g transform="translate(420, 45)">
+        <rect x="0" y="0" width="200" height="120" rx="8" fill="rgba(253,203,110,0.3)"/>
+        <text x="100" y="20" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /.../quality-gate</text>
+        <text x="100" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">project_key</text>
+        <text x="15" y="60" fill="#ffd93d" font-family="monospace" font-size="7">Status:</text>
+        <text x="15" y="75" fill="#00b894" font-family="monospace" font-size="7">OK - Passed</text>
+        <text x="15" y="90" fill="#fdcb6e" font-family="monospace" font-size="7">WARN - Warning</text>
+        <text x="15" y="105" fill="#d63031" font-family="monospace" font-size="7">ERROR - Failed</text>
+      </g>
+    </g>
+
+    <!-- Metrics & Issues -->
+    <g filter="url(#shadow)" transform="translate(660, 30)">
+      <rect x="0" y="0" width="640" height="180" rx="15" fill="#1a1a2e"/>
+      <text x="320" y="25" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Metrics &amp; Issues</text>
+
+      <g transform="translate(20, 45)">
+        <rect x="0" y="0" width="185" height="120" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="92" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /.../metrics</text>
+        <text x="92" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">?metrics=coverage,bugs</text>
+        <text x="15" y="60" fill="#ffd93d" font-family="monospace" font-size="7">Key Metrics:</text>
+        <text x="15" y="75" fill="#e0e0e0" font-family="monospace" font-size="7">coverage, bugs, vulns</text>
+        <text x="15" y="90" fill="#e0e0e0" font-family="monospace" font-size="7">code_smells, ncloc</text>
+        <text x="15" y="105" fill="#e0e0e0" font-family="monospace" font-size="7">sqale_debt_ratio</text>
+      </g>
+
+      <g transform="translate(220, 45)">
+        <rect x="0" y="0" width="185" height="120" rx="8" fill="rgba(214,48,49,0.3)"/>
+        <text x="92" y="20" text-anchor="middle" fill="#ff7675" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /.../issues</text>
+        <text x="92" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">severities, types, statuses</text>
+        <text x="15" y="60" fill="#ffd93d" font-family="monospace" font-size="7">Severities:</text>
+        <text x="15" y="75" fill="#d63031" font-family="monospace" font-size="7">BLOCKER, CRITICAL</text>
+        <text x="15" y="90" fill="#e17055" font-family="monospace" font-size="7">MAJOR, MINOR</text>
+        <text x="15" y="105" fill="#888" font-family="monospace" font-size="7">INFO</text>
+      </g>
+
+      <g transform="translate(420, 45)">
+        <rect x="0" y="0" width="200" height="120" rx="8" fill="rgba(155,89,182,0.3)"/>
+        <text x="100" y="20" text-anchor="middle" fill="#bb8fce" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GET /.../summary</text>
+        <text x="100" y="40" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">project_key</text>
+        <text x="15" y="60" fill="#ffd93d" font-family="monospace" font-size="7">Comprehensive:</text>
+        <text x="15" y="75" fill="#e0e0e0" font-family="monospace" font-size="7">project info</text>
+        <text x="15" y="90" fill="#e0e0e0" font-family="monospace" font-size="7">quality_gate status</text>
+        <text x="15" y="105" fill="#e0e0e0" font-family="monospace" font-size="7">all metrics + issues</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Quality Gate Visual -->
+  <g transform="translate(50, 530)">
+    <text x="0" y="0" fill="#00b894" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Quality Gate Conditions</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="140" rx="15" fill="#1a1a2e"/>
+
+      <!-- Quality bar -->
+      <rect x="50" y="20" width="1200" height="20" rx="5" fill="url(#qualityGrad)"/>
+      <text x="150" y="35" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="10" font-weight="bold">PASSED</text>
+      <text x="650" y="35" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="10" font-weight="bold">WARNING</text>
+      <text x="1150" y="35" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">FAILED</text>
+
+      <!-- Condition boxes -->
+      <g transform="translate(50, 55)">
+        <rect x="0" y="0" width="180" height="70" rx="8" fill="rgba(0,184,148,0.3)"/>
+        <text x="90" y="20" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Coverage</text>
+        <text x="90" y="40" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">&gt; 80%</text>
+        <text x="90" y="58" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">New code coverage</text>
+      </g>
+
+      <g transform="translate(250, 55)">
+        <rect x="0" y="0" width="180" height="70" rx="8" fill="rgba(214,48,49,0.3)"/>
+        <text x="90" y="20" text-anchor="middle" fill="#ff7675" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Bugs</text>
+        <text x="90" y="40" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">= 0</text>
+        <text x="90" y="58" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">No new bugs</text>
+      </g>
+
+      <g transform="translate(450, 55)">
+        <rect x="0" y="0" width="180" height="70" rx="8" fill="rgba(225,112,85,0.3)"/>
+        <text x="90" y="20" text-anchor="middle" fill="#fab1a0" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Vulnerabilities</text>
+        <text x="90" y="40" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">= 0</text>
+        <text x="90" y="58" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">No security issues</text>
+      </g>
+
+      <g transform="translate(650, 55)">
+        <rect x="0" y="0" width="180" height="70" rx="8" fill="rgba(253,203,110,0.3)"/>
+        <text x="90" y="20" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Code Smells</text>
+        <text x="90" y="40" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">A or B rating</text>
+        <text x="90" y="58" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Maintainability</text>
+      </g>
+
+      <g transform="translate(850, 55)">
+        <rect x="0" y="0" width="180" height="70" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="90" y="20" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Duplications</text>
+        <text x="90" y="40" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">&lt; 3%</text>
+        <text x="90" y="58" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Code duplication</text>
+      </g>
+
+      <g transform="translate(1050, 55)">
+        <rect x="0" y="0" width="180" height="70" rx="8" fill="rgba(0,184,148,0.3)"/>
+        <text x="90" y="20" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Security Rating</text>
+        <text x="90" y="40" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">A</text>
+        <text x="90" y="58" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">No vulnerabilities</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Pipeline Integration -->
+  <g transform="translate(50, 710)">
+    <text x="0" y="0" fill="#e17055" font-family="Arial, sans-serif" font-size="16" font-weight="bold">GitLab CI Pipeline Integration</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="120" rx="15" fill="#2d3436"/>
+
+      <!-- Pipeline stage -->
+      <rect x="20" y="15" width="800" height="90" rx="10" fill="rgba(0,0,0,0.3)"/>
+      <text x="40" y="40" fill="#ffd93d" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Pipeline Stage: quality</text>
+      <text x="40" y="60" fill="#e0e0e0" font-family="monospace" font-size="9">image: ${NEXUS_PULL_REGISTRY}/maven:3.9-eclipse-temurin-17</text>
+      <text x="40" y="78" fill="#e0e0e0" font-family="monospace" font-size="9">script: mvn sonar:sonar -Dsonar.host.url=http://ai-sonarqube:9000</text>
+      <text x="40" y="96" fill="#888" font-family="monospace" font-size="9">          -Dsonar.token=${SONAR_TOKEN} -Dsonar.projectKey=${CI_PROJECT_NAME}</text>
+
+      <!-- Result indicator -->
+      <g transform="translate(850, 15)">
+        <rect x="0" y="0" width="430" height="90" rx="10" fill="rgba(0,184,148,0.2)"/>
+        <text x="215" y="25" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Analysis Result</text>
+        <text x="20" y="50" fill="#e0e0e0" font-family="monospace" font-size="9">Quality Gate: PASSED</text>
+        <text x="20" y="68" fill="#e0e0e0" font-family="monospace" font-size="9">Coverage: 85.2% | Bugs: 0 | Vulns: 0</text>
+        <text x="20" y="86" fill="#888" font-family="monospace" font-size="9">Analysis time: 45s | Lines analyzed: 12,450</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="880" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | SonarQube Integration | Code Quality, Security Analysis &amp; Technical Debt</text>
+</svg>

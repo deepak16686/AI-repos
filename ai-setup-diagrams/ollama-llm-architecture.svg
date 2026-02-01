@@ -1,0 +1,244 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="ollamaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00cec9"/>
+      <stop offset="100%" style="stop-color:#81ecec"/>
+    </linearGradient>
+    <linearGradient id="modelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c5ce7"/>
+      <stop offset="100%" style="stop-color:#a29bfe"/>
+    </linearGradient>
+    <linearGradient id="gpuGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#55efc4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowCyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00cec9"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Ollama LLM Architecture</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">GPU-Accelerated | :11434</text>
+
+  <!-- Main Ollama Server -->
+  <g filter="url(#shadow)" transform="translate(50, 80)">
+    <rect x="0" y="0" width="500" height="760" rx="20" fill="#1a1a2e" stroke="#00cec9" stroke-width="3"/>
+
+    <rect x="0" y="0" width="500" height="60" rx="20" fill="url(#ollamaGrad)"/>
+    <rect x="0" y="45" width="500" height="15" fill="url(#ollamaGrad)"/>
+    <text x="250" y="40" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="18" font-weight="bold">🤖 Ollama Server</text>
+  </g>
+
+  <!-- Docker Configuration -->
+  <g filter="url(#shadow)" transform="translate(70, 160)">
+    <rect x="0" y="0" width="460" height="130" rx="15" fill="#2d3436"/>
+    <text x="230" y="30" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🐳 Docker Configuration</text>
+
+    <rect x="15" y="45" width="430" height="70" rx="8" fill="#1a1a2e"/>
+    <text x="25" y="68" fill="#81ecec" font-family="monospace" font-size="10">container: platform-ollama</text>
+    <text x="25" y="86" fill="#e0e0e0" font-family="monospace" font-size="10">image: ollama/ollama:latest</text>
+    <text x="25" y="104" fill="#e0e0e0" font-family="monospace" font-size="10">port: 11434:11434</text>
+    <text x="250" y="68" fill="#e0e0e0" font-family="monospace" font-size="10">restart: unless-stopped</text>
+    <text x="250" y="86" fill="#e0e0e0" font-family="monospace" font-size="10">network: platform-net</text>
+  </g>
+
+  <!-- GPU Resources -->
+  <g filter="url(#shadow)" transform="translate(70, 310)">
+    <rect x="0" y="0" width="460" height="130" rx="15" fill="url(#gpuGrad)"/>
+    <text x="230" y="30" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">⚡ GPU Resources</text>
+
+    <rect x="15" y="45" width="430" height="70" rx="8" fill="rgba(0,0,0,0.2)"/>
+    <text x="25" y="68" fill="#1a1a2e" font-family="monospace" font-size="10">deploy.resources.reservations:</text>
+    <text x="35" y="86" fill="#006060" font-family="monospace" font-size="10">devices:</text>
+    <text x="45" y="104" fill="#006060" font-family="monospace" font-size="10">- driver: nvidia | count: all | capabilities: [gpu]</text>
+  </g>
+
+  <!-- Volume Storage -->
+  <g filter="url(#shadow)" transform="translate(70, 460)">
+    <rect x="0" y="0" width="460" height="100" rx="15" fill="#2d3436"/>
+    <text x="230" y="30" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="14" font-weight="bold">💾 Volume Storage</text>
+
+    <rect x="15" y="45" width="430" height="40" rx="8" fill="#1a1a2e"/>
+    <text x="25" y="68" fill="#ffd93d" font-family="monospace" font-size="10">platform-ollama-data:/root/.ollama</text>
+    <text x="25" y="83" fill="#888" font-family="monospace" font-size="9">→ Model weights, configs, custom models</text>
+  </g>
+
+  <!-- Health Check -->
+  <g filter="url(#shadow)" transform="translate(70, 580)">
+    <rect x="0" y="0" width="460" height="100" rx="15" fill="#2d3436"/>
+    <text x="230" y="30" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="14" font-weight="bold">❤️ Health Check</text>
+
+    <rect x="15" y="45" width="430" height="40" rx="8" fill="#1a1a2e"/>
+    <text x="25" y="65" fill="#55efc4" font-family="monospace" font-size="9">test: curl -f http://localhost:11434/</text>
+    <text x="25" y="80" fill="#888" font-family="monospace" font-size="9">interval: 30s | timeout: 10s | retries: 3</text>
+  </g>
+
+  <!-- API Endpoints -->
+  <g filter="url(#shadow)" transform="translate(70, 700)">
+    <rect x="0" y="0" width="460" height="120" rx="15" fill="#2d3436"/>
+    <text x="230" y="25" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🔌 API Endpoints</text>
+
+    <g transform="translate(15, 40)">
+      <text x="0" y="15" fill="#81ecec" font-family="monospace" font-size="9">POST /api/generate</text>
+      <text x="180" y="15" fill="#888" font-family="monospace" font-size="8">→ Text generation</text>
+      <text x="0" y="35" fill="#81ecec" font-family="monospace" font-size="9">POST /api/chat</text>
+      <text x="180" y="35" fill="#888" font-family="monospace" font-size="8">→ Chat completion</text>
+      <text x="0" y="55" fill="#81ecec" font-family="monospace" font-size="9">GET /api/tags</text>
+      <text x="180" y="55" fill="#888" font-family="monospace" font-size="8">→ List models</text>
+      <text x="0" y="75" fill="#81ecec" font-family="monospace" font-size="9">POST /api/embeddings</text>
+      <text x="180" y="75" fill="#888" font-family="monospace" font-size="8">→ Text embeddings</text>
+      <text x="280" y="15" fill="#81ecec" font-family="monospace" font-size="9">POST /api/pull</text>
+      <text x="280" y="35" fill="#81ecec" font-family="monospace" font-size="9">POST /api/create</text>
+      <text x="280" y="55" fill="#81ecec" font-family="monospace" font-size="9">DELETE /api/delete</text>
+    </g>
+  </g>
+
+  <!-- Models Section -->
+  <g filter="url(#shadow)" transform="translate(600, 80)">
+    <rect x="0" y="0" width="380" height="400" rx="20" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="2"/>
+    <text x="190" y="35" text-anchor="middle" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="16" font-weight="bold">📦 Loaded Models</text>
+
+    <!-- qwen2.5-coder:32b -->
+    <g filter="url(#shadow)" transform="translate(20, 55)">
+      <rect x="0" y="0" width="340" height="100" rx="12" fill="url(#modelGrad)"/>
+      <text x="170" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="13" font-weight="bold">qwen2.5-coder:32b</text>
+      <text x="170" y="45" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">Primary Code Generation Model</text>
+      <rect x="15" y="55" width="310" height="35" rx="5" fill="rgba(0,0,0,0.3)"/>
+      <text x="25" y="72" fill="#fff" font-family="monospace" font-size="8">Context: 32K tokens | Size: ~18GB | Params: 32B</text>
+      <text x="25" y="85" fill="#e0e0e0" font-family="monospace" font-size="8">Use: Pipeline gen, Dockerfile, code analysis</text>
+    </g>
+
+    <!-- llama3:8b -->
+    <g filter="url(#shadow)" transform="translate(20, 170)">
+      <rect x="0" y="0" width="340" height="100" rx="12" fill="#e17055"/>
+      <text x="170" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="13" font-weight="bold">llama3:8b</text>
+      <text x="170" y="45" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">General Purpose Model</text>
+      <rect x="15" y="55" width="310" height="35" rx="5" fill="rgba(0,0,0,0.3)"/>
+      <text x="25" y="72" fill="#fff" font-family="monospace" font-size="8">Context: 8K tokens | Size: ~4.7GB | Params: 8B</text>
+      <text x="25" y="85" fill="#e0e0e0" font-family="monospace" font-size="8">Use: Quick tasks, chat, summarization</text>
+    </g>
+
+    <!-- clawdbot -->
+    <g filter="url(#shadow)" transform="translate(20, 285)">
+      <rect x="0" y="0" width="340" height="100" rx="12" fill="#00b894"/>
+      <text x="170" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="13" font-weight="bold">clawdbot (Custom)</text>
+      <text x="170" y="45" text-anchor="middle" fill="#006060" font-family="Arial, sans-serif" font-size="10">DevOps-Specialized Model</text>
+      <rect x="15" y="55" width="310" height="35" rx="5" fill="rgba(0,0,0,0.2)"/>
+      <text x="25" y="72" fill="#1a1a2e" font-family="monospace" font-size="8">Base: qwen2.5-coder | Custom system prompt</text>
+      <text x="25" y="85" fill="#006060" font-family="monospace" font-size="8">Use: DevOps tasks, pipeline fixes, automation</text>
+    </g>
+  </g>
+
+  <!-- Model Selection Flow -->
+  <g filter="url(#shadow)" transform="translate(600, 500)">
+    <rect x="0" y="0" width="380" height="180" rx="15" fill="#2d3436"/>
+    <text x="190" y="30" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🎯 Model Selection Logic</text>
+
+    <rect x="15" y="50" width="350" height="115" rx="8" fill="#1a1a2e"/>
+    <text x="25" y="75" fill="#ffd93d" font-family="monospace" font-size="9">Task Type → Model:</text>
+    <text x="35" y="95" fill="#a29bfe" font-family="monospace" font-size="8">• Pipeline generation → qwen2.5-coder:32b</text>
+    <text x="35" y="112" fill="#a29bfe" font-family="monospace" font-size="8">• Code analysis → qwen2.5-coder:32b</text>
+    <text x="35" y="129" fill="#fab1a0" font-family="monospace" font-size="8">• Quick chat → llama3:8b</text>
+    <text x="35" y="146" fill="#55efc4" font-family="monospace" font-size="8">• DevOps chat → clawdbot (custom)</text>
+  </g>
+
+  <!-- Consumers Section -->
+  <g filter="url(#shadow)" transform="translate(1000, 80)">
+    <rect x="0" y="0" width="350" height="600" rx="20" fill="#1a1a2e" stroke="#fd79a8" stroke-width="2"/>
+    <text x="175" y="35" text-anchor="middle" fill="#fd79a8" font-family="Arial, sans-serif" font-size="16" font-weight="bold">🔗 LLM Consumers</text>
+
+    <!-- OpenWebUI -->
+    <g transform="translate(20, 55)">
+      <rect x="0" y="0" width="310" height="90" rx="12" fill="#ffd93d"/>
+      <text x="155" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="12" font-weight="bold">💬 OpenWebUI</text>
+      <text x="155" y="45" text-anchor="middle" fill="#806000" font-family="monospace" font-size="9">:3001 → http://ollama:11434</text>
+      <rect x="15" y="55" width="280" height="25" rx="5" fill="rgba(0,0,0,0.1)"/>
+      <text x="25" y="72" fill="#806000" font-family="monospace" font-size="8">OLLAMA_BASE_URL env configured</text>
+    </g>
+
+    <!-- Modernization API -->
+    <g transform="translate(20, 160)">
+      <rect x="0" y="0" width="310" height="90" rx="12" fill="#6c5ce7"/>
+      <text x="155" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">⚡ Modernization API</text>
+      <text x="155" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">:8002 → http://ollama:11434</text>
+      <rect x="15" y="55" width="280" height="25" rx="5" fill="rgba(0,0,0,0.3)"/>
+      <text x="25" y="72" fill="#e0e0e0" font-family="monospace" font-size="8">Code analysis, modernization plans</text>
+    </g>
+
+    <!-- DevOps Backend -->
+    <g transform="translate(20, 265)">
+      <rect x="0" y="0" width="310" height="90" rx="12" fill="#0984e3"/>
+      <text x="155" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">🔧 DevOps Tools Backend</text>
+      <text x="155" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">:8003 → http://ollama:11434</text>
+      <rect x="15" y="55" width="280" height="25" rx="5" fill="rgba(0,0,0,0.3)"/>
+      <text x="25" y="72" fill="#e0e0e0" font-family="monospace" font-size="8">Tool orchestration, AI assistance</text>
+    </g>
+
+    <!-- OpenWebUI Tools -->
+    <g transform="translate(20, 370)">
+      <rect x="0" y="0" width="310" height="90" rx="12" fill="#e17055"/>
+      <text x="155" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">🛠️ OpenWebUI Tools</text>
+      <text x="155" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">Function tool calls</text>
+      <rect x="15" y="55" width="280" height="25" rx="5" fill="rgba(0,0,0,0.3)"/>
+      <text x="25" y="72" fill="#e0e0e0" font-family="monospace" font-size="8">gitlab_pipeline_generator, fix_pipeline...</text>
+    </g>
+
+    <!-- Connection Info -->
+    <g transform="translate(20, 475)">
+      <rect x="0" y="0" width="310" height="100" rx="12" fill="#2d3436"/>
+      <text x="155" y="25" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="12" font-weight="bold">🌐 Network Access</text>
+      <rect x="15" y="40" width="280" height="45" rx="5" fill="#1a1a2e"/>
+      <text x="25" y="60" fill="#81ecec" font-family="monospace" font-size="9">Internal: ollama:11434</text>
+      <text x="25" y="78" fill="#81ecec" font-family="monospace" font-size="9">External: localhost:11434</text>
+    </g>
+  </g>
+
+  <!-- Performance Metrics -->
+  <g filter="url(#shadow)" transform="translate(600, 700)">
+    <rect x="0" y="0" width="750" height="120" rx="15" fill="#2d3436"/>
+    <text x="375" y="30" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="14" font-weight="bold">📊 Performance Characteristics</text>
+
+    <g transform="translate(20, 50)">
+      <rect x="0" y="0" width="230" height="55" rx="8" fill="#1a1a2e"/>
+      <text x="115" y="20" text-anchor="middle" fill="#55efc4" font-family="Arial, sans-serif" font-size="10" font-weight="bold">qwen2.5-coder:32b</text>
+      <text x="115" y="38" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">~30-50 tokens/sec (GPU)</text>
+      <text x="115" y="52" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">Best quality, slower</text>
+    </g>
+
+    <g transform="translate(260, 50)">
+      <rect x="0" y="0" width="230" height="55" rx="8" fill="#1a1a2e"/>
+      <text x="115" y="20" text-anchor="middle" fill="#fab1a0" font-family="Arial, sans-serif" font-size="10" font-weight="bold">llama3:8b</text>
+      <text x="115" y="38" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">~100-150 tokens/sec (GPU)</text>
+      <text x="115" y="52" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">Fast, good quality</text>
+    </g>
+
+    <g transform="translate(500, 50)">
+      <rect x="0" y="0" width="230" height="55" rx="8" fill="#1a1a2e"/>
+      <text x="115" y="20" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GPU Requirement</text>
+      <text x="115" y="38" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">NVIDIA with 24GB+ VRAM</text>
+      <text x="115" y="52" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">RTX 4090 / A100 recommended</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="880" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Ollama LLM Architecture | GPU-Accelerated Inference</text>
+</svg>

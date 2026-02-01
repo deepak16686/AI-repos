@@ -1,0 +1,230 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="gitlabGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e17055"/>
+      <stop offset="100%" style="stop-color:#fab1a0"/>
+    </linearGradient>
+    <linearGradient id="successGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#55efc4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffd93d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">GitLab Commit &amp; Deploy Tool - Detailed Architecture</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">gitlab_commit_deploy</text>
+
+  <!-- Tool Configuration -->
+  <g filter="url(#shadow)" transform="translate(50, 80)">
+    <rect x="0" y="0" width="420" height="150" rx="15" fill="#2d3436" stroke="#e17055" stroke-width="2"/>
+    <text x="210" y="30" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Tool Valves Configuration</text>
+
+    <text x="20" y="60" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GITLAB_URL:</text>
+    <text x="110" y="60" fill="#e0e0e0" font-family="monospace" font-size="10">http://gitlab-server</text>
+
+    <text x="20" y="85" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GITLAB_TOKEN:</text>
+    <text x="120" y="85" fill="#e0e0e0" font-family="monospace" font-size="10">glpat-chatbot-deploy-2025</text>
+
+    <text x="20" y="110" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">DEFAULT_BRANCH:</text>
+    <text x="130" y="110" fill="#e0e0e0" font-family="monospace" font-size="10">main</text>
+
+    <text x="20" y="135" fill="#888" font-family="Arial, sans-serif" font-size="9">Token requires: api, read_repository, write_repository scopes</text>
+  </g>
+
+  <!-- Functions Overview -->
+  <g filter="url(#shadow)" transform="translate(500, 80)">
+    <rect x="0" y="0" width="420" height="150" rx="15" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="2"/>
+    <text x="210" y="30" text-anchor="middle" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Available Functions</text>
+
+    <rect x="15" y="45" width="390" height="45" rx="8" fill="rgba(108,92,231,0.2)"/>
+    <text x="25" y="65" fill="#a29bfe" font-family="monospace" font-size="10">commit_and_deploy(project_name, dockerfile_content,</text>
+    <text x="45" y="80" fill="#a29bfe" font-family="monospace" font-size="10">gitlab_ci_content, commit_message, repo_url)</text>
+
+    <rect x="15" y="100" width="390" height="35" rx="8" fill="rgba(108,92,231,0.2)"/>
+    <text x="25" y="122" fill="#a29bfe" font-family="monospace" font-size="10">list_projects() -&gt; List all GitLab projects</text>
+  </g>
+
+  <!-- API Endpoints Used -->
+  <g filter="url(#shadow)" transform="translate(950, 80)">
+    <rect x="0" y="0" width="400" height="150" rx="15" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <text x="200" y="30" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="16" font-weight="bold">GitLab API v4 Endpoints</text>
+
+    <text x="20" y="55" fill="#e0e0e0" font-family="monospace" font-size="9">GET  /api/v4/projects?search={name}</text>
+    <text x="20" y="73" fill="#e0e0e0" font-family="monospace" font-size="9">POST /api/v4/projects</text>
+    <text x="20" y="91" fill="#e0e0e0" font-family="monospace" font-size="9">GET  /api/v4/projects/{id}/repository/files/{path}</text>
+    <text x="20" y="109" fill="#e0e0e0" font-family="monospace" font-size="9">POST /api/v4/projects/{id}/repository/commits</text>
+    <text x="20" y="127" fill="#e0e0e0" font-family="monospace" font-size="9">GET  /api/v4/projects/{id}/pipelines</text>
+  </g>
+
+  <!-- Main Workflow Section -->
+  <g transform="translate(50, 260)">
+    <text x="0" y="0" fill="#ffd93d" font-family="Arial, sans-serif" font-size="16" font-weight="bold">commit_and_deploy() Workflow</text>
+
+    <!-- Step 1: Input Validation -->
+    <g filter="url(#shadow)" transform="translate(0, 30)">
+      <rect x="0" y="0" width="280" height="140" rx="12" fill="#2d3436"/>
+      <rect x="0" y="0" width="280" height="35" rx="12" fill="#e17055"/>
+      <text x="140" y="23" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Step 1: Input Validation</text>
+
+      <text x="15" y="55" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Inputs:</text>
+      <text x="25" y="75" fill="#e0e0e0" font-family="monospace" font-size="8">project_name: str</text>
+      <text x="25" y="90" fill="#e0e0e0" font-family="monospace" font-size="8">dockerfile_content: str</text>
+      <text x="25" y="105" fill="#e0e0e0" font-family="monospace" font-size="8">gitlab_ci_content: str</text>
+      <text x="25" y="120" fill="#e0e0e0" font-family="monospace" font-size="8">repo_url: str (optional)</text>
+    </g>
+
+    <!-- Arrow 1 -->
+    <line x1="280" y1="100" x2="320" y2="100" stroke="#ffd93d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <!-- Step 2: Project Resolution -->
+    <g filter="url(#shadow)" transform="translate(330, 30)">
+      <rect x="0" y="0" width="280" height="140" rx="12" fill="#2d3436"/>
+      <rect x="0" y="0" width="280" height="35" rx="12" fill="#6c5ce7"/>
+      <text x="140" y="23" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Step 2: Project Resolution</text>
+
+      <text x="15" y="55" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">If repo_url provided:</text>
+      <text x="25" y="73" fill="#e0e0e0" font-family="monospace" font-size="8">_parse_repo_url(repo_url)</text>
+      <text x="25" y="88" fill="#e0e0e0" font-family="monospace" font-size="8">_gitlab_get_project_by_path()</text>
+
+      <text x="15" y="108" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Else:</text>
+      <text x="25" y="123" fill="#e0e0e0" font-family="monospace" font-size="8">_gitlab_get_project() or create new</text>
+    </g>
+
+    <!-- Arrow 2 -->
+    <line x1="610" y1="100" x2="650" y2="100" stroke="#ffd93d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <!-- Step 3: File Actions -->
+    <g filter="url(#shadow)" transform="translate(660, 30)">
+      <rect x="0" y="0" width="280" height="140" rx="12" fill="#2d3436"/>
+      <rect x="0" y="0" width="280" height="35" rx="12" fill="#00b894"/>
+      <text x="140" y="23" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Step 3: Build Commit Actions</text>
+
+      <text x="15" y="55" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">For each file:</text>
+      <text x="25" y="75" fill="#e0e0e0" font-family="monospace" font-size="8">1. Check if file exists (GET)</text>
+      <text x="25" y="90" fill="#e0e0e0" font-family="monospace" font-size="8">2. Set action: "create" or "update"</text>
+
+      <text x="15" y="115" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Files:</text>
+      <text x="25" y="130" fill="#e0e0e0" font-family="monospace" font-size="8">Dockerfile, .gitlab-ci.yml</text>
+    </g>
+
+    <!-- Arrow 3 -->
+    <line x1="940" y1="100" x2="980" y2="100" stroke="#ffd93d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <!-- Step 4: Commit -->
+    <g filter="url(#shadow)" transform="translate(990, 30)">
+      <rect x="0" y="0" width="280" height="140" rx="12" fill="#2d3436"/>
+      <rect x="0" y="0" width="280" height="35" rx="12" fill="#0984e3"/>
+      <text x="140" y="23" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Step 4: Create Commit</text>
+
+      <text x="15" y="55" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">POST /repository/commits</text>
+      <text x="25" y="75" fill="#e0e0e0" font-family="monospace" font-size="8">branch: main</text>
+      <text x="25" y="90" fill="#e0e0e0" font-family="monospace" font-size="8">commit_message: user provided</text>
+      <text x="25" y="105" fill="#e0e0e0" font-family="monospace" font-size="8">actions: [file actions]</text>
+
+      <text x="15" y="125" fill="#81ecec" font-family="Arial, sans-serif" font-size="9">Returns: commit SHA</text>
+    </g>
+  </g>
+
+  <!-- Second Row of Steps -->
+  <g transform="translate(50, 460)">
+    <!-- Step 5: Pipeline Check -->
+    <g filter="url(#shadow)" transform="translate(330, 0)">
+      <rect x="0" y="0" width="280" height="140" rx="12" fill="#2d3436"/>
+      <rect x="0" y="0" width="280" height="35" rx="12" fill="#9b59b6"/>
+      <text x="140" y="23" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Step 5: Get Pipeline Status</text>
+
+      <text x="15" y="55" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Wait 3 seconds, then:</text>
+      <text x="25" y="75" fill="#e0e0e0" font-family="monospace" font-size="8">GET /pipelines?per_page=1</text>
+      <text x="25" y="90" fill="#e0e0e0" font-family="monospace" font-size="8">   &amp;order_by=id&amp;sort=desc</text>
+
+      <text x="15" y="115" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Returns:</text>
+      <text x="25" y="130" fill="#e0e0e0" font-family="monospace" font-size="8">pipeline.id, status, web_url</text>
+    </g>
+
+    <!-- Arrow to response -->
+    <line x1="610" y1="70" x2="650" y2="70" stroke="#ffd93d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <!-- Step 6: Response -->
+    <g filter="url(#shadow)" transform="translate(660, 0)">
+      <rect x="0" y="0" width="340" height="140" rx="12" fill="url(#successGrad)"/>
+      <text x="170" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Step 6: Return Response</text>
+
+      <rect x="15" y="40" width="310" height="90" rx="8" fill="rgba(0,0,0,0.2)"/>
+      <text x="25" y="60" fill="#1a1a2e" font-family="monospace" font-size="9">## Deployment Successful!</text>
+      <text x="25" y="78" fill="#006060" font-family="monospace" font-size="8">- Using existing project: demo-app</text>
+      <text x="25" y="93" fill="#006060" font-family="monospace" font-size="8">- Repository: http://gitlab/demo-app</text>
+      <text x="25" y="108" fill="#006060" font-family="monospace" font-size="8">- Commit: abc12345</text>
+      <text x="25" y="123" fill="#006060" font-family="monospace" font-size="8">- Pipeline #42: running</text>
+    </g>
+  </g>
+
+  <!-- Helper Functions -->
+  <g transform="translate(50, 630)">
+    <text x="0" y="0" fill="#00b894" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Helper Functions</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="400" height="120" rx="12" fill="#1a1a2e"/>
+      <text x="200" y="25" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="12" font-weight="bold">_gitlab_headers(token)</text>
+      <rect x="15" y="40" width="370" height="65" rx="8" fill="rgba(0,0,0,0.3)"/>
+      <text x="25" y="60" fill="#e0e0e0" font-family="monospace" font-size="9">return {</text>
+      <text x="35" y="78" fill="#e0e0e0" font-family="monospace" font-size="9">"PRIVATE-TOKEN": token,</text>
+      <text x="35" y="96" fill="#e0e0e0" font-family="monospace" font-size="9">"Content-Type": "application/json"</text>
+    </g>
+
+    <g filter="url(#shadow)" transform="translate(420, 20)">
+      <rect x="0" y="0" width="400" height="120" rx="12" fill="#1a1a2e"/>
+      <text x="200" y="25" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="12" font-weight="bold">_parse_repo_url(repo_url)</text>
+      <rect x="15" y="40" width="370" height="65" rx="8" fill="rgba(0,0,0,0.3)"/>
+      <text x="25" y="60" fill="#888" font-family="monospace" font-size="9">Parse full GitLab URL into:</text>
+      <text x="25" y="78" fill="#e0e0e0" font-family="monospace" font-size="9">base_url: http://gitlab-server</text>
+      <text x="25" y="96" fill="#e0e0e0" font-family="monospace" font-size="9">project_path: group/project-name</text>
+    </g>
+
+    <g filter="url(#shadow)" transform="translate(840, 20)">
+      <rect x="0" y="0" width="400" height="120" rx="12" fill="#1a1a2e"/>
+      <text x="200" y="25" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="12" font-weight="bold">_gitlab_create_project()</text>
+      <rect x="15" y="40" width="370" height="65" rx="8" fill="rgba(0,0,0,0.3)"/>
+      <text x="25" y="60" fill="#888" font-family="monospace" font-size="9">Creates new project with:</text>
+      <text x="25" y="78" fill="#e0e0e0" font-family="monospace" font-size="9">visibility: internal</text>
+      <text x="25" y="96" fill="#e0e0e0" font-family="monospace" font-size="9">initialize_with_readme: True</text>
+    </g>
+  </g>
+
+  <!-- Error Handling -->
+  <g transform="translate(50, 780)">
+    <text x="0" y="0" fill="#d63031" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Error Handling</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="1290" height="70" rx="12" fill="#2d3436" stroke="#d63031" stroke-width="1"/>
+
+      <text x="20" y="25" fill="#d63031" font-family="Arial, sans-serif" font-size="10" font-weight="bold">HTTPError:</text>
+      <text x="100" y="25" fill="#888" font-family="monospace" font-size="9">GitLab API error: {status_code} - {response.text}</text>
+
+      <text x="20" y="45" fill="#d63031" font-family="Arial, sans-serif" font-size="10" font-weight="bold">ConnectionError:</text>
+      <text x="120" y="45" fill="#888" font-family="monospace" font-size="9">Cannot connect to GitLab at {base_url}. Ensure the server is running.</text>
+
+      <text x="600" y="25" fill="#d63031" font-family="Arial, sans-serif" font-size="10" font-weight="bold">ValueError:</text>
+      <text x="680" y="25" fill="#888" font-family="monospace" font-size="9">Invalid repo_url: missing scheme or hostname</text>
+
+      <text x="600" y="45" fill="#d63031" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Missing Input:</text>
+      <text x="700" y="45" fill="#888" font-family="monospace" font-size="9">Provide either repo_url or project_name</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="880" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | GitLab Commit &amp; Deploy Tool | Automated CI/CD Trigger</text>
+</svg>

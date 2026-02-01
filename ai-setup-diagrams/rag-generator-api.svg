@@ -1,0 +1,268 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="ragGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fd79a8"/>
+      <stop offset="100%" style="stop-color:#e84393"/>
+    </linearGradient>
+    <linearGradient id="chromaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#a29bfe"/>
+      <stop offset="100%" style="stop-color:#6c5ce7"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowPink" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fd79a8"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c5ce7"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">RAG Generator API Architecture</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">FastAPI :8080 | Template Generation</text>
+
+  <!-- Main API Container -->
+  <g filter="url(#shadow)" transform="translate(50, 80)">
+    <rect x="0" y="0" width="550" height="750" rx="20" fill="#1a1a2e" stroke="#fd79a8" stroke-width="3"/>
+
+    <!-- Title -->
+    <rect x="0" y="0" width="550" height="55" rx="20" fill="url(#ragGrad)"/>
+    <rect x="0" y="40" width="550" height="15" fill="url(#ragGrad)"/>
+    <text x="275" y="35" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">🧠 RAG Generator API (generator_api.py)</text>
+  </g>
+
+  <!-- Root & Health Endpoints -->
+  <g filter="url(#shadow)" transform="translate(70, 155)">
+    <rect x="0" y="0" width="250" height="100" rx="12" fill="#2d3436"/>
+    <text x="125" y="25" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">📍 Core Endpoints</text>
+
+    <rect x="15" y="40" width="220" height="25" rx="5" fill="#1a1a2e"/>
+    <text x="25" y="57" fill="#55efc4" font-family="monospace" font-size="9">GET /</text>
+    <text x="60" y="57" fill="#888" font-family="monospace" font-size="8">→ Status, version: 1.1</text>
+
+    <rect x="15" y="70" width="220" height="25" rx="5" fill="#1a1a2e"/>
+    <text x="25" y="87" fill="#55efc4" font-family="monospace" font-size="9">GET /health</text>
+    <text x="100" y="87" fill="#888" font-family="monospace" font-size="8">→ ChromaDB + counts</text>
+  </g>
+
+  <!-- Generation Endpoints -->
+  <g filter="url(#shadow)" transform="translate(70, 275)">
+    <rect x="0" y="0" width="510" height="200" rx="12" fill="#2d3436"/>
+    <text x="255" y="25" text-anchor="middle" fill="#fd79a8" font-family="Arial, sans-serif" font-size="14" font-weight="bold">⚡ Generation Endpoints</text>
+
+    <!-- Dockerfile Generation -->
+    <rect x="15" y="45" width="235" height="140" rx="8" fill="#1a1a2e" stroke="#fd79a8" stroke-width="1"/>
+    <text x="133" y="70" text-anchor="middle" fill="#fd79a8" font-family="Arial, sans-serif" font-size="11" font-weight="bold">POST /generate/dockerfile</text>
+    <text x="25" y="95" fill="#888" font-family="monospace" font-size="9">Request Body:</text>
+    <text x="35" y="112" fill="#e0e0e0" font-family="monospace" font-size="8">stack: java|python|node</text>
+    <text x="35" y="127" fill="#e0e0e0" font-family="monospace" font-size="8">framework: optional</text>
+    <text x="35" y="142" fill="#e0e0e0" font-family="monospace" font-size="8">port: 8080 (default)</text>
+    <text x="35" y="157" fill="#e0e0e0" font-family="monospace" font-size="8">workdir: /app (default)</text>
+    <text x="25" y="175" fill="#55efc4" font-family="monospace" font-size="8">→ Returns: Dockerfile + audit</text>
+
+    <!-- GitLab CI Generation -->
+    <rect x="260" y="45" width="235" height="140" rx="8" fill="#1a1a2e" stroke="#a29bfe" stroke-width="1"/>
+    <text x="378" y="70" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="11" font-weight="bold">POST /generate/gitlabci</text>
+    <text x="270" y="95" fill="#888" font-family="monospace" font-size="9">Request Body:</text>
+    <text x="280" y="112" fill="#e0e0e0" font-family="monospace" font-size="8">stack: java|python|node</text>
+    <text x="280" y="127" fill="#e0e0e0" font-family="monospace" font-size="8">build_tool: optional</text>
+    <text x="280" y="157" fill="#888" font-family="monospace" font-size="8">(maven, npm, pip, etc.)</text>
+    <text x="270" y="175" fill="#55efc4" font-family="monospace" font-size="8">→ Returns: .gitlab-ci.yml</text>
+  </g>
+
+  <!-- Validation Endpoints -->
+  <g filter="url(#shadow)" transform="translate(70, 495)">
+    <rect x="0" y="0" width="510" height="150" rx="12" fill="#2d3436"/>
+    <text x="255" y="25" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="14" font-weight="bold">✅ Validation Endpoints</text>
+
+    <!-- Dockerfile Validation -->
+    <rect x="15" y="45" width="235" height="90" rx="8" fill="#1a1a2e" stroke="#ffd93d" stroke-width="1"/>
+    <text x="133" y="68" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="11" font-weight="bold">POST /validate/dockerfile</text>
+    <text x="25" y="92" fill="#888" font-family="monospace" font-size="9">Checks:</text>
+    <text x="35" y="108" fill="#e0e0e0" font-family="monospace" font-size="8">• No public registries</text>
+    <text x="35" y="123" fill="#e0e0e0" font-family="monospace" font-size="8">• FROM, EXPOSE, WORKDIR</text>
+
+    <!-- GitLab CI Validation -->
+    <rect x="260" y="45" width="235" height="90" rx="8" fill="#1a1a2e" stroke="#ffd93d" stroke-width="1"/>
+    <text x="378" y="68" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="11" font-weight="bold">POST /validate/gitlabci</text>
+    <text x="270" y="92" fill="#888" font-family="monospace" font-size="9">Checks:</text>
+    <text x="280" y="108" fill="#e0e0e0" font-family="monospace" font-size="8">• stages: definition</text>
+    <text x="280" y="123" fill="#e0e0e0" font-family="monospace" font-size="8">• No docker.io refs</text>
+  </g>
+
+  <!-- Catalog Endpoints -->
+  <g filter="url(#shadow)" transform="translate(70, 665)">
+    <rect x="0" y="0" width="510" height="100" rx="12" fill="#2d3436"/>
+    <text x="255" y="25" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="14" font-weight="bold">📚 Catalog Endpoints</text>
+
+    <rect x="15" y="45" width="235" height="45" rx="8" fill="#1a1a2e"/>
+    <text x="25" y="68" fill="#81ecec" font-family="monospace" font-size="10">GET /catalog</text>
+    <text x="115" y="68" fill="#888" font-family="monospace" font-size="8">→ All base images</text>
+    <text x="25" y="83" fill="#636e72" font-family="monospace" font-size="7">Nexus image catalog</text>
+
+    <rect x="260" y="45" width="235" height="45" rx="8" fill="#1a1a2e"/>
+    <text x="270" y="68" fill="#81ecec" font-family="monospace" font-size="10">GET /catalog/{stack}</text>
+    <text x="405" y="68" fill="#888" font-family="monospace" font-size="8">→ Stack info</text>
+    <text x="270" y="83" fill="#636e72" font-family="monospace" font-size="7">java, python, node</text>
+  </g>
+
+  <!-- Collections Endpoint -->
+  <g filter="url(#shadow)" transform="translate(340, 155)">
+    <rect x="0" y="0" width="240" height="100" rx="12" fill="#2d3436"/>
+    <text x="120" y="25" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="12" font-weight="bold">📊 Collections</text>
+    <rect x="15" y="45" width="210" height="45" rx="5" fill="#1a1a2e"/>
+    <text x="25" y="68" fill="#a29bfe" font-family="monospace" font-size="10">GET /collections</text>
+    <text x="25" y="83" fill="#888" font-family="monospace" font-size="8">→ ChromaDB doc counts</text>
+  </g>
+
+  <!-- ChromaDB Section -->
+  <g filter="url(#shadow)" transform="translate(650, 80)">
+    <rect x="0" y="0" width="350" height="400" rx="20" fill="#1a1a2e" stroke="#a29bfe" stroke-width="2"/>
+    <rect x="0" y="0" width="350" height="50" rx="20" fill="url(#chromaGrad)"/>
+    <rect x="0" y="35" width="350" height="15" fill="url(#chromaGrad)"/>
+    <text x="175" y="35" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🧠 ChromaDB Collections</text>
+
+    <!-- templates_dockerfile -->
+    <g transform="translate(20, 70)">
+      <rect x="0" y="0" width="310" height="90" rx="10" fill="#2d3436"/>
+      <text x="155" y="25" text-anchor="middle" fill="#fd79a8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">templates_dockerfile</text>
+      <text x="15" y="48" fill="#e0e0e0" font-family="monospace" font-size="9">Content: Dockerfile templates</text>
+      <text x="15" y="65" fill="#888" font-family="monospace" font-size="8">Metadata: {stack, framework, multi-stage}</text>
+      <text x="15" y="82" fill="#888" font-family="monospace" font-size="8">Query: semantic search + filter</text>
+    </g>
+
+    <!-- templates_gitlab -->
+    <g transform="translate(20, 175)">
+      <rect x="0" y="0" width="310" height="90" rx="10" fill="#2d3436"/>
+      <text x="155" y="25" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="12" font-weight="bold">templates_gitlab</text>
+      <text x="15" y="48" fill="#e0e0e0" font-family="monospace" font-size="9">Content: .gitlab-ci.yml templates</text>
+      <text x="15" y="65" fill="#888" font-family="monospace" font-size="8">Metadata: {stack, build_tool, stages}</text>
+      <text x="15" y="82" fill="#888" font-family="monospace" font-size="8">8-stage pipeline templates</text>
+    </g>
+
+    <!-- golden_rules -->
+    <g transform="translate(20, 280)">
+      <rect x="0" y="0" width="310" height="90" rx="10" fill="#2d3436"/>
+      <text x="155" y="25" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="12" font-weight="bold">golden_rules</text>
+      <text x="15" y="48" fill="#e0e0e0" font-family="monospace" font-size="9">Content: Validation rules</text>
+      <text x="15" y="65" fill="#888" font-family="monospace" font-size="8">• Private registry enforcement</text>
+      <text x="15" y="82" fill="#888" font-family="monospace" font-size="8">• Best practices, constraints</text>
+    </g>
+  </g>
+
+  <!-- Catalog Section -->
+  <g filter="url(#shadow)" transform="translate(650, 500)">
+    <rect x="0" y="0" width="350" height="260" rx="20" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <text x="175" y="35" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="14" font-weight="bold">📦 catalog.json - Nexus Images</text>
+
+    <g transform="translate(20, 55)">
+      <rect x="0" y="0" width="155" height="80" rx="8" fill="#2d3436"/>
+      <text x="78" y="25" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="11" font-weight="bold">java</text>
+      <text x="15" y="48" fill="#e0e0e0" font-family="monospace" font-size="8">image_path:</text>
+      <text x="15" y="63" fill="#55efc4" font-family="monospace" font-size="7">localhost:5001/maven</text>
+      <text x="15" y="78" fill="#888" font-family="monospace" font-size="7">tag: 3.9-eclipse-temurin</text>
+    </g>
+
+    <g transform="translate(185, 55)">
+      <rect x="0" y="0" width="145" height="80" rx="8" fill="#2d3436"/>
+      <text x="73" y="25" text-anchor="middle" fill="#0984e3" font-family="Arial, sans-serif" font-size="11" font-weight="bold">python</text>
+      <text x="15" y="48" fill="#e0e0e0" font-family="monospace" font-size="8">image_path:</text>
+      <text x="15" y="63" fill="#74b9ff" font-family="monospace" font-size="7">localhost:5001/python</text>
+      <text x="15" y="78" fill="#888" font-family="monospace" font-size="7">tag: 3.11-slim</text>
+    </g>
+
+    <g transform="translate(20, 145)">
+      <rect x="0" y="0" width="155" height="80" rx="8" fill="#2d3436"/>
+      <text x="78" y="25" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="11" font-weight="bold">node</text>
+      <text x="15" y="48" fill="#e0e0e0" font-family="monospace" font-size="8">image_path:</text>
+      <text x="15" y="63" fill="#ffeaa7" font-family="monospace" font-size="7">localhost:5001/node</text>
+      <text x="15" y="78" fill="#888" font-family="monospace" font-size="7">tag: 20-alpine</text>
+    </g>
+
+    <g transform="translate(185, 145)">
+      <rect x="0" y="0" width="145" height="80" rx="8" fill="#2d3436"/>
+      <text x="73" y="25" text-anchor="middle" fill="#636e72" font-family="Arial, sans-serif" font-size="11" font-weight="bold">...</text>
+      <text x="15" y="50" fill="#888" font-family="monospace" font-size="8">golang, php</text>
+      <text x="15" y="68" fill="#888" font-family="monospace" font-size="8">dotnet, rust</text>
+    </g>
+  </g>
+
+  <!-- Flow Diagram -->
+  <g filter="url(#shadow)" transform="translate(1020, 80)">
+    <rect x="0" y="0" width="330" height="680" rx="20" fill="#1a1a2e" stroke="#e17055" stroke-width="2"/>
+    <text x="165" y="35" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🔄 Generation Flow</text>
+
+    <!-- Step 1 -->
+    <g transform="translate(20, 60)">
+      <rect x="0" y="0" width="290" height="70" rx="10" fill="#6c5ce7"/>
+      <text x="145" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">1. Request Received</text>
+      <text x="15" y="48" fill="#e0e0e0" font-family="monospace" font-size="8">stack: "java", framework: "spring"</text>
+      <text x="15" y="63" fill="#e0e0e0" font-family="monospace" font-size="8">Pydantic validation</text>
+    </g>
+
+    <line x1="165" y1="135" x2="165" y2="155" stroke="#6c5ce7" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+    <!-- Step 2 -->
+    <g transform="translate(20, 160)">
+      <rect x="0" y="0" width="290" height="70" rx="10" fill="#00cec9"/>
+      <text x="145" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">2. Catalog Lookup</text>
+      <text x="15" y="48" fill="#006060" font-family="monospace" font-size="8">CATALOG[stack] → base image</text>
+      <text x="15" y="63" fill="#006060" font-family="monospace" font-size="8">localhost:5001/maven:3.9...</text>
+    </g>
+
+    <line x1="165" y1="235" x2="165" y2="255" stroke="#00cec9" stroke-width="2"/>
+
+    <!-- Step 3 -->
+    <g transform="translate(20, 260)">
+      <rect x="0" y="0" width="290" height="80" rx="10" fill="url(#chromaGrad)"/>
+      <text x="145" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">3. ChromaDB Query</text>
+      <text x="15" y="48" fill="#e0e0e0" font-family="monospace" font-size="8">query_texts: ["java spring..."]</text>
+      <text x="15" y="63" fill="#e0e0e0" font-family="monospace" font-size="8">where: {"stack": "java"}</text>
+      <text x="15" y="78" fill="#e0e0e0" font-family="monospace" font-size="8">n_results: 1</text>
+    </g>
+
+    <line x1="165" y1="345" x2="165" y2="365" stroke="#a29bfe" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+    <!-- Step 4 -->
+    <g transform="translate(20, 370)">
+      <rect x="0" y="0" width="290" height="70" rx="10" fill="#e17055"/>
+      <text x="145" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">4. Template Fill</text>
+      <text x="15" y="48" fill="#e0e0e0" font-family="monospace" font-size="8">${BASE_REGISTRY} → localhost:5001</text>
+      <text x="15" y="63" fill="#e0e0e0" font-family="monospace" font-size="8">Placeholder replacement</text>
+    </g>
+
+    <line x1="165" y1="445" x2="165" y2="465" stroke="#e17055" stroke-width="2"/>
+
+    <!-- Step 5 -->
+    <g transform="translate(20, 470)">
+      <rect x="0" y="0" width="290" height="70" rx="10" fill="#ffd93d"/>
+      <text x="145" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">5. Validation</text>
+      <text x="15" y="48" fill="#806000" font-family="monospace" font-size="8">Check: no public registries</text>
+      <text x="15" y="63" fill="#806000" font-family="monospace" font-size="8">Enforce: golden rules</text>
+    </g>
+
+    <line x1="165" y1="545" x2="165" y2="565" stroke="#ffd93d" stroke-width="2"/>
+
+    <!-- Step 6 -->
+    <g transform="translate(20, 570)">
+      <rect x="0" y="0" width="290" height="80" rx="10" fill="#00b894"/>
+      <text x="145" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">6. Response</text>
+      <text x="15" y="48" fill="#006060" font-family="monospace" font-size="8">content: "FROM localhost:5001/..."</text>
+      <text x="15" y="63" fill="#006060" font-family="monospace" font-size="8">audit: {template_id, base_image,</text>
+      <text x="15" y="78" fill="#006060" font-family="monospace" font-size="8">        generated_at}</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="880" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | RAG Generator API | ChromaDB-Powered Template Generation</text>
+</svg>

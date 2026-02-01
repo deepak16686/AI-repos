@@ -1,0 +1,477 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="volumeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c5ce7"/>
+      <stop offset="100%" style="stop-color:#5b4cdb"/>
+    </linearGradient>
+    <linearGradient id="dbGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#00a085"/>
+    </linearGradient>
+    <linearGradient id="storageGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdcb6e"/>
+      <stop offset="100%" style="stop-color:#f39c12"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffd93d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1100" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1600" height="60" fill="url(#headerGrad)"/>
+  <text x="800" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Docker Volumes &amp; Data Storage Architecture</text>
+  <text x="1580" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">Persistent Data Management</text>
+
+  <!-- Legend -->
+  <g transform="translate(50, 75)">
+    <rect x="0" y="0" width="300" height="30" rx="5" fill="rgba(255,255,255,0.05)"/>
+    <rect x="10" y="8" width="14" height="14" rx="3" fill="url(#dbGrad)"/>
+    <text x="30" y="19" fill="#888" font-family="Arial, sans-serif" font-size="10">Database</text>
+    <rect x="90" y="8" width="14" height="14" rx="3" fill="url(#volumeGrad)"/>
+    <text x="110" y="19" fill="#888" font-family="Arial, sans-serif" font-size="10">Application</text>
+    <rect x="180" y="8" width="14" height="14" rx="3" fill="url(#storageGrad)"/>
+    <text x="200" y="19" fill="#888" font-family="Arial, sans-serif" font-size="10">Config/Cache</text>
+  </g>
+
+  <!-- Database Volumes Section -->
+  <g transform="translate(50, 120)">
+    <text x="0" y="0" fill="#00b894" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Database Volumes</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="480" height="200" rx="15" fill="#1a1a2e"/>
+
+      <!-- PostgreSQL Main -->
+      <g transform="translate(15, 15)">
+        <rect x="0" y="0" width="140" height="80" rx="8" fill="url(#dbGrad)"/>
+        <text x="70" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">PostgreSQL</text>
+        <text x="70" y="38" text-anchor="middle" fill="#1a1a2e" font-family="monospace" font-size="8">platform-postgres</text>
+        <rect x="10" y="48" width="120" height="24" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="70" y="64" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="7">:5432</text>
+      </g>
+      <g transform="translate(15, 100)">
+        <rect x="0" y="0" width="140" height="85" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="70" y="18" text-anchor="middle" fill="#81ecec" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Volume</text>
+        <text x="10" y="38" fill="#e0e0e0" font-family="monospace" font-size="7">platform-postgres-data</text>
+        <text x="10" y="55" fill="#888" font-family="monospace" font-size="7">/var/lib/postgresql/data</text>
+        <text x="10" y="75" fill="#ffd93d" font-family="monospace" font-size="7">~2-10 GB</text>
+      </g>
+
+      <!-- SonarQube DB -->
+      <g transform="translate(170, 15)">
+        <rect x="0" y="0" width="140" height="80" rx="8" fill="url(#dbGrad)"/>
+        <text x="70" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">SonarQube DB</text>
+        <text x="70" y="38" text-anchor="middle" fill="#1a1a2e" font-family="monospace" font-size="8">sonarqube-db</text>
+        <rect x="10" y="48" width="120" height="24" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="70" y="64" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="7">postgres:15</text>
+      </g>
+      <g transform="translate(170, 100)">
+        <rect x="0" y="0" width="140" height="85" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="70" y="18" text-anchor="middle" fill="#81ecec" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Volume</text>
+        <text x="10" y="38" fill="#e0e0e0" font-family="monospace" font-size="7">platform-sonarqube-db-data</text>
+        <text x="10" y="55" fill="#888" font-family="monospace" font-size="7">/var/lib/postgresql/data</text>
+        <text x="10" y="75" fill="#ffd93d" font-family="monospace" font-size="7">~1-5 GB</text>
+      </g>
+
+      <!-- Redmine DB -->
+      <g transform="translate(325, 15)">
+        <rect x="0" y="0" width="140" height="80" rx="8" fill="url(#dbGrad)"/>
+        <text x="70" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Redmine DB</text>
+        <text x="70" y="38" text-anchor="middle" fill="#1a1a2e" font-family="monospace" font-size="8">redmine-db</text>
+        <rect x="10" y="48" width="120" height="24" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="70" y="64" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="7">postgres:15</text>
+      </g>
+      <g transform="translate(325, 100)">
+        <rect x="0" y="0" width="140" height="85" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="70" y="18" text-anchor="middle" fill="#81ecec" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Volume</text>
+        <text x="10" y="38" fill="#e0e0e0" font-family="monospace" font-size="7">platform-redmine-db-data</text>
+        <text x="10" y="55" fill="#888" font-family="monospace" font-size="7">/var/lib/postgresql/data</text>
+        <text x="10" y="75" fill="#ffd93d" font-family="monospace" font-size="7">~500 MB - 2 GB</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Cache/Session Volumes Section -->
+  <g transform="translate(560, 120)">
+    <text x="0" y="0" fill="#e17055" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Cache &amp; Session Storage</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="320" height="200" rx="15" fill="#1a1a2e"/>
+
+      <!-- Redis -->
+      <g transform="translate(15, 15)">
+        <rect x="0" y="0" width="140" height="80" rx="8" fill="#d63031"/>
+        <text x="70" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Redis</text>
+        <text x="70" y="38" text-anchor="middle" fill="#ffe0e0" font-family="monospace" font-size="8">platform-redis</text>
+        <rect x="10" y="48" width="120" height="24" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="70" y="64" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="7">:6379 (AOF enabled)</text>
+      </g>
+      <g transform="translate(15, 100)">
+        <rect x="0" y="0" width="140" height="85" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="70" y="18" text-anchor="middle" fill="#81ecec" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Volume</text>
+        <text x="10" y="38" fill="#e0e0e0" font-family="monospace" font-size="7">platform-redis-data</text>
+        <text x="10" y="55" fill="#888" font-family="monospace" font-size="7">/data</text>
+        <text x="10" y="75" fill="#ffd93d" font-family="monospace" font-size="7">~100 MB - 1 GB</text>
+      </g>
+
+      <!-- ChromaDB -->
+      <g transform="translate(165, 15)">
+        <rect x="0" y="0" width="140" height="80" rx="8" fill="#9b59b6"/>
+        <text x="70" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">ChromaDB</text>
+        <text x="70" y="38" text-anchor="middle" fill="#e8daef" font-family="monospace" font-size="8">platform-chromadb</text>
+        <rect x="10" y="48" width="120" height="24" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="70" y="64" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="7">:8000 (Vector DB)</text>
+      </g>
+      <g transform="translate(165, 100)">
+        <rect x="0" y="0" width="140" height="85" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="70" y="18" text-anchor="middle" fill="#81ecec" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Volume</text>
+        <text x="10" y="38" fill="#e0e0e0" font-family="monospace" font-size="7">platform-chromadb-data</text>
+        <text x="10" y="55" fill="#888" font-family="monospace" font-size="7">/chroma/chroma</text>
+        <text x="10" y="75" fill="#ffd93d" font-family="monospace" font-size="7">~500 MB - 5 GB</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Object Storage Section -->
+  <g transform="translate(910, 120)">
+    <text x="0" y="0" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Object Storage</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="320" height="200" rx="15" fill="#1a1a2e"/>
+
+      <!-- MinIO -->
+      <g transform="translate(15, 15)">
+        <rect x="0" y="0" width="290" height="80" rx="8" fill="url(#storageGrad)"/>
+        <text x="145" y="20" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">MinIO Object Storage</text>
+        <text x="145" y="38" text-anchor="middle" fill="#333" font-family="monospace" font-size="8">platform-minio | S3-Compatible</text>
+        <rect x="10" y="48" width="130" height="24" rx="4" fill="rgba(0,0,0,0.2)"/>
+        <text x="75" y="64" text-anchor="middle" fill="#1a1a2e" font-family="monospace" font-size="7">API :9000</text>
+        <rect x="150" y="48" width="130" height="24" rx="4" fill="rgba(0,0,0,0.2)"/>
+        <text x="215" y="64" text-anchor="middle" fill="#1a1a2e" font-family="monospace" font-size="7">Console :9001</text>
+      </g>
+      <g transform="translate(15, 100)">
+        <rect x="0" y="0" width="290" height="85" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="145" y="18" text-anchor="middle" fill="#81ecec" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Volume</text>
+        <text x="10" y="38" fill="#e0e0e0" font-family="monospace" font-size="8">platform-minio-data → /data</text>
+        <text x="10" y="58" fill="#888" font-family="monospace" font-size="7">Buckets: artifacts, uploads, modernization-files</text>
+        <text x="10" y="78" fill="#ffd93d" font-family="monospace" font-size="7">Size: ~5-50 GB (depends on usage)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- AI/LLM Volumes Section -->
+  <g transform="translate(1260, 120)">
+    <text x="0" y="0" fill="#a29bfe" font-family="Arial, sans-serif" font-size="16" font-weight="bold">AI/LLM Storage</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="290" height="200" rx="15" fill="#1a1a2e"/>
+
+      <!-- Ollama -->
+      <g transform="translate(15, 15)">
+        <rect x="0" y="0" width="260" height="80" rx="8" fill="url(#volumeGrad)"/>
+        <text x="130" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Ollama LLM</text>
+        <text x="130" y="38" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">platform-ollama | GPU Accelerated</text>
+        <rect x="10" y="48" width="240" height="24" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="130" y="64" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="7">:11434 | Models: qwen2.5-coder, llama3</text>
+      </g>
+      <g transform="translate(15, 100)">
+        <rect x="0" y="0" width="260" height="85" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="130" y="18" text-anchor="middle" fill="#81ecec" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Volume (LARGE)</text>
+        <text x="10" y="38" fill="#e0e0e0" font-family="monospace" font-size="8">platform-ollama-data</text>
+        <text x="10" y="55" fill="#888" font-family="monospace" font-size="7">/root/.ollama (model weights)</text>
+        <text x="10" y="75" fill="#d63031" font-family="monospace" font-size="8" font-weight="bold">~30-100 GB (LLM models)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- GitLab Volumes Section -->
+  <g transform="translate(50, 360)">
+    <text x="0" y="0" fill="#fc6d26" font-family="Arial, sans-serif" font-size="16" font-weight="bold">GitLab &amp; CI/CD Volumes</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="700" height="200" rx="15" fill="#1a1a2e"/>
+
+      <!-- GitLab -->
+      <g transform="translate(15, 15)">
+        <rect x="0" y="0" width="200" height="170" rx="8" fill="#fc6d26"/>
+        <text x="100" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">GitLab CE</text>
+        <text x="100" y="38" text-anchor="middle" fill="#ffe0cc" font-family="monospace" font-size="8">platform-gitlab</text>
+
+        <rect x="10" y="50" width="180" height="110" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="68" fill="#ffd93d" font-family="Arial, sans-serif" font-size="8" font-weight="bold">3 Volumes:</text>
+        <text x="20" y="85" fill="#e0e0e0" font-family="monospace" font-size="7">platform-gitlab-config</text>
+        <text x="20" y="98" fill="#888" font-family="monospace" font-size="6">/etc/gitlab (~100 MB)</text>
+        <text x="20" y="115" fill="#e0e0e0" font-family="monospace" font-size="7">platform-gitlab-logs</text>
+        <text x="20" y="128" fill="#888" font-family="monospace" font-size="6">/var/log/gitlab (~1-5 GB)</text>
+        <text x="20" y="145" fill="#e0e0e0" font-family="monospace" font-size="7">platform-gitlab-data</text>
+        <text x="20" y="158" fill="#d63031" font-family="monospace" font-size="6">/var/opt/gitlab (~10-100 GB)</text>
+      </g>
+
+      <!-- GitLab Runner -->
+      <g transform="translate(230, 15)">
+        <rect x="0" y="0" width="200" height="170" rx="8" fill="rgba(252,109,38,0.3)" stroke="#fc6d26" stroke-width="2"/>
+        <text x="100" y="20" text-anchor="middle" fill="#fc6d26" font-family="Arial, sans-serif" font-size="11" font-weight="bold">GitLab Runner</text>
+        <text x="100" y="38" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">platform-gitlab-runner</text>
+
+        <rect x="10" y="50" width="180" height="110" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="68" fill="#ffd93d" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Volumes:</text>
+        <text x="20" y="88" fill="#e0e0e0" font-family="monospace" font-size="7">platform-gitlab-runner-config</text>
+        <text x="20" y="103" fill="#888" font-family="monospace" font-size="6">/etc/gitlab-runner (~10 MB)</text>
+
+        <text x="20" y="125" fill="#d63031" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Host Bind Mount:</text>
+        <text x="20" y="142" fill="#81ecec" font-family="monospace" font-size="7">/var/run/docker.sock</text>
+        <text x="20" y="157" fill="#888" font-family="monospace" font-size="6">→ Docker-in-Docker access</text>
+      </g>
+
+      <!-- Nexus -->
+      <g transform="translate(445, 15)">
+        <rect x="0" y="0" width="240" height="170" rx="8" fill="#1ba5ad"/>
+        <text x="120" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Nexus Repository</text>
+        <text x="120" y="38" text-anchor="middle" fill="#e0f7fa" font-family="monospace" font-size="8">platform-nexus</text>
+
+        <rect x="10" y="50" width="220" height="110" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="68" fill="#ffd93d" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Volume:</text>
+        <text x="20" y="88" fill="#e0e0e0" font-family="monospace" font-size="7">platform-nexus-data</text>
+        <text x="20" y="103" fill="#888" font-family="monospace" font-size="6">/nexus-data</text>
+
+        <text x="20" y="125" fill="#81ecec" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Contains:</text>
+        <text x="20" y="140" fill="#888" font-family="monospace" font-size="6">Docker images, Maven artifacts, npm packages</text>
+        <text x="20" y="155" fill="#d63031" font-family="monospace" font-size="7" font-weight="bold">Size: ~20-200 GB</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- SonarQube & Quality Tools Section -->
+  <g transform="translate(780, 360)">
+    <text x="0" y="0" fill="#4c6ef5" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Quality &amp; Security Tools</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="530" height="200" rx="15" fill="#1a1a2e"/>
+
+      <!-- SonarQube -->
+      <g transform="translate(15, 15)">
+        <rect x="0" y="0" width="250" height="170" rx="8" fill="#4c6ef5"/>
+        <text x="125" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">SonarQube</text>
+        <text x="125" y="38" text-anchor="middle" fill="#dbe4ff" font-family="monospace" font-size="8">platform-sonarqube</text>
+
+        <rect x="10" y="50" width="230" height="110" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="68" fill="#ffd93d" font-family="Arial, sans-serif" font-size="8" font-weight="bold">3 Volumes:</text>
+        <text x="20" y="85" fill="#e0e0e0" font-family="monospace" font-size="7">platform-sonarqube-data</text>
+        <text x="20" y="98" fill="#888" font-family="monospace" font-size="6">/opt/sonarqube/data (~2-10 GB)</text>
+        <text x="20" y="115" fill="#e0e0e0" font-family="monospace" font-size="7">platform-sonarqube-extensions</text>
+        <text x="20" y="128" fill="#888" font-family="monospace" font-size="6">/opt/sonarqube/extensions (~500 MB)</text>
+        <text x="20" y="145" fill="#e0e0e0" font-family="monospace" font-size="7">platform-sonarqube-logs</text>
+        <text x="20" y="158" fill="#888" font-family="monospace" font-size="6">/opt/sonarqube/logs (~1 GB)</text>
+      </g>
+
+      <!-- Trivy -->
+      <g transform="translate(280, 15)">
+        <rect x="0" y="0" width="235" height="170" rx="8" fill="rgba(0,184,148,0.8)"/>
+        <text x="117" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Trivy Scanner</text>
+        <text x="117" y="38" text-anchor="middle" fill="#e0f7f0" font-family="monospace" font-size="8">platform-trivy</text>
+
+        <rect x="10" y="50" width="215" height="110" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="68" fill="#ffd93d" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Volume:</text>
+        <text x="20" y="88" fill="#e0e0e0" font-family="monospace" font-size="7">platform-trivy-cache</text>
+        <text x="20" y="103" fill="#888" font-family="monospace" font-size="6">/var/lib/trivy</text>
+
+        <text x="20" y="125" fill="#81ecec" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Contains:</text>
+        <text x="20" y="140" fill="#888" font-family="monospace" font-size="6">Vulnerability DB cache</text>
+        <text x="20" y="155" fill="#ffd93d" font-family="monospace" font-size="7">Size: ~1-3 GB</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Monitoring & Observability Section -->
+  <g transform="translate(50, 600)">
+    <text x="0" y="0" fill="#e74c3c" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Monitoring &amp; Observability Volumes</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="700" height="180" rx="15" fill="#1a1a2e"/>
+
+      <!-- Prometheus -->
+      <g transform="translate(15, 15)">
+        <rect x="0" y="0" width="160" height="150" rx="8" fill="#e74c3c"/>
+        <text x="80" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Prometheus</text>
+        <text x="80" y="38" text-anchor="middle" fill="#ffe0e0" font-family="monospace" font-size="8">platform-prometheus</text>
+
+        <rect x="10" y="50" width="140" height="90" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="68" fill="#ffd93d" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Volume:</text>
+        <text x="20" y="85" fill="#e0e0e0" font-family="monospace" font-size="7">platform-prometheus-data</text>
+        <text x="20" y="100" fill="#888" font-family="monospace" font-size="6">/prometheus (TSDB)</text>
+        <text x="20" y="120" fill="#ffd93d" font-family="monospace" font-size="7">~5-20 GB</text>
+        <text x="20" y="135" fill="#888" font-family="monospace" font-size="6">15d retention default</text>
+      </g>
+
+      <!-- Grafana -->
+      <g transform="translate(190, 15)">
+        <rect x="0" y="0" width="160" height="150" rx="8" fill="#f39c12"/>
+        <text x="80" y="20" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Grafana</text>
+        <text x="80" y="38" text-anchor="middle" fill="#333" font-family="monospace" font-size="8">platform-grafana</text>
+
+        <rect x="10" y="50" width="140" height="90" rx="4" fill="rgba(0,0,0,0.2)"/>
+        <text x="20" y="68" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Volume:</text>
+        <text x="20" y="85" fill="#333" font-family="monospace" font-size="7">platform-grafana-data</text>
+        <text x="20" y="100" fill="#555" font-family="monospace" font-size="6">/var/lib/grafana</text>
+        <text x="20" y="120" fill="#1a1a2e" font-family="monospace" font-size="7">~100-500 MB</text>
+        <text x="20" y="135" fill="#555" font-family="monospace" font-size="6">Dashboards, alerts</text>
+      </g>
+
+      <!-- Loki -->
+      <g transform="translate(365, 15)">
+        <rect x="0" y="0" width="160" height="150" rx="8" fill="#2ecc71"/>
+        <text x="80" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Loki</text>
+        <text x="80" y="38" text-anchor="middle" fill="#e0ffe0" font-family="monospace" font-size="8">platform-loki</text>
+
+        <rect x="10" y="50" width="140" height="90" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="68" fill="#ffd93d" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Volume:</text>
+        <text x="20" y="85" fill="#e0e0e0" font-family="monospace" font-size="7">platform-loki-data</text>
+        <text x="20" y="100" fill="#888" font-family="monospace" font-size="6">/loki (log storage)</text>
+        <text x="20" y="120" fill="#ffd93d" font-family="monospace" font-size="7">~5-50 GB</text>
+        <text x="20" y="135" fill="#888" font-family="monospace" font-size="6">Compressed logs</text>
+      </g>
+
+      <!-- Promtail (no persistent volume) -->
+      <g transform="translate(540, 15)">
+        <rect x="0" y="0" width="145" height="150" rx="8" fill="rgba(46,204,113,0.3)" stroke="#2ecc71" stroke-width="2"/>
+        <text x="72" y="20" text-anchor="middle" fill="#2ecc71" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Promtail</text>
+        <text x="72" y="38" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">platform-promtail</text>
+
+        <rect x="10" y="50" width="125" height="90" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="68" fill="#d63031" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Bind Mounts:</text>
+        <text x="20" y="85" fill="#81ecec" font-family="monospace" font-size="6">/var/run/docker.sock</text>
+        <text x="20" y="100" fill="#81ecec" font-family="monospace" font-size="6">/var/lib/docker/containers</text>
+        <text x="20" y="115" fill="#81ecec" font-family="monospace" font-size="6">/var/log (host)</text>
+        <text x="20" y="135" fill="#888" font-family="monospace" font-size="6">Read-only access</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Application Volumes Section -->
+  <g transform="translate(780, 600)">
+    <text x="0" y="0" fill="#00cec9" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Application Data Volumes</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="530" height="180" rx="15" fill="#1a1a2e"/>
+
+      <!-- Open WebUI -->
+      <g transform="translate(15, 15)">
+        <rect x="0" y="0" width="165" height="150" rx="8" fill="url(#volumeGrad)"/>
+        <text x="82" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Open WebUI</text>
+        <text x="82" y="38" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">platform-open-webui</text>
+
+        <rect x="10" y="50" width="145" height="90" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="68" fill="#ffd93d" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Volume:</text>
+        <text x="20" y="85" fill="#e0e0e0" font-family="monospace" font-size="7">platform-open-webui-data</text>
+        <text x="20" y="100" fill="#888" font-family="monospace" font-size="6">/app/backend/data</text>
+        <text x="20" y="120" fill="#ffd93d" font-family="monospace" font-size="7">~500 MB - 2 GB</text>
+        <text x="20" y="135" fill="#888" font-family="monospace" font-size="6">Chat history, settings</text>
+      </g>
+
+      <!-- Redmine -->
+      <g transform="translate(195, 15)">
+        <rect x="0" y="0" width="165" height="150" rx="8" fill="#c0392b"/>
+        <text x="82" y="20" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Redmine</text>
+        <text x="82" y="38" text-anchor="middle" fill="#ffe0e0" font-family="monospace" font-size="8">platform-redmine</text>
+
+        <rect x="10" y="50" width="145" height="90" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="68" fill="#ffd93d" font-family="Arial, sans-serif" font-size="8" font-weight="bold">3 Volumes:</text>
+        <text x="20" y="85" fill="#e0e0e0" font-family="monospace" font-size="6">platform-redmine-data</text>
+        <text x="20" y="98" fill="#e0e0e0" font-family="monospace" font-size="6">platform-redmine-plugins</text>
+        <text x="20" y="111" fill="#e0e0e0" font-family="monospace" font-size="6">platform-redmine-themes</text>
+        <text x="20" y="130" fill="#ffd93d" font-family="monospace" font-size="7">~1-5 GB total</text>
+      </g>
+
+      <!-- DevOps Tools -->
+      <g transform="translate(375, 15)">
+        <rect x="0" y="0" width="140" height="150" rx="8" fill="rgba(0,206,201,0.3)" stroke="#00cec9" stroke-width="2"/>
+        <text x="70" y="20" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="11" font-weight="bold">DevOps Tools</text>
+        <text x="70" y="38" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">devops-tools-backend</text>
+
+        <rect x="10" y="50" width="120" height="90" rx="4" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="68" fill="#ffd93d" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Volume:</text>
+        <text x="20" y="85" fill="#e0e0e0" font-family="monospace" font-size="7">devops-tools-config</text>
+        <text x="20" y="100" fill="#888" font-family="monospace" font-size="6">/app/config</text>
+        <text x="20" y="120" fill="#ffd93d" font-family="monospace" font-size="7">~10-50 MB</text>
+        <text x="20" y="135" fill="#888" font-family="monospace" font-size="6">API config files</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Volume Summary -->
+  <g transform="translate(50, 830)">
+    <text x="0" y="0" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Volume Summary</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="1500" height="200" rx="15" fill="#1a1a2e"/>
+
+      <!-- Named Volumes List -->
+      <rect x="15" y="15" width="730" height="170" rx="10" fill="rgba(0,0,0,0.3)"/>
+      <text x="30" y="38" fill="#ffd93d" font-family="Arial, sans-serif" font-size="12" font-weight="bold">24 Named Docker Volumes</text>
+
+      <text x="30" y="60" fill="#00b894" font-family="monospace" font-size="9">Database:</text>
+      <text x="100" y="60" fill="#888" font-family="monospace" font-size="8">platform-postgres-data, platform-sonarqube-db-data, platform-redmine-db-data</text>
+
+      <text x="30" y="78" fill="#e17055" font-family="monospace" font-size="9">Cache:</text>
+      <text x="100" y="78" fill="#888" font-family="monospace" font-size="8">platform-redis-data, platform-chromadb-data</text>
+
+      <text x="30" y="96" fill="#fdcb6e" font-family="monospace" font-size="9">Storage:</text>
+      <text x="100" y="96" fill="#888" font-family="monospace" font-size="8">platform-minio-data, platform-nexus-data</text>
+
+      <text x="30" y="114" fill="#a29bfe" font-family="monospace" font-size="9">AI/LLM:</text>
+      <text x="100" y="114" fill="#888" font-family="monospace" font-size="8">platform-ollama-data, platform-open-webui-data</text>
+
+      <text x="30" y="132" fill="#fc6d26" font-family="monospace" font-size="9">GitLab:</text>
+      <text x="100" y="132" fill="#888" font-family="monospace" font-size="8">platform-gitlab-config, platform-gitlab-logs, platform-gitlab-data, platform-gitlab-runner-config</text>
+
+      <text x="30" y="150" fill="#4c6ef5" font-family="monospace" font-size="9">Quality:</text>
+      <text x="100" y="150" fill="#888" font-family="monospace" font-size="8">platform-sonarqube-data, platform-sonarqube-extensions, platform-sonarqube-logs, platform-trivy-cache</text>
+
+      <text x="30" y="168" fill="#e74c3c" font-family="monospace" font-size="9">Monitor:</text>
+      <text x="100" y="168" fill="#888" font-family="monospace" font-size="8">platform-prometheus-data, platform-grafana-data, platform-loki-data</text>
+
+      <!-- Storage Estimates -->
+      <rect x="760" y="15" width="350" height="170" rx="10" fill="rgba(0,0,0,0.3)"/>
+      <text x="775" y="38" fill="#ffd93d" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Estimated Storage Requirements</text>
+
+      <text x="785" y="60" fill="#d63031" font-family="monospace" font-size="9" font-weight="bold">Large (50-200 GB):</text>
+      <text x="785" y="78" fill="#888" font-family="monospace" font-size="8">Ollama models, GitLab data, Nexus artifacts</text>
+
+      <text x="785" y="100" fill="#ffd93d" font-family="monospace" font-size="9" font-weight="bold">Medium (5-50 GB):</text>
+      <text x="785" y="118" fill="#888" font-family="monospace" font-size="8">MinIO, Prometheus, Loki, ChromaDB</text>
+
+      <text x="785" y="140" fill="#00b894" font-family="monospace" font-size="9" font-weight="bold">Small (&lt;5 GB):</text>
+      <text x="785" y="158" fill="#888" font-family="monospace" font-size="8">Redis, Grafana, SonarQube, Trivy cache</text>
+
+      <text x="785" y="180" fill="#81ecec" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Total Recommended: 300-500 GB</text>
+
+      <!-- Bind Mounts -->
+      <rect x="1125" y="15" width="360" height="170" rx="10" fill="rgba(0,0,0,0.3)"/>
+      <text x="1140" y="38" fill="#d63031" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Host Bind Mounts</text>
+
+      <text x="1150" y="60" fill="#81ecec" font-family="monospace" font-size="9">/var/run/docker.sock</text>
+      <text x="1150" y="75" fill="#888" font-family="monospace" font-size="7">→ gitlab-runner, promtail (Docker access)</text>
+
+      <text x="1150" y="95" fill="#81ecec" font-family="monospace" font-size="9">/var/lib/docker/containers</text>
+      <text x="1150" y="110" fill="#888" font-family="monospace" font-size="7">→ promtail (container logs)</text>
+
+      <text x="1150" y="130" fill="#81ecec" font-family="monospace" font-size="9">/var/log</text>
+      <text x="1150" y="145" fill="#888" font-family="monospace" font-size="7">→ promtail (host system logs)</text>
+
+      <text x="1150" y="168" fill="#81ecec" font-family="monospace" font-size="9">./config/*</text>
+      <text x="1150" y="180" fill="#888" font-family="monospace" font-size="7">→ prometheus, loki, promtail configs</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="800" y="1080" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Docker Volumes | Persistent Data Storage Architecture</text>
+</svg>

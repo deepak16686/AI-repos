@@ -1,0 +1,340 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 950">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="userGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c5ce7"/>
+      <stop offset="100%" style="stop-color:#a29bfe"/>
+    </linearGradient>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00cec9"/>
+      <stop offset="100%" style="stop-color:#81ecec"/>
+    </linearGradient>
+    <linearGradient id="toolGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e17055"/>
+      <stop offset="100%" style="stop-color:#fab1a0"/>
+    </linearGradient>
+    <linearGradient id="backendGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0984e3"/>
+      <stop offset="100%" style="stop-color:#74b9ff"/>
+    </linearGradient>
+    <linearGradient id="successGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#55efc4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c5ce7"/>
+    </marker>
+    <marker id="arrowCyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00cec9"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e17055"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0984e3"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00b894"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="950" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">End-to-End User Request Flow</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">Full Pipeline Generation Journey</text>
+
+  <!-- Timeline Header -->
+  <g transform="translate(50, 80)">
+    <text x="0" y="0" fill="#888" font-family="Arial, sans-serif" font-size="12">Request Timeline →</text>
+    <line x1="0" y1="10" x2="1300" y2="10" stroke="#4a90d9" stroke-width="1" stroke-dasharray="5,5"/>
+  </g>
+
+  <!-- Step 1: User Chat -->
+  <g filter="url(#shadow)" transform="translate(50, 110)">
+    <rect x="0" y="0" width="200" height="180" rx="15" fill="url(#userGrad)"/>
+    <circle cx="30" cy="30" r="18" fill="#fff"/>
+    <text x="30" y="36" text-anchor="middle" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="14" font-weight="bold">1</text>
+    <text x="60" y="35" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">User Chat Request</text>
+    <text x="20" y="60" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">OpenWebUI :3001</text>
+
+    <rect x="15" y="75" width="170" height="90" rx="8" fill="rgba(0,0,0,0.3)"/>
+    <text x="25" y="95" fill="#fff" font-family="monospace" font-size="9">"Create a CI/CD</text>
+    <text x="25" y="110" fill="#fff" font-family="monospace" font-size="9">pipeline for my</text>
+    <text x="25" y="125" fill="#fff" font-family="monospace" font-size="9">Java Spring Boot app"</text>
+    <text x="25" y="145" fill="#a29bfe" font-family="monospace" font-size="8">Tool attached:</text>
+    <text x="25" y="158" fill="#ffd93d" font-family="monospace" font-size="8">gitlab_pipeline_generator</text>
+  </g>
+
+  <!-- Arrow 1-2 -->
+  <path d="M 250 200 L 290 200" stroke="#6c5ce7" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+  <!-- Step 2: Ollama LLM -->
+  <g filter="url(#shadow)" transform="translate(300, 110)">
+    <rect x="0" y="0" width="200" height="180" rx="15" fill="url(#aiGrad)"/>
+    <circle cx="30" cy="30" r="18" fill="#fff"/>
+    <text x="30" y="36" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="14" font-weight="bold">2</text>
+    <text x="60" y="35" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="12" font-weight="bold">LLM Processing</text>
+    <text x="20" y="60" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="10">Ollama :11434</text>
+
+    <rect x="15" y="75" width="170" height="90" rx="8" fill="rgba(0,0,0,0.2)"/>
+    <text x="25" y="95" fill="#1a1a2e" font-family="monospace" font-size="9">Model: qwen2.5-coder</text>
+    <text x="25" y="115" fill="#1a1a2e" font-family="monospace" font-size="9">Intent: pipeline_gen</text>
+    <text x="25" y="135" fill="#1a1a2e" font-family="monospace" font-size="9">Tech: java</text>
+    <text x="25" y="155" fill="#006060" font-family="monospace" font-size="8">→ Invoke tool function</text>
+  </g>
+
+  <!-- Arrow 2-3 -->
+  <path d="M 500 200 L 540 200" stroke="#00cec9" stroke-width="2" marker-end="url(#arrowCyan)"/>
+
+  <!-- Step 3: Tool Execution -->
+  <g filter="url(#shadow)" transform="translate(550, 110)">
+    <rect x="0" y="0" width="220" height="180" rx="15" fill="url(#toolGrad)"/>
+    <circle cx="30" cy="30" r="18" fill="#fff"/>
+    <text x="30" y="36" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="14" font-weight="bold">3</text>
+    <text x="60" y="35" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Tool Execution</text>
+    <text x="20" y="60" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">gitlab_pipeline_generator</text>
+
+    <rect x="15" y="75" width="190" height="90" rx="8" fill="rgba(0,0,0,0.3)"/>
+    <text x="25" y="95" fill="#fff" font-family="monospace" font-size="9">get_pipeline_template(</text>
+    <text x="35" y="112" fill="#ffd0c0" font-family="monospace" font-size="9">technology="java",</text>
+    <text x="35" y="129" fill="#ffd0c0" font-family="monospace" font-size="9">stages="all"</text>
+    <text x="25" y="146" fill="#fff" font-family="monospace" font-size="9">)</text>
+    <text x="25" y="162" fill="#ffd93d" font-family="monospace" font-size="8">→ Query Nexus Registry</text>
+  </g>
+
+  <!-- Arrow 3-4 -->
+  <path d="M 770 200 L 810 200" stroke="#e17055" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+  <!-- Step 4: Nexus Query -->
+  <g filter="url(#shadow)" transform="translate(820, 110)">
+    <rect x="0" y="0" width="220" height="180" rx="15" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <circle cx="30" cy="30" r="18" fill="#00b894"/>
+    <text x="30" y="36" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">4</text>
+    <text x="60" y="35" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Nexus Discovery</text>
+    <text x="20" y="60" fill="#888" font-family="Arial, sans-serif" font-size="10">localhost:5001 Registry</text>
+
+    <rect x="15" y="75" width="190" height="90" rx="8" fill="#2d3436"/>
+    <text x="25" y="95" fill="#00b894" font-family="monospace" font-size="9">GET /v2/_catalog</text>
+    <text x="25" y="115" fill="#e0e0e0" font-family="monospace" font-size="9">→ ["maven", "kaniko",</text>
+    <text x="35" y="130" fill="#e0e0e0" font-family="monospace" font-size="9">"trivy", "alpine"...]</text>
+    <text x="25" y="150" fill="#55efc4" font-family="monospace" font-size="8">GET /v2/{repo}/tags/list</text>
+    <text x="25" y="165" fill="#888" font-family="monospace" font-size="8">→ Find best tag match</text>
+  </g>
+
+  <!-- Arrow 4-5 -->
+  <path d="M 1040 200 L 1080 200" stroke="#00b894" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- Step 5: Template Assembly -->
+  <g filter="url(#shadow)" transform="translate(1090, 110)">
+    <rect x="0" y="0" width="260" height="180" rx="15" fill="url(#backendGrad)"/>
+    <circle cx="30" cy="30" r="18" fill="#fff"/>
+    <text x="30" y="36" text-anchor="middle" fill="#0984e3" font-family="Arial, sans-serif" font-size="14" font-weight="bold">5</text>
+    <text x="60" y="35" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Template Assembly</text>
+    <text x="20" y="60" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">Build Pipeline Config</text>
+
+    <rect x="15" y="75" width="230" height="90" rx="8" fill="rgba(0,0,0,0.3)"/>
+    <text x="25" y="95" fill="#fff" font-family="monospace" font-size="9">stages_config: [</text>
+    <text x="35" y="112" fill="#74b9ff" font-family="monospace" font-size="9">{compile: maven:3.9...},</text>
+    <text x="35" y="129" fill="#74b9ff" font-family="monospace" font-size="9">{build: kaniko...},</text>
+    <text x="35" y="146" fill="#74b9ff" font-family="monospace" font-size="9">{security: trivy...}, ...</text>
+    <text x="25" y="163" fill="#fff" font-family="monospace" font-size="9">]</text>
+  </g>
+
+  <!-- Second Row - Generation -->
+  <g transform="translate(50, 320)">
+    <text x="0" y="0" fill="#888" font-family="Arial, sans-serif" font-size="12">Generation Phase →</text>
+    <line x1="0" y1="10" x2="1300" y2="10" stroke="#ffd93d" stroke-width="1" stroke-dasharray="5,5"/>
+  </g>
+
+  <!-- Step 6: LLM Generation -->
+  <g filter="url(#shadow)" transform="translate(50, 350)">
+    <rect x="0" y="0" width="280" height="160" rx="15" fill="url(#aiGrad)"/>
+    <circle cx="30" cy="30" r="18" fill="#fff"/>
+    <text x="30" y="36" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="14" font-weight="bold">6</text>
+    <text x="60" y="35" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="12" font-weight="bold">LLM Generates YAML</text>
+    <text x="20" y="60" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="10">qwen2.5-coder:32b + Tool Output</text>
+
+    <rect x="15" y="75" width="250" height="70" rx="8" fill="rgba(0,0,0,0.2)"/>
+    <text x="25" y="95" fill="#1a1a2e" font-family="monospace" font-size="9">Using tool output + instructions:</text>
+    <text x="25" y="112" fill="#006060" font-family="monospace" font-size="9">Generate .gitlab-ci.yml with</text>
+    <text x="25" y="129" fill="#006060" font-family="monospace" font-size="9">ONLY localhost:5001 images</text>
+  </g>
+
+  <!-- Arrow 6-7 -->
+  <path d="M 330 430 L 380 430" stroke="#00cec9" stroke-width="2" marker-end="url(#arrowCyan)"/>
+
+  <!-- Step 7: Dockerfile Generation -->
+  <g filter="url(#shadow)" transform="translate(390, 350)">
+    <rect x="0" y="0" width="280" height="160" rx="15" fill="#1a1a2e" stroke="#fd79a8" stroke-width="2"/>
+    <circle cx="30" cy="30" r="18" fill="#fd79a8"/>
+    <text x="30" y="36" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">7</text>
+    <text x="60" y="35" fill="#fd79a8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Dockerfile via RAG</text>
+    <text x="20" y="60" fill="#888" font-family="Arial, sans-serif" font-size="10">ChromaDB + catalog.json</text>
+
+    <rect x="15" y="75" width="250" height="70" rx="8" fill="#2d3436"/>
+    <text x="25" y="95" fill="#fd79a8" font-family="monospace" font-size="9">ChromaDB query → template</text>
+    <text x="25" y="112" fill="#e0e0e0" font-family="monospace" font-size="9">Catalog → base image</text>
+    <text x="25" y="129" fill="#e0e0e0" font-family="monospace" font-size="9">→ localhost:5001/maven:3.9...</text>
+  </g>
+
+  <!-- Arrow 7-8 -->
+  <path d="M 670 430 L 720 430" stroke="#fd79a8" stroke-width="2"/>
+
+  <!-- Step 8: User Review -->
+  <g filter="url(#shadow)" transform="translate(730, 350)">
+    <rect x="0" y="0" width="280" height="160" rx="15" fill="url(#userGrad)"/>
+    <circle cx="30" cy="30" r="18" fill="#fff"/>
+    <text x="30" y="36" text-anchor="middle" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="14" font-weight="bold">8</text>
+    <text x="60" y="35" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">User Review</text>
+    <text x="20" y="60" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">Chat Response in OpenWebUI</text>
+
+    <rect x="15" y="75" width="250" height="70" rx="8" fill="rgba(0,0,0,0.3)"/>
+    <text x="25" y="95" fill="#fff" font-family="monospace" font-size="9">Shows: .gitlab-ci.yml</text>
+    <text x="25" y="112" fill="#fff" font-family="monospace" font-size="9">       Dockerfile</text>
+    <text x="25" y="129" fill="#ffd93d" font-family="monospace" font-size="9">"Commit to GitLab?"</text>
+  </g>
+
+  <!-- Arrow 8-9 -->
+  <path d="M 1010 430 L 1060 430" stroke="#6c5ce7" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+  <!-- Step 9: Commit Tool -->
+  <g filter="url(#shadow)" transform="translate(1070, 350)">
+    <rect x="0" y="0" width="280" height="160" rx="15" fill="url(#toolGrad)"/>
+    <circle cx="30" cy="30" r="18" fill="#fff"/>
+    <text x="30" y="36" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="14" font-weight="bold">9</text>
+    <text x="60" y="35" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">GitLab Commit Tool</text>
+    <text x="20" y="60" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">gitlab_commit_deploy</text>
+
+    <rect x="15" y="75" width="250" height="70" rx="8" fill="rgba(0,0,0,0.3)"/>
+    <text x="25" y="95" fill="#fff" font-family="monospace" font-size="9">commit_and_deploy(</text>
+    <text x="35" y="112" fill="#ffd0c0" font-family="monospace" font-size="9">project_name, dockerfile,</text>
+    <text x="35" y="129" fill="#ffd0c0" font-family="monospace" font-size="9">gitlab_ci_content)</text>
+  </g>
+
+  <!-- Third Row - Deployment -->
+  <g transform="translate(50, 540)">
+    <text x="0" y="0" fill="#888" font-family="Arial, sans-serif" font-size="12">Deployment Phase →</text>
+    <line x1="0" y1="10" x2="1300" y2="10" stroke="#00b894" stroke-width="1" stroke-dasharray="5,5"/>
+  </g>
+
+  <!-- Step 10: GitLab Commit -->
+  <g filter="url(#shadow)" transform="translate(50, 570)">
+    <rect x="0" y="0" width="250" height="140" rx="15" fill="#1a1a2e" stroke="#e17055" stroke-width="2"/>
+    <circle cx="30" cy="30" r="18" fill="#e17055"/>
+    <text x="30" y="36" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">10</text>
+    <text x="60" y="35" fill="#e17055" font-family="Arial, sans-serif" font-size="12" font-weight="bold">GitLab API Commit</text>
+    <text x="20" y="60" fill="#888" font-family="Arial, sans-serif" font-size="10">:8929 Repository API</text>
+
+    <rect x="15" y="75" width="220" height="50" rx="8" fill="#2d3436"/>
+    <text x="25" y="95" fill="#fab1a0" font-family="monospace" font-size="9">POST /repository/commits</text>
+    <text x="25" y="112" fill="#e0e0e0" font-family="monospace" font-size="9">→ Dockerfile, .gitlab-ci.yml</text>
+  </g>
+
+  <!-- Arrow 10-11 -->
+  <path d="M 300 640 L 350 640" stroke="#e17055" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+  <!-- Step 11: Pipeline Triggered -->
+  <g filter="url(#shadow)" transform="translate(360, 570)">
+    <rect x="0" y="0" width="250" height="140" rx="15" fill="#1a1a2e" stroke="#ffd93d" stroke-width="2"/>
+    <circle cx="30" cy="30" r="18" fill="#ffd93d"/>
+    <text x="30" y="36" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">11</text>
+    <text x="60" y="35" fill="#ffd93d" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Pipeline Auto-Trigger</text>
+    <text x="20" y="60" fill="#888" font-family="Arial, sans-serif" font-size="10">GitLab CI/CD Engine</text>
+
+    <rect x="15" y="75" width="220" height="50" rx="8" fill="#2d3436"/>
+    <text x="25" y="95" fill="#ffd93d" font-family="monospace" font-size="9">8-Stage Pipeline Started</text>
+    <text x="25" y="112" fill="#e0e0e0" font-family="monospace" font-size="9">compile → build → ... → notify</text>
+  </g>
+
+  <!-- Arrow 11-12 -->
+  <path d="M 610 640 L 660 640" stroke="#ffd93d" stroke-width="2"/>
+
+  <!-- Step 12: Pipeline Execution -->
+  <g filter="url(#shadow)" transform="translate(670, 570)">
+    <rect x="0" y="0" width="320" height="140" rx="15" fill="#1a1a2e" stroke="#0984e3" stroke-width="2"/>
+    <circle cx="30" cy="30" r="18" fill="#0984e3"/>
+    <text x="30" y="36" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">12</text>
+    <text x="60" y="35" fill="#0984e3" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Pipeline Execution</text>
+    <text x="20" y="60" fill="#888" font-family="Arial, sans-serif" font-size="10">GitLab Runner (Docker executor)</text>
+
+    <rect x="15" y="75" width="290" height="50" rx="8" fill="#2d3436"/>
+    <text x="25" y="95" fill="#74b9ff" font-family="monospace" font-size="9">• Images pulled from localhost:5001</text>
+    <text x="25" y="112" fill="#e0e0e0" font-family="monospace" font-size="9">• Build with Kaniko → Push to Nexus</text>
+  </g>
+
+  <!-- Arrow 12-13 -->
+  <path d="M 990 640 L 1040 640" stroke="#0984e3" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Step 13: Success Response -->
+  <g filter="url(#shadow)" transform="translate(1050, 570)">
+    <rect x="0" y="0" width="300" height="140" rx="15" fill="url(#successGrad)"/>
+    <circle cx="30" cy="30" r="18" fill="#fff"/>
+    <text x="30" y="36" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="14" font-weight="bold">13</text>
+    <text x="60" y="35" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Success Response</text>
+    <text x="20" y="60" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="10">Back to User in Chat</text>
+
+    <rect x="15" y="75" width="270" height="50" rx="8" fill="rgba(0,0,0,0.2)"/>
+    <text x="25" y="95" fill="#1a1a2e" font-family="monospace" font-size="9">✓ Commit: abc123</text>
+    <text x="25" y="112" fill="#1a1a2e" font-family="monospace" font-size="9">✓ Pipeline: #42 Running</text>
+  </g>
+
+  <!-- System Components Legend -->
+  <g filter="url(#shadow)" transform="translate(50, 740)">
+    <rect x="0" y="0" width="650" height="100" rx="10" fill="#1a1a2e" stroke="#4a90d9" stroke-width="1"/>
+    <text x="20" y="25" fill="#4a90d9" font-family="Arial, sans-serif" font-size="12" font-weight="bold">System Components Involved:</text>
+
+    <rect x="20" y="40" width="15" height="15" rx="3" fill="url(#userGrad)"/>
+    <text x="45" y="52" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">OpenWebUI :3001</text>
+
+    <rect x="150" y="40" width="15" height="15" rx="3" fill="url(#aiGrad)"/>
+    <text x="175" y="52" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">Ollama :11434</text>
+
+    <rect x="280" y="40" width="15" height="15" rx="3" fill="url(#toolGrad)"/>
+    <text x="305" y="52" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">OpenWebUI Tools</text>
+
+    <rect x="430" y="40" width="15" height="15" rx="3" fill="#00b894"/>
+    <text x="455" y="52" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">Nexus :5001</text>
+
+    <rect x="550" y="40" width="15" height="15" rx="3" fill="#fd79a8"/>
+    <text x="575" y="52" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">ChromaDB :8000</text>
+
+    <rect x="20" y="65" width="15" height="15" rx="3" fill="#e17055"/>
+    <text x="45" y="77" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">GitLab :8929</text>
+
+    <rect x="150" y="65" width="15" height="15" rx="3" fill="#ffd93d"/>
+    <text x="175" y="77" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">GitLab Runner</text>
+
+    <rect x="280" y="65" width="15" height="15" rx="3" fill="url(#backendGrad)"/>
+    <text x="305" y="77" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">RAG Generator :8080</text>
+  </g>
+
+  <!-- Timing Summary -->
+  <g filter="url(#shadow)" transform="translate(720, 740)">
+    <rect x="0" y="0" width="630" height="100" rx="10" fill="#1a1a2e" stroke="#00b894" stroke-width="1"/>
+    <text x="20" y="25" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Flow Summary:</text>
+
+    <text x="20" y="50" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">1-5: Request Processing (~2-5s)</text>
+    <text x="20" y="68" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">6-8: Content Generation (~10-30s)</text>
+    <text x="20" y="86" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">9-13: Deployment (~5-10s + pipeline)</text>
+
+    <text x="280" y="50" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Key Features:</text>
+    <text x="280" y="68" fill="#888" font-family="Arial, sans-serif" font-size="10">• Fully automated pipeline creation</text>
+    <text x="280" y="86" fill="#888" font-family="Arial, sans-serif" font-size="10">• Private registry only (no Docker Hub)</text>
+
+    <text x="480" y="50" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Data Flow:</text>
+    <text x="480" y="68" fill="#888" font-family="Arial, sans-serif" font-size="10">• Natural language → YAML</text>
+    <text x="480" y="86" fill="#888" font-family="Arial, sans-serif" font-size="10">• Chat → Running Pipeline</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="920" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Complete User Request Journey | From Chat to Running Pipeline</text>
+</svg>

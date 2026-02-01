@@ -1,0 +1,446 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1820">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="chromaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7e57c2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#311b92;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="autoGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#66bb6a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2e7d32;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="manualGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#42a5f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1565c0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rlGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff7043;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d84315;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="pipelineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffb74d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f57c00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gitlabGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fc6d26;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e24329;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="llmGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ce93d8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7b1fa2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="securityGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef5350;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c62828;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="adminGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4fc3f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0288d1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="apiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#26c6da;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00838f;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rewardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd54f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8f00;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="4" flood-opacity="0.25"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Arrow Markers -->
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2e7d32"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1565c0"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#d84315"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7b1fa2"/>
+    </marker>
+    <marker id="arrowCyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00838f"/>
+    </marker>
+    <marker id="arrowYellow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff8f00"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#c62828"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1820" fill="#fafafa"/>
+
+  <!-- Title Section -->
+  <rect x="0" y="0" width="1600" height="90" fill="#311b92"/>
+  <text x="800" y="38" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle">ChromaDB Vector Data Sources Architecture</text>
+  <text x="800" y="65" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#b39ddb" text-anchor="middle">Automatic Ingestion • Manual Upload • Reinforcement Learning Feedback Loop • Self-Improving Knowledge Base</text>
+  <text x="800" y="82" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#ce93d8" text-anchor="middle">Vector Database for RAG-Enhanced CI/CD Generation | Port :8000</text>
+
+  <!-- ==================== CENTRAL CHROMADB ==================== -->
+  <rect x="550" y="750" width="500" height="300" rx="20" fill="url(#chromaGrad)" filter="url(#shadow)"/>
+  <rect x="555" y="755" width="490" height="290" rx="18" fill="none" stroke="white" stroke-width="2" stroke-dasharray="none" opacity="0.3"/>
+
+  <text x="800" y="795" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">ChromaDB</text>
+  <text x="800" y="820" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#e1bee7" text-anchor="middle">Vector Knowledge Store | :8000</text>
+
+  <!-- Collections inside ChromaDB -->
+  <rect x="565" y="840" width="230" height="190" rx="10" fill="rgba(255,255,255,0.95)"/>
+  <text x="680" y="862" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#311b92" text-anchor="middle">Tool-Specific Collections</text>
+  <text x="575" y="880" font-family="Consolas, monospace" font-size="9" fill="#b71c1c">maven_error_patterns</text>
+  <text x="575" y="895" font-family="Consolas, monospace" font-size="9" fill="#1565c0">kaniko_error_patterns</text>
+  <text x="575" y="910" font-family="Consolas, monospace" font-size="9" fill="#d84315">sast_error_patterns</text>
+  <text x="575" y="925" font-family="Consolas, monospace" font-size="9" fill="#6a1b9a">sonarqube_error_patterns</text>
+  <text x="575" y="940" font-family="Consolas, monospace" font-size="9" fill="#00838f">trivy_error_patterns</text>
+  <text x="575" y="955" font-family="Consolas, monospace" font-size="9" fill="#ff8f00">nexus_push_patterns</text>
+  <text x="575" y="970" font-family="Consolas, monospace" font-size="9" fill="#37474f">splunk_hec_patterns</text>
+  <text x="680" y="990" font-family="Segoe UI, Arial, sans-serif" font-size="9" font-weight="bold" fill="#311b92" text-anchor="middle">Cross-Cutting:</text>
+  <text x="575" y="1005" font-family="Consolas, monospace" font-size="9" fill="#2e7d32">success_patterns, fix_rules</text>
+  <text x="575" y="1020" font-family="Consolas, monospace" font-size="9" fill="#37474f">base_images, dockerfile_tpl</text>
+
+  <!-- Embedding Model -->
+  <rect x="810" y="840" width="220" height="90" rx="8" fill="rgba(255,255,255,0.95)"/>
+  <text x="920" y="865" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#311b92" text-anchor="middle">Embedding Model</text>
+  <text x="920" y="888" font-family="Consolas, monospace" font-size="10" fill="#37474f" text-anchor="middle">all-MiniLM-L6-v2</text>
+  <text x="920" y="908" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">384-dim vectors</text>
+  <text x="920" y="923" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Semantic similarity search</text>
+
+  <!-- Metadata & Index -->
+  <rect x="810" y="940" width="220" height="80" rx="8" fill="rgba(255,255,255,0.95)"/>
+  <text x="920" y="962" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#311b92" text-anchor="middle">Metadata Filtering</text>
+  <text x="825" y="982" font-family="Consolas, monospace" font-size="9" fill="#37474f">lang, framework, build_tool</text>
+  <text x="825" y="997" font-family="Consolas, monospace" font-size="9" fill="#37474f">source_type, confidence, ts</text>
+  <text x="825" y="1012" font-family="Consolas, monospace" font-size="9" fill="#37474f">success_rate, usage_count</text>
+
+  <!-- ==================== AUTOMATIC SOURCES (LEFT SIDE) ==================== -->
+  <rect x="20" y="110" width="500" height="620" rx="15" fill="#e8f5e9" stroke="#4caf50" stroke-width="3" filter="url(#shadow)"/>
+  <text x="270" y="145" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="bold" fill="#2e7d32" text-anchor="middle">AUTOMATIC DATA SOURCES</text>
+  <text x="270" y="170" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#388e3c" text-anchor="middle">System-Generated | No Manual Intervention Required</text>
+
+  <!-- 1. Pipeline Success Patterns -->
+  <rect x="40" y="190" width="220" height="160" rx="10" fill="url(#autoGrad)" filter="url(#shadow)"/>
+  <text x="150" y="218" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Pipeline Success</text>
+  <rect x="55" y="232" width="190" height="105" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="150" y="252" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#2e7d32" text-anchor="middle">Auto-Captured on Green:</text>
+  <text x="65" y="272" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Working Dockerfile</text>
+  <text x="65" y="287" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Successful .gitlab-ci.yml</text>
+  <text x="65" y="302" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Build commands used</text>
+  <text x="65" y="317" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Base image + version</text>
+  <text x="65" y="332" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#2e7d32">Tags: lang, framework, registry</text>
+
+  <!-- 2. Pipeline Failure Patterns -->
+  <rect x="280" y="190" width="220" height="160" rx="10" fill="url(#securityGrad)" filter="url(#shadow)"/>
+  <text x="390" y="218" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Pipeline Failures</text>
+  <rect x="295" y="232" width="190" height="105" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="390" y="252" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#c62828" text-anchor="middle">Auto-Captured on Red:</text>
+  <text x="305" y="272" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Error signature hash</text>
+  <text x="305" y="287" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Root cause category</text>
+  <text x="305" y="302" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Failed stage + job</text>
+  <text x="305" y="317" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Environment context</text>
+  <text x="305" y="332" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#c62828">Prevention rules generated</text>
+
+  <!-- 3. LLM Fix Generation -->
+  <rect x="40" y="365" width="220" height="150" rx="10" fill="url(#llmGrad)" filter="url(#shadow)"/>
+  <text x="150" y="393" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">LLM Auto-Fix</text>
+  <rect x="55" y="407" width="190" height="95" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="150" y="427" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#7b1fa2" text-anchor="middle">Generated Fixes:</text>
+  <text x="65" y="447" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Fix patch for failed config</text>
+  <text x="65" y="462" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Corrected Dockerfile</text>
+  <text x="65" y="477" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Updated CI variables</text>
+  <text x="65" y="492" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#7b1fa2">Linked to error signature</text>
+
+  <!-- 4. GitLab Detection Data -->
+  <rect x="280" y="365" width="220" height="150" rx="10" fill="url(#gitlabGrad)" filter="url(#shadow)"/>
+  <text x="390" y="393" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">GitLab Detection</text>
+  <rect x="295" y="407" width="190" height="95" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="390" y="427" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#e24329" text-anchor="middle">Repo Analysis Results:</text>
+  <text x="305" y="447" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Language detection context</text>
+  <text x="305" y="462" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Build tool identification</text>
+  <text x="305" y="477" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Framework patterns</text>
+  <text x="305" y="492" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#e24329">File structure embeddings</text>
+
+  <!-- 5. Security Scan Results -->
+  <rect x="40" y="530" width="220" height="180" rx="10" fill="url(#pipelineGrad)" filter="url(#shadow)"/>
+  <text x="150" y="558" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Security Scan Data</text>
+  <rect x="55" y="572" width="190" height="125" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="150" y="592" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#f57c00" text-anchor="middle">Auto-Indexed Findings:</text>
+  <text x="65" y="612" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">SonarQube code smells</text>
+  <text x="65" y="627" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Trivy vulnerabilities</text>
+  <text x="65" y="642" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Fortify SAST findings</text>
+  <text x="65" y="657" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Sonatype SCA results</text>
+  <text x="65" y="672" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Quality gate outcomes</text>
+  <text x="65" y="687" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#f57c00">CVE remediation patterns</text>
+
+  <!-- 6. Observability Metrics -->
+  <rect x="280" y="530" width="220" height="180" rx="10" fill="url(#apiGrad)" filter="url(#shadow)"/>
+  <text x="390" y="558" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Observability Data</text>
+  <rect x="295" y="572" width="190" height="125" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="390" y="592" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#00838f" text-anchor="middle">Pipeline Metrics:</text>
+  <text x="305" y="612" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Build duration patterns</text>
+  <text x="305" y="627" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Resource usage profiles</text>
+  <text x="305" y="642" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Stage timing analysis</text>
+  <text x="305" y="657" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Failure rate by config</text>
+  <text x="305" y="672" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Success rate trends</text>
+  <text x="305" y="687" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#00838f">Performance baselines</text>
+
+  <!-- Arrows from Automatic Sources to ChromaDB -->
+  <path d="M520 400 L550 750" stroke="#2e7d32" stroke-width="4" fill="none" marker-end="url(#arrowGreen)" stroke-dasharray="none"/>
+  <rect x="470" y="560" width="90" height="25" rx="4" fill="#2e7d32"/>
+  <text x="515" y="577" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">AUTO</text>
+
+  <!-- ==================== MANUAL SOURCES (RIGHT SIDE) ==================== -->
+  <rect x="1080" y="110" width="500" height="620" rx="15" fill="#e3f2fd" stroke="#1976d2" stroke-width="3" filter="url(#shadow)"/>
+  <text x="1330" y="145" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="bold" fill="#1565c0" text-anchor="middle">MANUAL DATA SOURCES</text>
+  <text x="1330" y="170" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1976d2" text-anchor="middle">Admin-Curated | API Upload | Organizational Standards</text>
+
+  <!-- 1. Admin Console Upload -->
+  <rect x="1100" y="190" width="220" height="160" rx="10" fill="url(#adminGrad)" filter="url(#shadow)"/>
+  <text x="1210" y="218" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Admin Console</text>
+  <rect x="1115" y="232" width="190" height="105" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="1210" y="252" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#0288d1" text-anchor="middle">Web UI Uploads:</text>
+  <text x="1125" y="272" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Dockerfile templates</text>
+  <text x="1125" y="287" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">CI/CD pipeline templates</text>
+  <text x="1125" y="302" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Custom prompts</text>
+  <text x="1125" y="317" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Best practice guides</text>
+  <text x="1125" y="332" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#0288d1">Bulk import (JSON/CSV)</text>
+
+  <!-- 2. API Integration -->
+  <rect x="1340" y="190" width="220" height="160" rx="10" fill="url(#apiGrad)" filter="url(#shadow)"/>
+  <text x="1450" y="218" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">REST API</text>
+  <rect x="1355" y="232" width="190" height="105" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="1450" y="252" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#00838f" text-anchor="middle">Programmatic Insert:</text>
+  <text x="1365" y="272" font-family="Consolas, monospace" font-size="9" fill="#37474f">POST /api/v1/collections</text>
+  <text x="1365" y="287" font-family="Consolas, monospace" font-size="9" fill="#37474f">PUT /api/v1/documents</text>
+  <text x="1365" y="302" font-family="Consolas, monospace" font-size="9" fill="#37474f">PATCH /api/v1/metadata</text>
+  <text x="1365" y="317" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Batch upsert support</text>
+  <text x="1365" y="332" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#00838f">External tool integrations</text>
+
+  <!-- 3. Organizational Standards -->
+  <rect x="1100" y="365" width="220" height="150" rx="10" fill="url(#manualGrad)" filter="url(#shadow)"/>
+  <text x="1210" y="393" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Org Standards</text>
+  <rect x="1115" y="407" width="190" height="95" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="1210" y="427" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#1565c0" text-anchor="middle">Company Policies:</text>
+  <text x="1125" y="447" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Approved base images</text>
+  <text x="1125" y="462" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Security requirements</text>
+  <text x="1125" y="477" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Compliance rules</text>
+  <text x="1125" y="492" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#1565c0">Registry configurations</text>
+
+  <!-- 4. Knowledge Import -->
+  <rect x="1340" y="365" width="220" height="150" rx="10" fill="url(#llmGrad)" filter="url(#shadow)"/>
+  <text x="1450" y="393" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Knowledge Import</text>
+  <rect x="1355" y="407" width="190" height="95" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="1450" y="427" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#7b1fa2" text-anchor="middle">External Sources:</text>
+  <text x="1365" y="447" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Docker Hub best practices</text>
+  <text x="1365" y="462" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">GitLab CI reference docs</text>
+  <text x="1365" y="477" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Language-specific guides</text>
+  <text x="1365" y="492" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#7b1fa2">Community patterns</text>
+
+  <!-- 5. Expert Rules -->
+  <rect x="1100" y="530" width="220" height="180" rx="10" fill="url(#pipelineGrad)" filter="url(#shadow)"/>
+  <text x="1210" y="558" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Expert Rules</text>
+  <rect x="1115" y="572" width="190" height="125" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="1210" y="592" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#f57c00" text-anchor="middle">Human-Authored:</text>
+  <text x="1125" y="612" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Custom fix patterns</text>
+  <text x="1125" y="627" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Edge case handlers</text>
+  <text x="1125" y="642" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Override rules</text>
+  <text x="1125" y="657" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Priority configurations</text>
+  <text x="1125" y="672" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Deprecation notices</text>
+  <text x="1125" y="687" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#f57c00">Exception handling</text>
+
+  <!-- 6. Seed Data -->
+  <rect x="1340" y="530" width="220" height="180" rx="10" fill="url(#autoGrad)" filter="url(#shadow)"/>
+  <text x="1450" y="558" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Initial Seed Data</text>
+  <rect x="1355" y="572" width="190" height="125" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="1450" y="592" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#2e7d32" text-anchor="middle">Bootstrap Knowledge:</text>
+  <text x="1365" y="612" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Default Dockerfile templates</text>
+  <text x="1365" y="627" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Standard CI templates</text>
+  <text x="1365" y="642" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Common error patterns</text>
+  <text x="1365" y="657" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Language baselines</text>
+  <text x="1365" y="672" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Industry best practices</text>
+  <text x="1365" y="687" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#2e7d32">One-time setup import</text>
+
+  <!-- Arrows from Manual Sources to ChromaDB -->
+  <path d="M1080 400 L1050 750" stroke="#1565c0" stroke-width="4" fill="none" marker-end="url(#arrowBlue)" stroke-dasharray="none"/>
+  <rect x="1040" y="560" width="90" height="25" rx="4" fill="#1565c0"/>
+  <text x="1085" y="577" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">MANUAL</text>
+
+  <!-- ==================== RL FEEDBACK LOOP (BOTTOM) ==================== -->
+  <rect x="20" y="1100" width="1560" height="450" rx="15" fill="#fff3e0" stroke="#ff9800" stroke-width="3" filter="url(#shadow)"/>
+  <text x="800" y="1135" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="bold" fill="#e65100" text-anchor="middle">REINFORCEMENT LEARNING FEEDBACK LOOP</text>
+  <text x="800" y="1160" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#f57c00" text-anchor="middle">Continuous Improvement Through Outcome-Based Learning | Self-Correcting Knowledge Base</text>
+
+  <!-- RL Flow Diagram -->
+  <!-- Step 1: Generation -->
+  <rect x="60" y="1190" width="200" height="130" rx="10" fill="url(#chromaGrad)" filter="url(#shadow)"/>
+  <text x="160" y="1220" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">1. Generate</text>
+  <rect x="75" y="1235" width="170" height="70" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="160" y="1258" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#311b92" text-anchor="middle">RAG Query ChromaDB</text>
+  <text x="160" y="1278" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" text-anchor="middle">Retrieve similar patterns</text>
+  <text x="160" y="1295" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" text-anchor="middle">Generate Dockerfile + CI</text>
+
+  <!-- Arrow 1 to 2 -->
+  <path d="M260 1255 L310 1255" stroke="#f57c00" stroke-width="3" fill="none" marker-end="url(#arrowOrange)"/>
+
+  <!-- Step 2: Execute -->
+  <rect x="320" y="1190" width="200" height="130" rx="10" fill="url(#gitlabGrad)" filter="url(#shadow)"/>
+  <text x="420" y="1220" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">2. Execute</text>
+  <rect x="335" y="1235" width="170" height="70" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="420" y="1258" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#e24329" text-anchor="middle">Run GitLab Pipeline</text>
+  <text x="420" y="1278" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" text-anchor="middle">Build, Test, Scan, Deploy</text>
+  <text x="420" y="1295" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" text-anchor="middle">Capture all outcomes</text>
+
+  <!-- Arrow 2 to 3 -->
+  <path d="M520 1255 L570 1255" stroke="#f57c00" stroke-width="3" fill="none" marker-end="url(#arrowOrange)"/>
+
+  <!-- Step 3: Observe Outcome -->
+  <rect x="580" y="1190" width="200" height="130" rx="10" fill="url(#rewardGrad)" filter="url(#shadow)"/>
+  <text x="680" y="1220" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">3. Observe</text>
+  <rect x="595" y="1235" width="170" height="70" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="680" y="1258" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#ff8f00" text-anchor="middle">Compute Reward Signal</text>
+  <text x="680" y="1278" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle">Success = +1.0 reward</text>
+  <text x="680" y="1295" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#c62828" text-anchor="middle">Failure = -1.0 + analysis</text>
+
+  <!-- Arrow 3 to 4 -->
+  <path d="M780 1255 L830 1255" stroke="#f57c00" stroke-width="3" fill="none" marker-end="url(#arrowOrange)"/>
+
+  <!-- Step 4: Analyze -->
+  <rect x="840" y="1190" width="200" height="130" rx="10" fill="url(#llmGrad)" filter="url(#shadow)"/>
+  <text x="940" y="1220" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">4. Analyze</text>
+  <rect x="855" y="1235" width="170" height="70" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="940" y="1258" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#7b1fa2" text-anchor="middle">LLM Root Cause</text>
+  <text x="940" y="1278" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" text-anchor="middle">Parse error logs</text>
+  <text x="940" y="1295" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" text-anchor="middle">Generate fix hypothesis</text>
+
+  <!-- Arrow 4 to 5 -->
+  <path d="M1040 1255 L1090 1255" stroke="#f57c00" stroke-width="3" fill="none" marker-end="url(#arrowOrange)"/>
+
+  <!-- Step 5: Update -->
+  <rect x="1100" y="1190" width="200" height="130" rx="10" fill="url(#autoGrad)" filter="url(#shadow)"/>
+  <text x="1200" y="1220" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">5. Update</text>
+  <rect x="1115" y="1235" width="170" height="70" rx="6" fill="rgba(255,255,255,0.95)"/>
+  <text x="1200" y="1258" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#2e7d32" text-anchor="middle">Store in ChromaDB</text>
+  <text x="1200" y="1278" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" text-anchor="middle">Update pattern weights</text>
+  <text x="1200" y="1295" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" text-anchor="middle">Adjust confidence scores</text>
+
+  <!-- Arrow 5 back to ChromaDB (curved feedback) -->
+  <path d="M1300 1255 L1400 1255 L1400 900 L1050 900" stroke="#2e7d32" stroke-width="3" fill="none" marker-end="url(#arrowGreen)" stroke-dasharray="8,4"/>
+  <text x="1420" y="1080" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#2e7d32" transform="rotate(-90, 1420, 1080)">FEEDBACK</text>
+
+  <!-- Human Feedback Section -->
+  <rect x="60" y="1340" width="480" height="190" rx="10" fill="white" stroke="#ff9800" stroke-width="2" filter="url(#shadow)"/>
+  <text x="300" y="1370" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#e65100" text-anchor="middle">Human-in-the-Loop Feedback</text>
+
+  <rect x="80" y="1390" width="210" height="125" rx="6" fill="#e8f5e9"/>
+  <text x="185" y="1415" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#2e7d32" text-anchor="middle">Positive Signals (+reward)</text>
+  <text x="95" y="1438" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">User approves generated config</text>
+  <text x="95" y="1455" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">No edits needed before commit</text>
+  <text x="95" y="1472" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Pipeline succeeds first time</text>
+  <text x="95" y="1489" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Fast build times</text>
+  <text x="95" y="1506" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#2e7d32">Pattern marked as preferred</text>
+
+  <rect x="310" y="1390" width="210" height="125" rx="6" fill="#ffebee"/>
+  <text x="415" y="1415" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#c62828" text-anchor="middle">Negative Signals (-reward)</text>
+  <text x="325" y="1438" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">User edits generated config</text>
+  <text x="325" y="1455" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Pipeline fails repeatedly</text>
+  <text x="325" y="1472" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Security scan blocks deploy</text>
+  <text x="325" y="1489" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f">Build times degrade</text>
+  <text x="325" y="1506" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#c62828">Pattern marked as problematic</text>
+
+  <!-- Reward Calculation -->
+  <rect x="580" y="1340" width="480" height="190" rx="10" fill="white" stroke="#ff9800" stroke-width="2" filter="url(#shadow)"/>
+  <text x="820" y="1370" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#e65100" text-anchor="middle">Reward Signal Computation</text>
+
+  <rect x="600" y="1390" width="440" height="125" rx="6" fill="#fff8e1"/>
+  <text x="820" y="1415" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#ff8f00" text-anchor="middle">Composite Reward Formula:</text>
+  <text x="620" y="1440" font-family="Consolas, monospace" font-size="10" fill="#37474f">reward = (</text>
+  <text x="640" y="1458" font-family="Consolas, monospace" font-size="9" fill="#2e7d32">  pipeline_success * 0.4 +</text>
+  <text x="640" y="1475" font-family="Consolas, monospace" font-size="9" fill="#2e7d32">  no_human_edits * 0.2 +</text>
+  <text x="640" y="1492" font-family="Consolas, monospace" font-size="9" fill="#2e7d32">  security_pass * 0.2 +</text>
+  <text x="640" y="1509" font-family="Consolas, monospace" font-size="9" fill="#2e7d32">  build_time_improvement * 0.2</text>
+  <text x="620" y="1526" font-family="Consolas, monospace" font-size="10" fill="#37474f">)</text>
+
+  <!-- Weight Update -->
+  <rect x="1100" y="1340" width="460" height="190" rx="10" fill="white" stroke="#ff9800" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1330" y="1370" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#e65100" text-anchor="middle">Vector Weight Update Strategy</text>
+
+  <rect x="1120" y="1390" width="420" height="125" rx="6" fill="#e8f5e9"/>
+  <text x="1330" y="1415" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#2e7d32" text-anchor="middle">ChromaDB Metadata Updates:</text>
+  <text x="1135" y="1440" font-family="Consolas, monospace" font-size="9" fill="#37474f">success_rate += reward * learning_rate</text>
+  <text x="1135" y="1458" font-family="Consolas, monospace" font-size="9" fill="#37474f">usage_count += 1</text>
+  <text x="1135" y="1476" font-family="Consolas, monospace" font-size="9" fill="#37474f">last_used = timestamp()</text>
+  <text x="1135" y="1494" font-family="Consolas, monospace" font-size="9" fill="#37474f">confidence = recalculate(history)</text>
+  <text x="1135" y="1512" font-family="Consolas, monospace" font-size="9" fill="#2e7d32">// High success_rate = retrieved first</text>
+
+  <!-- Arrow from ChromaDB back to Step 1 (loop) -->
+  <path d="M800 1050 L800 1100 L60 1100 L60 1190" stroke="#311b92" stroke-width="3" fill="none" marker-end="url(#arrowPurple)" stroke-dasharray="8,4"/>
+  <text x="430" y="1085" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="#311b92">RETRIEVAL FOR NEXT GENERATION</text>
+
+  <!-- ==================== LEGEND ==================== -->
+  <rect x="20" y="1570" width="1560" height="210" rx="12" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="40" y="1600" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="bold" fill="#424242">Data Ingestion Summary &amp; Technical Details</text>
+
+  <!-- Data Source Types -->
+  <g transform="translate(40, 1620)">
+    <rect x="0" y="0" width="20" height="20" rx="4" fill="url(#autoGrad)"/>
+    <text x="30" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">Automatic (Pipeline Events)</text>
+
+    <rect x="220" y="0" width="20" height="20" rx="4" fill="url(#manualGrad)"/>
+    <text x="250" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">Manual (Admin/API)</text>
+
+    <rect x="420" y="0" width="20" height="20" rx="4" fill="url(#rlGrad)"/>
+    <text x="450" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">RL Feedback Loop</text>
+
+    <rect x="620" y="0" width="20" height="20" rx="4" fill="url(#chromaGrad)"/>
+    <text x="650" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">ChromaDB Storage</text>
+
+    <rect x="820" y="0" width="20" height="20" rx="4" fill="url(#llmGrad)"/>
+    <text x="850" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">LLM Processing</text>
+
+    <rect x="1020" y="0" width="20" height="20" rx="4" fill="url(#rewardGrad)"/>
+    <text x="1050" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">Reward Signal</text>
+  </g>
+
+  <!-- Key Statistics -->
+  <g transform="translate(40, 1660)">
+    <text x="0" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#2e7d32">AUTOMATIC:</text>
+    <text x="100" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">~80% of data comes from automated pipeline events (success/failure patterns, LLM analysis)</text>
+
+    <text x="0" y="40" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#1565c0">MANUAL:</text>
+    <text x="100" y="40" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">~15% curated templates, org standards, and expert rules uploaded via Admin UI or API</text>
+
+    <text x="0" y="65" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#d84315">RL FEEDBACK:</text>
+    <text x="100" y="65" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">~5% continuous refinement through reward signals adjusting pattern weights and confidence scores</text>
+  </g>
+
+  <!-- API Endpoints -->
+  <g transform="translate(40, 1720)">
+    <text x="0" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#311b92">ChromaDB API Endpoints:</text>
+    <text x="200" y="15" font-family="Consolas, monospace" font-size="10" fill="#37474f">POST /api/v1/collections/{name}/add</text>
+    <text x="520" y="15" font-family="Consolas, monospace" font-size="10" fill="#37474f">POST /api/v1/collections/{name}/query</text>
+    <text x="840" y="15" font-family="Consolas, monospace" font-size="10" fill="#37474f">PUT /api/v1/collections/{name}/update</text>
+    <text x="1160" y="15" font-family="Consolas, monospace" font-size="10" fill="#37474f">DELETE /api/v1/collections/{name}/delete</text>
+  </g>
+
+  <!-- Self-Improvement Note -->
+  <rect x="40" y="1745" width="1520" height="25" rx="4" fill="#e8f5e9"/>
+  <text x="800" y="1762" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="#2e7d32" text-anchor="middle">SELF-IMPROVING SYSTEM: Each pipeline execution feeds back into ChromaDB, continuously improving generation quality. First-time success rate increases over time.</text>
+
+  <!-- Reference to Pipeline Tools Diagram -->
+  <rect x="40" y="1775" width="1520" height="20" rx="4" fill="#fff3e0"/>
+  <text x="800" y="1789" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#e65100" text-anchor="middle">See pipeline-tools-chromadb-integration.svg for detailed tool-specific error patterns: Maven, Kaniko, SpotBugs, SonarQube, Trivy, Nexus, Splunk</text>
+
+</svg>

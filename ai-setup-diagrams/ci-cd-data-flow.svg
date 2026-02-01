@@ -1,0 +1,337 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="stageGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e17055"/>
+      <stop offset="100%" style="stop-color:#fab1a0"/>
+    </linearGradient>
+    <linearGradient id="dataGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0984e3"/>
+      <stop offset="100%" style="stop-color:#74b9ff"/>
+    </linearGradient>
+    <linearGradient id="artifactGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#55efc4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e17055"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0984e3"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00b894"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">CI/CD Pipeline Data Flow</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">8 Stages | Artifacts &amp; Reports</text>
+
+  <!-- Pipeline Stages Row -->
+  <g transform="translate(30, 80)">
+    <text x="0" y="0" fill="#e17055" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🔄 Pipeline Execution Flow</text>
+
+    <!-- Stage 1: Compile -->
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="155" height="100" rx="10" fill="url(#stageGrad)"/>
+      <text x="78" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">1. compile</text>
+      <text x="78" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">mvn package</text>
+      <rect x="10" y="55" width="135" height="35" rx="5" fill="rgba(0,0,0,0.3)"/>
+      <text x="78" y="72" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="8">OUTPUT:</text>
+      <text x="78" y="85" text-anchor="middle" fill="#fff" font-family="monospace" font-size="8">target/app.jar</text>
+    </g>
+
+    <!-- Arrow -->
+    <path d="M 155 70 L 175 70" stroke="#e17055" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+    <!-- Stage 2: Build -->
+    <g filter="url(#shadow)" transform="translate(175, 20)">
+      <rect x="0" y="0" width="155" height="100" rx="10" fill="url(#stageGrad)"/>
+      <text x="78" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">2. build</text>
+      <text x="78" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">kaniko executor</text>
+      <rect x="10" y="55" width="135" height="35" rx="5" fill="rgba(0,0,0,0.3)"/>
+      <text x="78" y="72" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="8">OUTPUT:</text>
+      <text x="78" y="85" text-anchor="middle" fill="#fff" font-family="monospace" font-size="8">Docker image</text>
+    </g>
+
+    <path d="M 330 70 L 350 70" stroke="#e17055" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+    <!-- Stage 3: Test -->
+    <g filter="url(#shadow)" transform="translate(350, 20)">
+      <rect x="0" y="0" width="155" height="100" rx="10" fill="url(#stageGrad)"/>
+      <text x="78" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">3. test</text>
+      <text x="78" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">registry verify</text>
+      <rect x="10" y="55" width="135" height="35" rx="5" fill="rgba(0,0,0,0.3)"/>
+      <text x="78" y="72" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="8">OUTPUT:</text>
+      <text x="78" y="85" text-anchor="middle" fill="#fff" font-family="monospace" font-size="8">Manifest verified</text>
+    </g>
+
+    <path d="M 505 70 L 525 70" stroke="#e17055" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+    <!-- Stage 4: SAST -->
+    <g filter="url(#shadow)" transform="translate(525, 20)">
+      <rect x="0" y="0" width="155" height="100" rx="10" fill="url(#stageGrad)"/>
+      <text x="78" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">4. sast</text>
+      <text x="78" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">SpotBugs + PMD</text>
+      <rect x="10" y="55" width="135" height="35" rx="5" fill="rgba(0,0,0,0.3)"/>
+      <text x="78" y="72" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="8">OUTPUT:</text>
+      <text x="78" y="85" text-anchor="middle" fill="#fff" font-family="monospace" font-size="8">Bug reports</text>
+    </g>
+
+    <path d="M 680 70 L 700 70" stroke="#e17055" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+    <!-- Stage 5: Quality -->
+    <g filter="url(#shadow)" transform="translate(700, 20)">
+      <rect x="0" y="0" width="155" height="100" rx="10" fill="url(#stageGrad)"/>
+      <text x="78" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">5. quality</text>
+      <text x="78" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">SonarQube scan</text>
+      <rect x="10" y="55" width="135" height="35" rx="5" fill="rgba(0,0,0,0.3)"/>
+      <text x="78" y="72" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="8">OUTPUT:</text>
+      <text x="78" y="85" text-anchor="middle" fill="#fff" font-family="monospace" font-size="8">Quality metrics</text>
+    </g>
+
+    <path d="M 855 70 L 875 70" stroke="#e17055" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+    <!-- Stage 6: Security -->
+    <g filter="url(#shadow)" transform="translate(875, 20)">
+      <rect x="0" y="0" width="155" height="100" rx="10" fill="url(#stageGrad)"/>
+      <text x="78" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">6. security</text>
+      <text x="78" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">Trivy CVE scan</text>
+      <rect x="10" y="55" width="135" height="35" rx="5" fill="rgba(0,0,0,0.3)"/>
+      <text x="78" y="72" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="8">OUTPUT:</text>
+      <text x="78" y="85" text-anchor="middle" fill="#fff" font-family="monospace" font-size="8">CVE report</text>
+    </g>
+
+    <path d="M 1030 70 L 1050 70" stroke="#e17055" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+    <!-- Stage 7: Push -->
+    <g filter="url(#shadow)" transform="translate(1050, 20)">
+      <rect x="0" y="0" width="155" height="100" rx="10" fill="url(#stageGrad)"/>
+      <text x="78" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">7. push</text>
+      <text x="78" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">Tag release</text>
+      <rect x="10" y="55" width="135" height="35" rx="5" fill="rgba(0,0,0,0.3)"/>
+      <text x="78" y="72" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="8">OUTPUT:</text>
+      <text x="78" y="85" text-anchor="middle" fill="#fff" font-family="monospace" font-size="8">Release tag</text>
+    </g>
+
+    <path d="M 1205 70 L 1225 70" stroke="#e17055" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+    <!-- Stage 8: Notify -->
+    <g filter="url(#shadow)" transform="translate(1225, 20)">
+      <rect x="0" y="0" width="135" height="100" rx="10" fill="url(#stageGrad)"/>
+      <text x="68" y="25" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">8. notify</text>
+      <text x="68" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">Splunk HEC</text>
+      <rect x="10" y="55" width="115" height="35" rx="5" fill="rgba(0,0,0,0.3)"/>
+      <text x="68" y="72" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="8">OUTPUT:</text>
+      <text x="68" y="85" text-anchor="middle" fill="#fff" font-family="monospace" font-size="8">Event logged</text>
+    </g>
+  </g>
+
+  <!-- Data Flow Lines to Systems -->
+  <g transform="translate(30, 220)">
+    <!-- Down arrows from each stage -->
+    <line x1="78" y1="0" x2="78" y2="50" stroke="#0984e3" stroke-width="2" stroke-dasharray="5,3"/>
+    <line x1="253" y1="0" x2="253" y2="50" stroke="#00b894" stroke-width="2" stroke-dasharray="5,3"/>
+    <line x1="428" y1="0" x2="428" y2="50" stroke="#00b894" stroke-width="2" stroke-dasharray="5,3"/>
+    <line x1="603" y1="0" x2="603" y2="50" stroke="#0984e3" stroke-width="2" stroke-dasharray="5,3"/>
+    <line x1="778" y1="0" x2="778" y2="50" stroke="#0984e3" stroke-width="2" stroke-dasharray="5,3"/>
+    <line x1="953" y1="0" x2="953" y2="50" stroke="#0984e3" stroke-width="2" stroke-dasharray="5,3"/>
+    <line x1="1128" y1="0" x2="1128" y2="50" stroke="#00b894" stroke-width="2" stroke-dasharray="5,3"/>
+    <line x1="1293" y1="0" x2="1293" y2="50" stroke="#6c5ce7" stroke-width="2" stroke-dasharray="5,3"/>
+  </g>
+
+  <!-- Data Destinations Row -->
+  <g transform="translate(30, 290)">
+    <text x="0" y="0" fill="#0984e3" font-family="Arial, sans-serif" font-size="14" font-weight="bold">📊 Data Destinations</text>
+
+    <!-- GitLab Artifacts -->
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="180" height="120" rx="10" fill="#1a1a2e" stroke="#0984e3" stroke-width="2"/>
+      <text x="90" y="25" text-anchor="middle" fill="#0984e3" font-family="Arial, sans-serif" font-size="12" font-weight="bold">📁 GitLab Artifacts</text>
+      <rect x="10" y="40" width="160" height="65" rx="5" fill="#2d3436"/>
+      <text x="20" y="58" fill="#74b9ff" font-family="monospace" font-size="9">• target/app.jar</text>
+      <text x="20" y="73" fill="#74b9ff" font-family="monospace" font-size="9">• .m2/repository (cache)</text>
+      <text x="20" y="88" fill="#74b9ff" font-family="monospace" font-size="9">• spotbugs-reports/</text>
+      <text x="20" y="103" fill="#888" font-family="monospace" font-size="8">expire_in: 1 hour</text>
+    </g>
+
+    <!-- Nexus Registry -->
+    <g filter="url(#shadow)" transform="translate(200, 20)">
+      <rect x="0" y="0" width="200" height="120" rx="10" fill="url(#artifactGrad)"/>
+      <text x="100" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="12" font-weight="bold">📦 Nexus Registry</text>
+      <text x="100" y="45" text-anchor="middle" fill="#006060" font-family="Arial, sans-serif" font-size="9">localhost:5001</text>
+      <rect x="10" y="55" width="180" height="50" rx="5" fill="rgba(0,0,0,0.2)"/>
+      <text x="20" y="73" fill="#1a1a2e" font-family="monospace" font-size="9">• $IMAGE:$TAG (build)</text>
+      <text x="20" y="88" fill="#1a1a2e" font-family="monospace" font-size="9">• $IMAGE:$RELEASE (push)</text>
+      <text x="20" y="103" fill="#006060" font-family="monospace" font-size="8">Verify: manifests/</text>
+    </g>
+
+    <!-- SonarQube -->
+    <g filter="url(#shadow)" transform="translate(420, 20)">
+      <rect x="0" y="0" width="180" height="120" rx="10" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+      <text x="90" y="25" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">🔍 SonarQube</text>
+      <text x="90" y="45" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="9">:9002</text>
+      <rect x="10" y="55" width="160" height="50" rx="5" fill="#2d3436"/>
+      <text x="20" y="73" fill="#55efc4" font-family="monospace" font-size="9">• Code coverage</text>
+      <text x="20" y="88" fill="#55efc4" font-family="monospace" font-size="9">• Quality gates</text>
+      <text x="20" y="103" fill="#55efc4" font-family="monospace" font-size="9">• Technical debt</text>
+    </g>
+
+    <!-- Trivy Server -->
+    <g filter="url(#shadow)" transform="translate(620, 20)">
+      <rect x="0" y="0" width="180" height="120" rx="10" fill="#1a1a2e" stroke="#fd79a8" stroke-width="2"/>
+      <text x="90" y="25" text-anchor="middle" fill="#fd79a8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">🛡️ Trivy Server</text>
+      <text x="90" y="45" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="9">:8083</text>
+      <rect x="10" y="55" width="160" height="50" rx="5" fill="#2d3436"/>
+      <text x="20" y="73" fill="#fd79a8" font-family="monospace" font-size="9">• CVE vulnerabilities</text>
+      <text x="20" y="88" fill="#fd79a8" font-family="monospace" font-size="9">• Severity levels</text>
+      <text x="20" y="103" fill="#fd79a8" font-family="monospace" font-size="9">• License issues</text>
+    </g>
+
+    <!-- Splunk -->
+    <g filter="url(#shadow)" transform="translate(820, 20)">
+      <rect x="0" y="0" width="180" height="120" rx="10" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="2"/>
+      <text x="90" y="25" text-anchor="middle" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="12" font-weight="bold">📡 Splunk HEC</text>
+      <text x="90" y="45" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="9">External SIEM</text>
+      <rect x="10" y="55" width="160" height="50" rx="5" fill="#2d3436"/>
+      <text x="20" y="73" fill="#a29bfe" font-family="monospace" font-size="9">• Pipeline status</text>
+      <text x="20" y="88" fill="#a29bfe" font-family="monospace" font-size="9">• Stage results</text>
+      <text x="20" y="103" fill="#a29bfe" font-family="monospace" font-size="9">• Audit events</text>
+    </g>
+
+    <!-- Monitoring -->
+    <g filter="url(#shadow)" transform="translate(1020, 20)">
+      <rect x="0" y="0" width="180" height="120" rx="10" fill="#1a1a2e" stroke="#ffd93d" stroke-width="2"/>
+      <text x="90" y="25" text-anchor="middle" fill="#ffd93d" font-family="Arial, sans-serif" font-size="12" font-weight="bold">📊 Monitoring</text>
+      <text x="90" y="45" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="9">Prometheus + Grafana</text>
+      <rect x="10" y="55" width="160" height="50" rx="5" fill="#2d3436"/>
+      <text x="20" y="73" fill="#ffd93d" font-family="monospace" font-size="9">• Pipeline metrics</text>
+      <text x="20" y="88" fill="#ffd93d" font-family="monospace" font-size="9">• Build duration</text>
+      <text x="20" y="103" fill="#ffd93d" font-family="monospace" font-size="9">• Success rate</text>
+    </g>
+
+    <!-- Logs -->
+    <g filter="url(#shadow)" transform="translate(1220, 20)">
+      <rect x="0" y="0" width="140" height="120" rx="10" fill="#1a1a2e" stroke="#00cec9" stroke-width="2"/>
+      <text x="70" y="25" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="12" font-weight="bold">📝 Loki</text>
+      <text x="70" y="45" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="9">:3100</text>
+      <rect x="10" y="55" width="120" height="50" rx="5" fill="#2d3436"/>
+      <text x="20" y="73" fill="#81ecec" font-family="monospace" font-size="9">• Job logs</text>
+      <text x="20" y="88" fill="#81ecec" font-family="monospace" font-size="9">• Error traces</text>
+      <text x="20" y="103" fill="#81ecec" font-family="monospace" font-size="9">• Build output</text>
+    </g>
+  </g>
+
+  <!-- Data Content Details -->
+  <g transform="translate(30, 470)">
+    <text x="0" y="0" fill="#ffd93d" font-family="Arial, sans-serif" font-size="14" font-weight="bold">📋 Stage Output Details</text>
+
+    <!-- Compile Output -->
+    <g filter="url(#shadow)" transform="translate(0, 20)">
+      <rect x="0" y="0" width="330" height="150" rx="10" fill="#1a1a2e" stroke="#e17055" stroke-width="1"/>
+      <text x="15" y="25" fill="#e17055" font-family="Arial, sans-serif" font-size="11" font-weight="bold">compile → Artifacts</text>
+      <rect x="10" y="35" width="310" height="100" rx="5" fill="#2d3436"/>
+      <text x="20" y="55" fill="#ffd93d" font-family="monospace" font-size="9">artifacts:</text>
+      <text x="30" y="70" fill="#e0e0e0" font-family="monospace" font-size="9">paths: [target/app.jar]</text>
+      <text x="30" y="85" fill="#e0e0e0" font-family="monospace" font-size="9">expire_in: 1 hour</text>
+      <text x="20" y="105" fill="#ffd93d" font-family="monospace" font-size="9">cache:</text>
+      <text x="30" y="120" fill="#e0e0e0" font-family="monospace" font-size="9">paths: [.m2/repository]</text>
+      <text x="30" y="135" fill="#888" font-family="monospace" font-size="8">policy: pull-push</text>
+    </g>
+
+    <!-- Build Output -->
+    <g filter="url(#shadow)" transform="translate(350, 20)">
+      <rect x="0" y="0" width="330" height="150" rx="10" fill="#1a1a2e" stroke="#00b894" stroke-width="1"/>
+      <text x="15" y="25" fill="#00b894" font-family="Arial, sans-serif" font-size="11" font-weight="bold">build → Nexus Registry</text>
+      <rect x="10" y="35" width="310" height="100" rx="5" fill="#2d3436"/>
+      <text x="20" y="55" fill="#55efc4" font-family="monospace" font-size="9">kaniko executor:</text>
+      <text x="30" y="72" fill="#e0e0e0" font-family="monospace" font-size="9">--context=$CI_PROJECT_DIR</text>
+      <text x="30" y="89" fill="#e0e0e0" font-family="monospace" font-size="9">--dockerfile=Dockerfile</text>
+      <text x="30" y="106" fill="#e0e0e0" font-family="monospace" font-size="9">--destination=ai-nexus:5001/</text>
+      <text x="50" y="120" fill="#ffd93d" font-family="monospace" font-size="9">$IMAGE_NAME:$IMAGE_TAG</text>
+      <text x="30" y="135" fill="#888" font-family="monospace" font-size="8">--insecure (private registry)</text>
+    </g>
+
+    <!-- Security Output -->
+    <g filter="url(#shadow)" transform="translate(700, 20)">
+      <rect x="0" y="0" width="330" height="150" rx="10" fill="#1a1a2e" stroke="#fd79a8" stroke-width="1"/>
+      <text x="15" y="25" fill="#fd79a8" font-family="Arial, sans-serif" font-size="11" font-weight="bold">security → Trivy Report</text>
+      <rect x="10" y="35" width="310" height="100" rx="5" fill="#2d3436"/>
+      <text x="20" y="55" fill="#fd79a8" font-family="monospace" font-size="9">trivy image scan:</text>
+      <text x="30" y="72" fill="#e0e0e0" font-family="monospace" font-size="9">--server http://trivy:8080</text>
+      <text x="30" y="89" fill="#e0e0e0" font-family="monospace" font-size="9">--format json</text>
+      <text x="30" y="106" fill="#e0e0e0" font-family="monospace" font-size="9">--output trivy-report.json</text>
+      <text x="20" y="123" fill="#ffd93d" font-family="monospace" font-size="9">Checks: CVE, misconfig, license</text>
+      <text x="20" y="138" fill="#888" font-family="monospace" font-size="8">Severity: CRITICAL,HIGH,MEDIUM</text>
+    </g>
+
+    <!-- Notify Output -->
+    <g filter="url(#shadow)" transform="translate(1050, 20)">
+      <rect x="0" y="0" width="310" height="150" rx="10" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="1"/>
+      <text x="15" y="25" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="11" font-weight="bold">notify → Splunk Event</text>
+      <rect x="10" y="35" width="290" height="100" rx="5" fill="#2d3436"/>
+      <text x="20" y="55" fill="#a29bfe" font-family="monospace" font-size="9">curl -X POST $SPLUNK_HEC</text>
+      <text x="20" y="72" fill="#e0e0e0" font-family="monospace" font-size="9">-d '{</text>
+      <text x="30" y="87" fill="#e0e0e0" font-family="monospace" font-size="8">"event": {</text>
+      <text x="40" y="100" fill="#e0e0e0" font-family="monospace" font-size="8">"pipeline": "$CI_PIPELINE_ID",</text>
+      <text x="40" y="113" fill="#e0e0e0" font-family="monospace" font-size="8">"status": "$CI_JOB_STATUS",</text>
+      <text x="40" y="126" fill="#e0e0e0" font-family="monospace" font-size="8">"project": "$CI_PROJECT_NAME"</text>
+      <text x="30" y="139" fill="#e0e0e0" font-family="monospace" font-size="8">}}'</text>
+    </g>
+  </g>
+
+  <!-- Data Volume Summary -->
+  <g filter="url(#shadow)" transform="translate(30, 660)">
+    <rect x="0" y="0" width="660" height="100" rx="10" fill="#1a1a2e" stroke="#4a90d9" stroke-width="2"/>
+    <text x="20" y="25" fill="#4a90d9" font-family="Arial, sans-serif" font-size="14" font-weight="bold">📈 Data Volume Per Pipeline Run</text>
+
+    <text x="20" y="50" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">• Artifacts: ~10-50 MB (JAR/binaries)</text>
+    <text x="20" y="68" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">• Docker Image: ~200-500 MB (multi-stage optimized)</text>
+    <text x="20" y="86" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">• Reports: ~1-5 MB (JSON/XML)</text>
+
+    <text x="340" y="50" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">• Logs: ~5-20 MB (all stages)</text>
+    <text x="340" y="68" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">• Cache: ~100-500 MB (.m2/node_modules)</text>
+    <text x="340" y="86" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">• Metrics: ~100 data points</text>
+  </g>
+
+  <!-- Retention Policies -->
+  <g filter="url(#shadow)" transform="translate(710, 660)">
+    <rect x="0" y="0" width="650" height="100" rx="10" fill="#1a1a2e" stroke="#00b894" stroke-width="2"/>
+    <text x="20" y="25" fill="#00b894" font-family="Arial, sans-serif" font-size="14" font-weight="bold">⏰ Retention Policies</text>
+
+    <text x="20" y="50" fill="#ffd93d" font-family="monospace" font-size="10">GitLab Artifacts: 1 hour (configurable)</text>
+    <text x="20" y="68" fill="#ffd93d" font-family="monospace" font-size="10">Nexus Images: Permanent (release tags)</text>
+    <text x="20" y="86" fill="#ffd93d" font-family="monospace" font-size="10">SonarQube: Project history (unlimited)</text>
+
+    <text x="340" y="50" fill="#ffd93d" font-family="monospace" font-size="10">Trivy Cache: 7 days (CVE DB refresh)</text>
+    <text x="340" y="68" fill="#ffd93d" font-family="monospace" font-size="10">Prometheus: 15 days (TSDB)</text>
+    <text x="340" y="86" fill="#ffd93d" font-family="monospace" font-size="10">Loki Logs: 30 days (compressed)</text>
+  </g>
+
+  <!-- Integration Lines Legend -->
+  <g transform="translate(30, 790)">
+    <text x="0" y="0" fill="#888" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Data Flow Legend:</text>
+    <line x1="0" y1="15" x2="30" y2="15" stroke="#e17055" stroke-width="2"/>
+    <text x="40" y="20" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">Pipeline Stage Flow</text>
+    <line x1="170" y1="15" x2="200" y2="15" stroke="#0984e3" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="210" y="20" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">Artifact Export</text>
+    <line x1="320" y1="15" x2="350" y2="15" stroke="#00b894" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="360" y="20" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">Image Push</text>
+    <line x1="450" y1="15" x2="480" y2="15" stroke="#6c5ce7" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="490" y="20" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="10">Event Notification</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="880" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | CI/CD Data Flow Architecture | Artifact Lifecycle Management</text>
+</svg>

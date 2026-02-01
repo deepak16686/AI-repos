@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 850">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="splunkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#65a637"/>
+      <stop offset="100%" style="stop-color:#4a8c2a"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffd93d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="850" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Splunk Integration Flow</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">Pipeline Notifications &amp; Observability</text>
+
+  <!-- Splunk Server -->
+  <g filter="url(#shadow)" transform="translate(900, 80)">
+    <rect x="0" y="0" width="450" height="180" rx="15" fill="url(#splunkGrad)"/>
+    <text x="225" y="35" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Splunk Enterprise</text>
+    <text x="225" y="55" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="10">HEC: /services/collector/event</text>
+
+    <rect x="15" y="70" width="420" height="95" rx="10" fill="rgba(0,0,0,0.3)"/>
+    <text x="30" y="95" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">HTTP Event Collector (HEC):</text>
+    <text x="40" y="115" fill="#e0e0e0" font-family="monospace" font-size="9">Endpoint: ${SPLUNK_HEC_URL}/services/collector/event</text>
+    <text x="40" y="133" fill="#e0e0e0" font-family="monospace" font-size="9">Auth: Authorization: Splunk ${SPLUNK_HEC_TOKEN}</text>
+    <text x="40" y="151" fill="#e0e0e0" font-family="monospace" font-size="9">Content-Type: application/json</text>
+  </g>
+
+  <!-- Pipeline Sources -->
+  <g filter="url(#shadow)" transform="translate(50, 80)">
+    <rect x="0" y="0" width="400" height="180" rx="15" fill="#2d3436" stroke="#65a637" stroke-width="2"/>
+    <text x="200" y="35" text-anchor="middle" fill="#65a637" font-family="Arial, sans-serif" font-size="16" font-weight="bold">GitLab CI Pipeline</text>
+    <text x="200" y="55" text-anchor="middle" fill="#888" font-family="monospace" font-size="10">Notify Stage | Pipeline Events</text>
+
+    <rect x="15" y="70" width="370" height="95" rx="10" fill="rgba(0,0,0,0.3)"/>
+    <text x="30" y="95" fill="#ffd93d" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Event Sources:</text>
+    <text x="40" y="115" fill="#e0e0e0" font-family="monospace" font-size="9">Pipeline success/failure notifications</text>
+    <text x="40" y="133" fill="#e0e0e0" font-family="monospace" font-size="9">Stage completion events</text>
+    <text x="40" y="151" fill="#e0e0e0" font-family="monospace" font-size="9">Deployment status updates</text>
+  </g>
+
+  <!-- Connection Arrow -->
+  <g stroke="#ffd93d" stroke-width="3" fill="none">
+    <path d="M 450 170 L 900 170" marker-end="url(#arrowhead)"/>
+  </g>
+  <text x="675" y="160" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="10">HTTPS POST / JSON Events</text>
+
+  <!-- Notify Stage Implementation -->
+  <g transform="translate(50, 290)">
+    <text x="0" y="0" fill="#65a637" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Pipeline Notify Stage Implementation</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 30)">
+      <rect x="0" y="0" width="1300" height="220" rx="15" fill="#1a1a2e"/>
+
+      <!-- YAML Code -->
+      <rect x="20" y="15" width="620" height="190" rx="10" fill="rgba(0,0,0,0.3)"/>
+      <text x="40" y="40" fill="#ffd93d" font-family="monospace" font-size="11">notify_success:</text>
+      <text x="50" y="60" fill="#e0e0e0" font-family="monospace" font-size="9">stage: notify</text>
+      <text x="50" y="78" fill="#e0e0e0" font-family="monospace" font-size="9">image: ${NEXUS_PULL_REGISTRY}/alpine-curl:latest</text>
+      <text x="50" y="96" fill="#e0e0e0" font-family="monospace" font-size="9">tags:</text>
+      <text x="60" y="111" fill="#888" font-family="monospace" font-size="9">- docker</text>
+      <text x="50" y="129" fill="#e0e0e0" font-family="monospace" font-size="9">script:</text>
+      <text x="60" y="147" fill="#888" font-family="monospace" font-size="9">- apk add --no-cache curl</text>
+      <text x="60" y="165" fill="#888" font-family="monospace" font-size="9">- curl -k -X POST "${SPLUNK_HEC_URL}/services/collector/event"</text>
+      <text x="70" y="183" fill="#81ecec" font-family="monospace" font-size="9">-H "Authorization: Splunk ${SPLUNK_HEC_TOKEN}" ...</text>
+      <text x="50" y="200" fill="#00b894" font-family="monospace" font-size="9">when: on_success</text>
+
+      <!-- Event Payload -->
+      <rect x="660" y="15" width="620" height="190" rx="10" fill="rgba(101,166,55,0.2)"/>
+      <text x="970" y="35" text-anchor="middle" fill="#65a637" font-family="Arial, sans-serif" font-size="12" font-weight="bold">HEC Event Payload</text>
+
+      <text x="680" y="60" fill="#ffd93d" font-family="monospace" font-size="10">{</text>
+      <text x="695" y="80" fill="#e0e0e0" font-family="monospace" font-size="9">"event": {</text>
+      <text x="710" y="100" fill="#81ecec" font-family="monospace" font-size="9">"pipeline_id": "${CI_PIPELINE_ID}",</text>
+      <text x="710" y="118" fill="#81ecec" font-family="monospace" font-size="9">"status": "success",</text>
+      <text x="710" y="136" fill="#81ecec" font-family="monospace" font-size="9">"project": "${CI_PROJECT_NAME}",</text>
+      <text x="710" y="154" fill="#81ecec" font-family="monospace" font-size="9">"branch": "${CI_COMMIT_REF_NAME}",</text>
+      <text x="710" y="172" fill="#81ecec" font-family="monospace" font-size="9">"commit_sha": "${CI_COMMIT_SHA}",</text>
+      <text x="710" y="190" fill="#81ecec" font-family="monospace" font-size="9">"timestamp": "${CI_PIPELINE_CREATED_AT}"</text>
+      <text x="695" y="205" fill="#e0e0e0" font-family="monospace" font-size="9">}</text>
+    </g>
+  </g>
+
+  <!-- Event Types -->
+  <g transform="translate(50, 560)">
+    <text x="0" y="0" fill="#ffd93d" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Pipeline Event Types Sent to Splunk</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="120" rx="15" fill="#1a1a2e"/>
+
+      <!-- Event Type boxes -->
+      <g transform="translate(20, 20)">
+        <rect x="0" y="0" width="240" height="80" rx="8" fill="rgba(0,184,148,0.3)"/>
+        <text x="120" y="25" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Pipeline Success</text>
+        <text x="120" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">status: "success"</text>
+        <text x="120" y="60" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">when: on_success</text>
+        <text x="120" y="73" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">All stages passed</text>
+      </g>
+
+      <g transform="translate(280, 20)">
+        <rect x="0" y="0" width="240" height="80" rx="8" fill="rgba(214,48,49,0.3)"/>
+        <text x="120" y="25" text-anchor="middle" fill="#ff7675" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Pipeline Failure</text>
+        <text x="120" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">status: "failed"</text>
+        <text x="120" y="60" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">when: on_failure</text>
+        <text x="120" y="73" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">Stage failed</text>
+      </g>
+
+      <g transform="translate(540, 20)">
+        <rect x="0" y="0" width="240" height="80" rx="8" fill="rgba(108,92,231,0.3)"/>
+        <text x="120" y="25" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Deployment Event</text>
+        <text x="120" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">type: "deployment"</text>
+        <text x="120" y="60" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">environment: prod/staging</text>
+        <text x="120" y="73" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">Image pushed to Nexus</text>
+      </g>
+
+      <g transform="translate(800, 20)">
+        <rect x="0" y="0" width="240" height="80" rx="8" fill="rgba(225,112,85,0.3)"/>
+        <text x="120" y="25" text-anchor="middle" fill="#fab1a0" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Security Scan</text>
+        <text x="120" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">type: "security_scan"</text>
+        <text x="120" y="60" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">vulnerabilities: count</text>
+        <text x="120" y="73" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">Trivy scan results</text>
+      </g>
+
+      <g transform="translate(1060, 20)">
+        <rect x="0" y="0" width="220" height="80" rx="8" fill="rgba(253,203,110,0.3)"/>
+        <text x="110" y="25" text-anchor="middle" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Quality Gate</text>
+        <text x="110" y="45" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="8">type: "quality_gate"</text>
+        <text x="110" y="60" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">sonar_status: passed</text>
+        <text x="110" y="73" text-anchor="middle" fill="#555" font-family="monospace" font-size="7">SonarQube results</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Splunk Dashboards -->
+  <g transform="translate(50, 715)">
+    <text x="0" y="0" fill="#00b894" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Splunk Dashboard Capabilities</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="75" rx="15" fill="#2d3436"/>
+
+      <!-- Dashboard features -->
+      <g transform="translate(30, 15)">
+        <rect x="0" y="0" width="200" height="45" rx="8" fill="rgba(101,166,55,0.3)"/>
+        <text x="100" y="18" text-anchor="middle" fill="#65a637" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Pipeline Metrics</text>
+        <text x="100" y="35" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Success rate, duration</text>
+      </g>
+
+      <g transform="translate(250, 15)">
+        <rect x="0" y="0" width="200" height="45" rx="8" fill="rgba(101,166,55,0.3)"/>
+        <text x="100" y="18" text-anchor="middle" fill="#65a637" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Deployment Tracking</text>
+        <text x="100" y="35" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Frequency, rollbacks</text>
+      </g>
+
+      <g transform="translate(470, 15)">
+        <rect x="0" y="0" width="200" height="45" rx="8" fill="rgba(101,166,55,0.3)"/>
+        <text x="100" y="18" text-anchor="middle" fill="#65a637" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Security Trends</text>
+        <text x="100" y="35" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Vuln counts over time</text>
+      </g>
+
+      <g transform="translate(690, 15)">
+        <rect x="0" y="0" width="200" height="45" rx="8" fill="rgba(101,166,55,0.3)"/>
+        <text x="100" y="18" text-anchor="middle" fill="#65a637" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Quality Analytics</text>
+        <text x="100" y="35" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Code quality trends</text>
+      </g>
+
+      <g transform="translate(910, 15)">
+        <rect x="0" y="0" width="200" height="45" rx="8" fill="rgba(101,166,55,0.3)"/>
+        <text x="100" y="18" text-anchor="middle" fill="#65a637" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Alert Rules</text>
+        <text x="100" y="35" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Failure notifications</text>
+      </g>
+
+      <g transform="translate(1130, 15)">
+        <rect x="0" y="0" width="150" height="45" rx="8" fill="rgba(101,166,55,0.3)"/>
+        <text x="75" y="18" text-anchor="middle" fill="#65a637" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Reports</text>
+        <text x="75" y="35" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Weekly summaries</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="830" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Splunk Integration | Pipeline Observability &amp; Event Streaming</text>
+</svg>

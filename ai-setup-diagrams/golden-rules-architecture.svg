@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="goldenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f39c12"/>
+      <stop offset="100%" style="stop-color:#d68910"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Golden Rules Architecture</text>
+  <text x="1380" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">DevOps Best Practices &amp; Enforcement</text>
+
+  <!-- Golden Rules Overview -->
+  <g transform="translate(50, 80)">
+    <text x="0" y="0" fill="#f39c12" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Core Golden Rules (Enforced via System Prompts &amp; RAG)</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 30)">
+      <rect x="0" y="0" width="1300" height="260" rx="15" fill="#1a1a2e"/>
+
+      <!-- Rule 1: Private Registry -->
+      <g transform="translate(20, 20)">
+        <rect x="0" y="0" width="300" height="220" rx="10" fill="url(#goldenGrad)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Rule 1: Private Registry ONLY</text>
+
+        <rect x="10" y="40" width="280" height="170" rx="6" fill="rgba(0,0,0,0.2)"/>
+        <text x="20" y="60" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="9" font-weight="bold">CRITICAL:</text>
+        <text x="20" y="78" fill="#333" font-family="monospace" font-size="8">All Docker images MUST come from</text>
+        <text x="20" y="93" fill="#1a1a2e" font-family="monospace" font-size="9" font-weight="bold">localhost:5001 (Nexus)</text>
+
+        <text x="20" y="115" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="9" font-weight="bold">NEVER use:</text>
+        <text x="25" y="133" fill="#d63031" font-family="monospace" font-size="8">docker.io/*</text>
+        <text x="25" y="148" fill="#d63031" font-family="monospace" font-size="8">gcr.io/*</text>
+        <text x="25" y="163" fill="#d63031" font-family="monospace" font-size="8">quay.io/*</text>
+
+        <text x="20" y="185" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Format:</text>
+        <text x="20" y="200" fill="#333" font-family="monospace" font-size="8">${NEXUS_PULL_REGISTRY}/image:tag</text>
+      </g>
+
+      <!-- Rule 2: 8-Stage Pipeline -->
+      <g transform="translate(340, 20)">
+        <rect x="0" y="0" width="300" height="220" rx="10" fill="rgba(108,92,231,0.3)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Rule 2: 8-Stage Pipeline</text>
+
+        <rect x="10" y="40" width="280" height="170" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Required Stages:</text>
+        <text x="25" y="78" fill="#e0e0e0" font-family="monospace" font-size="8">1. compile - Build source</text>
+        <text x="25" y="93" fill="#e0e0e0" font-family="monospace" font-size="8">2. build - Docker image</text>
+        <text x="25" y="108" fill="#e0e0e0" font-family="monospace" font-size="8">3. test - Verify in registry</text>
+        <text x="25" y="123" fill="#e0e0e0" font-family="monospace" font-size="8">4. sast - SpotBugs/PMD</text>
+        <text x="25" y="138" fill="#e0e0e0" font-family="monospace" font-size="8">5. quality - SonarQube</text>
+        <text x="25" y="153" fill="#e0e0e0" font-family="monospace" font-size="8">6. security - Trivy scan</text>
+        <text x="25" y="168" fill="#e0e0e0" font-family="monospace" font-size="8">7. push - Tag release</text>
+        <text x="25" y="183" fill="#e0e0e0" font-family="monospace" font-size="8">8. notify - Splunk HEC</text>
+      </g>
+
+      <!-- Rule 3: Multi-Stage Dockerfiles -->
+      <g transform="translate(660, 20)">
+        <rect x="0" y="0" width="300" height="220" rx="10" fill="rgba(0,184,148,0.3)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Rule 3: Multi-Stage Builds</text>
+
+        <rect x="10" y="40" width="280" height="170" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Required Pattern:</text>
+        <text x="25" y="80" fill="#e0e0e0" font-family="monospace" font-size="8"># Stage 1: Build</text>
+        <text x="25" y="95" fill="#81ecec" font-family="monospace" font-size="8">FROM ${NEXUS}/maven AS build</text>
+        <text x="25" y="110" fill="#888" font-family="monospace" font-size="8">RUN mvn package</text>
+
+        <text x="25" y="135" fill="#e0e0e0" font-family="monospace" font-size="8"># Stage 2: Runtime</text>
+        <text x="25" y="150" fill="#81ecec" font-family="monospace" font-size="8">FROM ${NEXUS}/eclipse-temurin</text>
+        <text x="25" y="165" fill="#888" font-family="monospace" font-size="8">COPY --from=build /app.jar</text>
+
+        <text x="20" y="190" fill="#00b894" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Benefits:</text>
+        <text x="25" y="205" fill="#888" font-family="monospace" font-size="8">Smaller images, no build tools</text>
+      </g>
+
+      <!-- Rule 4: Security -->
+      <g transform="translate(980, 20)">
+        <rect x="0" y="0" width="300" height="220" rx="10" fill="rgba(214,48,49,0.3)"/>
+        <text x="150" y="25" text-anchor="middle" fill="#ff7675" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Rule 4: Security Defaults</text>
+
+        <rect x="10" y="40" width="280" height="170" rx="6" fill="rgba(0,0,0,0.3)"/>
+        <text x="20" y="60" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Required:</text>
+        <text x="25" y="78" fill="#e0e0e0" font-family="monospace" font-size="8">USER nonroot / appuser</text>
+        <text x="25" y="93" fill="#e0e0e0" font-family="monospace" font-size="8">No hardcoded secrets</text>
+        <text x="25" y="108" fill="#e0e0e0" font-family="monospace" font-size="8">Trivy scan mandatory</text>
+        <text x="25" y="123" fill="#e0e0e0" font-family="monospace" font-size="8">SonarQube analysis</text>
+
+        <text x="20" y="145" fill="#d63031" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Block if:</text>
+        <text x="25" y="163" fill="#888" font-family="monospace" font-size="8">CRITICAL vulnerabilities</text>
+        <text x="25" y="178" fill="#888" font-family="monospace" font-size="8">Quality gate failed</text>
+        <text x="25" y="193" fill="#888" font-family="monospace" font-size="8">Running as root</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- System Prompt Configuration -->
+  <g transform="translate(50, 390)">
+    <text x="0" y="0" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="16" font-weight="bold">System Prompt Enforcement (update_system_prompt.py)</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1300" height="170" rx="15" fill="#2d3436"/>
+
+      <rect x="20" y="15" width="1260" height="140" rx="10" fill="rgba(0,0,0,0.3)"/>
+      <text x="40" y="40" fill="#ffd93d" font-family="monospace" font-size="10">SYSTEM_PROMPT = """</text>
+      <text x="40" y="60" fill="#e0e0e0" font-family="monospace" font-size="9">You are a DevOps expert specializing in CI/CD pipeline generation and infrastructure automation.</text>
+      <text x="40" y="80" fill="#d63031" font-family="monospace" font-size="9" font-weight="bold">CRITICAL: All Docker images MUST come from localhost:5001 (private Nexus registry).</text>
+      <text x="40" y="100" fill="#d63031" font-family="monospace" font-size="9" font-weight="bold">NEVER use docker.io, gcr.io, quay.io, or any public registry.</text>
+      <text x="40" y="120" fill="#e0e0e0" font-family="monospace" font-size="9">Generate 8-stage GitLab CI pipelines: compile, build, test, sast, quality, security, push, notify.</text>
+      <text x="40" y="140" fill="#ffd93d" font-family="monospace" font-size="10">"""</text>
+    </g>
+  </g>
+
+  <!-- Enforcement Mechanisms -->
+  <g transform="translate(50, 600)">
+    <text x="0" y="0" fill="#00b894" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Enforcement Mechanisms</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="420" height="200" rx="15" fill="#1a1a2e"/>
+      <text x="210" y="30" text-anchor="middle" fill="#9b59b6" font-family="Arial, sans-serif" font-size="12" font-weight="bold">RAG Context Injection</text>
+
+      <rect x="15" y="45" width="390" height="140" rx="8" fill="rgba(0,0,0,0.3)"/>
+      <text x="30" y="70" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">ChromaDB golden_rules collection:</text>
+      <text x="40" y="90" fill="#e0e0e0" font-family="monospace" font-size="8">Retrieved on every generation request</text>
+      <text x="40" y="108" fill="#e0e0e0" font-family="monospace" font-size="8">Injected into LLM context</text>
+      <text x="40" y="126" fill="#e0e0e0" font-family="monospace" font-size="8">Rules have high similarity scores</text>
+
+      <text x="30" y="150" fill="#81ecec" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Query:</text>
+      <text x="40" y="170" fill="#888" font-family="monospace" font-size="8">collection.query("dockerfile rules")</text>
+    </g>
+
+    <!-- Validation -->
+    <g filter="url(#shadow)" transform="translate(450, 25)">
+      <rect x="0" y="0" width="420" height="200" rx="15" fill="#1a1a2e"/>
+      <text x="210" y="30" text-anchor="middle" fill="#e17055" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Post-Generation Validation</text>
+
+      <rect x="15" y="45" width="390" height="140" rx="8" fill="rgba(0,0,0,0.3)"/>
+      <text x="30" y="70" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Validation endpoints:</text>
+      <text x="40" y="90" fill="#e0e0e0" font-family="monospace" font-size="8">POST /validate/dockerfile</text>
+      <text x="40" y="108" fill="#e0e0e0" font-family="monospace" font-size="8">POST /validate/gitlabci</text>
+
+      <text x="30" y="130" fill="#81ecec" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Checks:</text>
+      <text x="40" y="150" fill="#888" font-family="monospace" font-size="8">All FROM use localhost:5001</text>
+      <text x="40" y="168" fill="#888" font-family="monospace" font-size="8">No public registry references</text>
+    </g>
+
+    <!-- Tool Behavior -->
+    <g filter="url(#shadow)" transform="translate(900, 25)">
+      <rect x="0" y="0" width="350" height="200" rx="15" fill="#1a1a2e"/>
+      <text x="175" y="30" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Tool-Level Enforcement</text>
+
+      <rect x="15" y="45" width="320" height="140" rx="8" fill="rgba(0,0,0,0.3)"/>
+      <text x="30" y="70" fill="#ffd93d" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Pipeline Generator Tool:</text>
+      <text x="40" y="90" fill="#e0e0e0" font-family="monospace" font-size="8">Queries Nexus for images</text>
+      <text x="40" y="108" fill="#e0e0e0" font-family="monospace" font-size="8">Only returns localhost:5001 paths</text>
+      <text x="40" y="126" fill="#e0e0e0" font-family="monospace" font-size="8">find_image() filters catalog</text>
+
+      <text x="30" y="150" fill="#d63031" font-family="Arial, sans-serif" font-size="9" font-weight="bold">If image not in Nexus:</text>
+      <text x="40" y="170" fill="#888" font-family="monospace" font-size="8">"Image not available" error</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="880" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | Golden Rules | Enforced Best Practices via RAG &amp; System Prompts</text>
+</svg>

@@ -1,0 +1,245 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1200">
+  <defs>
+    <linearGradient id="systemGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1565c0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d47a1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="actorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7e57c2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4527a0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="externalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f57c00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e65100;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dataGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2e7d32;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1b5e20;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="5" flood-opacity="0.25"/>
+    </filter>
+
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1976d2"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f57c00"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2e7d32"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7b1fa2"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="1200" fill="#f5f5f5"/>
+
+  <!-- Title -->
+  <rect x="0" y="0" width="1400" height="70" fill="#1a237e"/>
+  <text x="700" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="bold" fill="white" text-anchor="middle">System Context Diagram - AI DevOps Platform</text>
+  <text x="700" y="55" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#b3e5fc" text-anchor="middle">External Actors, System Boundaries, and Integration Points</text>
+
+  <!-- Central System -->
+  <rect x="400" y="350" width="600" height="400" rx="20" fill="url(#systemGrad)" filter="url(#shadow)"/>
+  <rect x="410" y="360" width="580" height="380" rx="15" fill="none" stroke="white" stroke-width="2" stroke-dasharray="5,5" opacity="0.5"/>
+
+  <text x="700" y="400" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">AI-Powered DevOps Platform</text>
+  <text x="700" y="425" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#bbdefb" text-anchor="middle">[Software System]</text>
+
+  <!-- Internal Components Summary -->
+  <rect x="430" y="450" width="540" height="270" rx="10" fill="rgba(255,255,255,0.95)"/>
+  <text x="700" y="480" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#0d47a1" text-anchor="middle">Core Capabilities</text>
+
+  <text x="450" y="510" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">• AI-powered CI/CD pipeline generation</text>
+  <text x="450" y="530" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">• Dockerfile generation from RAG templates</text>
+  <text x="450" y="550" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">• Automated commit and deployment to GitLab</text>
+  <text x="450" y="570" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">• Project validation across platforms</text>
+  <text x="450" y="590" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">• Legacy application modernization analysis</text>
+  <text x="450" y="610" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">• Security scanning and quality gates</text>
+  <text x="450" y="630" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#37474f">• Full observability and monitoring</text>
+
+  <text x="700" y="665" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">22+ Docker containers | Single docker-compose | platform-net network</text>
+  <text x="700" y="685" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Ollama LLM | ChromaDB RAG | FastAPI Backends | GitLab CI/CD</text>
+  <text x="700" y="705" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#1565c0" font-weight="600" text-anchor="middle">PRIVATE NEXUS REGISTRY ONLY - No Docker Hub</text>
+
+  <!-- ========== ACTORS (TOP) ========== -->
+  <!-- DevOps Admin -->
+  <g transform="translate(100, 100)">
+    <circle cx="60" cy="50" r="45" fill="url(#actorGrad)" filter="url(#shadow)"/>
+    <text x="60" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="white" text-anchor="middle">👤</text>
+    <text x="60" y="70" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Admin</text>
+    <text x="60" y="115" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#4527a0" text-anchor="middle">DevOps Admin</text>
+    <text x="60" y="130" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">[Person]</text>
+    <text x="60" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" text-anchor="middle">Manages platform,</text>
+    <text x="60" y="165" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" text-anchor="middle">configures tools</text>
+  </g>
+  <path d="M160 200 L450 350" stroke="#7b1fa2" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <text x="280" y="260" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#7b1fa2">Configures models,</text>
+  <text x="280" y="275" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#7b1fa2">manages templates</text>
+
+  <!-- Developer -->
+  <g transform="translate(550, 100)">
+    <circle cx="60" cy="50" r="45" fill="url(#actorGrad)" filter="url(#shadow)"/>
+    <text x="60" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="white" text-anchor="middle">💻</text>
+    <text x="60" y="70" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Dev</text>
+    <text x="60" y="115" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#4527a0" text-anchor="middle">Developer</text>
+    <text x="60" y="130" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">[Person]</text>
+    <text x="60" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" text-anchor="middle">Requests pipelines,</text>
+    <text x="60" y="165" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" text-anchor="middle">commits code</text>
+  </g>
+  <path d="M610 200 L650 350" stroke="#7b1fa2" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <text x="620" y="280" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#7b1fa2">Generates CI/CD,</text>
+  <text x="620" y="295" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#7b1fa2">deploys apps</text>
+
+  <!-- Security Team -->
+  <g transform="translate(1000, 100)">
+    <circle cx="60" cy="50" r="45" fill="url(#actorGrad)" filter="url(#shadow)"/>
+    <text x="60" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="white" text-anchor="middle">🔒</text>
+    <text x="60" y="70" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Sec</text>
+    <text x="60" y="115" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#4527a0" text-anchor="middle">Security Team</text>
+    <text x="60" y="130" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">[Person]</text>
+    <text x="60" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" text-anchor="middle">Reviews scans,</text>
+    <text x="60" y="165" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#37474f" text-anchor="middle">manages policies</text>
+  </g>
+  <path d="M1060 200 L950 350" stroke="#7b1fa2" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <text x="1020" y="260" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#7b1fa2">Reviews Trivy/SonarQube,</text>
+  <text x="1020" y="275" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#7b1fa2">enforces compliance</text>
+
+  <!-- ========== EXTERNAL SYSTEMS (LEFT) ========== -->
+  <!-- GitLab -->
+  <g transform="translate(30, 400)">
+    <rect x="0" y="0" width="180" height="120" rx="10" fill="url(#externalGrad)" filter="url(#shadow)"/>
+    <text x="90" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">🦊</text>
+    <text x="90" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">GitLab CE</text>
+    <text x="90" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#ffe0b2" text-anchor="middle">[External System]</text>
+    <text x="90" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Source Control</text>
+    <text x="90" y="112" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">CI/CD Pipelines</text>
+  </g>
+  <path d="M210 460 L400 500" stroke="#f57c00" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <path d="M400 520 L210 560" stroke="#f57c00" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <text x="280" y="480" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">Commits files,</text>
+  <text x="280" y="492" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">triggers pipelines</text>
+  <text x="280" y="555" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">Pipeline status,</text>
+  <text x="280" y="567" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">repo detection</text>
+
+  <!-- Nexus -->
+  <g transform="translate(30, 580)">
+    <rect x="0" y="0" width="180" height="120" rx="10" fill="url(#externalGrad)" filter="url(#shadow)"/>
+    <text x="90" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">📦</text>
+    <text x="90" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Nexus Registry</text>
+    <text x="90" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#ffe0b2" text-anchor="middle">[External System]</text>
+    <text x="90" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Docker Images</text>
+    <text x="90" y="112" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">40+ Private Images</text>
+  </g>
+  <path d="M210 640 L400 600" stroke="#f57c00" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <path d="M400 620 L210 680" stroke="#f57c00" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <text x="280" y="605" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">Query images,</text>
+  <text x="280" y="617" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">resolve tags</text>
+  <text x="280" y="665" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">Push built images</text>
+
+  <!-- ========== EXTERNAL SYSTEMS (RIGHT) ========== -->
+  <!-- SonarQube -->
+  <g transform="translate(1190, 400)">
+    <rect x="0" y="0" width="180" height="120" rx="10" fill="url(#externalGrad)" filter="url(#shadow)"/>
+    <text x="90" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">📊</text>
+    <text x="90" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SonarQube</text>
+    <text x="90" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#ffe0b2" text-anchor="middle">[External System]</text>
+    <text x="90" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Code Quality</text>
+    <text x="90" y="112" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">20 Legacy Projects</text>
+  </g>
+  <path d="M1000 500 L1190 460" stroke="#f57c00" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <path d="M1190 500 L1000 540" stroke="#f57c00" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <text x="1080" y="460" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">Trigger analysis,</text>
+  <text x="1080" y="472" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">validate projects</text>
+  <text x="1080" y="535" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">Quality gates,</text>
+  <text x="1080" y="547" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">metrics</text>
+
+  <!-- Trivy -->
+  <g transform="translate(1190, 580)">
+    <rect x="0" y="0" width="180" height="120" rx="10" fill="url(#externalGrad)" filter="url(#shadow)"/>
+    <text x="90" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">🛡️</text>
+    <text x="90" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Trivy Scanner</text>
+    <text x="90" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#ffe0b2" text-anchor="middle">[External System]</text>
+    <text x="90" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Vulnerability Scan</text>
+    <text x="90" y="112" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">CVE Detection</text>
+  </g>
+  <path d="M1000 600 L1190 640" stroke="#f57c00" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <path d="M1190 680 L1000 700" stroke="#f57c00" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <text x="1080" y="610" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">Scan container</text>
+  <text x="1080" y="692" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">CVE results</text>
+
+  <!-- ========== BOTTOM SYSTEMS ========== -->
+  <!-- Redmine -->
+  <g transform="translate(200, 850)">
+    <rect x="0" y="0" width="180" height="100" rx="10" fill="url(#externalGrad)" filter="url(#shadow)"/>
+    <text x="90" y="30" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="white" text-anchor="middle">🎫</text>
+    <text x="90" y="52" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Redmine</text>
+    <text x="90" y="68" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#ffe0b2" text-anchor="middle">[External System]</text>
+    <text x="90" y="88" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Ticket Escalation</text>
+  </g>
+  <path d="M400 750 L290 850" stroke="#f57c00" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <text x="320" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">Create tickets</text>
+  <text x="320" y="812" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">on failures</text>
+
+  <!-- Splunk -->
+  <g transform="translate(500, 850)">
+    <rect x="0" y="0" width="180" height="100" rx="10" fill="url(#externalGrad)" filter="url(#shadow)"/>
+    <text x="90" y="30" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="white" text-anchor="middle">📡</text>
+    <text x="90" y="52" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Splunk HEC</text>
+    <text x="90" y="68" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#ffe0b2" text-anchor="middle">[External System]</text>
+    <text x="90" y="88" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Pipeline Events</text>
+  </g>
+  <path d="M590 750 L590 850" stroke="#f57c00" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <text x="600" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">Success/Failure</text>
+  <text x="600" y="812" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#e65100">notifications</text>
+
+  <!-- Monitoring Stack -->
+  <g transform="translate(800, 850)">
+    <rect x="0" y="0" width="200" height="100" rx="10" fill="url(#dataGrad)" filter="url(#shadow)"/>
+    <text x="100" y="30" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="white" text-anchor="middle">📈</text>
+    <text x="100" y="52" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Monitoring Stack</text>
+    <text x="100" y="68" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#c8e6c9" text-anchor="middle">[Internal System]</text>
+    <text x="100" y="88" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Prometheus/Grafana/Loki</text>
+  </g>
+  <path d="M800 750 L900 850" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="860" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#2e7d32">Metrics, logs,</text>
+  <text x="860" y="812" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#2e7d32">traces</text>
+
+  <!-- Data Stores -->
+  <g transform="translate(1050, 850)">
+    <rect x="0" y="0" width="200" height="100" rx="10" fill="url(#dataGrad)" filter="url(#shadow)"/>
+    <text x="100" y="30" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="white" text-anchor="middle">💾</text>
+    <text x="100" y="52" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Data Stores</text>
+    <text x="100" y="68" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#c8e6c9" text-anchor="middle">[Internal System]</text>
+    <text x="100" y="88" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">PostgreSQL/Redis/MinIO</text>
+  </g>
+  <path d="M1000 750 L1150 850" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="1080" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#2e7d32">Persist data,</text>
+  <text x="1080" y="812" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#2e7d32">cache, storage</text>
+
+  <!-- Legend -->
+  <rect x="50" y="1010" width="1300" height="140" rx="10" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="70" y="1040" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#424242">Legend</text>
+
+  <circle cx="90" cy="1070" r="15" fill="url(#actorGrad)"/>
+  <text x="115" y="1075" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#37474f">Person/Actor</text>
+
+  <rect x="200" y="1055" width="40" height="30" rx="5" fill="url(#systemGrad)"/>
+  <text x="250" y="1075" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#37474f">AI DevOps Platform (Central System)</text>
+
+  <rect x="470" y="1055" width="40" height="30" rx="5" fill="url(#externalGrad)"/>
+  <text x="520" y="1075" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#37474f">External System (Integrated)</text>
+
+  <rect x="720" y="1055" width="40" height="30" rx="5" fill="url(#dataGrad)"/>
+  <text x="770" y="1075" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#37474f">Internal System (Data/Monitoring)</text>
+
+  <line x1="950" y1="1070" x2="1010" y2="1070" stroke="#f57c00" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <text x="1020" y="1075" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#37474f">Data Flow / API Call</text>
+
+  <text x="70" y="1120" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#64748b">System Boundary: All services run in Docker containers on single host with platform-net bridge network. External access via mapped ports.</text>
+  <text x="70" y="1140" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#1565c0" font-weight="600">Key Constraint: All container images MUST come from private Nexus registry (localhost:5001) - NO public Docker Hub access.</text>
+
+</svg>

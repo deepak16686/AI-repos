@@ -1,0 +1,377 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1300">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="dnsGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#00cec9"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffd93d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1300" fill="#0a0a0f"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1600" height="60" fill="url(#headerGrad)"/>
+  <text x="800" y="38" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">DNS Name &amp; Port Resolution Architecture</text>
+  <text x="1580" y="38" text-anchor="end" fill="#888" font-family="Arial, sans-serif" font-size="12">Service Discovery &amp; Networking</text>
+
+  <!-- External Access Section -->
+  <g transform="translate(50, 80)">
+    <text x="0" y="0" fill="#e74c3c" font-family="Arial, sans-serif" font-size="16" font-weight="bold">External Access (Host Machine / Browser)</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1500" height="120" rx="15" fill="#1a1a2e"/>
+
+      <rect x="15" y="15" width="200" height="90" rx="10" fill="rgba(231,76,60,0.3)"/>
+      <text x="115" y="40" text-anchor="middle" fill="#e74c3c" font-family="Arial, sans-serif" font-size="12" font-weight="bold">User/Browser</text>
+      <text x="115" y="60" text-anchor="middle" fill="#888" font-family="monospace" font-size="9">localhost</text>
+      <text x="115" y="78" text-anchor="middle" fill="#888" font-family="monospace" font-size="9">127.0.0.1</text>
+      <text x="115" y="95" text-anchor="middle" fill="#888" font-family="monospace" font-size="9">host.docker.internal</text>
+
+      <line x1="220" y1="60" x2="280" y2="60" stroke="#ffd93d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+      <rect x="290" y="15" width="1190" height="90" rx="10" fill="rgba(0,0,0,0.3)"/>
+      <text x="310" y="38" fill="#ffd93d" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Host Port Mappings (External Access URLs):</text>
+
+      <text x="320" y="58" fill="#81ecec" font-family="monospace" font-size="9">localhost:3000 → Open WebUI</text>
+      <text x="320" y="73" fill="#81ecec" font-family="monospace" font-size="9">localhost:8929 → GitLab</text>
+      <text x="320" y="88" fill="#81ecec" font-family="monospace" font-size="9">localhost:5001 → Nexus Docker Registry</text>
+
+      <text x="560" y="58" fill="#81ecec" font-family="monospace" font-size="9">localhost:8081 → Nexus UI</text>
+      <text x="560" y="73" fill="#81ecec" font-family="monospace" font-size="9">localhost:9002 → SonarQube</text>
+      <text x="560" y="88" fill="#81ecec" font-family="monospace" font-size="9">localhost:3001 → Redmine</text>
+
+      <text x="800" y="58" fill="#81ecec" font-family="monospace" font-size="9">localhost:9090 → Prometheus</text>
+      <text x="800" y="73" fill="#81ecec" font-family="monospace" font-size="9">localhost:3002 → Grafana</text>
+      <text x="800" y="88" fill="#81ecec" font-family="monospace" font-size="9">localhost:16686 → Jaeger</text>
+
+      <text x="1040" y="58" fill="#81ecec" font-family="monospace" font-size="9">localhost:8002 → Modernization API</text>
+      <text x="1040" y="73" fill="#81ecec" font-family="monospace" font-size="9">localhost:8003 → DevOps Tools API</text>
+      <text x="1040" y="88" fill="#81ecec" font-family="monospace" font-size="9">localhost:11434 → Ollama API</text>
+    </g>
+  </g>
+
+  <!-- Complete Service DNS Table -->
+  <g transform="translate(50, 250)">
+    <text x="0" y="0" fill="#00b894" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Complete Service DNS Resolution Table</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1500" height="520" rx="15" fill="#1a1a2e"/>
+
+      <!-- Table Header -->
+      <rect x="15" y="15" width="1470" height="35" rx="8" fill="url(#dnsGrad)"/>
+      <text x="120" y="38" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Service</text>
+      <text x="300" y="38" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Container Name</text>
+      <text x="480" y="38" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Docker DNS Name</text>
+      <text x="660" y="38" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Internal Port</text>
+      <text x="820" y="38" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Host Port</text>
+      <text x="980" y="38" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Internal URL</text>
+      <text x="1200" y="38" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">External URL</text>
+      <text x="1410" y="38" text-anchor="middle" fill="#1a1a2e" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Purpose</text>
+
+      <!-- Data Layer Services -->
+      <rect x="15" y="55" width="1470" height="20" rx="3" fill="rgba(0,184,148,0.1)"/>
+      <text x="750" y="69" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="10" font-weight="bold">DATA LAYER</text>
+
+      <!-- PostgreSQL -->
+      <g transform="translate(15, 80)">
+        <text x="105" y="15" text-anchor="middle" fill="#336791" font-family="Arial, sans-serif" font-size="10" font-weight="bold">PostgreSQL</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">platform-postgres</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">postgres</text>
+        <text x="645" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">5432</text>
+        <text x="805" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="9">5432</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">postgres:5432</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="8">localhost:5432</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">Main DB</text>
+      </g>
+
+      <!-- Redis -->
+      <g transform="translate(15, 100)">
+        <text x="105" y="15" text-anchor="middle" fill="#d63031" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Redis</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">platform-redis</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">redis</text>
+        <text x="645" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">6379</text>
+        <text x="805" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="9">6379</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">redis:6379</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="8">localhost:6379</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">Cache</text>
+      </g>
+
+      <!-- ChromaDB -->
+      <g transform="translate(15, 120)">
+        <text x="105" y="15" text-anchor="middle" fill="#9b59b6" font-family="Arial, sans-serif" font-size="10" font-weight="bold">ChromaDB</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">platform-chromadb</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">chromadb</text>
+        <text x="645" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">8000</text>
+        <text x="805" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="9">8000</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">chromadb:8000</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="8">localhost:8000</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">Vector DB</text>
+      </g>
+
+      <!-- MinIO -->
+      <g transform="translate(15, 140)">
+        <text x="105" y="15" text-anchor="middle" fill="#c0392b" font-family="Arial, sans-serif" font-size="10" font-weight="bold">MinIO</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">platform-minio</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">minio</text>
+        <text x="645" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">9000, 9001</text>
+        <text x="805" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="9">9000, 9001</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">minio:9000</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="8">localhost:9000</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">Object Store</text>
+      </g>
+
+      <!-- AI/LLM Layer Header -->
+      <rect x="15" y="165" width="1470" height="20" rx="3" fill="rgba(108,92,231,0.1)"/>
+      <text x="750" y="179" text-anchor="middle" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="10" font-weight="bold">AI/LLM LAYER</text>
+
+      <!-- Ollama -->
+      <g transform="translate(15, 190)">
+        <text x="105" y="15" text-anchor="middle" fill="#6c5ce7" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Ollama</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">platform-ollama</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">ollama</text>
+        <text x="645" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">11434</text>
+        <text x="805" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="9">11434</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">ollama:11434</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="8">localhost:11434</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">LLM API</text>
+      </g>
+
+      <!-- Open WebUI -->
+      <g transform="translate(15, 210)">
+        <text x="105" y="15" text-anchor="middle" fill="#0984e3" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Open WebUI</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">platform-open-webui</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">open-webui</text>
+        <text x="645" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">8080</text>
+        <text x="805" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="9">3000</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">open-webui:8080</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="8">localhost:3000</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">Chat UI</text>
+      </g>
+
+      <!-- DevOps Layer Header -->
+      <rect x="15" y="235" width="1470" height="20" rx="3" fill="rgba(252,109,38,0.1)"/>
+      <text x="750" y="249" text-anchor="middle" fill="#fc6d26" font-family="Arial, sans-serif" font-size="10" font-weight="bold">DEVOPS LAYER</text>
+
+      <!-- GitLab -->
+      <g transform="translate(15, 260)">
+        <text x="105" y="15" text-anchor="middle" fill="#fc6d26" font-family="Arial, sans-serif" font-size="10" font-weight="bold">GitLab CE</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">platform-gitlab</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">gitlab-server</text>
+        <text x="645" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">80, 22</text>
+        <text x="805" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="9">8929, 2224</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">gitlab-server:80</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="8">localhost:8929</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">Git SCM</text>
+      </g>
+
+      <!-- GitLab Runner -->
+      <g transform="translate(15, 280)">
+        <text x="105" y="15" text-anchor="middle" fill="#fc6d26" font-family="Arial, sans-serif" font-size="10">GitLab Runner</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">platform-gitlab-runner</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">gitlab-runner</text>
+        <text x="645" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="9">-</text>
+        <text x="805" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="9">-</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">-</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">-</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">CI Executor</text>
+      </g>
+
+      <!-- Nexus -->
+      <g transform="translate(15, 300)">
+        <text x="105" y="15" text-anchor="middle" fill="#1ba5ad" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Nexus</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">platform-nexus</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">nexus</text>
+        <text x="645" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">8081, 5001</text>
+        <text x="805" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="9">8081, 5001</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">nexus:8081</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="8">localhost:5001</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">Registry</text>
+      </g>
+
+      <!-- SonarQube -->
+      <g transform="translate(15, 320)">
+        <text x="105" y="15" text-anchor="middle" fill="#4c6ef5" font-family="Arial, sans-serif" font-size="10" font-weight="bold">SonarQube</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">platform-sonarqube</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">sonarqube</text>
+        <text x="645" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">9000</text>
+        <text x="805" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="9">9002</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">sonarqube:9000</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="8">localhost:9002</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">Code Quality</text>
+      </g>
+
+      <!-- Trivy -->
+      <g transform="translate(15, 340)">
+        <text x="105" y="15" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Trivy</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">platform-trivy</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">trivy-server</text>
+        <text x="645" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">8080</text>
+        <text x="805" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="9">8083</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">trivy-server:8080</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="8">localhost:8083</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">Security</text>
+      </g>
+
+      <!-- Redmine -->
+      <g transform="translate(15, 360)">
+        <text x="105" y="15" text-anchor="middle" fill="#c0392b" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Redmine</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">platform-redmine</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">redmine</text>
+        <text x="645" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">3000</text>
+        <text x="805" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="9">3001</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">redmine:3000</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="8">localhost:3001</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">Issues</text>
+      </g>
+
+      <!-- API Layer Header -->
+      <rect x="15" y="385" width="1470" height="20" rx="3" fill="rgba(0,206,201,0.1)"/>
+      <text x="750" y="399" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="10" font-weight="bold">API LAYER</text>
+
+      <!-- Modernization API -->
+      <g transform="translate(15, 410)">
+        <text x="105" y="15" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Modernization API</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">platform-modernization-api</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">modernization-api</text>
+        <text x="645" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">8000</text>
+        <text x="805" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="9">8002</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">modernization-api:8000</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="8">localhost:8002</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">FastAPI</text>
+      </g>
+
+      <!-- DevOps Tools -->
+      <g transform="translate(15, 430)">
+        <text x="105" y="15" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="10" font-weight="bold">DevOps Tools</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">devops-tools-backend</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">devops-tools-backend</text>
+        <text x="645" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">8003</text>
+        <text x="805" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="9">8003</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">devops-tools:8003</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="8">localhost:8003</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">FastAPI</text>
+      </g>
+
+      <!-- Monitoring Layer Header -->
+      <rect x="15" y="455" width="1470" height="20" rx="3" fill="rgba(231,76,60,0.1)"/>
+      <text x="750" y="469" text-anchor="middle" fill="#e74c3c" font-family="Arial, sans-serif" font-size="10" font-weight="bold">MONITORING LAYER</text>
+
+      <!-- Prometheus -->
+      <g transform="translate(15, 480)">
+        <text x="105" y="15" text-anchor="middle" fill="#e74c3c" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Prometheus</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">platform-prometheus</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">prometheus</text>
+        <text x="645" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">9090</text>
+        <text x="805" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="9">9090</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">prometheus:9090</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="8">localhost:9090</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">Metrics</text>
+      </g>
+
+      <!-- Grafana -->
+      <g transform="translate(15, 500)">
+        <text x="105" y="15" text-anchor="middle" fill="#f39c12" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Grafana</text>
+        <text x="285" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">platform-grafana</text>
+        <text x="465" y="15" text-anchor="middle" fill="#ffd93d" font-family="monospace" font-size="9">grafana</text>
+        <text x="645" y="15" text-anchor="middle" fill="#e0e0e0" font-family="monospace" font-size="9">3000</text>
+        <text x="805" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="9">3002</text>
+        <text x="965" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">grafana:3000</text>
+        <text x="1185" y="15" text-anchor="middle" fill="#81ecec" font-family="monospace" font-size="8">localhost:3002</text>
+        <text x="1395" y="15" text-anchor="middle" fill="#888" font-family="Arial, sans-serif" font-size="8">Dashboards</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Environment Variables Section -->
+  <g transform="translate(50, 810)">
+    <text x="0" y="0" fill="#fdcb6e" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Environment Variable URL Patterns</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="730" height="220" rx="15" fill="#1a1a2e"/>
+
+      <text x="25" y="30" fill="#ffd93d" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Internal Service URLs (Container-to-Container):</text>
+
+      <rect x="15" y="45" width="700" height="160" rx="8" fill="rgba(0,0,0,0.3)"/>
+      <text x="30" y="68" fill="#81ecec" font-family="monospace" font-size="9">DATABASE_URL=postgresql://user:pass@postgres:5432/db</text>
+      <text x="30" y="88" fill="#81ecec" font-family="monospace" font-size="9">REDIS_URL=redis://redis:6379/0</text>
+      <text x="30" y="108" fill="#81ecec" font-family="monospace" font-size="9">OLLAMA_URL=http://ollama:11434</text>
+      <text x="30" y="128" fill="#81ecec" font-family="monospace" font-size="9">CHROMADB_URL=http://chromadb:8000</text>
+      <text x="30" y="148" fill="#81ecec" font-family="monospace" font-size="9">MINIO_ENDPOINT=minio:9000</text>
+      <text x="30" y="168" fill="#81ecec" font-family="monospace" font-size="9">GITLAB_URL=http://gitlab-server</text>
+      <text x="30" y="188" fill="#81ecec" font-family="monospace" font-size="9">SONARQUBE_URL=http://sonarqube:9000</text>
+    </g>
+
+    <g filter="url(#shadow)" transform="translate(770, 25)">
+      <rect x="0" y="0" width="680" height="220" rx="15" fill="#1a1a2e"/>
+
+      <text x="25" y="30" fill="#ffd93d" font-family="Arial, sans-serif" font-size="12" font-weight="bold">External URLs (DevOps Tools - host.docker.internal):</text>
+
+      <rect x="15" y="45" width="650" height="160" rx="8" fill="rgba(0,0,0,0.3)"/>
+      <text x="30" y="68" fill="#e17055" font-family="monospace" font-size="9">GITLAB_URL=http://host.docker.internal:8929</text>
+      <text x="30" y="88" fill="#e17055" font-family="monospace" font-size="9">SONARQUBE_URL=http://host.docker.internal:9002</text>
+      <text x="30" y="108" fill="#e17055" font-family="monospace" font-size="9">TRIVY_URL=http://host.docker.internal:8083</text>
+      <text x="30" y="128" fill="#e17055" font-family="monospace" font-size="9">NEXUS_URL=http://host.docker.internal:8081</text>
+      <text x="30" y="148" fill="#e17055" font-family="monospace" font-size="9">CHROMADB_URL=http://host.docker.internal:8000</text>
+      <text x="30" y="168" fill="#e17055" font-family="monospace" font-size="9">OLLAMA_URL=http://host.docker.internal:11434</text>
+      <text x="30" y="188" fill="#888" font-family="monospace" font-size="8">// Used when service runs outside platform-net</text>
+    </g>
+  </g>
+
+  <!-- Quick Reference Section -->
+  <g transform="translate(50, 1070)">
+    <text x="0" y="0" fill="#a29bfe" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Quick Reference - Port Mapping Summary</text>
+
+    <g filter="url(#shadow)" transform="translate(0, 25)">
+      <rect x="0" y="0" width="1500" height="150" rx="15" fill="#1a1a2e"/>
+
+      <!-- UI Services -->
+      <rect x="15" y="15" width="360" height="120" rx="8" fill="rgba(108,92,231,0.2)"/>
+      <text x="195" y="35" text-anchor="middle" fill="#a29bfe" font-family="Arial, sans-serif" font-size="11" font-weight="bold">User Interfaces</text>
+      <text x="30" y="55" fill="#e0e0e0" font-family="monospace" font-size="9">:3000 → Open WebUI (AI Chat)</text>
+      <text x="30" y="72" fill="#e0e0e0" font-family="monospace" font-size="9">:8929 → GitLab (Git SCM)</text>
+      <text x="30" y="89" fill="#e0e0e0" font-family="monospace" font-size="9">:8081 → Nexus UI (Artifacts)</text>
+      <text x="30" y="106" fill="#e0e0e0" font-family="monospace" font-size="9">:9002 → SonarQube (Quality)</text>
+      <text x="30" y="123" fill="#e0e0e0" font-family="monospace" font-size="9">:3001 → Redmine (Issues)</text>
+
+      <!-- API Services -->
+      <rect x="390" y="15" width="360" height="120" rx="8" fill="rgba(0,206,201,0.2)"/>
+      <text x="570" y="35" text-anchor="middle" fill="#00cec9" font-family="Arial, sans-serif" font-size="11" font-weight="bold">API Endpoints</text>
+      <text x="405" y="55" fill="#e0e0e0" font-family="monospace" font-size="9">:8002 → Modernization API</text>
+      <text x="405" y="72" fill="#e0e0e0" font-family="monospace" font-size="9">:8003 → DevOps Tools API</text>
+      <text x="405" y="89" fill="#e0e0e0" font-family="monospace" font-size="9">:11434 → Ollama LLM API</text>
+      <text x="405" y="106" fill="#e0e0e0" font-family="monospace" font-size="9">:5001 → Nexus Docker Registry</text>
+      <text x="405" y="123" fill="#e0e0e0" font-family="monospace" font-size="9">:8083 → Trivy Scanner API</text>
+
+      <!-- Data Services -->
+      <rect x="765" y="15" width="360" height="120" rx="8" fill="rgba(0,184,148,0.2)"/>
+      <text x="945" y="35" text-anchor="middle" fill="#00b894" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Data Services</text>
+      <text x="780" y="55" fill="#e0e0e0" font-family="monospace" font-size="9">:5432 → PostgreSQL</text>
+      <text x="780" y="72" fill="#e0e0e0" font-family="monospace" font-size="9">:6379 → Redis</text>
+      <text x="780" y="89" fill="#e0e0e0" font-family="monospace" font-size="9">:8000 → ChromaDB (Vector)</text>
+      <text x="780" y="106" fill="#e0e0e0" font-family="monospace" font-size="9">:9000 → MinIO API</text>
+      <text x="780" y="123" fill="#e0e0e0" font-family="monospace" font-size="9">:9001 → MinIO Console</text>
+
+      <!-- Monitoring Services -->
+      <rect x="1140" y="15" width="345" height="120" rx="8" fill="rgba(231,76,60,0.2)"/>
+      <text x="1312" y="35" text-anchor="middle" fill="#e74c3c" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Monitoring</text>
+      <text x="1155" y="55" fill="#e0e0e0" font-family="monospace" font-size="9">:9090 → Prometheus</text>
+      <text x="1155" y="72" fill="#e0e0e0" font-family="monospace" font-size="9">:3002 → Grafana</text>
+      <text x="1155" y="89" fill="#e0e0e0" font-family="monospace" font-size="9">:3100 → Loki</text>
+      <text x="1155" y="106" fill="#e0e0e0" font-family="monospace" font-size="9">:16686 → Jaeger UI</text>
+      <text x="1155" y="123" fill="#e0e0e0" font-family="monospace" font-size="9">:4317/:4318 → OTLP</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="800" y="1280" text-anchor="middle" fill="#555" font-family="Arial, sans-serif" font-size="11">AI-Powered DevOps Platform | DNS &amp; Port Resolution | Service Discovery Architecture</text>
+</svg>
