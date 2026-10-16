@@ -16,14 +16,15 @@ AI-repos/
 │   └── settings.local.json           # Claude Code permission settings
 ├── .github/
 │   └── copilot-instructions.md       # AI agent contribution guidelines
-├── ai-setup-diagrams/                # 46 SVG architecture & flow diagrams
+├── ai-setup-diagrams/                # 53 SVG architecture & flow diagrams
 │   ├── platform-master-architecture.svg
 │   ├── system-context-diagram.svg
 │   ├── pipeline-generation-flow.svg
 │   ├── rag-pipeline-flow.svg
 │   ├── docker-compose-services.svg
-│   ├── ... (46 files total)
+│   ├── ... (53 files total; six are pipeline-failure-triage-*.svg)
 │   └── user-request-flow.svg
+├── pipeline-failure-triage/          # Self-contained project: design docs (MD + PDF) for the GitLab pipeline-failure triage agent
 └── ai-setup-usage/
     └── platform-usecases.md          # 85 use cases across 16 categories
 ```
@@ -35,6 +36,7 @@ AI-repos/
 | `README.md` | High-level repository description |
 | `.github/copilot-instructions.md` | Guidelines for AI agent contributions, naming conventions, architecture overview |
 | `ai-setup-usage/platform-usecases.md` | 85 documented use cases in 16 categories (pipeline generation, Dockerfile generation, security scanning, etc.) |
+| `pipeline-failure-triage/README.md` | Entry point for the pipeline failure triage project: design documents (Markdown and PDF), diagrams, decisions, task list. Documentation only; code will live in a separate GitLab project |
 | `.claude/settings.local.json` | Whitelisted Bash permissions for Claude Code (Docker, Git, curl, etc.) |
 
 ## Development Workflow

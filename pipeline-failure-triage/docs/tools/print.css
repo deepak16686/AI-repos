@@ -1,0 +1,89 @@
+/* Print stylesheet for the Pipeline Failure Triage document set.
+   Placeholders {{FOOTER_TITLE}} is replaced by build_pdfs.py. */
+
+@page {
+  size: A4;
+  margin: 18mm 16mm 20mm 16mm;
+  @bottom-left  { content: "{{FOOTER_TITLE}}"; font: 8pt "Liberation Sans", "DejaVu Sans", Arial, sans-serif; color: #64748b; }
+  @bottom-right { content: "Page " counter(page) " of " counter(pages); font: 8pt "Liberation Sans", "DejaVu Sans", Arial, sans-serif; color: #64748b; }
+}
+@page :first {
+  @bottom-left  { content: ""; }
+  @bottom-right { content: ""; }
+}
+/* Diagram pages: A3 landscape so wide figures stay legible */
+@page wide {
+  size: A3 landscape;
+  margin: 12mm 14mm 16mm 14mm;
+}
+
+html { font-size: 9.6pt; }
+body {
+  font-family: "Liberation Sans", "DejaVu Sans", Arial, sans-serif;
+  line-height: 1.42;
+  color: #1f2937;
+  margin: 0;
+}
+
+h1, h2, h3, h4 { color: #1e3a8a; line-height: 1.2; }
+h1 { font-size: 20pt; margin: 0 0 8pt 0; padding-bottom: 4pt; border-bottom: 2px solid #3b82f6; break-before: page; break-after: avoid; }
+h2 { font-size: 13.5pt; margin: 16pt 0 5pt 0; break-after: avoid; }
+h3 { font-size: 11pt; margin: 12pt 0 4pt 0; break-after: avoid; }
+h4 { font-size: 10pt; margin: 10pt 0 3pt 0; break-after: avoid; }
+p { margin: 0 0 6pt 0; orphans: 3; widows: 3; }
+ul, ol { margin: 0 0 6pt 0; padding-left: 16pt; }
+li { margin-bottom: 2pt; }
+a { color: #1d4ed8; text-decoration: none; }
+strong { color: #111827; }
+
+/* Cover */
+.cover { min-height: 240mm; display: flex; flex-direction: column; justify-content: center; padding-left: 10mm; border-left: 6px solid #3b82f6; }
+.cover h1 { border: none; font-size: 30pt; margin: 4pt 0 10pt 0; break-before: auto; color: #0f172a; }
+.cover-kicker { text-transform: uppercase; letter-spacing: 2px; font-size: 10pt; color: #3b82f6; font-weight: 700; margin-bottom: 8pt; }
+.cover-sub { font-size: 12.5pt; color: #334155; margin-bottom: 22pt; max-width: 150mm; }
+.cover table { width: 150mm; font-size: 9.5pt; }
+.cover thead { display: none; }
+.cover td { border: none; border-bottom: 1px solid #e2e8f0; padding: 4pt 6pt; background: transparent !important; }
+.cover td:first-child { width: 32mm; color: #475569; }
+.pagebreak { display: none; }
+
+/* Table of contents */
+nav#TOC { break-before: page; break-after: page; }
+nav#TOC::before { content: "Contents"; display: block; font-size: 20pt; font-weight: 700; color: #1e3a8a; border-bottom: 2px solid #3b82f6; margin-bottom: 10pt; padding-bottom: 4pt; }
+nav#TOC ul { list-style: none; padding-left: 0; margin: 0; }
+nav#TOC ul ul { padding-left: 14pt; }
+nav#TOC li { margin: 2pt 0; }
+nav#TOC > ul > li { margin-top: 5pt; font-weight: 700; }
+nav#TOC > ul > li > ul > li { font-weight: 400; font-size: 9pt; }
+nav#TOC a { color: #1f2937; }
+
+/* Tables */
+table { border-collapse: collapse; width: 100%; margin: 4pt 0 10pt 0; font-size: 8.4pt; line-height: 1.32; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th { background: #1e3a8a; color: #ffffff; text-align: left; padding: 3.5pt 5pt; border: 1px solid #1e3a8a; font-weight: 700; }
+td { padding: 3pt 5pt; border: 1px solid #cbd5e1; vertical-align: top; }
+tbody tr:nth-child(even) td { background: #f8fafc; }
+td code, th code { font-size: 7.8pt; }
+
+/* Code */
+code { font-family: "Liberation Mono", "DejaVu Sans Mono", monospace; font-size: 8.4pt; background: #f1f5f9; padding: 0 2pt; border-radius: 2px; color: #0f172a; }
+pre { background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3px solid #3b82f6; padding: 6pt 8pt; margin: 4pt 0 10pt 0; white-space: pre-wrap; word-break: break-word; break-inside: auto; }
+pre code { background: transparent; padding: 0; font-size: 7.8pt; line-height: 1.35; }
+
+/* Quotes and callouts */
+blockquote { margin: 6pt 0 10pt 0; padding: 6pt 10pt; border-left: 4px solid #94a3b8; background: #f8fafc; color: #1f2937; }
+blockquote p { margin: 0 0 5pt 0; }
+em { color: #334155; }
+
+/* Figures: diagrams get their own wide page */
+figure { margin: 8pt 0; text-align: center; }
+figure img { max-width: 100%; }
+figure:has(> img.wide-figure) { page: wide; break-before: page; break-after: page; margin: 0; }
+figure:has(> img.wide-figure) img { max-width: 392mm; max-height: 222mm; width: auto; height: auto; }
+/* A heading directly above a wide figure travels with it onto the wide page */
+h2:has(+ figure > img.wide-figure), h3:has(+ figure > img.wide-figure) { page: wide; break-before: page; }
+h2:has(+ figure > img.wide-figure) + figure, h3:has(+ figure > img.wide-figure) + figure { break-before: avoid; }
+figcaption { font-size: 9.5pt; color: #334155; margin-top: 4pt; font-weight: 700; }
+
+hr { border: none; border-top: 1px solid #cbd5e1; margin: 10pt 0; }
