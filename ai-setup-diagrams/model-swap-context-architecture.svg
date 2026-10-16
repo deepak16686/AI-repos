@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#15803d"/>
+    </marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="1000" fill="#f8fafc"/>
+  <text x="700" y="34" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Swapping the Model, Keeping the Context — Why a New Model Is Smart for YOUR Setup</text>
+  <text x="700" y="56" text-anchor="middle" font-size="13" fill="#475569">A new model is smarter in general but knows nothing about your registry, mirrors, gates and runners. The context layer is what carries that knowledge across model upgrades.</text>
+
+  <!-- column headers -->
+  <g font-size="12" font-weight="700" fill="#64748b" letter-spacing="0.5">
+    <text x="160" y="92" text-anchor="middle">MODEL  (swappable)</text>
+    <text x="570" y="92" text-anchor="middle">CONTEXT LAYER  (durable, model-independent)</text>
+    <text x="985" y="92" text-anchor="middle">YOUR LOCAL TOOLSET</text>
+    <text x="1250" y="92" text-anchor="middle">RESULT  (ex11 run)</text>
+  </g>
+
+  <!-- row backgrounds -->
+  <rect x="25" y="102" width="1350" height="196" rx="12" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <rect x="25" y="312" width="1350" height="196" rx="12" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <rect x="25" y="522" width="1350" height="196" rx="12" fill="#fef2f2" stroke="#fecaca"/>
+
+  <text x="40" y="124" font-size="13" font-weight="700" fill="#166534">A · OLD MODEL + ACCUMULATED CONTEXT</text>
+  <text x="40" y="334" font-size="13" font-weight="700" fill="#166534">B · NEW MODEL + SAME CONTEXT</text>
+  <text x="40" y="544" font-size="13" font-weight="700" fill="#991b1b">C · NEW MODEL, NO CONTEXT (cold start)</text>
+
+  <!-- Context pillar (spans A and B) -->
+  <rect x="360" y="102" width="440" height="406" rx="12" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="580" y="124" text-anchor="middle" font-size="14" font-weight="700" fill="#166534">Context layer — lives OUTSIDE any model</text>
+  <g font-size="12">
+    <rect x="378" y="138" width="200" height="74" rx="8" fill="#e0f2fe" stroke="#0284c7"/>
+    <text x="388" y="158" font-weight="700" fill="#075985">CLAUDE.md</text>
+    <text x="388" y="176" fill="#0f172a">rules, hostnames, stage order</text>
+    <text x="388" y="192" fill="#475569">ai-nexus:5001 · 8-stage pipeline</text>
+
+    <rect x="590" y="138" width="200" height="74" rx="8" fill="#fef3c7" stroke="#d97706"/>
+    <text x="600" y="158" font-weight="700" fill="#92400e">Skills</text>
+    <text x="600" y="176" fill="#0f172a">pipeline · Dockerfile · triage</text>
+    <text x="600" y="192" fill="#475569">title visible, body on demand</text>
+
+    <rect x="378" y="222" width="200" height="74" rx="8" fill="#ede9fe" stroke="#7c3aed"/>
+    <text x="388" y="242" font-weight="700" fill="#5b21b6">Memory (Markdown files)</text>
+    <text x="388" y="260" fill="#0f172a">lessons learned the hard way</text>
+    <text x="388" y="276" fill="#475569">maven → nexus-mirror, sonar…</text>
+
+    <rect x="590" y="222" width="200" height="74" rx="8" fill="#ffedd5" stroke="#ea580c"/>
+    <text x="600" y="242" font-weight="700" fill="#9a3412">Tool access description</text>
+    <text x="600" y="260" fill="#0f172a">how to call GitLab, Nexus, Sonar,</text>
+    <text x="600" y="276" fill="#0f172a">Trivy, ChromaDB (MCP / API)</text>
+  </g>
+  <rect x="378" y="306" width="412" height="32" rx="8" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="584" y="327" text-anchor="middle" font-size="12" fill="#0f172a">Governed: versioned · hash-checked writes · permissioned · portable</text>
+  <rect x="378" y="350" width="412" height="62" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="584" y="372" text-anchor="middle" font-size="12.5" font-weight="700" fill="#166534">A and B read the very same files</text>
+  <text x="584" y="390" text-anchor="middle" font-size="12" fill="#0f172a">same content, same hashes, same history —</text>
+  <text x="584" y="405" text-anchor="middle" font-size="12" fill="#0f172a">nothing is rewritten for the new model</text>
+  <rect x="378" y="424" width="412" height="72" rx="8" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="388" y="444" font-size="12.5" font-weight="700" fill="#9a3412">Learning loop keeps running</text>
+  <text x="388" y="462" font-size="12" fill="#0f172a">Whichever model works here writes lessons back</text>
+  <text x="388" y="478" font-size="12" fill="#0f172a">(proposal → review gate → new version), so the</text>
+  <text x="388" y="492" font-size="12" fill="#0f172a">context compounds across models.</text>
+
+  <!-- Models -->
+  <rect x="40" y="144" width="240" height="120" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+  <text x="160" y="172" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Model v1 (older)</text>
+  <text x="160" y="194" text-anchor="middle" font-size="12" fill="#0f172a">solid general ability,</text>
+  <text x="160" y="210" text-anchor="middle" font-size="12" fill="#0f172a">needs 1 retry on hard generic steps</text>
+  <text x="160" y="236" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">"smart" for this setup because of</text>
+  <text x="160" y="251" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">the context it built up</text>
+
+  <rect x="40" y="354" width="240" height="120" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="160" y="382" text-anchor="middle" font-size="15" font-weight="700" fill="#1e3a8a">Model v2 (NEW, smarter)</text>
+  <text x="160" y="404" text-anchor="middle" font-size="12" fill="#0f172a">stronger reasoning, 0 generic retries</text>
+  <text x="160" y="420" text-anchor="middle" font-size="12" fill="#b91c1c">but knows nothing about YOUR</text>
+  <text x="160" y="435" text-anchor="middle" font-size="12" fill="#b91c1c">registry, mirrors, gates, runners</text>
+  <text x="160" y="458" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">swap = change one model id</text>
+
+  <rect x="40" y="564" width="240" height="120" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="160" y="592" text-anchor="middle" font-size="15" font-weight="700" fill="#1e3a8a">Model v2 (NEW, smarter)</text>
+  <text x="160" y="614" text-anchor="middle" font-size="12" fill="#0f172a">same model as row B</text>
+  <text x="160" y="636" text-anchor="middle" font-size="12" fill="#b91c1c">no CLAUDE.md, no skills,</text>
+  <text x="160" y="651" text-anchor="middle" font-size="12" fill="#b91c1c">no memory, no tool notes</text>
+  <text x="160" y="674" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">starts from zero</text>
+
+  <!-- ghost context for C -->
+  <rect x="360" y="564" width="440" height="120" rx="12" fill="#ffffff" stroke="#b91c1c" stroke-width="2" stroke-dasharray="8 5"/>
+  <text x="580" y="592" text-anchor="middle" font-size="14" font-weight="700" fill="#991b1b">NO CONTEXT ATTACHED</text>
+  <text x="580" y="614" text-anchor="middle" font-size="12" fill="#0f172a">The model can only guess the local facts:</text>
+  <text x="580" y="634" text-anchor="middle" font-size="12" fill="#b91c1c">registry = docker.io   (real: ai-nexus:5001)</text>
+  <text x="580" y="650" text-anchor="middle" font-size="12" fill="#b91c1c">maven = central   (real: nexus-mirror)</text>
+  <text x="580" y="666" text-anchor="middle" font-size="12" fill="#b91c1c">sonar = optional, runner = shared  (real: gate required, docker-prod)</text>
+
+  <!-- Toolsets -->
+  <g font-size="12">
+    <rect x="860" y="144" width="250" height="120" rx="10" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+    <text x="985" y="166" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">GitLab · Nexus (:5001)</text>
+    <text x="985" y="186" text-anchor="middle" fill="#0f172a">SonarQube · Trivy · ChromaDB</text>
+    <text x="985" y="206" text-anchor="middle" fill="#0f172a">Prometheus · Grafana · Loki</text>
+    <text x="985" y="236" text-anchor="middle" font-weight="700" fill="#166534">calls are right the first time</text>
+
+    <rect x="860" y="354" width="250" height="120" rx="10" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+    <text x="985" y="376" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">GitLab · Nexus (:5001)</text>
+    <text x="985" y="396" text-anchor="middle" fill="#0f172a">SonarQube · Trivy · ChromaDB</text>
+    <text x="985" y="416" text-anchor="middle" fill="#0f172a">Prometheus · Grafana · Loki</text>
+    <text x="985" y="446" text-anchor="middle" font-weight="700" fill="#166534">same toolset, same hosts</text>
+
+    <rect x="860" y="564" width="250" height="120" rx="10" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+    <text x="985" y="586" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">GitLab · Nexus (:5001)</text>
+    <text x="985" y="606" text-anchor="middle" fill="#0f172a">SonarQube · Trivy · ChromaDB</text>
+    <text x="985" y="626" text-anchor="middle" fill="#0f172a">Prometheus · Grafana · Loki</text>
+    <text x="985" y="656" text-anchor="middle" font-weight="700" fill="#991b1b">rejects each wrong guess</text>
+  </g>
+
+  <!-- Results -->
+  <g font-size="12">
+    <rect x="1140" y="144" width="220" height="120" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="1250" y="174" text-anchor="middle" font-size="22" font-weight="700" fill="#166534">5 → 1</text>
+    <text x="1250" y="194" text-anchor="middle" fill="#0f172a">failed attempts, session 1 → 2</text>
+    <text x="1250" y="214" text-anchor="middle" fill="#475569">session 1 learned 4 local facts</text>
+    <text x="1250" y="230" text-anchor="middle" fill="#475569">the hard way; session 2 only</text>
+    <text x="1250" y="246" text-anchor="middle" fill="#475569">hits the 1 generic retry</text>
+
+    <rect x="1140" y="354" width="220" height="120" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+    <text x="1250" y="384" text-anchor="middle" font-size="26" font-weight="700" fill="#166534">0</text>
+    <text x="1250" y="404" text-anchor="middle" fill="#0f172a">failed attempts</text>
+    <text x="1250" y="426" text-anchor="middle" fill="#475569">instantly smart for your setup:</text>
+    <text x="1250" y="442" text-anchor="middle" fill="#475569">old model's knowledge + new</text>
+    <text x="1250" y="458" text-anchor="middle" fill="#475569">model's reasoning</text>
+
+    <rect x="1140" y="564" width="220" height="120" rx="10" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+    <text x="1250" y="594" text-anchor="middle" font-size="26" font-weight="700" fill="#991b1b">4</text>
+    <text x="1250" y="614" text-anchor="middle" fill="#0f172a">failed attempts</text>
+    <text x="1250" y="636" text-anchor="middle" fill="#475569">smarter model, yet it re-learns</text>
+    <text x="1250" y="652" text-anchor="middle" fill="#475569">every local fact from errors,</text>
+    <text x="1250" y="668" text-anchor="middle" fill="#475569">on every new deployment</text>
+  </g>
+
+  <!-- arrows A -->
+  <path d="M280,204 L358,204" stroke="#475569" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+  <text x="319" y="196" text-anchor="middle" font-size="10" fill="#475569">reads</text>
+  <path d="M800,204 L858,204" stroke="#15803d" stroke-width="2.5" fill="none" marker-end="url(#arrG)"/>
+  <path d="M1110,204 L1138,204" stroke="#15803d" stroke-width="2.5" fill="none" marker-end="url(#arrG)"/>
+  <!-- arrows B -->
+  <path d="M280,414 L358,414" stroke="#475569" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+  <text x="319" y="406" text-anchor="middle" font-size="10" fill="#475569">reads</text>
+  <path d="M800,414 L858,414" stroke="#15803d" stroke-width="2.5" fill="none" marker-end="url(#arrG)"/>
+  <path d="M1110,414 L1138,414" stroke="#15803d" stroke-width="2.5" fill="none" marker-end="url(#arrG)"/>
+  <!-- arrows C -->
+  <path d="M280,624 L358,624" stroke="#b91c1c" stroke-width="2.5" stroke-dasharray="6 4" fill="none" marker-end="url(#arrR)"/>
+  <text x="319" y="616" text-anchor="middle" font-size="10" fill="#b91c1c">nothing</text>
+  <path d="M800,624 L858,624" stroke="#b91c1c" stroke-width="2.5" stroke-dasharray="6 4" fill="none" marker-end="url(#arrR)"/>
+  <text x="829" y="616" text-anchor="middle" font-size="10" fill="#b91c1c">guess</text>
+  <path d="M1110,624 L1138,624" stroke="#b91c1c" stroke-width="2.5" fill="none" marker-end="url(#arrR)"/>
+
+  <!-- Bottom -->
+  <rect x="25" y="738" width="660" height="245" rx="12" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+  <text x="45" y="764" font-size="14" font-weight="700" fill="#0f172a">What carries over when you swap the model</text>
+  <line x1="45" y1="774" x2="665" y2="774" stroke="#cbd5e1"/>
+  <g font-size="12.5" fill="#0f172a">
+    <text x="45" y="798">Model intelligence (weights)</text>
+    <text x="360" y="798" fill="#b91c1c" font-weight="700">replaced: v1 → v2</text>
+    <text x="45" y="826">Generic reasoning (fewer retries)</text>
+    <text x="360" y="826" fill="#2563eb" font-weight="700">improves: 1 retry → 0</text>
+    <text x="45" y="854">CLAUDE.md, skills, tool descriptions</text>
+    <text x="360" y="854" fill="#15803d" font-weight="700">carried over unchanged</text>
+    <text x="45" y="882">Memory lessons (registry, maven, sonar, runner)</text>
+    <text x="360" y="882" fill="#15803d" font-weight="700">carried over unchanged</text>
+    <text x="45" y="910">Version history + who/which session wrote it</text>
+    <text x="360" y="910" fill="#15803d" font-weight="700">carried over, audit intact</text>
+    <text x="45" y="938">Permissions (org read-only, agents propose)</text>
+    <text x="360" y="938" fill="#15803d" font-weight="700">enforced by the store, not the model</text>
+  </g>
+  <text x="45" y="967" font-size="11" fill="#64748b">Numbers: ex11_model_swap_context_portability.py (deterministic toy simulation).</text>
+
+  <rect x="705" y="738" width="670" height="245" rx="12" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+  <text x="725" y="764" font-size="14" font-weight="700" fill="#166534">Swap procedure for a new model (no re-training, no re-writing)</text>
+  <line x1="725" y1="774" x2="1355" y2="774" stroke="#cbd5e1"/>
+  <g font-size="12.5" fill="#0f172a">
+    <circle cx="738" cy="797" r="10" fill="#16a34a"/><text x="738" y="801" text-anchor="middle" fill="#fff" font-weight="700">1</text>
+    <text x="760" y="801">Change the model id in the agent config; keep the memory root, skills dir and tool config.</text>
+    <circle cx="738" cy="829" r="10" fill="#16a34a"/><text x="738" y="833" text-anchor="middle" fill="#fff" font-weight="700">2</text>
+    <text x="760" y="833">Smoke test: the agent must find registry, maven, sonar and runner facts by grepping memory.</text>
+    <circle cx="738" cy="861" r="10" fill="#16a34a"/><text x="738" y="865" text-anchor="middle" fill="#fff" font-weight="700">3</text>
+    <text x="760" y="865">Expect 0 local-fact failures; any miss means the context has a gap, not that the model is weak.</text>
+    <circle cx="738" cy="893" r="10" fill="#16a34a"/><text x="738" y="897" text-anchor="middle" fill="#fff" font-weight="700">4</text>
+    <text x="760" y="897">Let v2 keep writing lessons as proposals; a human or policy approves; the store versions them.</text>
+  </g>
+  <rect x="725" y="915" width="630" height="52" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="1040" y="938" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">Useful agent  =  model intelligence  ×  your context</text>
+  <text x="1040" y="957" text-anchor="middle" font-size="12" fill="#0f172a">You rent the first term from the vendor. You own the second, and it never expires.</text>
+</svg>

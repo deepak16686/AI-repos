@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="1000" fill="#f8fafc"/>
+
+  <text x="700" y="36" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Context Engineering &amp; Agent Memory — Complete Concept Architecture</text>
+  <text x="700" y="58" text-anchor="middle" font-size="13" fill="#475569">Source: "Context engineering" talk, AI DevCon (Anthropic applied AI) — primitives → file-system memory → production guardrails → continual learning</text>
+
+  <!-- ============ SECTION 1 ============ -->
+  <text x="40" y="92" font-size="16" font-weight="700" fill="#1e293b">1 · How the primitives evolved — each one fixes the previous one's weakness</text>
+
+  <g font-size="12.5">
+    <rect x="40" y="105" width="270" height="105" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+    <text x="55" y="128" font-size="15" font-weight="700" fill="#075985">CLAUDE.md</text>
+    <text x="55" y="148" fill="#0f172a">Static markdown injected at</text>
+    <text x="55" y="164" fill="#0f172a">session start (rules, repo map, prefs)</text>
+    <text x="55" y="186" fill="#15803d">✔ unreasonably effective</text>
+    <text x="55" y="202" fill="#b91c1c">✘ grows → context bloat</text>
+
+    <rect x="390" y="105" width="270" height="105" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="405" y="128" font-size="15" font-weight="700" fill="#5b21b6">Memory tools</text>
+    <text x="405" y="148" fill="#0f172a">Agent decides when to read /</text>
+    <text x="405" y="164" fill="#0f172a">write / update — in-band, mid-session</text>
+    <text x="405" y="186" fill="#15803d">✔ autonomy works</text>
+    <text x="405" y="202" fill="#b91c1c">✘ tool shapes too opinionated</text>
+
+    <rect x="740" y="105" width="270" height="105" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+    <text x="755" y="128" font-size="15" font-weight="700" fill="#92400e">Skills</text>
+    <text x="755" y="148" fill="#0f172a">Procedural workflows. Agent sees only</text>
+    <text x="755" y="164" fill="#0f172a">front matter; loads body on demand</text>
+    <text x="755" y="186" fill="#15803d">✔ progressive disclosure ("bookshelf")</text>
+    <text x="755" y="202" fill="#b91c1c">✘ not a store for evolving facts</text>
+
+    <rect x="1090" y="105" width="270" height="105" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+    <text x="1105" y="128" font-size="15" font-weight="700" fill="#166534">Memory = file system ★</text>
+    <text x="1105" y="148" fill="#0f172a">Markdown files; agents use bash/grep;</text>
+    <text x="1105" y="164" fill="#0f172a">large but indexed; agent-written</text>
+    <text x="1105" y="186" fill="#15803d">✔ simple, searchable, human-readable</text>
+    <text x="1105" y="202" fill="#b91c1c">✘ breaks at scale → needs guardrails</text>
+  </g>
+  <g stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arr)">
+    <path d="M310,157 L388,157"/>
+    <path d="M660,157 L738,157"/>
+    <path d="M1010,157 L1088,157"/>
+  </g>
+
+  <!-- ============ SECTION 2 ============ -->
+  <text x="40" y="250" font-size="16" font-weight="700" fill="#1e293b">2 · Runtime architecture — many agents, one governed memory</text>
+
+  <!-- Agents -->
+  <rect x="40" y="265" width="270" height="300" rx="12" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+  <text x="175" y="288" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Agents (1…N, parallel, long-running)</text>
+  <g font-size="12.5" fill="#0f172a">
+    <rect x="60" y="302" width="230" height="46" rx="8" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="175" y="322" text-anchor="middle" font-weight="600">Agent A · pipeline generation</text>
+    <text x="175" y="338" text-anchor="middle" fill="#475569">reads standards, writes scratch</text>
+    <rect x="60" y="358" width="230" height="46" rx="8" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="175" y="378" text-anchor="middle" font-weight="600">Agent B · troubleshooting</text>
+    <text x="175" y="394" text-anchor="middle" fill="#475569">learns fixes from failed runs</text>
+    <rect x="60" y="414" width="230" height="46" rx="8" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="175" y="434" text-anchor="middle" font-weight="600">Agent C · Dockerfile generation</text>
+    <text x="175" y="450" text-anchor="middle" fill="#475569">repo analysis notes</text>
+    <rect x="60" y="480" width="230" height="70" rx="8" fill="#e0f2fe" stroke="#0284c7"/>
+    <text x="175" y="500" text-anchor="middle" font-weight="700" fill="#075985">Context window (per session)</text>
+    <text x="175" y="518" text-anchor="middle">CLAUDE.md injected at start</text>
+    <text x="175" y="534" text-anchor="middle">+ skill titles (front matter only)</text>
+  </g>
+
+  <!-- Skills library -->
+  <rect x="40" y="585" width="270" height="85" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="175" y="608" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">Skills library</text>
+  <text x="175" y="628" text-anchor="middle" font-size="12.5" fill="#0f172a">front matter (always visible)</text>
+  <text x="175" y="646" text-anchor="middle" font-size="12.5" fill="#0f172a">→ full body loaded only when relevant</text>
+  <path d="M175,585 L175,567" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- Gateway -->
+  <rect x="370" y="265" width="440" height="405" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="590" y="289" text-anchor="middle" font-size="15" font-weight="700" fill="#9a3412">Memory API / Gateway — production guardrails</text>
+  <g font-size="12.5" fill="#0f172a">
+    <rect x="390" y="302" width="400" height="80" rx="8" fill="#ffffff" stroke="#fb923c"/>
+    <text x="405" y="323" font-weight="700" fill="#9a3412">① Versioning &amp; provenance</text>
+    <text x="405" y="342">Every write creates a new version; stores which session /</text>
+    <text x="405" y="358">transcript caused it and who wrote it (agent or human).</text>
+    <text x="405" y="374" fill="#15803d">→ audit trail + rollback of bad updates</text>
+
+    <rect x="390" y="394" width="400" height="90" rx="8" fill="#ffffff" stroke="#fb923c"/>
+    <text x="405" y="415" font-weight="700" fill="#9a3412">② Concurrency — hash check (optimistic lock)</text>
+    <text x="405" y="434" font-family="Consolas, monospace" font-size="12">h1 = hash(file) → draft edit → h2 = hash(file)</text>
+    <text x="405" y="452" font-family="Consolas, monospace" font-size="12">h1 == h2 ? commit : re-read, re-draft, retry</text>
+    <text x="405" y="474" fill="#15803d">→ thousands of agents, no lost updates</text>
+
+    <rect x="390" y="496" width="400" height="80" rx="8" fill="#ffffff" stroke="#fb923c"/>
+    <text x="405" y="517" font-weight="700" fill="#9a3412">③ Permissioning</text>
+    <text x="405" y="536">Org-wide curated memory = read-only for agents;</text>
+    <text x="405" y="552">team/project = via review; agent scratchpad = read/write.</text>
+    <text x="405" y="568" fill="#15803d">→ one agent can't poison all agents</text>
+
+    <rect x="390" y="588" width="400" height="70" rx="8" fill="#ffffff" stroke="#fb923c"/>
+    <text x="405" y="609" font-weight="700" fill="#9a3412">④ Portability</text>
+    <text x="405" y="628">Plain Markdown behind a clean API — usable from any</text>
+    <text x="405" y="644">product surface or system; curation effort is never locked in.</text>
+  </g>
+
+  <!-- Store -->
+  <rect x="870" y="265" width="490" height="405" rx="12" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+  <text x="1115" y="289" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">Memory store — a file system of Markdown</text>
+  <g font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#0f172a">
+    <text x="890" y="322">/memory</text>
+    <text x="890" y="346">├─ org/              <tspan fill="#b91c1c" font-weight="700">READ-ONLY</tspan> <tspan fill="#475569" font-family="Segoe UI, Arial" font-size="12">curated golden rules</tspan></text>
+    <text x="890" y="370">│   ├─ standards.md</text>
+    <text x="890" y="394">│   └─ index.md      <tspan fill="#475569" font-family="Segoe UI, Arial" font-size="12">agents grep / ls to find things</tspan></text>
+    <text x="890" y="418">├─ team/ project/    <tspan fill="#d97706" font-weight="700">REVIEWED</tspan> <tspan fill="#475569" font-family="Segoe UI, Arial" font-size="12">writes via gate</tspan></text>
+    <text x="890" y="442">├─ agents/</text>
+    <text x="890" y="466">│   └─ agent-a/scratch.md  <tspan fill="#15803d" font-weight="700">READ/WRITE</tspan></text>
+    <text x="890" y="490">└─ .history/         <tspan fill="#475569" font-family="Segoe UI, Arial" font-size="12">versions · hashes · provenance</tspan></text>
+  </g>
+  <rect x="890" y="512" width="450" height="60" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="905" y="533" font-size="12.5" fill="#0f172a" font-weight="700">Why a file system?</text>
+  <text x="905" y="551" font-size="12.5" fill="#0f172a">Agents already excel at bash/grep → no bespoke retrieval tools.</text>
+  <text x="905" y="565" font-size="12.5" fill="#0f172a">Search mirrors progressive disclosure: index small, read on demand.</text>
+  <rect x="890" y="584" width="450" height="72" rx="8" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="905" y="605" font-size="12.5" fill="#0f172a" font-weight="700">Three rules from the talk</text>
+  <text x="905" y="623" font-size="12.5" fill="#0f172a">1. Markdown is the format.   2. Let memory grow large, but give</text>
+  <text x="905" y="639" font-size="12.5" fill="#0f172a">agents index/search tools.   3. Give agents autonomy to write.</text>
+
+  <!-- Flow arrows -->
+  <path d="M310,420 L368,420" stroke="#475569" stroke-width="2.5" fill="none" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="340" y="440" text-anchor="middle" font-size="10" fill="#475569">r / w</text>
+  <path d="M810,420 L868,420" stroke="#475569" stroke-width="2.5" fill="none" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="840" y="440" text-anchor="middle" font-size="10" fill="#475569">checked</text>
+
+  <!-- ============ SECTION 3 ============ -->
+  <text x="40" y="710" font-size="16" font-weight="700" fill="#1e293b">3 · Why the guardrails exist — and the learning loop on top</text>
+
+  <!-- Threat table -->
+  <rect x="40" y="725" width="640" height="250" rx="12" fill="#ffffff" stroke="#b91c1c" stroke-width="1.5"/>
+  <text x="60" y="750" font-size="14" font-weight="700" fill="#991b1b">Production failure modes</text>
+  <text x="400" y="750" font-size="14" font-weight="700" fill="#166534">Guardrail that answers it</text>
+  <line x1="60" y1="758" x2="660" y2="758" stroke="#cbd5e1"/>
+  <g font-size="12.5" fill="#0f172a">
+    <text x="60" y="782">Many agents write the same file at once</text>
+    <text x="400" y="782" fill="#15803d">② hash check + retry</text>
+    <line x1="60" y1="794" x2="660" y2="794" stroke="#e2e8f0"/>
+    <text x="60" y="816">One agent writes bad org-wide context</text>
+    <text x="400" y="816" fill="#15803d">③ permissions (org = read-only)</text>
+    <line x1="60" y1="828" x2="660" y2="828" stroke="#e2e8f0"/>
+    <text x="60" y="850">Memory becomes stale or was written wrongly</text>
+    <text x="400" y="850" fill="#15803d">① versions, rollback, periodic review</text>
+    <line x1="60" y1="862" x2="660" y2="862" stroke="#e2e8f0"/>
+    <text x="60" y="884">Maliciously prompt-injected memory</text>
+    <text x="400" y="884" fill="#15803d">①+③ provenance + review gate</text>
+    <line x1="60" y1="896" x2="660" y2="896" stroke="#e2e8f0"/>
+    <text x="60" y="918">Humans and agents co-edit; hard to track</text>
+    <text x="400" y="918" fill="#15803d">① author + session on every version</text>
+    <line x1="60" y1="930" x2="660" y2="930" stroke="#e2e8f0"/>
+    <text x="60" y="952">Curated memory trapped in one product</text>
+    <text x="400" y="952" fill="#15803d">④ portable Markdown + clean API</text>
+  </g>
+
+  <!-- Dreaming loop -->
+  <rect x="720" y="725" width="640" height="250" rx="12" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="740" y="750" font-size="14" font-weight="700" fill="#5b21b6">Path to continual learning — "dreaming"</text>
+  <text x="1340" y="750" text-anchor="end" font-size="11" fill="#b91c1c">inferred: talk was cut off before this section</text>
+  <g font-size="12.5" fill="#0f172a">
+    <rect x="740" y="775" width="170" height="60" rx="8" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="825" y="800" text-anchor="middle" font-weight="700">Session transcripts</text>
+    <text x="825" y="818" text-anchor="middle" fill="#475569">what agents did / failed</text>
+
+    <rect x="965" y="775" width="190" height="60" rx="8" fill="#ede9fe" stroke="#7c3aed"/>
+    <text x="1060" y="797" text-anchor="middle" font-weight="700" fill="#5b21b6">"Dreaming" (offline)</text>
+    <text x="1060" y="813" text-anchor="middle">consolidate · dedupe · prune</text>
+    <text x="1060" y="827" text-anchor="middle">stale · extract lessons</text>
+
+    <rect x="1190" y="775" width="150" height="60" rx="8" fill="#fff7ed" stroke="#ea580c"/>
+    <text x="1265" y="800" text-anchor="middle" font-weight="700" fill="#9a3412">Review gate</text>
+    <text x="1265" y="818" text-anchor="middle" fill="#475569">human / policy</text>
+
+    <rect x="965" y="885" width="190" height="55" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="1060" y="908" text-anchor="middle" font-weight="700" fill="#166534">Better memory store</text>
+    <text x="1060" y="926" text-anchor="middle" fill="#475569">versioned, permissioned</text>
+  </g>
+  <g stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arr)">
+    <path d="M910,805 L963,805"/>
+    <path d="M1155,805 L1188,805"/>
+    <path d="M1265,835 L1265,912 L1157,912"/>
+  </g>
+  <path d="M965,912 L790,912 L790,837" stroke="#475569" stroke-width="2" fill="none" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+  <text x="878" y="930" text-anchor="middle" font-size="11" fill="#475569">next sessions start smarter</text>
+  <text x="1040" y="962" text-anchor="middle" font-size="12" fill="#0f172a" font-style="italic">Result: agents improve at repeated tasks — the "continual learning" effect</text>
+</svg>
