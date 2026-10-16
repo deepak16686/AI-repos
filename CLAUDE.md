@@ -24,8 +24,10 @@ AI-repos/
 │   ├── docker-compose-services.svg
 │   ├── ... (46 files total)
 │   └── user-request-flow.svg
-└── ai-setup-usage/
-    └── platform-usecases.md          # 85 use cases across 16 categories
+├── ai-setup-usage/
+│   └── platform-usecases.md          # 85 use cases across 16 categories
+└── ai-setup-examples/
+    └── context-engineering-memory/   # Runnable Python examples + RESULTS.md (context engineering & agent memory)
 ```
 
 ## Key Files
