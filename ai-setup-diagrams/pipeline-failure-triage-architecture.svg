@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 1140" width="1520" height="1140" font-family="Arial, Helvetica, sans-serif">
-  <title>Pipeline Failure Triage - Agentic DevOps Architecture (GitLab + Ollama + Claude + MCP on Docker Desktop)</title>
+  <title>Pipeline Failure Triage - Agentic DevOps Architecture (GitLab + pluggable LLM + MCP on Docker Desktop)</title>
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
@@ -20,8 +20,8 @@
   <rect width="1520" height="1140" fill="#ffffff"/>
 
   <!-- Title -->
-  <text x="30" y="30" font-size="20" font-weight="700" fill="#111827">Pipeline Failure Triage: Agentic DevOps Architecture (GitLab + Ollama + Claude + MCP on Docker Desktop)</text>
-  <text x="30" y="50" font-size="12" fill="#475569">The agent investigates and recommends. Humans decide. Raw logs stay local; every action is allow-listed and audited.</text>
+  <text x="30" y="30" font-size="20" font-weight="700" fill="#111827">Pipeline Failure Triage: Agentic DevOps Architecture (GitLab + pluggable LLM + MCP on Docker Desktop)</text>
+  <text x="30" y="50" font-size="12" fill="#475569">One config file picks the LLM (Ollama default, or OpenAI / Claude). Humans decide; every action is allow-listed and audited.</text>
 
   <!-- ============ HUMANS ============ -->
   <rect x="30" y="66" width="240" height="66" rx="8" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.5"/>
@@ -30,12 +30,29 @@
   <text x="42" y="119" class="s">confirm fix (/confirm-fix)</text>
   <path d="M150,132 L150,170" class="ar2"/>
 
-  <!-- ============ CLAUDE API ============ -->
-  <rect x="620" y="56" width="210" height="76" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="6 3"/>
-  <text x="632" y="77" class="h">Claude API (hosted, external)</text>
-  <text x="632" y="95" class="s">root-cause reasoning (tool use)</text>
-  <text x="632" y="111" class="s">sees redacted summaries only</text>
-  <path d="M570,425 L595,425 L595,94 L620,94" class="ar2"/>
+  <!-- ============ LLM CONFIG + BACKENDS ============ -->
+  <rect x="340" y="58" width="200" height="74" rx="8" fill="#fefce8" stroke="#ca8a04" stroke-width="1.8"/>
+  <text x="352" y="78" class="h">llm-providers.yaml</text>
+  <text x="352" y="95" class="s">the ONLY file you edit to switch</text>
+  <text x="352" y="110" class="s">one boolean per provider</text>
+  <text x="352" y="125" class="s">keys: env: / vault: references</text>
+
+  <rect x="560" y="58" width="230" height="74" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+  <text x="572" y="78" class="h">Ollama (local) · DEFAULT</text>
+  <text x="572" y="96" class="s">container: ollama :11434</text>
+  <text x="572" y="110" class="s">2× RTX 5080 · gpt-oss:20b</text>
+  <text x="572" y="124" class="s">qwen3-coder:30b · llama3.1:8b</text>
+
+  <rect x="805" y="58" width="170" height="74" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="6 3"/>
+  <text x="817" y="78" class="h">OpenAI API (optional)</text>
+  <text x="817" y="96" class="s">enabled: false by default</text>
+  <text x="817" y="110" class="s">your key via env / Vault</text>
+
+  <rect x="990" y="58" width="170" height="74" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="6 3"/>
+  <text x="1002" y="78" class="h">Claude API (optional)</text>
+  <text x="1002" y="96" class="s">enabled: false by default</text>
+  <text x="1002" y="110" class="s">your key via env / Vault</text>
+
 
   <!-- ============ GITLAB GROUP ============ -->
   <rect x="30" y="170" width="240" height="630" rx="10" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
@@ -98,21 +115,21 @@
   <text x="362" y="605" class="s" style="fill:#15803d">MR note: automatic</text>
   <text x="362" y="621" class="s" style="fill:#b45309">Issue: only after human approval</text>
 
-  <!-- Local LLM -->
-  <rect x="620" y="210" width="210" height="180" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="1.8"/>
-  <text x="632" y="232" class="h">Ollama (local LLM)</text>
-  <text x="632" y="252" class="s">container: ollama :11434</text>
-  <text x="632" y="268" class="s">GPU: 2× RTX 5080 (2×16 GB)</text>
-  <text x="632" y="288" class="s" style="font-weight:700">redact + summarize:</text>
-  <text x="632" y="303" class="s">llama3.1:8b (gemma3:4b spare)</text>
-  <text x="632" y="323" class="s" style="font-weight:700">local-only reasoning:</text>
-  <text x="632" y="338" class="s">gpt-oss:20b · qwen3-coder:30b</text>
-  <text x="632" y="358" class="s" style="fill:#b45309">gap: no embedding model pulled</text>
-  <text x="632" y="374" class="s" style="fill:#b45309">(needed for RAG)</text>
+  <!-- LLM Provider Layer -->
+  <rect x="620" y="210" width="210" height="180" rx="6" fill="#fefce8" stroke="#ca8a04" stroke-width="2"/>
+  <text x="632" y="232" class="h">LLM Provider Layer</text>
+  <text x="632" y="250" class="s">reads llm-providers.yaml</text>
+  <text x="632" y="266" class="s">adapters: ollama · openai ·</text>
+  <text x="632" y="282" class="s">anthropic · openai-compatible</text>
+  <text x="632" y="298" class="s">normalizes tool calls + token use</text>
+  <text x="632" y="314" class="s">startup check: exactly 1 enabled</text>
+  <text x="632" y="330" class="s">and its key resolves, else stop</text>
+  <text x="632" y="346" class="s">audit + MR footer name provider</text>
+  <text x="632" y="362" class="s" style="fill:#b45309">embeddings pinned separately</text>
 
   <rect x="620" y="420" width="210" height="60" rx="6" fill="#fef2f2" stroke="#ef4444" stroke-width="1.8"/>
-  <text x="632" y="442" class="h">Redactor + Summarizer</text>
-  <text x="632" y="460" class="s">Ollama scrubs secrets, summarizes</text>
+  <text x="632" y="442" class="h">Redactor</text>
+  <text x="632" y="460" class="s">rules scrub secrets / PII first</text>
 
   <rect x="620" y="495" width="210" height="60" rx="6" fill="#fef2f2" stroke="#ef4444" stroke-width="1.8"/>
   <text x="632" y="517" class="h">Policy Guard</text>
@@ -127,17 +144,25 @@
   <text x="362" y="687" class="h">Guardrails</text>
   <text x="362" y="707" class="s">• Read-only investigation; the only writes are the MR note and (approved) issue</text>
   <text x="362" y="725" class="s">• Never retries prod jobs, merges, or edits CI variables, runners, secrets, RBAC</text>
-  <text x="362" y="743" class="s">• Raw logs never leave your machine: Ollama redacts BEFORE Claude sees anything</text>
+  <text x="362" y="743" class="s">• Rules scrub secrets/PII BEFORE any model sees logs; cloud providers get scrubbed text only</text>
   <text x="362" y="761" class="s">• On timeout or low confidence: comment "needs human triage" instead of guessing</text>
 
-  <!-- internal arrows -->
+  <!-- internal arrows (drawn after the group fill so they stay visible) -->
+  <path d="M725,210 L725,150" stroke="#475569" stroke-width="1.8" fill="none"/>
+  <path d="M675,150 L1075,150" stroke="#475569" stroke-width="1.8" fill="none"/>
+  <path d="M675,150 L675,132" class="ar"/>
+  <path d="M890,150 L890,132" class="ar"/>
+  <path d="M1075,150 L1075,132" class="ar"/>
+  <text x="735" y="164" style="font-size:10px;fill:#475569">only the provider with enabled: true is called</text>
+  <path d="M520,132 L520,150 L585,150 L585,235 L620,235" class="ds"/>
+  <path d="M570,420 L605,420 L605,330 L620,330" class="ar2"/>
   <path d="M460,290 L460,315" class="ar"/>
   <path d="M460,375 L460,400" class="ar"/>
   <path d="M460,540 L460,565" class="ar"/>
   <path d="M570,525 L620,525" class="ar"/>
   <path d="M620,450 L570,450" class="ar"/>
-  <path d="M725,420 L725,390" class="ar2"/>
-  <text x="735" y="409" style="font-size:10px;fill:#475569">redact / summarize</text>
+  <path d="M725,420 L725,390" class="ds"/>
+  <text x="735" y="409" style="font-size:10px;fill:#475569">optional summarize</text>
 
   <!-- ============ MCP GATEWAY GROUP ============ -->
   <rect x="930" y="170" width="230" height="630" rx="10" fill="#faf5ff" stroke="#a855f7" stroke-width="2"/>
@@ -216,7 +241,7 @@
   <rect x="610" y="872" width="240" height="46" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.3"/>
   <text x="622" y="892" class="h">ai-postgres :5432</text><text x="622" y="908" class="s">immutable audit trail + feedback</text>
   <rect x="870" y="872" width="270" height="46" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.3"/>
-  <text x="882" y="892" class="h">vault :8200</text><text x="882" y="908" class="s">GitLab token, Claude key, webhook secret</text>
+  <text x="882" y="892" class="h">vault :8200</text><text x="882" y="908" class="s">GitLab token, LLM API keys, webhook secret</text>
   <path d="M590,800 L590,840" class="ds"/>
 
   <!-- Deployment note -->
@@ -264,12 +289,12 @@
   <g font-size="12" fill="#1f2937">
     <text x="30"  y="1046" font-size="12">1  Pipeline job fails, so gitlab-server sends a pipeline webhook.</text>
     <text x="30"  y="1066" font-size="12">2  Receiver verifies the token, filters scope, and enqueues one analysis per pipeline (redis).</text>
-    <text x="30"  y="1086" font-size="12">3  Orchestrator starts the Claude loop with a short failure summary.</text>
-    <text x="30"  y="1106" font-size="12">4  Claude asks for a tool; the Policy Guard checks it against the allow-list.</text>
+    <text x="30"  y="1086" font-size="12">3  Orchestrator starts the loop via the LLM Provider Layer (provider set in llm-providers.yaml).</text>
+    <text x="30"  y="1106" font-size="12">4  The model asks for a tool; the Policy Guard checks it against the allow-list.</text>
     <text x="30"  y="1126" font-size="12">5  MCP servers run read-only queries on GitLab, Loki/Prometheus/Jaeger, Sonar/Trivy/Nexus, ChromaDB.</text>
-    <text x="800" y="1046" font-size="12">6  Results go to the Redactor: local Ollama scrubs secrets and summarizes; only the summary reaches Claude.</text>
+    <text x="800" y="1046" font-size="12">6  Results go to the Redactor: rules scrub secrets/PII; only scrubbed text reaches the active model.</text>
     <text x="800" y="1066" font-size="12">   Steps 4-6 repeat until the evidence is enough.</text>
-    <text x="800" y="1086" font-size="12">7  Claude returns root cause + confidence + suggested next steps.</text>
+    <text x="800" y="1086" font-size="12">7  The model returns root cause + confidence + suggested next steps.</text>
     <text x="800" y="1106" font-size="12">8  Publisher posts the MR note automatically; an issue only after human approval.</text>
     <text x="800" y="1126" font-size="12">9  Engineer decides; "/confirm-fix" later stores the verified fix.   10  Audit Logger records every step.</text>
   </g>
