@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 1090" width="1520" height="1090" font-family="Arial, Helvetica, sans-serif">
-  <title>Pipeline Failure Triage - Agentic DevOps Architecture (GitLab + Claude + MCP)</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 1140" width="1520" height="1140" font-family="Arial, Helvetica, sans-serif">
+  <title>Pipeline Failure Triage - Agentic DevOps Architecture (GitLab + Ollama + Claude + MCP on Docker Desktop)</title>
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
@@ -17,11 +17,11 @@
     </style>
   </defs>
 
-  <rect width="1520" height="1090" fill="#ffffff"/>
+  <rect width="1520" height="1140" fill="#ffffff"/>
 
   <!-- Title -->
-  <text x="30" y="30" font-size="20" font-weight="700" fill="#111827">Pipeline Failure Triage: Agentic DevOps Architecture (GitLab + Claude API + MCP)</text>
-  <text x="30" y="50" font-size="12" fill="#475569">The agent investigates and recommends. Humans decide. Every action is allow-listed, redacted and audited.</text>
+  <text x="30" y="30" font-size="20" font-weight="700" fill="#111827">Pipeline Failure Triage: Agentic DevOps Architecture (GitLab + Ollama + Claude + MCP on Docker Desktop)</text>
+  <text x="30" y="50" font-size="12" fill="#475569">The agent investigates and recommends. Humans decide. Raw logs stay local; every action is allow-listed and audited.</text>
 
   <!-- ============ HUMANS ============ -->
   <rect x="30" y="66" width="240" height="66" rx="8" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.5"/>
@@ -33,19 +33,19 @@
   <!-- ============ CLAUDE API ============ -->
   <rect x="620" y="56" width="210" height="76" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="6 3"/>
   <text x="632" y="77" class="h">Claude API (hosted, external)</text>
-  <text x="632" y="95" class="s">tool-use reasoning loop</text>
-  <text x="632" y="111" class="s">receives redacted context only</text>
+  <text x="632" y="95" class="s">root-cause reasoning (tool use)</text>
+  <text x="632" y="111" class="s">sees redacted summaries only</text>
   <path d="M570,425 L595,425 L595,94 L620,94" class="ar2"/>
 
   <!-- ============ GITLAB GROUP ============ -->
   <rect x="30" y="170" width="240" height="630" rx="10" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
-  <text x="45" y="192" class="gl" fill="#c2410c" style="fill:#c2410c">GitLab (SCM + CI/CD)</text>
+  <text x="45" y="192" class="gl" style="fill:#c2410c">GitLab</text>
+  <text x="100" y="192" class="s" style="fill:#475569">gitlab-server :8929</text>
 
   <rect x="50" y="210" width="200" height="80" rx="6" fill="#fff" stroke="#fb923c" stroke-width="1.5"/>
-  <text x="62" y="232" class="h">CI Pipeline &amp; Runners</text>
-  <text x="62" y="250" class="s">8 stages: compile, build, test,</text>
-  <text x="62" y="265" class="s">SAST, quality, security, push, notify</text>
-  <text x="62" y="280" class="s" style="fill:#b91c1c">a job fails, so a webhook is sent</text>
+  <text x="62" y="232" class="h">CI Pipeline &amp; Runner</text>
+  <text x="62" y="252" class="s">gitlab-runner · 8-stage pipeline</text>
+  <text x="62" y="268" class="s" style="fill:#b91c1c">a job fails, so a webhook is sent</text>
 
   <rect x="50" y="330" width="200" height="80" rx="6" fill="#fff" stroke="#fb923c" stroke-width="1.5"/>
   <text x="62" y="352" class="h">Merge Request</text>
@@ -62,7 +62,7 @@
   <text x="62" y="600" class="s">read_api + MR notes + issue-create</text>
   <text x="62" y="616" class="s" style="fill:#b91c1c">NO write to repo, CI variables,</text>
   <text x="62" y="632" class="s" style="fill:#b91c1c">runners, pipelines or branches</text>
-  <text x="62" y="654" class="s">rotated via the secrets store</text>
+  <text x="62" y="654" class="s">stored in Vault (AppRole)</text>
 
   <rect x="50" y="690" width="200" height="90" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
   <text x="62" y="712" class="h">Existing controls</text>
@@ -73,7 +73,7 @@
   <!-- ============ TRIAGE SERVICE GROUP ============ -->
   <rect x="330" y="170" width="520" height="630" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
   <text x="345" y="192" class="gl" style="fill:#1d4ed8">Triage Agent Service</text>
-  <text x="500" y="192" class="s" style="fill:#475569">(self-hosted container)</text>
+  <text x="605" y="192" style="font-size:10px;fill:#475569">(agentic-stack agent on ai-platform-net)</text>
 
   <rect x="350" y="210" width="220" height="80" rx="6" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
   <text x="362" y="232" class="h">Webhook Receiver</text>
@@ -83,7 +83,7 @@
 
   <rect x="350" y="315" width="220" height="60" rx="6" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
   <text x="362" y="337" class="h">Job Queue + Dedup</text>
-  <text x="362" y="355" class="s">one analysis per pipeline (Redis)</text>
+  <text x="362" y="355" class="s">one analysis per pipeline (redis)</text>
 
   <rect x="350" y="400" width="220" height="140" rx="6" fill="#fff" stroke="#3b82f6" stroke-width="2"/>
   <text x="362" y="422" class="h">Orchestrator (agent loop)</text>
@@ -98,13 +98,25 @@
   <text x="362" y="605" class="s" style="fill:#15803d">MR note: automatic</text>
   <text x="362" y="621" class="s" style="fill:#b45309">Issue: only after human approval</text>
 
+  <!-- Local LLM -->
+  <rect x="620" y="210" width="210" height="180" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="1.8"/>
+  <text x="632" y="232" class="h">Ollama (local LLM)</text>
+  <text x="632" y="252" class="s">container: ollama :11434</text>
+  <text x="632" y="268" class="s">GPU: 2× RTX 5080 (2×16 GB)</text>
+  <text x="632" y="288" class="s" style="font-weight:700">redact + summarize:</text>
+  <text x="632" y="303" class="s">llama3.1:8b (gemma3:4b spare)</text>
+  <text x="632" y="323" class="s" style="font-weight:700">local-only reasoning:</text>
+  <text x="632" y="338" class="s">gpt-oss:20b · qwen3-coder:30b</text>
+  <text x="632" y="358" class="s" style="fill:#b45309">gap: no embedding model pulled</text>
+  <text x="632" y="374" class="s" style="fill:#b45309">(needed for RAG)</text>
+
   <rect x="620" y="420" width="210" height="60" rx="6" fill="#fef2f2" stroke="#ef4444" stroke-width="1.8"/>
-  <text x="632" y="442" class="h">Policy Guard</text>
-  <text x="632" y="460" class="s">tool allow-list · autonomy gate</text>
+  <text x="632" y="442" class="h">Redactor + Summarizer</text>
+  <text x="632" y="460" class="s">Ollama scrubs secrets, summarizes</text>
 
   <rect x="620" y="495" width="210" height="60" rx="6" fill="#fef2f2" stroke="#ef4444" stroke-width="1.8"/>
-  <text x="632" y="517" class="h">Redactor</text>
-  <text x="632" y="535" class="s">scrub secrets / PII from logs</text>
+  <text x="632" y="517" class="h">Policy Guard</text>
+  <text x="632" y="535" class="s">tool allow-list · autonomy gate</text>
 
   <rect x="620" y="570" width="210" height="65" rx="6" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
   <text x="632" y="592" class="h">Audit Logger</text>
@@ -115,15 +127,17 @@
   <text x="362" y="687" class="h">Guardrails</text>
   <text x="362" y="707" class="s">• Read-only investigation; the only writes are the MR note and (approved) issue</text>
   <text x="362" y="725" class="s">• Never retries prod jobs, merges, or edits CI variables, runners, secrets, RBAC</text>
-  <text x="362" y="743" class="s">• Logs are redacted BEFORE leaving the network for the hosted API</text>
+  <text x="362" y="743" class="s">• Raw logs never leave your machine: Ollama redacts BEFORE Claude sees anything</text>
   <text x="362" y="761" class="s">• On timeout or low confidence: comment "needs human triage" instead of guessing</text>
 
   <!-- internal arrows -->
   <path d="M460,290 L460,315" class="ar"/>
   <path d="M460,375 L460,400" class="ar"/>
   <path d="M460,540 L460,565" class="ar"/>
-  <path d="M570,450 L620,450" class="ar"/>
-  <path d="M620,525 L570,525" class="ar"/>
+  <path d="M570,525 L620,525" class="ar"/>
+  <path d="M620,450 L570,450" class="ar"/>
+  <path d="M725,420 L725,390" class="ar2"/>
+  <text x="735" y="409" style="font-size:10px;fill:#475569">redact / summarize</text>
 
   <!-- ============ MCP GATEWAY GROUP ============ -->
   <rect x="930" y="170" width="230" height="630" rx="10" fill="#faf5ff" stroke="#a855f7" stroke-width="2"/>
@@ -156,66 +170,70 @@
   <text x="945" y="705" class="s">• Each server: its own scoped</text>
   <text x="945" y="721" class="s">  credentials and timeouts</text>
   <text x="945" y="737" class="s">• Tools are an allow-list; no</text>
-  <text x="945" y="753" class="s">  shell, kubectl or write tools</text>
+  <text x="945" y="753" class="s">  shell, docker or write tools</text>
   <text x="945" y="769" class="s">• Results pass the Redactor</text>
 
   <!-- ============ DATA SOURCES GROUP ============ -->
   <rect x="1240" y="170" width="250" height="630" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
   <text x="1255" y="192" class="gl" style="fill:#047857">Data Sources</text>
-  <text x="1350" y="192" class="s" style="fill:#475569">(existing stack)</text>
+  <text x="1350" y="192" class="s" style="fill:#475569">(running containers)</text>
 
   <rect x="1260" y="210" width="210" height="90" rx="6" fill="#fff" stroke="#10b981" stroke-width="1.5"/>
-  <text x="1272" y="232" class="h">GitLab REST API v4</text>
-  <text x="1272" y="252" class="s">job traces · MR diffs · pipelines</text>
-  <text x="1272" y="268" class="s">commits · pipeline history</text>
+  <text x="1272" y="232" class="h">gitlab-server :8929</text>
+  <text x="1272" y="252" class="s">REST API v4: job traces, MR diffs</text>
+  <text x="1272" y="268" class="s">pipelines · commits · history</text>
   <text x="1272" y="284" class="s" style="fill:#64748b">same GitLab instance as left</text>
 
   <rect x="1260" y="330" width="210" height="90" rx="6" fill="#fff" stroke="#10b981" stroke-width="1.5"/>
   <text x="1272" y="352" class="h">Observability</text>
-  <text x="1272" y="372" class="s">Loki :3100 (logs)</text>
-  <text x="1272" y="388" class="s">Prometheus :9090 (metrics)</text>
-  <text x="1272" y="404" class="s">Jaeger :16686 (traces)</text>
+  <text x="1272" y="372" class="s">loki :3100 (logs)</text>
+  <text x="1272" y="388" class="s">prometheus :9090 (metrics)</text>
+  <text x="1272" y="404" class="s">jaeger :16686 (traces)</text>
 
   <rect x="1260" y="450" width="210" height="90" rx="6" fill="#fff" stroke="#10b981" stroke-width="1.5"/>
   <text x="1272" y="472" class="h">Quality &amp; Security</text>
-  <text x="1272" y="492" class="s">SonarQube :9000 (quality gate)</text>
-  <text x="1272" y="508" class="s">Trivy :8080 (CVE report)</text>
-  <text x="1272" y="524" class="s">Nexus :8081 / registry :5001</text>
+  <text x="1272" y="492" class="s">ai-sonarqube :9002 (gate)</text>
+  <text x="1272" y="508" class="s">trivy-server :8183 (CVEs)</text>
+  <text x="1272" y="524" class="s">ai-nexus :8181 · registry :5001</text>
 
   <rect x="1260" y="570" width="210" height="90" rx="6" fill="#fff" stroke="#10b981" stroke-width="1.5"/>
-  <text x="1272" y="592" class="h">ChromaDB (vector DB)</text>
+  <text x="1272" y="592" class="h">chromadb :8005 (vector DB)</text>
   <text x="1272" y="612" class="s">past failures + verified fixes</text>
   <text x="1272" y="628" class="s">similarity search (RAG)</text>
   <text x="1272" y="644" class="s">grows only from confirmed fixes</text>
 
-  <text x="1255" y="705" class="s">See platform-master-architecture.svg</text>
-  <text x="1255" y="721" class="s">for the full tool stack.</text>
+  <text x="1255" y="705" class="s">Alternatives you already run:</text>
+  <text x="1255" y="721" class="s">• qdrant :6333 (vector DB)</text>
+  <text x="1255" y="737" class="s">• ai-splunk :8088 (logs)</text>
+  <text x="1255" y="753" class="s">• jira :8180 / redmine :8090</text>
+  <text x="1255" y="769" class="s">  (instead of GitLab Issues)</text>
 
   <!-- ============ PLATFORM SERVICES STRIP ============ -->
   <rect x="330" y="840" width="830" height="92" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
   <text x="345" y="860" class="gl" style="fill:#334155">Platform services used by the Triage Agent Service</text>
   <rect x="350" y="872" width="240" height="46" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.3"/>
-  <text x="362" y="892" class="h">Redis</text><text x="362" y="908" class="s">queue + dedup keys</text>
+  <text x="362" y="892" class="h">redis :6379</text><text x="362" y="908" class="s">queue + dedup keys</text>
   <rect x="610" y="872" width="240" height="46" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.3"/>
-  <text x="622" y="892" class="h">PostgreSQL</text><text x="622" y="908" class="s">immutable audit trail + feedback</text>
+  <text x="622" y="892" class="h">ai-postgres :5432</text><text x="622" y="908" class="s">immutable audit trail + feedback</text>
   <rect x="870" y="872" width="270" height="46" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.3"/>
-  <text x="882" y="892" class="h">Secrets store</text><text x="882" y="908" class="s">GitLab token, Claude API key, webhook secret</text>
+  <text x="882" y="892" class="h">vault :8200</text><text x="882" y="908" class="s">GitLab token, Claude key, webhook secret</text>
   <path d="M590,800 L590,840" class="ds"/>
 
+  <!-- Deployment note -->
+  <text x="330" y="954" font-size="11" font-weight="700" fill="#111827">Deployment (Docker Desktop):</text>
+  <text x="330" y="970" class="s">The agent joins network ai-platform-net, which already holds gitlab-server, ollama, chromadb, qdrant, redis, ai-postgres,</text>
+  <text x="330" y="985" class="s">vault, loki, jaeger, prometheus, trivy-server, ai-sonarqube and ai-nexus. GitLab admin must allow webhooks to the local network.</text>
+
   <!-- ============ CROSS-GROUP ARROWS ============ -->
-  <!-- webhook -->
   <path d="M250,250 L350,250" class="ar"/>
   <text x="300" y="243" class="lb">webhook</text>
-  <!-- publisher to GitLab -->
   <path d="M350,600 L300,600 L300,370 L250,370" class="ar"/>
   <path d="M300,490 L250,490" class="ar"/>
   <text x="318" y="470" class="lb" transform="rotate(-90 318 470)">AI note · issue</text>
-  <!-- guard -> MCP, MCP -> redactor -->
-  <path d="M830,450 L930,450" class="ar"/>
-  <text x="880" y="443" class="lb">tool call</text>
-  <path d="M930,525 L830,525" class="ar"/>
-  <text x="880" y="518" class="lb">results</text>
-  <!-- MCP -> data sources -->
+  <path d="M830,525 L930,525" class="ar"/>
+  <text x="880" y="518" class="lb">tool call</text>
+  <path d="M930,450 L830,450" class="ar"/>
+  <text x="880" y="443" class="lb">results</text>
   <path d="M1140,255 L1260,255" class="ar"/>
   <path d="M1140,375 L1260,375" class="ar"/>
   <path d="M1140,495 L1260,495" class="ar"/>
@@ -227,9 +245,9 @@
     <circle cx="558" cy="210" r="10" fill="#111827"/><text x="558" y="214" class="bd">2</text>
     <circle cx="536" cy="400" r="10" fill="#111827"/><text x="536" y="404" class="bd">3</text>
     <circle cx="558" cy="400" r="10" fill="#111827"/><text x="558" y="404" class="bd">7</text>
-    <circle cx="818" cy="420" r="10" fill="#111827"/><text x="818" y="424" class="bd">4</text>
+    <circle cx="818" cy="495" r="10" fill="#111827"/><text x="818" y="499" class="bd">4</text>
     <circle cx="1148" cy="170" r="10" fill="#111827"/><text x="1148" y="174" class="bd">5</text>
-    <circle cx="818" cy="495" r="10" fill="#111827"/><text x="818" y="499" class="bd">6</text>
+    <circle cx="818" cy="420" r="10" fill="#111827"/><text x="818" y="424" class="bd">6</text>
     <circle cx="558" cy="565" r="10" fill="#111827"/><text x="558" y="569" class="bd">8</text>
     <circle cx="258" cy="66" r="10" fill="#111827"/><text x="258" y="70" class="bd">9</text>
     <circle cx="818" cy="570" r="11" fill="#111827"/><text x="818" y="574" class="bd">10</text>
@@ -242,17 +260,17 @@
   <path d="M44,894 L100,894" class="ar2"/><text x="110" y="898" class="s">request ⇄ response</text>
   <path d="M44,912 L100,912" class="ds"/><text x="110" y="916" class="s">platform dependency</text>
 
-  <text x="30" y="965" font-size="14" font-weight="700" fill="#111827">Numbered flow</text>
-  <g class="s" font-size="12">
-    <text x="30"  y="988"  font-size="12" fill="#1f2937">1  Pipeline job fails, so GitLab sends a pipeline webhook.</text>
-    <text x="30"  y="1008" font-size="12" fill="#1f2937">2  Receiver verifies the token, filters scope, and enqueues one analysis per pipeline.</text>
-    <text x="30"  y="1028" font-size="12" fill="#1f2937">3  Orchestrator starts the Claude loop with a short failure summary.</text>
-    <text x="30"  y="1048" font-size="12" fill="#1f2937">4  Claude asks for a tool; the Policy Guard checks it against the allow-list.</text>
-    <text x="30"  y="1068" font-size="12" fill="#1f2937">5  MCP servers run read-only queries on GitLab, Loki/Prometheus/Jaeger, Sonar/Trivy/Nexus, ChromaDB.</text>
-    <text x="800" y="988"  font-size="12" fill="#1f2937">6  Results go through the Redactor, then back to Claude. Steps 4-6 repeat until the evidence is enough.</text>
-    <text x="800" y="1008" font-size="12" fill="#1f2937">7  Claude returns root cause + confidence + suggested next steps.</text>
-    <text x="800" y="1028" font-size="12" fill="#1f2937">8  Publisher posts the MR note automatically; an issue only after human approval.</text>
-    <text x="800" y="1048" font-size="12" fill="#1f2937">9  Engineer decides on the fix; "/confirm-fix" later stores the verified fix in ChromaDB.</text>
-    <text x="800" y="1068" font-size="12" fill="#1f2937">10 Audit Logger records every step to PostgreSQL (runs for all steps).</text>
+  <text x="30" y="1022" font-size="14" font-weight="700" fill="#111827">Numbered flow</text>
+  <g font-size="12" fill="#1f2937">
+    <text x="30"  y="1046" font-size="12">1  Pipeline job fails, so gitlab-server sends a pipeline webhook.</text>
+    <text x="30"  y="1066" font-size="12">2  Receiver verifies the token, filters scope, and enqueues one analysis per pipeline (redis).</text>
+    <text x="30"  y="1086" font-size="12">3  Orchestrator starts the Claude loop with a short failure summary.</text>
+    <text x="30"  y="1106" font-size="12">4  Claude asks for a tool; the Policy Guard checks it against the allow-list.</text>
+    <text x="30"  y="1126" font-size="12">5  MCP servers run read-only queries on GitLab, Loki/Prometheus/Jaeger, Sonar/Trivy/Nexus, ChromaDB.</text>
+    <text x="800" y="1046" font-size="12">6  Results go to the Redactor: local Ollama scrubs secrets and summarizes; only the summary reaches Claude.</text>
+    <text x="800" y="1066" font-size="12">   Steps 4-6 repeat until the evidence is enough.</text>
+    <text x="800" y="1086" font-size="12">7  Claude returns root cause + confidence + suggested next steps.</text>
+    <text x="800" y="1106" font-size="12">8  Publisher posts the MR note automatically; an issue only after human approval.</text>
+    <text x="800" y="1126" font-size="12">9  Engineer decides; "/confirm-fix" later stores the verified fix.   10  Audit Logger records every step.</text>
   </g>
 </svg>
